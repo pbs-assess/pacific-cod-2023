@@ -1,0 +1,23 @@
+---
+title: "index-comparison"
+author: "Sean Anderson"
+date: '2018-10-10'
+output: html_document
+---
+
+```{r, message=FALSE, warning=FALSE}
+source(here::here("R/survey-cpue.R"))
+theme_set(theme_light())
+```
+
+```{r}
+compare_indices("SYN QCS", "5ABCD")
+compare_indices("SYN HS", "5ABCD")
+compare_indices("SYN WCVI", "3CD")
+```
+
+```{r}
+compare_indices("SYN QCS", "5ABCD", T)
+compare_indices("SYN HS", "5ABCD", T)
+compare_indices("SYN WCVI", "3CD", T)
+```
