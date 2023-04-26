@@ -1,0 +1,316 @@
+\clearpage
+
+# Figures
+
+```{r fig-map, fig.cap="Carte des zones de gestion 5AB (bassin de la Reine-Charlotte), 5CD (détroit d’Hécate) et 3CD (côte ouest de l’île de Vancouver).", out.width="4in"}
+knitr::include_graphics(here::here("report-french/figure/Pcod_3CD5ABCDE_Pic.png"))
+
+```
+
+```{r get-recent-3CD-index-data}
+
+#CPUE
+params <- list()
+params$species_proper <- "Pacific Cod"
+params$april1_year <- TRUE
+params$area <- c("5[ABCD]+", "3[CD]+")
+params$area_name <- c("5ABCD", "3CD")
+params$skip_single_variable_models <- FALSE
+
+params$era <- "modern"
+options(OutDec = ".") # avoids "invalid format '%04d'; use format %f, %e, %g or %a for numeric objects"
+source(here::here("R/cpue.R"))
+options(OutDec = ",")
+dfleet_modern <- dfleet
+gg_cpue_modern <- gg_cpue
+cpue_pred_modern <- predictions
+arith_cpue_modern <- arith_cpue
+
+#Survey
+surv.file <- here::here("data/generated/all_surveys.csv")
+
+if(!file.exists(surv.file)){
+  message("Error: Survey indices file has not been made! Please run 04-survey-indices-app.Rmd first.")
+} else {
+  surv_index <- readr::read_csv(here::here("data/generated/all_surveys.csv"))
+}
+
+```
+
+```{r fig-wcvi-index-3cd, fig.cap="Indices de l’abondance relative issus du relevé synoptique mené sur la côte ouest de l’île de Vancouver, centrés selon la moyenne géométrique", echo=FALSE}
+
+g1 <- surv_index %>%  
+  rename("Survey"= "Survey abbrev.", "Lower" = "Lower CI", "Upper"="Upper CI") %>%   dplyr::filter(Survey=="SYN WCVI") %>% 
+  select(Survey, Year,Biomass, CV) %>%
+  mutate("GeometricMean"= Biomass/exp(mean(log(Biomass)))) %>%
+  mutate("LowerG" = exp(log(GeometricMean))-2*CV, "UpperG"=exp(log(GeometricMean))+2*CV) %>%   ggplot(aes(Year, GeometricMean)) + 
+  geom_pointrange(aes(ymin=LowerG, ymax=UpperG))+
+  theme_pbs() +
+  theme(axis.title = element_blank())
+#g1
+
+
+```
+
+```{r fig-cpue-index-3cd, fig.cap="CPUE commerciales, centrées selon la moyenne géométrique.", echo=FALSE}
+
+g2 <- cpue_pred_modern %>%
+  dplyr::filter(formula_version=="Full standardization", area=="3CD") %>%
+  select(year, est,se_link) %>%
+  mutate("GeometricMean"= est/exp(mean(log(est)))) %>%
+  mutate("LowerG" = exp(log(GeometricMean))-2*se_link, "UpperG"=exp(log(GeometricMean))+2*se_link) %>% 
+  ggplot(aes(year, GeometricMean)) + 
+  geom_pointrange(aes(ymin=LowerG, ymax=UpperG))+
+  theme_pbs() +
+  theme(axis.title = element_blank())
+#g2
+
+```
+
+```{r fig-summary-indices-3cd, fig.cap="Graphique du haut : Indices de l’abondance relative issus du relevé synoptique mené sur la côte ouest de l’île de Vancouver, centrés selon la moyenne géométrique. Graphique du bas : CPUE commerciales, centrées selon la moyenne géométrique.", echo=FALSE}
+
+cowplot::plot_grid(g1,g2, ncol=1,labels = c("","")) +
+  draw_label(en2fr("Index",translate=french), x=  -0.1, y=0.5, vjust= 1.5, angle=90)+
+  draw_label(en2fr("Year",translate=french), x=  0.5, y=0, vjust= 0, angle=0)
+
+```
+
+```{r fig-iphc-index-3cd}
+#this is not very useful but keep the code so we know how to get iphc data in future
+
+# # Need to check which areas are included. May need to filter data first to be only 3CD,
+# # then plot either series C or D (which are coastwide)
+# iphc.3CD <- iphc.dat %>% 
+#   filter(lat <50.7) #the border of 3D is actually 50.5 but not enough obs if that is used 
+# 
+# # iphc.3CD$ser_longest is series C (does not filter for > 50.6 degrees)
+# glist <- gfiphc::calc_iphc_full_res(iphc.3CD) 
+# 
+# g <- glist$ser_longest %>% 
+#   select(year, I_tBootMean, I_tBootCV) %>%
+#   mutate("GeometricMean"= I_tBootMean/exp(mean(log(I_tBootMean)))) %>%
+#   mutate("LowerG" = exp(log(GeometricMean))-2*I_tBootCV, "UpperG"=exp(log(GeometricMean))+2*I_tBootCV) %>% 
+#   ggplot(aes(year, GeometricMean)) + 
+#   geom_pointrange(aes(ymin=LowerG, ymax=UpperG))+
+#   theme_pbs() +
+#   ylab("IPHC FISS (centred by its geometric mean)")+
+#   xlab("Year") 
+# g 
+#   
+
+```
+
+
+```{r fig-catch-3cd, fig.cap="Prises pour la zone 3CD. Les prises canadiennes comprennent les remises à l’eau."}
+make.catches.plot(catch.3, french=french)+
+  scale_y_continuous(labels = scales::number,
+                       limits = c(0, NA))
+```
+
+```{r fig-catch-5abcd, fig.cap="Prises pour la zone 5ABCD. Les prises canadiennes comprennent les remises à l’eau."}
+make.catches.plot(catch.5, french=french) +
+  scale_y_continuous(labels = scales::number,
+                       limits = c(0, NA))
+```
+
+```{r surv-canadian, fig.cap="Données sur la morue du Pacifique provenant des relevés au chalut canadiens. La figure illustre les indices de la biomasse relative et les limites inférieures et supérieures des intervalles de confiance connexes. Les traits positifs représentent le nombre de traits de chalut dans lesquels des morues du Pacifique étaient présentes. Dans la figure : SYN QCS = relevé synoptique au chalut de fond mené dans le bassin de la Reine-Charlotte; SYN WCVI = relevé synoptique au chalut de fond mené au large de la côte ouest de l’île de Vancouver; SYN HS = relevé synoptique au chalut de fond mené dans le détroit d’Hécate; OTHER HS MSA = relevé de l’assemblage de plusieurs espèces mené dans le détroit d’Hécate."}
+gfplot::tidy_survey_index(dat$survey_index,
+  survey = c("SYN QCS", "SYN WCVI", "SYN HS", "OTHER HS MSA")) %>%
+  plot_survey_index(french=french)
+```
+
+```{r tri-fig9, fig.cap="Estimations de la biomasse de morues du Pacifique dans la région de Vancouver de la Commission internationale des pêcheries du Pacifique Nord (CIPPN) (eaux canadiennes seulement) et barres d’erreur de 95\\% estimées à partir de 1 000 autoamorçages."}
+knitr::include_graphics(here::here("report-french/paul-figs/fig9-fr.png"))
+```
+
+```{r cpue-funcs}
+source(here::here('R/cpue-functions.R'))
+```
+
+```{r cpue-params}
+params <- list()
+params$species_proper <- "Pacific Cod"
+params$april1_year <- TRUE
+params$area <- c("5[ABCD]+", "3[CD]+")
+params$area_name <- c("5ABCD", "3CD")
+params$skip_single_variable_models <- FALSE
+```
+
+```{r cpue-run-historic, message=FALSE, warning=FALSE, results='hide'}
+params$era <- "historic"
+source(here::here("R/cpue.R"))
+dfleet_hist <- dfleet
+gg_cpue_hist <- gg_cpue
+cpue_pred_hist <- predictions
+arith_cpue_hist <- arith_cpue
+m_historic <- readRDS(here::here("data/generated/cpue-models-pcod-historic.rds"))
+```
+
+```{r cpue-run-modern, message=FALSE, warning=FALSE, results='hide'}
+params$era <- "modern"
+options(OutDec = ".") # avoids "invalid format '%04d'; use format %f, %e, %g or %a for numeric objects"
+source(here::here("R/cpue.R"))
+options(OutDec = ",")
+dfleet_modern <- dfleet
+gg_cpue_modern <- gg_cpue
+cpue_pred_modern <- predictions
+arith_cpue_modern <- arith_cpue
+m_modern <- readRDS(here::here("data/generated/cpue-models-pcod-modern.rds"))
+```
+
+```{r cpue-save}
+readr::write_csv(cpue_pred_modern, here::here("data/generated/cpue-predictions-modern.csv"))
+readr::write_csv(cpue_pred_hist, here::here("data/generated/cpue-predictions-historical.csv"))
+```
+
+```{r cpue-index-ts-hist, fig.asp=1.15, fig.cap="Modèles de normalisation des CPUE commerciales au chalut pour les zones 3CD (graphique du haut) et 5ABCD (graphique du bas). La ligne noire et la zone ombragée représentent un indice de CPUE associé à un seul prédicteur d’année. La ligne et les zones ombragées colorées représentent un modèle de normalisation qui comprend tous les prédicteurs et les effets aléatoires lieu-année (espace-temps). Les interactions lieu et lieu-année sont ajustées comme des effets aléatoires et toutes les autres variables, comme des effets fixes."}
+make_cpue_ts_dat(cpue_pred_hist) %>% make_cpue_ts_plot() +
+  ggtitle("1956-1995 CPUE") +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_fill_brewer(palette = "Dark2") +
+  ylab("CPUE divisée par la moyenne géométrique")
+```
+
+(ref:caption-cpue-index-ts-modern) Même chose que la figure \@ref(fig:cpue-index-ts-hist), mais pour les données de 1996 à 2019 provenant des zones 3CD (graphique du haut) et 5ABCD (graphique du bas). Les interactions lieu, navire et lieu-année sont ajustées comme des effets aléatoires et toutes les autres variables, comme des effets fixes.
+
+```{r cpue-index-ts-modern, fig.asp=1.55, fig.cap="(ref:caption-cpue-index-ts-modern)", out.width="5.2in", fig.width=6.5}
+make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
+  ggtitle("1996+ CPUE") +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_fill_brewer(palette = "Dark2")+ 
+  ylab("CPUE divisée par la moyenne géométrique")
+```
+
+
+```{r}
+mw5ABCD <- read_csv(here::here("data/results/AnnualMeanWeight_5ABCD.csv"))
+mw3CD <- read_csv(here::here("data/results/AnnualMeanWeight_3CD.csv"))
+```
+
+
+```{r fig-base-index-fits-3cd, fig.cap="Ajustements du mode de distribution a posteriori du modèle de référence aux indices d’abondance observés (points) pour la zone 3CD provenant : a) du relevé synoptique mené au large de la côte ouest de l’île de Vancouver; b) des CPUE commerciales antérieures à 1996; c) des CPUE commerciales postérieures à 1995; d) du relevé triennal du NMFS (portion canadienne). Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
+plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5, french=french)
+            + ylab("Indice du relevé (t)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.3cd, base.model.3cd.name, 2, every = 5, french=french)
+            + ylab("CPUE comm. (kg/h)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.3cd, base.model.3cd.name, 3, every = 5, french=french)
+            + ylab("CPUE comm. (kg/h)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.3cd, base.model.3cd.name, 4, every = 5, french=french)
+            + ylab("Indice du relevé (t)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+
+```{r fig-base-mean-weight-3cd, fig.cap="Ajustement du mode de distribution a posteriori du modèle de référence aux données sur le poids moyen pour la zone 3CD. Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
+plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+          mw.compare.plot(base.model.3cd[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-index-fits-5abcd, fig.cap="Ajustements du mode de distribution a posteriori du modèle de référence aux indices d’abondance observés (points) pour la zone 5ABCD provenant : a) du relevé d’assemblage mené dans le détroit d’Hécate; b) du relevé synoptique mené dans le bassin de la Reine-Charlotte; c) du relevé synoptique mené dans le détroit d’Hécate; d) des CPUE commerciales antérieures à 1996; e) des CPUE commerciales postérieures à 1995. Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
+plot_grid(i.plot(base.model.5abcd, base.model.5abcd.name, 1, every = 5, french=french)
+            + ylab("Indice du relevé (t)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 2, every = 5, french=french)
+            + ylab("Indice du relevé (t)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 3, every = 5, french=french)
+            + ylab("Indice du relevé (t)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 4, every = 10, french=french)
+            + ylab("CPUE comm. (kg/h)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 5, every = 5, french=french)
+            + ylab("CPUE comm. (kg/h)")
+            + scale_y_continuous(labels = scales::number, limits = c(0, NA)),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+
+```{r fig-base-mean-weight-5abcd, fig.cap="Ajustement du mode de distribution a posteriori du modèle de référence aux données sur le poids moyen pour la zone 5ABCD. Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
+plot_grid(mw.plot(base.model.5abcd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+          mw.compare.plot(base.model.5abcd[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-model-average-biomass-3cd, fig.cap="Biomasse a posteriori combinée pour l’ensemble représentant la moyenne des modèles de la zone 3CD. La ligne pleine noire représente la médiane a posteriori et la zone ombragée grise représente l’intervalle de crédibilité à 95 \\%. La ligne pointillée verte illustre le RSS médian et la ligne pointillée rouge, le PRL médian. Les zones ombragées rouge et verte représentent les intervalles de crédibilité à 95 \\% du PRL et du RSS, respectivement."}
+b.plot(avg.model.3cd,
+       base.model.3cd.name,
+       depl = FALSE,
+       add.hist.ref = TRUE,
+       lrp = c(1986, 1986),
+       usr = c(1956, 2004), french=french)
+```
+
+```{r fig-model-average-f-3cd, fig.cap="Mortalité par pêche a posteriori combinée pour l’ensemble représentant la moyenne des modèles de la zone 3CD. La ligne pleine noire représente la médiane a posteriori et la zone ombragée représente l’intervalle de crédibilité à 95 \\%. La ligne pointillée noire représente le PRL médian et la zone ombragée horizontale représente l’intervalle de crédibilité à 95 \\%."}
+f.plot(avg.model.3cd,
+       base.model.3cd.name,
+       add.hist.ref = TRUE,
+        lrr = c(1956, 2004), 
+       french=french)
+
+```
+
+```{r fig-model-average-biomass-5abcd, fig.cap="Biomasse a posteriori combinée pour l’ensemble représentant la moyenne des modèles de la zone 5ABCD. La ligne pleine noire représente la médiane a posteriori et la zone ombragée grise représente l’intervalle de crédibilité à 95 \\%. La ligne pointillée verte illustre le RSS médian et la ligne pointillée rouge, le PRL médian. Les zones ombragées rouge et verte représentent les intervalles de crédibilité à 95 \\% du PRL et du RSS, respectivement."}
+b.plot(avg.model.5abcd,
+       base.model.5abcd.name,
+       depl = FALSE,
+       add.hist.ref = TRUE,
+       lrp = c(2000, 2000),
+       usr = c(1956, 2004), french=french)
+```
+
+
+```{r fig-model-average-f-5abcd, fig.cap="Mortalité par pêche a posteriori combinée pour l’ensemble représentant la moyenne des modèles de la zone 5ABCD. La ligne pleine noire représente la médiane a posteriori et la zone ombragée représente l’intervalle de crédibilité à 95 \\%. La ligne pointillée noire représente le PRL médian et la zone ombragée horizontale représente l’intervalle de crédibilité à 95 \\%."}
+f.plot(avg.model.5abcd,
+       base.model.5abcd.name,
+       add.hist.ref = TRUE,
+       lrr = c(1956, 2004), 
+       french=french)
+
+```
+
+```{r fig-model-average-biomass-3cd-proj, fig.cap="Estimations de la biomasse a posteriori combinée pour l’ensemble représentant la moyenne des modèles de la zone 3CD et projections connexes (jusqu’au début de 2022). La ligne pleine noire représente la médiane a posteriori et la zone ombragée grise représente l’intervalle de crédibilité à 95 \\%. La ligne pointillée verte illustre le RSS médian et la ligne pointillée rouge, le PRL médian. Les zones ombragées rouge et verte représentent les intervalles de crédibilité à 95 \\% du PRL et du RSS, respectivement. Les zones colorées situées à droite de la ligne pointillée verticale représentent les projections fondées sur divers niveaux de prises pour 2021. Par souci de clarté, les années antérieures à 2010 ont été retirées."}
+b.plot(avg.model.3cd,
+       base.model.3cd.name,
+       depl = FALSE,
+       add.hist.ref = TRUE,
+       lrp = c(1986, 1986),
+       usr = c(1956, 2004),
+       proj_columns = c("B2021", "B2022"),
+       tac_vector = c(0, 500, 1000, 1500),
+       year_range = c(2010, 2022),
+       ylim = c(0, 50000),
+       x.every = 2, french=french)
+```
+
+(ref:fig-model-average-biomass-5abcd-proj) Même chose que la figure \@ref(fig:fig-model-average-biomass-3cd-proj), mais pour la zone 5ABCD.
+
+```{r fig-model-average-biomass-5abcd-proj, fig.cap="(ref:fig-model-average-biomass-5abcd-proj)"}
+b.plot(avg.model.5abcd,
+       base.model.5abcd.name,
+       depl = FALSE,
+       add.hist.ref = TRUE,
+       lrp = c(2000, 2000),
+       usr = c(1956, 2004),
+       proj_columns = c("B2021", "B2022"),
+       tac_vector = c(0, 900, 2000, 3000),
+       year_range = c(2010, 2022),
+       ylim = c(0, 50000),
+       x.every = 2, french=french)
+```
+
+\clearpage
+

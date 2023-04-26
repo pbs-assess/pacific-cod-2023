@@ -1,0 +1,45 @@
+```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.path = "knitr-figs/",
+  cache.path = if (knitr:::is_latex_output()) "knitr-cache-tex/" else "knitr-cache-docx/",
+  fig.asp = 0.618,
+  fig.width = 6.5,
+  out.width = "5in",
+  echo = FALSE,
+  autodep = TRUE,
+  cache = TRUE,
+  cache.comments = FALSE,
+  dev = if (knitr:::is_latex_output()) "pdf" else "png",
+  dpi = 200,
+  fig.align = "center",
+  fig.pos = "htb"
+)
+french <- TRUE
+source(file.path(here::here(), "R", "all.R")) #Loading the data is in this file (or pulling it from GFBio if it doesn't exist yet)
+
+```
+
+```{r load-models, cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
+#NOTE. if adding sensitivity models need to modify load.models.into.parent.env()
+# in model-setup.R (as well as path names to sensitivity folders)
+build(ovwrt.base = FALSE,
+      ovwrt.sens = FALSE,
+      ovwrt.retro = FALSE,
+      burnin = 1000,
+      thin = 1)
+load.models.into.parent.env()
+source(file.path(rootd.R, "custom-knitr-variables.R")) # Making catch data objects is in this file
+```
+
+```{r setup-tables, cache=FALSE, echo=FALSE}
+if(!knitr:::is_latex_output())
+  options(knitr.table.format = "pandoc")
+```
+
+```{r french-decimal, cache=FALSE}
+options(OutDec = ",")
+```

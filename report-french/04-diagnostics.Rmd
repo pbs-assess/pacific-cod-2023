@@ -1,0 +1,630 @@
+\clearpage
+
+# Model diagnostics ... NOT FOR PUBLICATION
+
+## AREA 3CD
+
+### Reference model
+
+```{r tab-param-est-table-3cd-diag, results='asis'}
+pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$")
+make.parameters.est.table(base.model.3cd,
+  caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+    "97.5\\textsuperscript{th} percentile) and MPD ",
+    "estimates of key parameters from the Reference Case, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. ",
+    q.3cd.desc),
+  omit_pars = pars_est_omit)
+```
+
+```{r fig-base-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD reference model. ", q.3cd.desc)}
+make.traces.plot(base.model.3cd)
+```
+
+```{r fig-base-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD reference model. ", q.3cd.desc)}
+make.autocor.plot(base.model.3cd)
+```
+
+```{r fig-base-index-fits-3cd-diag, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD reference model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5),
+          i.plot(base.model.3cd, base.model.3cd.name, 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(base.model.3cd, base.model.3cd.name, 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(base.model.3cd, base.model.3cd.name, 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-base-mean-weight-3cd-diag, fig.cap="MPD fit to the mean weight data for Area 3CD reference model."}
+plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(base.model.3cd[[1]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-catch-fit-3cd-diag, fig.cap="MPD fit to the catch data for Area 5ABCD reference model. For clarity, only MPD results are shown"}
+catch.fit.plot(base.model.3cd, every = 5, last.yr = 2020)
+```
+
+\clearpage
+
+### Sc 2d Set the mean of the prior probability distribution for synoptic surveys ln(q) = ln(1.0)
+
+
+```{r tab-param-table-sens2d-3cd, results='asis'}
+make.parameters.est.table(desc.models.3cd[[2]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 2d, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+
+```{r fig-2d-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD Sc 2d model. ", q.3cd.desc)}
+make.traces.plot(desc.models.3cd[[2]])
+```
+
+```{r fig-2d-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD Sc 2d model. ", q.3cd.desc)}
+make.autocor.plot(desc.models.3cd[[2]])
+```
+
+```{r fig-2d-index-fits-3cd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD Sc 2d model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(desc.models.3cd[2], desc.models.3cd.name[2], 1, every = 5),
+          i.plot(desc.models.3cd[2], desc.models.3cd.name[2], 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[2], desc.models.3cd.name[2], 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[2], desc.models.3cd.name[2], 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-2d-mean-weight-3cd, fig.cap="MPD fit to the mean weight data for Area 3CD Sc 2d model."}
+plot_grid(mw.plot(desc.models.3cd[2][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.3cd[[2]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+### Sc 2e Increase the standard deviation (SD) for synoptic survey ln(q) to 0.6
+
+
+```{r tab-param-table-sens2e-3cd, results='asis'}
+make.parameters.est.table(desc.models.3cd[[3]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 2e, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-2e-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD Sc 2e model. ", q.3cd.desc)}
+make.traces.plot(desc.models.3cd[[3]])
+```
+
+```{r fig-2e-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD Sc 2e model. ", q.3cd.desc)}
+make.autocor.plot(desc.models.3cd[[3]])
+```
+
+```{r fig-2e-index-fits-3cd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD Sc 2e model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(desc.models.3cd[3], desc.models.3cd.name[3], 1, every = 5),
+          i.plot(desc.models.3cd[3], desc.models.3cd.name[3], 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[3], desc.models.3cd.name[3], 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[3], desc.models.3cd.name[3], 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-2e-mean-weight-3cd, fig.cap="MPD fit to the mean weight data for Area 3CD Sc 2e model."}
+plot_grid(mw.plot(desc.models.3cd[3][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.3cd[[3]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+
+### Sc 3a Set the parameters of the prior probability distribution for ln(M) to ~N(0.4,0.1)
+
+```{r tab-param-table-sens3a-3cd, results='asis'}
+make.parameters.est.table(desc.models.3cd[[4]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 3a, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-3a-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD Sc 3a model. ", q.3cd.desc)}
+make.traces.plot(desc.models.3cd[[4]])
+```
+
+```{r fig-3a-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD Sc 3a model. ", q.3cd.desc)}
+make.autocor.plot(desc.models.3cd[[4]])
+```
+
+```{r fig-3a-index-fits-3cd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD Sc 3a model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(desc.models.3cd[4], desc.models.3cd.name[4], 1, every = 5),
+          i.plot(desc.models.3cd[4], desc.models.3cd.name[4], 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[4], desc.models.3cd.name[4], 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[4], desc.models.3cd.name[4], 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-3a-mean-weight-3cd, fig.cap="MPD fit to the mean weight data for Area 3CD Sc 3a model."}
+plot_grid(mw.plot(desc.models.3cd[4][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.3cd[[4]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+### Sc 5a Set knife-edged age at recruitment = 3 years
+
+
+```{r tab-param-table-sens5a-3cd, results='asis'}
+make.parameters.est.table(desc.models.3cd[[5]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 5a, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-5a-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD Sc 5a model. ", q.3cd.desc)}
+make.traces.plot(desc.models.3cd[[5]])
+```
+
+```{r fig-5a-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD Sc 5a model. ", q.3cd.desc)}
+make.autocor.plot(desc.models.3cd[[5]])
+```
+
+```{r fig-5a-index-fits-3cd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD Sc 5a model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(desc.models.3cd[5], desc.models.3cd.name[5], 1, every = 5),
+          i.plot(desc.models.3cd[5], desc.models.3cd.name[5], 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[5], desc.models.3cd.name[5], 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[5], desc.models.3cd.name[5], 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-5a-mean-weight-3cd, fig.cap="MPD fit to the mean weight data for Area 3CD Sc 5a model."}
+plot_grid(mw.plot(desc.models.3cd[5][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.3cd[[5]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+
+### Sc 6b Reduce the overall observation error term sigma_O = 0.15
+
+
+```{r tab-param-table-sens6b-3cd, results='asis'}
+make.parameters.est.table(desc.models.3cd[[6]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 6b, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-6b-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD Sc 6b model. ", q.3cd.desc)}
+make.traces.plot(desc.models.3cd[[6]])
+```
+
+```{r fig-6b-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD Sc 6b model. ", q.3cd.desc)}
+make.autocor.plot(desc.models.3cd[[6]])
+```
+
+```{r fig-6b-index-fits-3cd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD Sc 6b model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(desc.models.3cd[6], desc.models.3cd.name[6], 1, every = 5),
+          i.plot(desc.models.3cd[6], desc.models.3cd.name[6], 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[6], desc.models.3cd.name[6], 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[6], desc.models.3cd.name[6], 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-6b-mean-weight-3cd, fig.cap="MPD fit to the mean weight data for Area 3CD Sc 6b model."}
+plot_grid(mw.plot(desc.models.3cd[6][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.3cd[[6]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+\clearpage
+
+### Sc 7b Reduce the SD in the likelihood for the fit to average annual mean weight sigma_W = 0.15
+
+
+```{r tab-param-table-sens7b-3cd, results='asis'}
+make.parameters.est.table(desc.models.3cd[[7]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 7b, Area 3CD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-7b-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for the Area 3CD Sc 7b model. ", q.3cd.desc)}
+make.traces.plot(desc.models.3cd[[7]])
+```
+
+```{r fig-7b-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for the Area 3CD Sc 7b model. ", q.3cd.desc)}
+make.autocor.plot(desc.models.3cd[[7]])
+```
+
+```{r fig-7b-index-fits-3cd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 3CD Sc 7b model from: (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(desc.models.3cd[7], desc.models.3cd.name[7], 1, every = 5),
+          i.plot(desc.models.3cd[7], desc.models.3cd.name[7], 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[7], desc.models.3cd.name[7], 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.3cd[7], desc.models.3cd.name[7], 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-7b-mean-weight-3cd, fig.cap="MPD fit to the mean weight data for Area 3CD Sc 7b model."}
+plot_grid(mw.plot(desc.models.3cd[7][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.3cd[[7]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+\clearpage
+
+## AREA 5ABCD
+
+### Reference model
+
+```{r tab-param-est-table-5abcd-diag, results='asis'}
+pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$")
+make.parameters.est.table(base.model.5abcd,
+  caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+    "97.5\\textsuperscript{th} percentile) and MPD ",
+    "estimates of key parameters from the Reference Case, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. ",
+    q.5abcd.desc),
+  omit_pars = pars_est_omit)
+```
+
+```{r fig-base-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD reference model. ", q.5abcd.desc)}
+make.traces.plot(base.model.5abcd)
+```
+
+```{r fig-base-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD reference model. ", q.5abcd.desc)}
+make.autocor.plot(base.model.5abcd)
+```
+
+```{r fig-base-index-fits-5abcd-diag, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(base.model.5abcd, base.model.5abcd.name, 1, every = 5),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 2, every = 5),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 3, every = 5),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(base.model.5abcd, base.model.5abcd.name, 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+```{r fig-base-mean-weight-5abcd-diag, fig.cap="MPD fit to the mean weight data for Area 5ABCD reference model. For clarity, only MPD results are shown"}
+plot_grid(mw.plot(base.model.5abcd[[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(base.model.5abcd[[1]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-catch-fit-5abcd-diag, fig.cap="MPD fit to the catch data for Area 5ABCD reference model. For clarity, only MPD results are shown"}
+catch.fit.plot(base.model.5abcd, every = 5, last.yr = 2020)
+```
+
+
+\clearpage
+
+### Sc 2d Set the mean of the prior probability distribution for synoptic surveys ln(q) = ln(1.0)
+
+```{r tab-param-table-sens2d-5abcd, results='asis'}
+make.parameters.est.table(desc.models.5abcd[[2]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 2d, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-2d-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD Sc 2d model. ", q.5abcd.desc)}
+make.traces.plot(desc.models.5abcd[[2]])
+```
+
+```{r fig-2d-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD Sc 2d model. ", q.5abcd.desc)}
+make.autocor.plot(desc.models.5abcd[[2]])
+```
+
+```{r fig-2d-index-fits-5abcd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(desc.models.5abcd[2], desc.models.5abcd.name[2], 1, every = 5),
+          i.plot(desc.models.5abcd[2], desc.models.5abcd.name[2], 2, every = 5),
+          i.plot(desc.models.5abcd[2], desc.models.5abcd.name[2], 3, every = 5),
+          i.plot(desc.models.5abcd[2], desc.models.5abcd.name[2], 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.5abcd[2], desc.models.5abcd.name[2], 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+```{r fig-2d-mean-weight-5abcd, fig.cap="MPD fit to the mean weight data for Area 5ABCD Sc 2d model."}
+plot_grid(mw.plot(desc.models.5abcd[2][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.5abcd[[2]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+\clearpage
+
+### Sc 2e Increase the standard deviation (SD) for synoptic survey ln(q) to 0.6
+
+```{r tab-param-table-sens2e-5abcd, results='asis'}
+make.parameters.est.table(desc.models.5abcd[[3]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 2e, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-2e-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD Sc 2e model. ", q.5abcd.desc)}
+make.traces.plot(desc.models.5abcd[[3]])
+```
+
+```{r fig-2e-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD Sc 2e model. ", q.5abcd.desc)}
+make.autocor.plot(desc.models.5abcd[[3]])
+```
+
+```{r fig-2e-index-fits-5abcd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(desc.models.5abcd[3], desc.models.5abcd.name[3], 1, every = 5),
+          i.plot(desc.models.5abcd[3], desc.models.5abcd.name[3], 2, every = 5),
+          i.plot(desc.models.5abcd[3], desc.models.5abcd.name[3], 3, every = 5),
+          i.plot(desc.models.5abcd[3], desc.models.5abcd.name[3], 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.5abcd[3], desc.models.5abcd.name[3], 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+
+```{r fig-2e-mean-weight-5abcd, fig.cap="MPD fit to the mean weight data for Area 5ABCD Sc 2e model."}
+plot_grid(mw.plot(desc.models.5abcd[3][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.5abcd[[3]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+
+### Sc 3a Set the parameters of the prior probability distribution for ln(M) to ~N(0.4,0.1)
+
+
+```{r tab-param-table-sens3a-5abcd, results='asis'}
+make.parameters.est.table(desc.models.5abcd[[4]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 3a, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+```{r fig-3a-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD Sc 3a model. ", q.5abcd.desc)}
+make.traces.plot(desc.models.5abcd[[4]])
+```
+
+```{r fig-3a-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD Sc 3a model. ", q.5abcd.desc)}
+make.autocor.plot(desc.models.5abcd[[4]])
+```
+
+```{r fig-3a-index-fits-5abcd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(desc.models.5abcd[4], desc.models.5abcd.name[4], 1, every = 5),
+          i.plot(desc.models.5abcd[4], desc.models.5abcd.name[4], 2, every = 5),
+          i.plot(desc.models.5abcd[4], desc.models.5abcd.name[4], 3, every = 5),
+          i.plot(desc.models.5abcd[4], desc.models.5abcd.name[4], 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.5abcd[4], desc.models.5abcd.name[4], 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+```{r fig-3a-mean-weight-5abcd, fig.cap="MPD fit to the mean weight data for Area 5ABCD Sc 3a model."}
+plot_grid(mw.plot(desc.models.5abcd[4][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.5abcd[[4]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+
+### Sc 5a Set knife-edged age at recruitment = 3 years
+
+```{r tab-param-table-sens5a-5abcd, results='asis'}
+make.parameters.est.table(desc.models.5abcd[[5]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 5a, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-5a-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD Sc 5a model. ", q.5abcd.desc)}
+make.traces.plot(desc.models.5abcd[[5]])
+```
+
+```{r fig-5a-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD Sc 5a model. ", q.5abcd.desc)}
+make.autocor.plot(desc.models.5abcd[[5]])
+```
+
+
+```{r fig-5a-index-fits-5abcd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(desc.models.5abcd[5], desc.models.5abcd.name[5], 1, every = 5),
+          i.plot(desc.models.5abcd[5], desc.models.5abcd.name[5], 2, every = 5),
+          i.plot(desc.models.5abcd[5], desc.models.5abcd.name[5], 3, every = 5),
+          i.plot(desc.models.5abcd[5], desc.models.5abcd.name[5], 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.5abcd[5], desc.models.5abcd.name[5], 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+```{r fig-5a-mean-weight-5abcd, fig.cap="MPD fit to the mean weight data for Area 5ABCD Sc 5a model."}
+plot_grid(mw.plot(desc.models.5abcd[5][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.5abcd[[5]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+
+### Sc 6b Reduce the overall observation error term sigma_O = 0.15
+
+
+```{r tab-param-table-sens6b-5abcd, results='asis'}
+make.parameters.est.table(desc.models.5abcd[[6]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 6b, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-6b-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD Sc 6b model. ", q.5abcd.desc)}
+make.traces.plot(desc.models.5abcd[[6]])
+```
+
+```{r fig-6b-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD Sc 6b model. ", q.5abcd.desc)}
+make.autocor.plot(desc.models.5abcd[[6]])
+```
+
+
+```{r fig-6b-index-fits-5abcd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(desc.models.5abcd[6], desc.models.5abcd.name[6], 1, every = 5),
+          i.plot(desc.models.5abcd[6], desc.models.5abcd.name[6], 2, every = 5),
+          i.plot(desc.models.5abcd[6], desc.models.5abcd.name[6], 3, every = 5),
+          i.plot(desc.models.5abcd[6], desc.models.5abcd.name[6], 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.5abcd[6], desc.models.5abcd.name[6], 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+
+```{r fig-6b-mean-weight-5abcd, fig.cap="MPD fit to the mean weight data for Area 5ABCD Sc 6b model."}
+plot_grid(mw.plot(desc.models.5abcd[6][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.5abcd[[6]]),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+\clearpage
+
+### Sc 7b Reduce the SD in the likelihood for the fit to average annual mean weight sigma_W = 0.15
+
+```{r tab-param-table-sens7b-5abcd, results='asis'}
+make.parameters.est.table(desc.models.5abcd[[7]],
+ caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+                   "97.5\\textsuperscript{th} percentile) and MPD ",
+                   "estimates of key parameters ",
+                  "for Sc 7b, Area 5ABCD. $R_0$ is in thousands of fish. $B_0$ is in tonnes. "),
+  omit_pars = pars_est_omit)
+```
+
+
+```{r fig-7b-mcmc-trace-5abcd, fig.cap=paste0("Traceplots of posterior samples for the Area 5ABCD Sc 7b model. ", q.5abcd.desc)}
+make.traces.plot(desc.models.5abcd[[7]])
+```
+
+```{r fig-7b-mcmc-autocor-5abcd, fig.cap=paste0("Autocorrelation plots for the Area 5ABCD Sc 7b model. ", q.5abcd.desc)}
+make.autocor.plot(desc.models.5abcd[[7]])
+```
+
+```{r fig-7b-index-fits-5abcd, fig.cap="MPD fits to observed indices of abundance (points) for the Area 5ABCD reference model from: (a) the Hecate Strait Assemblage survey, (b) the Queen Charlotte Sound Synoptic Survey, (c) the Hecate Strait Synoptic Survey, (d) the Commercial CPUE pre-1996, and (e) the Commercial CPUE post-1995. For clarity, only MPD results are shown"}
+plot_grid(i.plot(desc.models.5abcd[7], desc.models.5abcd.name[7], 1, every = 5),
+          i.plot(desc.models.5abcd[7], desc.models.5abcd.name[7], 2, every = 5),
+          i.plot(desc.models.5abcd[7], desc.models.5abcd.name[7], 3, every = 5),
+          i.plot(desc.models.5abcd[7], desc.models.5abcd.name[7], 4, every = 10)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(desc.models.5abcd[7], desc.models.5abcd.name[7], 5, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          nrow = 2,
+          ncol = 3,
+          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
+          label_x = 0.2)
+```
+
+```{r fig-7b-mean-weight-5abcd, fig.cap="MPD fit to the mean weight data for Area 5ABCD Sc 7b model."}
+plot_grid(mw.plot(desc.models.5abcd[7][[1]], cv = 0.2, every = 10, last.yr = 2020),
+          mw.compare.plot(desc.models.5abcd[[7]]),
+          nrow = 1,
+          ncol = 2)
+```
+

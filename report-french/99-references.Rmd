@@ -1,0 +1,37 @@
+\clearpage
+
+# Collaborateurs
+
+```{r, echo=FALSE, include=FALSE}
+contributors <- tibble::tribble(
+  ~"Collaborateur",          ~"Organisme d’appartenance",
+  "Robyn Forrest",   "Secteur des sciences du MPO, région du Pacifique",
+  "Chris Grandin",   "Secteur des sciences du MPO, région du Pacifique",
+  "Sean Anderson",   "Secteur des sciences du MPO, région du Pacifique",
+  "Paul Starr", "Canadian Groundfish Research and Conservation Society"
+)
+```
+
+```{r, results='asis'}
+csasdown::csas_table(contributors)
+```
+
+<!-- Decrease the table index by one to account for the contributors table: -->
+<!-- \addtocounter{table}{-1} -->
+
+\MakeApproval
+
+# Sources de renseignements {-}
+<!--
+This manually sets the header for this unnumbered chapter.
+-->
+
+
+<!-- The following sets the appropriate indentation for the references -->
+\noindent
+\vspace{-2em}
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\markboth{References}{References}

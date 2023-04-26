@@ -1,0 +1,349 @@
+
+# Contexte
+
+La dernière évaluation sur la morue du Pacifique (*Gadus macrocephalus*) en Colombie-Britannique remonte à 2018 [@forrest2020; @dfo2019].
+Dans le cadre de celle-ci, on a évalué de façon séparée le stock de la zone 3CD (côte ouest de l’île de Vancouver) et celui de la zone 5ABCD (bassin de la Reine-Charlotte et détroit d’Hécate) (figure \@ref(fig:fig-map)).
+Selon l’évaluation, les stocks des zones 3CD et 5ABCD se trouvaient dans la zone de prudence [@dfo2009].
+
+Des relevés synoptiques au chalut de fond indépendants de la pêche sont menés tous les deux ans en Colombie-Britannique. Habituellement, les relevés menés au large de la côte ouest de l’île de Vancouver ont lieu lors des années paires et ceux menés dans le bassin de la Reine-Charlotte et le détroit d’Hécate, lors des années impaires.
+Toutefois, en raison de la pandémie de COVID-19, le relevé qui devait être mené au large de la côte ouest de l’île de Vancouver en 2020 n’a pas eu lieu.
+L’indice de ce relevé pour 2018 était très faible, correspondant à environ 26--27 % de l’ampleur des observations de 2014 et de 2016 (figure \@ref(fig:fig-summary-indices-3cd)).
+L’indice des captures par unité d’effort (CPUE) issues de la pêche commerciale a aussi diminué depuis 2016 (figure \@ref(fig:fig-summary-indices-3cd)).
+Les prises effectuées en 2018 et en 2019 dans la zone 3CD étaient aussi beaucoup plus faibles que lors des dernières années (tableau \@ref(tab:tab-catch-3cd) et figure \@ref(fig:fig-catch-3cd)).
+
+L’avis scientifique précédent [@dfo2019] recommandait qu’une mise à jour des évaluations menées dans les zones 3CD et 5ABCD soit réalisée lors des années suivant immédiatement les activités du relevé synoptique au chalut de fond ciblant le poisson de fond mené tous les deux ans (c.-à-d., lorsque l’indice de relevé le plus récent est disponible).
+Toutefois, en raison du faible indice d’abondance de 2018 dans la zone 3CD et du manque de données de relevé à jour pour 2020, au sein de la région du Pacifique de Pêches et Océans Canada (MPO), la Direction de la gestion des pêches a demandé à la Direction des sciences d’évaluer l’état des deux stocks de morues du Pacifique en 2020 et de formuler un avis sur les prises pour 2021 afin d’orienter l’élaboration du Plan de gestion intégrée des pêches de 2020-2021.
+
+La présente réponse des Sciences découle du processus de réponse des Sciences d’octobre 2020 sur la Mise à jour de l’évaluation des stocks de morue du Pacifique de la Colombie-Britannique dans les zones 3CD et 5ABCD en 2020.
+
+# Renseignements de base
+
+La morue du Pacifique (ou morue grise) est une espèce à croissance rapide de la famille des gadidés qui a une durée de vie relativement courte (~10--13 *a*).
+Elle est présente dans l’ensemble de l’océan Pacifique Nord et des eaux de la Colombie-Britannique, généralement à des profondeurs allant jusqu’à 200 m. 
+On a défini quatre stocks de morues du Pacifique aux fins de gestion dans les eaux côtières de la Colombie-Britannique. Il s’agit des stocks du détroit de Georgia (4B), de la côte ouest de l’île de Vancouver (3CD), du bassin de la Reine-Charlotte (5AB) et du détroit d’Hécate (5CD).
+
+La présente évaluation fournit un avis scientifique pour les stocks du bassin de la Reine-Charlotte et du détroit d’Hécate combinés (5ABCD), et pour le stock de la côte ouest de l’île de Vancouver (3CD) (figure \@ref(fig:fig-map)). La décision de combiner les zones 5AB et 5CD a été prise dans le cadre de l’évaluation de 2018 [@dfo2019], surtout en raison des mauvais diagnostics du modèle utilisé et du manque d’indices d’abondance issus de relevés historiques indépendants de la pêche pour le modèle de la zone 5AB dans l’évaluation de 2013 [@forrest2015].
+En outre, il n’y a aucun signe indiquant une différence génétique entre les stocks de ces deux zones [@forrest2015].
+
+## Description de la pêche
+
+Les prises de morues du Pacifique proviennent presque exclusivement de la pêche du poisson de fond au chalut de fond, qui fait partie de la pêche intégrée du poisson de fond de la Colombie-Britannique [@dfo2017].
+Une faible quantité de prises proviennent de la pêche du poisson de fond à la palangre (environ 0,5 % du total des prises annuelles, en moyenne), qui fait aussi partie de cette pêche intégrée.
+Les prises issues de la zone 5ABCD sont effectuées à des profondeurs comprises dans la plage 60--200 m; les données indiquent que les prises sont effectuées dans des eaux de plus en plus profondes depuis 1996 [@forrest2020].
+À l’heure actuelle, la majorité des prises de morues du Pacifique en Colombie-Britannique sont effectuées dans la zone 5CD.
+Des prises commerciales proviennent aussi des zones 5AB et 3CD.
+Un nombre de prises négligeable provient des eaux au large de la côte ouest de Haida Gwaii, soit la zone 5E (< 0,5 % du total des prises annuelles depuis 1985).
+Toutes les activités relatives à la pêche intégrée de la Colombie-Britannique font l’objet d’une surveillance en mer et de vérifications à quai.
+Depuis 1996, tous les navires de pêche au chalut de fond ont accueilli des observateurs, qui ont consigné les prises de chaque espèce et estimé les quantités de poissons remis à l’eau (rejets).
+
+# Analyse et réponse
+
+## Données
+
+Les données ont été extraites de bases de données du MPO au moyen des méthodes décrites dans le document de @forrest2020.
+Les données biologiques provenant des relevés indépendants de la pêche et des activités de pêche commerciale étaient disponibles jusqu’en 2019.
+Les données sur les prises ont été mises à jour pour l’année 2020 au moyen de données extrapolées pour la période du 1^er^  octobre 2020 jusqu’à la fin de l’année de pêche (voir ci-dessous).
+Pour chaque zone, les modèles choisis ont été ajustés aux données suivantes: prises commerciales, indices d’abondance provenant de relevés indépendants de la pêche, CPUE commerciales et poids moyen annuel des prises commerciales.
+
+### Prises commerciales
+
+Les données sur les prises commerciales (tableaux \@ref(tab:tab-catch-3cd) et \@ref(tab:tab-catch-5abcd), figures \@ref(fig:fig-catch-3cd) et \@ref(fig:fig-catch-5abcd) ) ont été extraites de trois bases de données différentes tenues par le MPO : *GFCatch* (débarquements canadiens issus de la pêche au chalut, 1954--1995); *PacHarvTrawl* (débarquements canadiens issus de la pêche au chalut, 1996 au 31 mars 2007); *GFFOS* (débarquements canadiens issus de la pêche au chalut, du 1er  avril 2007 à 2020).
+Les données sur les prises antérieures à 1981 comprennent les prises effectuées par des navires américains [@forrest2015; @forrest2020].
+Les années de pêche commencent le 1^er^  avril de chaque année et sont désignées par l’année de début; par exemple, l’année de pêche 1957 commence le 1^er^  avril 1957 et se termine le 31 mars 1958 [voir @forrest2020].
+
+Avant la présence d’observateurs en mer, qui a commencé en 1996, les estimations des rejets pour la période 1956--1995 provenaient de journaux de bord de pêcheurs.
+Par conséquent, les rejets antérieurs à 1996 représentent une source d’incertitude importante dans la présente évaluation.
+On considère que les estimations pour années suivant 1996, soit l’introduction d’un niveau de présence à 100 % des observateurs en mer, sont exactes.
+En Colombie-Britannique, il est légal pour les chalutiers de rejeter des morues du Pacifique.
+Cependant, les observateurs à bord des navires estiment d’abord la quantité de prises rejetées, qui est comptabilisée comme faisant partie du quota.
+Par conséquent, depuis 1996, la déclaration des rejets est plus exacte et les incitatifs visant à diminuer le rejet de prises sont meilleurs.
+
+Au moment de l’évaluation, l’année de pêche 2020 n’était pas terminée.
+Afin de fournir des projections pour la saison de pêche 2021, on a extrapolé les prises de 2020 (débarquements et rejets) dans chaque zone au moyen de la proportion moyenne sur trois ans des prises effectuées le 30 septembre (représentant la fin du deuxième trimestre de l’année de pêche 2020).
+On a utilisé cette proportion afin d’extrapoler les prises totales estimées pour l’année de pêche 2020 à partir des prises du 30 septembre 2020 (tableaux \@ref(tab:tab-catch-3cd) et \@ref(tab:tab-catch-5abcd)). Dans la zone 3CD, la proportion moyenne était de 67,4 % (moyenne de 85,6 %, de 46,2 % et de 70,5 % pour les années de pêche 2017, 2018 et 2019, respectivement).
+Dans la zone 5ABCD, la proportion moyenne était de 87,8 % (moyenne de 88,6 %, de 82,7 % et de 92,1 % pour les années de pêche 2017, 2018 et 2019, respectivement).
+Dans la zone 3CD, la proportion moyenne des prises effectuées le 30 septembre a été incertaine au cours des dernières années. Par conséquent, l’extrapolation de 2020 devrait être considérée comme étant incertaine.
+Toutefois, l’ampleur des prises effectuées au cours des trois dernières années a été faible, et on prévoit que les prises de 2020 auront une faible incidence sur l’avis sur les prises pour 2021.
+En outre, les tendances relatives aux prises pour 2020 dans les deux zones pourraient être atypiques en raison de la pandémie de COVID-19.
+
+### Relevés canadiens au chalut de fond
+
+On a calculé les indices de relevé (tableau \@ref(tab:surv-canadian-table) et figure \@ref(fig:surv-canadian)) au moyen d’une analyse de la superficie balayée, présentée dans l’annexe A du document de @forrest2020.
+L’abondance dans la zone 3CD (figure \@ref(fig:fig-map)) est répertoriée dans le cadre du relevé synoptique mené au large de la côte ouest de l’île de Vancouver.
+Ce relevé a été mené pour la première fois en 2004 et a lieu lors des années paires.
+En raison de la pandémie de COVID-19, aucune activité de relevé n’a été menée en 2020.
+L’abondance dans la zone 5AB (figure \@ref(fig:fig-map)) est répertoriée dans le cadre du relevé synoptique mené dans le bassin de la Reine-Charlotte.
+Ce relevé a été mené pour la première fois en 2003 et 2004, et a lieu lors des années impaires depuis 2005.
+L’abondance dans la zone 5CD (figure \@ref(fig:fig-map)) a été répertoriée dans le cadre du relevé d’assemblage de plusieurs espèces mené dans le détroit d’Hécate en 1984, 1987, 1989, 1991, 1993, 1995, 1996, 1998, 2000, 2002 et 2003.
+Depuis 2005, cette abondance est aussi répertoriée lors des années impaires dans le cadre du relevé synoptique mené dans le détroit d’Hécate.
+Des renseignements détaillés sur la superficie et les strates de profondeur couvertes par tous les relevés sont fournis dans l’annexe A du document de @forrest2020.
+
+### Relevé triennal du NMFS (en eaux canadiennes)
+
+Un autre indice de l’abondance relative pour la zone 3CD a été calculé au moyen des données provenant du relevé triennal du National Marine Fisheries Service (NMFS), qui a été mené au large de la moitié inférieure de la côte ouest de ’île de Vancouver entre 1980 et 2001 (figure \@ref(fig:tri-fig9)).
+Voir l’annexe A du document de @forrest2020 pour obtenir de plus amples renseignements à ce sujet.
+
+### CPUE commerciales
+
+On a calculé les indices des CPUE commerciales normalisées pour les périodes historique (1956--1995) et moderne (1996--2019) (figures \@ref(fig:cpue-index-ts-hist) et \@ref(fig:cpue-index-ts-modern)).
+Pour y arriver, on a utilisé un modèle linéaire généralisé à effets mixtes de Tweedie, qui est décrit de façon détaillée dans l’annexe B du document de @forrest2020.
+Les modèles linéaires généralisés à effets mixtes utilisés pour la période historique comprenaient des prédicteurs relatifs à la profondeur, au lieu, au mois et à l’interaction lieu-année (figure \@ref(fig:cpue-index-ts-hist)).
+Les modèles utilisés pour la période moderne comprenaient des prédicteurs relatifs à la profondeur, à la latitude, au lieu, au mois, au navire et à l’interaction lieu-année (figure \@ref(fig:cpue-index-ts-modern)).
+
+### Poids moyen annuel des prises commerciales
+
+On a calculé le poids moyen annuel des prises commerciales grâce à la méthodologie décrite dans l’annexe C du document de @forrest2020.
+Pour calculer le poids moyen, on disposait d’échantillons biologiques issus de la pêche commerciale datant de 1956 à 2019.
+En l’absence d’échantillon biologique provenant de la pêche commerciale pour 2020, on a présumé que le poids moyen annuel pour 2020 était le même que celui pour 2019.
+
+## Modèle d’évaluation des stocks
+
+Le modèle d’évaluation des stocks actuel est un modèle bayésien de type différence-délai [@deriso1980], ajusté aux indices de relevé, aux CPUE commerciales, aux données sur les prises commerciales et aux poids moyens annuels des prises commerciales [@forrest2015; @forrest2020].
+Un historique complet de l’évaluation des stocks est présenté dans le document de @forrest2020.
+Le modèle actuel est décrit de façon exhaustive dans l’annexe D du document de @forrest2020.
+Tous les paramètres fixes et les distributions de probabilité a priori pour les paramètres des modèles utilisés dans la présente évaluation étaient les mêmes que ceux figurant dans le document de @forrest2020 (voir aussi les tableaux \@ref(tab:tab-param-table-3cd) et \@ref(tab:tab-param-table-5abcd) du présent document).
+
+Dans les documents de @forrest2015 et de @forrest2020, on a utilisé l’approche représentant la moyenne des modèles afin de créer des tableaux de décision fondés sur des échantillons a posteriori combinés provenant de plusieurs analyses de sensibilité.
+On a utilisé cette méthode pour donner suite à certaines incertitudes clés impossibles à régler concernant l’évaluation des stocks.
+Les principaux axes d’incertitude étaient la capturabilité ($q$) associée aux indices d’abondance, l’ampleur de la mortalité naturelle ($M$), l’âge du recrutement à la pêche et l’ampleur des erreurs d’observation associées aux relevés et aux poids moyens [@forrest2020].
+De plus amples renseignements sont fournis dans la section sur les scénarios de modèles.
+On a utilisé une approche représentant la moyenne des modèles dans les évaluations des stocks de merlus du Pacifique [@stewart2011], de flétans du Pacifique [@stewart2016], de sébastolobes à courtes épines en Colombie-Britannique [@starr2017] et de goberges de l’Alaska dans les eaux britanno-colombiennes [@starr2018], ainsi que dans trois évaluations des stocks d’espèces du genre *Sebastes* en Colombie-Britannique [@dfo2019b; @dfo2020a; @dfo2020b].
+
+## Points de référence
+
+Selon la politique du cadre décisionnel pour les pêches intégrant l’approche de précaution du MPO [@dfo2009], l’état d’un stock est caractérisé au moyen de trois points de référence :
+
+1. point de référence supérieur du stock (RSS);
+2. point de référence limite (PRL);
+3. taux d’exploitation limite (TEL).
+
+Le RSS et le PRL représentent les seuils des trois zones décrivant l’état des stocks d’après leur biomasse, qui sont définies par la politique sur l’approche de précaution [@dfo2009]. Ces trois zones sont les suivantes : zone critique (biomasse inférieure au PRL); zone de prudence (biomasse supérieure au PRL, mais inférieure au RSS); zone saine (biomasse supérieure au RSS).
+
+Comme dans le cas de l’évaluation de 2018 [@dfo2019], on a utilisé des points de référence historiques pour évaluer l’état des stocks.
+
+1. Le RSS correspond à la moyenne historique des estimations de la biomasse pour la période 1956--2004.
+
+2. Le PRL représente la biomasse estimée la plus faible reconnue comme étant un état indésirable à éviter. Pour la zone 5ABCD, il s’agit de la biomasse estimée en 2000. Pour la zone 3CD, il s’agit de la biomasse estimée en 1986.
+
+3. Le PRL correspond au taux de mortalité par pêche moyen pour la période 1956--2004.
+
+Voir le document de @forrest2020 pour de plus amples renseignements sur l’historique concernant la décision d’utiliser des points de référence historiques pour la morue du Pacifique.
+Voir aussi le document de @forrest2018 pour plus de renseignements sur les essais de simulation des points de référence historiques pour le stock de morues du Pacifique de la zone 5CD.
+
+## Scénarios de modèles
+
+On a conçu des modèles référence pour les zones 3CD et 5ABCD afin de représenter ce qu’on considérait comme étant les choix les plus plausibles parmi diverses hypothèses concernant chaque stock.
+Les modèles de référence pour les zones 3CD et 5ABCD présentent certaines caractéristiques semblables en termes de choix de données, de distributions de probabilité a priori et de paramètres fixes.
+Les principales caractéristiques des modèles sont fournies dans les tableaux \@ref(tab:tab-param-table-3cd) et \@ref(tab:tab-param-table-5abcd).
+Pour de plus amples renseignements, voir le document de @forrest2020.
+Ces modèles représentent le fondement à partir duquel on a conçu les scénarios de sensibilité, en modifiant une hypothèse de rechange des modèles à la fois.
+
+On a convenu d’un ensemble de scénarios de modèles pour chaque stock lors de la réunion régionale d’examen par les pairs du Secrétariat canadien de consultation scientifique (SCCS) sur la moyenne des modèles pour l’évaluation de 2018 [@dfo2019].
+Dans le cadre de la présente évaluation, on a utilisé les mêmes ensembles (mis à jour avec les données sur les prises jusqu’à 2020 et les indices de relevé jusqu’à 2019, le cas échéant).
+Des renseignements détaillés sur les configurations et les hypothèses des modèles pour chaque scénario sont présentés dans le document de @forrest2020.
+
+### Zone 3CD
+
+Voici les scénarios (Sc) compris dans l’ensemble représentant la moyenne des modèles pour la zone 3CD.
+
+1.	Sc 1a : Modèle de référence
+2.	Sc 2d : Établissement de la moyenne de la distribution de probabilité a priori pour le relevé synoptique $\ln(q)$ = $\ln(1.0)$
+3.	Sc 2e : Augmentation de l’écart-type (ET) pour le relevé synoptique $\ln(q)$ à 0,6
+4.	Sc 3a : Établissement des paramètres de la distribution de probabilité a priori pour $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$
+5.	Sc 5a : Établissement de l’âge du recrutement à la pêche associé à une sélectivité en lame de couteau à trois ans
+6.	Sc 6b : Réduction du paramètre de l’erreur d’observation globale $\sigma_O = 0.15$
+7.	Sc 7b : Réduction de l’écart-type associé à la probabilité pour l’ajustement à la valeur moyenne du poids moyen annuel $\sigma_W = 0.15$
+
+### Zone 5ABCD
+
+Voici les scénarios compris dans l’ensemble représentant la moyenne des modèles pour la zone 5ABCD.
+
+1.	Sc 1a : Modèle de référence
+2.	Sc 2d : Établissement de la moyenne de la distribution de probabilité a priori pour les relevés synoptiques $\ln(q)$ = $\ln(1.0)$ (calcul au prorata selon les strates de profondeur des zones 5AB et 5CD)
+3.	Sc 2e : Augmentation de l’écart-type (ET) pour le relevé synoptique $\ln(q)$ à 0,6
+4.	Sc 3a : Établissement des paramètres de la distribution de probabilité a priori pour $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$
+5.	Sc 5a : Établissement de l’âge du recrutement à la pêche associé à une sélectivité en lame de couteau à trois ans
+6.	Sc 6b : Réduction du paramètre de l’erreur d’observation globale $\sigma_O = 0.15$
+7.	Sc 7b : Réduction de l’écart-type associé à la probabilité pour l’ajustement à la valeur moyenne du poids moyen annuel $\sigma_W = 0.15$
+
+## Résultats des modèles de référence
+
+On présente les résultats des deux modèles de référence afin de démontrer le rendement des modèles et de permettre une comparaison avec l’évaluation des stocks de 2018.
+L’avis présenté dans la section suivante est fondé sur une combinaison des résultats des modèles pour chaque zone.
+
+Pour les deux zones, on a estimé la distribution a posteriori conjointe de chaque modèle de façon numérique, au moyen de routines de Monte Carlo par chaîne de Markov (MCMC) intégrées au logiciel AD Model Builder (algorithme de Metropolis-Hastings) [@fournier2012]. 
+Des échantillons a posteriori ont été tirés à chaque 5 000^e^  itération à partir d’une chaîne d’une longueur de 10 millions d’échantillons, ce qui a produit 2 000 échantillons a posteriori (les 1 000 premiers échantillons ont été éliminés pour permettre un rodage suffisant).
+
+On a évalué la convergence des modèles en inspectant visuellement les graphiques des traces et les graphiques d’autocorrélation (non présentés), et en calculant la statistique de réduction d’échelle potentielle $\hat{R}$, qui devrait s’approcher de 1,0 à mesure que les chaînes deviennent convergentes, ainsi que $n_\mathrm{eff}$, qui mesure le nombre réel d’échantillons indépendants de la méthode MCMC après avoir tenu compte de l’autocorrélation [@gelman1992; @gelman2014; voir les descriptions présentées dans le document de @forrest2020].
+
+### Zone 3CD
+
+Les modèles de référence ajustés aux données étaient généralement typiques de toutes les analyses de sensibilité.
+Les diagnostics de modèles étaient conformes à la convergence, et l’autocorrélation associée aux échantillons a posteriori était relativement faible pour la plupart des paramètres (tableau \@ref(tab:tab-param-est-table-3cd)).
+Les ajustements des modèles aux prises étaient presque parfaits en termes de conception (l’écart-type du logarithme du rapport de vraisemblance était fixé à 0,05) et ne sont pas présentés.
+Les ajustements des modèles aux quatre indices d’abondance sont présentés à la figure \@ref(fig:fig-base-index-fits-3cd).
+Le modèle de référence suivait les tendances des deux indices de relevés indépendants de la pêche (figure \@ref(fig:fig-base-index-fits-3cd)a et d), mais n’était pas bien ajusté aux points de données correspondants aux années 2012, 2014 et 2016 du relevé synoptique mené au large de la côte ouest de l’île de Vancouver (figure \@ref(fig:fig-base-index-fits-3cd)a).
+Ceci s’explique probablement par les grandes différences entre les points les plus faibles (2012 et 2018) et les points les plus élevés (2014 et 2016) concernant les observations liées au relevé.
+De même, le modèle a suivi étroitement les tendances principales des indices de CPUE historiques (figure \@ref(fig:fig-base-index-fits-3cd)b), mais il n’a pas reflété tous les pics de la série moderne (figure \@ref(fig:fig-base-index-fits-3cd)c).
+Un tel ajustement a tendance à se produire lorsqu’aucun autre renseignement (comme des données sur la composition selon l’âge ou des données contrastantes sur le poids moyen) ne permet de traiter les importantes fluctuations associées aux indices observés.
+
+Dans leurs évaluations, @forrest2015 et @forrest2020 ont considéré que l’exactitude de l’ajustement aux indices d’abondance était l’un des principaux facteurs déterminant l’incertitude des évaluations étant donné que les estimations des paramètres de productivité étaient sensibles à l’exactitude de l’ajustement d’un modèle aux pics observés concernant les indices.
+Ils ont présenté un certain nombre d’analyses de sensibilité concernant le traitement du paramètre de l’erreur d’observation $\sigma_O$; l’une de ces analyses est incluse dans l’ensemble représentant la moyenne des modèles de chaque zone (Sc 6b).
+
+Comme dans l’évaluation de 2018 [@forrest2020], le modèle avait tendance à sous-estimer le poids moyen annuel, surtout dans la première partie de la série chronologique (figure \@ref(fig:fig-base-mean-weight-3cd)).
+Cette tendance s’explique probablement parce que la plupart des longueurs dans cette partie de la série chronologique proviennent de poissons catégorisés comme étant des prises conservées, c’est-à-dire non remises à l’eau (voir le document de @forrest2015 qui présente une discussion à ce sujet pour les stocks des zones 5AB et 5CD).
+Les petites prises remises à l’eau ont donc été sous-représentées dans les données du poids moyen annuel antérieures à 1996, soit le début de la présence d’observateurs en mer.
+Un scénario présentant une valeur plus faible de $\sigma_W$, qui contrôle l’ajustement au poids moyen dans la fonction de vraisemblance, est inclus dans l’ensemble représentant la moyenne des modèles de chaque zone (Sc 7b).
+
+Les estimations des paramètres associés au modèle de référence sont présentées dans le tableau \@ref(tab:tab-param-est-table-3cd).
+Plus particulièrement, l’estimation de la médiane de la mortalité naturelle, $M$, était de 0,45 *a*^-1^ (0,41--0,49 *a*^-1^) dans la présente évaluation (tableau \@ref(tab:tab-param-est-table-3cd)), et de 0,42 *a*^-1^ (0,39--0,46 *a*^-1^) en 2018 [@forrest2020].
+Les valeurs entre parenthèses ci-dessus et dans le reste du document représentent les limites inférieure et supérieure de l’intervalle de crédibilité à 95 %. 
+L’estimation de $M$ plus élevée pour 2020 indique que le modèle explique partiellement la diminution de la biomasse par une mortalité naturelle plus élevée, même s’il y avait un chevauchement considérable entre les intervalles de crédibilité de 2020 et de 2018.
+
+### Zone 5ABCD
+
+Comme pour la zone 3CD, les modèles de référence ajustés aux données étaient généralement typiques de toutes les analyses de sensibilité.
+Les diagnostics de modèles étaient conformes à la convergence, et l’autocorrélation associée aux échantillons a posteriori était relativement faible pour la plupart des paramètres (tableau \@ref(tab:tab-param-est-table-5abcd)).
+
+Les ajustements du modèle du mode de distribution a posteriori aux cinq indices d’abondance sont présentés à la figure \@ref(fig:fig-base-index-fits-5abcd).
+Ce modèle suivait les tendances générales des indices des trois relevés indépendants des pêches, mais ne pouvait être ajusté à certains des pics les plus importants (p. ex., les pics de 2004 et de 2005 du relevé synoptique mené dans le bassin de la Reine-Charlotte et les pics de 2009 et de 2013 du relevé synoptique mené dans le détroit d’Hécate, figure \@ref(fig:fig-base-index-fits-5abcd)b et c).
+De même, le modèle suivait les principales tendances liées aux deux indices des CPUE, mais ne représentait pas tous les pics (figure \@ref(fig:fig-base-index-fits-5abcd)d et e).
+Comme dans les évaluations précédentes, le modèle avait tendance à sous-estimer le poids moyen annuel, surtout entre 1970 et 2000 (figure \@ref(fig:fig-base-mean-weight-5abcd)), probablement pour des raisons semblables à celles décrites pour la zone 3CD.
+
+Les estimations des paramètres associés au modèle de référence sont présentées dans le tableau \@ref(tab:tab-param-est-table-5abcd).
+La plage de l’estimation a posteriori de $M$ était presque identique pour la présente évaluation, soit 0,31 *a*^-1^ (0,28--0,34 *a*^-1^), et l’évaluation de 2018 [@forrest2020], soit 0,31 *a*^-1^ (0,28--0,35 *a*^-1^).
+
+## Indicateurs de l’état actuel des stocks 
+
+L’avis de gestion pour les deux stocks est fondé sur les résultats des modèles combinés décrits ci-dessus, dans la section sur les scénarios de modèles. 
+Dans le cadre de la réunion régionale d’examen par les pairs tenue en octobre 2018, on a examiné les modèles de référence et la série d’analyses de sensibilité décrite ci-dessus, et on a conclu qu’aucun modèle ne représentait adéquatement l’incertitude associée aux évaluations des stocks en question.
+Par conséquent, les participants ont convenu d’adopter une approche combinant les exécutions des modèles afin d’inclure une plus grande plage d’incertitudes plausibles associées à ces stocks.
+
+### Zone 3CD
+
+Les estimations a posteriori associées aux points de référence et à l’état du stock découlant de l’ensemble représentant la moyenne des modèles sont présentées dans le tableau \@ref(tab:tab-ref-points-table-avg-3cd).
+Au début de l’année de pêche 2021, selon le niveau de prises présumé pour 2020, les projections indiquent que la biomasse médiane sera de 14 099 t (6 008--47 920 t).
+La mortalité par pêche médiane projetée pour l’année de pêche 2020 est de 0,006 *a*^-1^ (0,002--0,015 *a*^-1^).
+Les estimations du PRL et du RSS médians sont de 8 603 t (3 134--28 435 t) et 28 436 t (12 254--84 756 t), respectivement.
+Le TEL médian est estimé à 0,065 *a*^-1^ (0,021--0,187 *a*^-1^). 
+La biomasse médiane pour 2021, par rapport au PRL et au RSS, est estimée à 1,64 (1,01--3,59) et à 0,507 (0,313--0,962), respectivement.
+La mortalité par pêche médiane par rapport au TEL est estimée à 0,083 (0,038--0,137) (Table \@ref(tab:tab-ref-points-table-avg-3cd)).
+
+Les moyennes a posteriori de la biomasse et de la mortalité par pêche provenant de l’ensemble représentant la moyenne des modèles combinés sont présentées aux figures \@ref(fig:fig-model-average-biomass-3cd) et \@ref(fig:fig-model-average-f-3cd).
+La plage des estimations de la biomasse était très vaste.
+Les résultats a posteriori moyens provenant de tous les modèles combinés indiquent que la biomasse du stock pour 2020 était légèrement supérieure au PRL (figure \@ref(fig:fig-model-average-biomass-3cd)).
+Il s’agit d’une diminution notable de l’état du stock estimé (médiane de $B_{2021}/\textrm{LRP}$ = 1,64) par rapport à l’évaluation de 2018, pour laquelle la médiane de $B_{2019}/\textrm{LRP}$ était de 2,07 (2,48--2,16)) [@dfo2019].
+La plage des estimations de la mortalité par pêche était aussi vaste (figure \@ref(fig:fig-model-average-f-3cd)), reflétant la plage des estimations de la biomasse.
+Toutefois, les estimations récentes de la mortalité par pêche étaient bien en deçà du TEL médian (figure \@ref(fig:fig-model-average-f-3cd)). 
+
+### Zone 5ABCD
+
+Les estimations a posteriori associées aux points de référence et à l’état du stock découlant de l’ensemble représentant la moyenne des modèles sont présentées dans le tableau \@ref(tab:tab-ref-points-table-avg-5abcd).
+Au début de l’année de pêche 2021, selon le niveau de prises présumé pour 2020, les projections indiquent que la biomasse médiane sera de 19 634 t (11 318--40 603 t).
+La mortalité par pêche médiane projetée pour l’année de pêche 2020 est de 0,027 *a*^-1^ (0,013--0,049 *a*^-1^).
+Les estimations du PRL et du RSS médians sont de 9 814 t (5 662--20 881 t) et 33 409 t (21 630--59 004 t), respectivement.
+Le TEL médian est estimé à 0,15 *a*^-1^ (0,09--0,28 *a*^-1^).
+La biomasse médiane pour 2021, par rapport au PRL et au RSS, est estimée à 1,96 (1,40--3,11) et à 0,59 (0,39--0,89), respectivement.
+La mortalité par pêche médiane par rapport au TEL est estimée à 0,17 (0,11--0,27) (tableau \@ref(tab:tab-ref-points-table-avg-5abcd)).
+
+Les moyennes a posteriori de la biomasse et de la mortalité par pêche provenant de l’ensemble représentant la moyenne des modèles sont présentées aux figures\@ref(fig:fig-model-average-biomass-5abcd) et \@ref(fig:fig-model-average-f-5abcd).
+Comme pour la zone 3CD, la plage des estimations de la biomasse était très vaste.
+Les résultats a posteriori moyens provenant de tous les modèles combinés indiquent que la biomasse du stock pour 2020 était supérieure au PRL et se trouvait dans la zone de prudence.
+La plage des estimations de la mortalité par pêche était aussi vaste (figure \@ref(fig:fig-model-average-f-5abcd)), reflétant la plage des estimations de la biomasse.
+Les estimations récentes de la mortalité par pêche étaient bien en deçà du TEL médian.
+
+## Avis sur les prises pour 2021
+
+On a calculé les mesures de rendement pour une séquence de niveaux de prises projetés de rechange pour 2021, d’après les échantillons a posteriori pour une projection d’un an jusqu’au début de 2022.
+L’incertitude est ajoutée aux projections par l’entremise d’un paramètre d’incertitude propagé à la série chronologique modélisée et aux anomalies en matière de recrutement pour l’année projetée.
+On a évalué les mesures de rendement suivantes :
+
+1. $P(B_{2022} < B_{2021})$
+1. $P(F_{2021} > F_{2020})$
+1. $P(B_{2022} < PRL)$
+1. $P(B_{2022} < RSS)$
+1. $P(F_{2021} > TEL)$
+
+On a créé des tableaux de décision pour chaque zone au moyen des échantillons a posteriori combinés qui ont été pondérés de façon égale [voir @forrest2020].
+
+### Zone 3CD
+
+À titre d’illustration, les récentes valeurs combinées de la biomasse a posteriori moyenne associées à une projection d’un an, selon les quatre niveaux de prises de rechange, ont été représentées à la figure \@ref(fig:fig-model-average-biomass-3cd-proj).
+
+Les probabilités relatives aux tableaux de décision pour l’ensemble représentant la moyenne des modèles figurent dans le tableau \@ref(tab:summary-tab-decision-avg-3cd). En résumé :
+
+-	$P(B_{2022} < B_{2021})$ variait de 55 % à 83 % pour la plage des niveaux de prises de 2021.
+
+- $P(F_{2021} > F_{2020})$ variait de < 1 % à > 99 %.
+L’extrapolation des prises de 2020 était d’environ 59 t; la probabilité a donc augmenté entre 50 t et 60 t.
+
+- $P(B_{2022} < PRL)$ variait de < 2 % à 10 %.
+
+- $P(B_{2022} < RSS)$ variait de 97 % à 98 %.
+
+- $P(F_{2021} > TEL)$ variait de < 1 % à 98 %.
+
+Si les prises de 2021 étaient de 500 t (TAC de 2019-2020), la probabilité que la biomasse de 2021 soit inférieure au PRL serait de 4 % (tableau \@ref(tab:summary-tab-decision-avg-3cd)).
+Toutefois, si l’on présume que les prises de 2021 étaient de la même ampleur que celles de 2020 (environ 59 t), la probabilité que la biomasse de 2021 soit inférieure au PRL serait de 2 % (tableau \@ref(tab:summary-tab-decision-avg-3cd)).
+Selon les projections, la biomasse de 2022 serait située dans la zone de prudence (inférieure au RSS); la probabilité connexe serait de 97--98 % selon tous les scénarios testés pour les prises de 2021, y compris le scénario où il n’y aurait aucune prise.
+
+La probabilité que la mortalité par pêche dépasse le TEL est de moins de 1 % pour tous les niveaux de prises allant jusqu’à 400 t.
+Cette probabilité est fondée sur le TEL maximal (c.-à-d., l’estimation du taux de mortalité par pêche moyen pour la période de 1956--2004).
+L’approche de précaution du MPO [@dfo2009] décrit le point de référence en matière d’exploitation (c.-à-d., le TEL) comme étant le taux d’exploitation acceptable pour le stock.
+La politique illustre une règle de contrôle des prises associée à une diminution linéaire du TEL pour les stocks de la zone de prudence.
+On n’a pas officiellement convenu d’une telle règle de contrôle des prises pour la morue du Pacifique. Par conséquent, les probabilités présentées dans le tableau \@ref(tab:summary-tab-decision-avg-3cd) et dans les avis précédents concernant l’espèce [@dfo2015; @dfo2019] ne reflètent pas les ajustements apportés au TEL lorsque le stock se situe dans la zone de prudence.
+Si une telle règle de contrôle des prises était appliquée, comme l’illustre le document du @dfo2009, les probabilités associées au dépassement du TEL seraient plus élevées.
+On recommande de convenir d’une règle de contrôle des prises, qui décrit tout ajustement apporté au TEL lorsque la biomasse des stocks est inférieure au RSS, avant la prochaine mise à jour de l’évaluation des stocks.
+
+### Zone 5ABCD
+
+À titre d’illustration, les récentes valeurs combinées de la biomasse a posteriori moyenne associées à une projection d’un an, selon les quatre niveaux de prises de rechange, ont été représentées à la figure \@ref(fig:fig-model-average-biomass-5abcd-proj).
+
+Les probabilités relatives aux tableaux de décision pour l’ensemble représentant la moyenne des modèles figurent dans le tableau \@ref(tab:summary-tab-decision-avg-5abcd).
+En résumé :
+
+-	$P(B_{2022} < B_{2021})$ variait de 22 % à 91 % pour la plage des niveaux de prises de 2021.
+
+- $P(F_{2021} > F_{2020})$ variait de < 1 % à > 99 %.
+L’extrapolation des prises de 2020 était d’environ 425 t; la probabilité a donc augmenté entre 400 t et 500 t.
+
+- $P(B_{2022} < PRL)$ variait de < 1 % à 1 %.
+
+- $P(B_{2022} < RSS)$  variait de 98 % à 99 %.
+
+- $P(F_{2020} > TEL)$   variant de < 1 % à 85 %.
+
+Si les prises de 2021 étaient de 950 t (TAC de 2018-2019), la probabilité que la biomasse de 2021 soit inférieure au PRL serait de moins de 1 % (tableau \@ref(tab:summary-tab-decision-avg-5abcd)).
+Si on présume que les prises de 2021 étaient de la même ampleur que celles de 2020 (environ 425 t), la probabilité que la biomasse de 2022 soit inférieure au PRL serait aussi inférieure à 1 % (tableau \@ref(tab:summary-tab-decision-avg-3cd)).
+Selon les projections, la biomasse de 2022 serait située dans la zone de prudence (inférieure au RSS); la probabilité connexe serait de 98--99 % selon tous les scénarios testés pour les prises de 2021, y compris le scénario où il n’y aurait aucune prise.
+
+La probabilité que le stock dépasse le TEL est de moins de 1 % pour tous les niveaux de prises allant jusqu’à 1 400 t.
+Comme pour la zone 3CD, si les TEL étaient ajustés à la baisse parce que le stock était dans la zone de prudence [@dfo2009], les probabilités associées au dépassement du TEL seraient plus élevées.
+
+## Sources d’incertitude
+
+On a expressément traité l’incertitude découlant des paramètres estimés et des poids associés à diverses composantes de données au moyen d’une approche bayésienne.
+Pour la formulation de l’avis, on a combiné les résultats a posteriori découlant des sept configurations de modèles de rechange afin de produire les tableaux de décision.
+Toutefois, cette approche représente seulement l’incertitude associée à l’ensemble de configurations de modèles incluses dans la présente évaluation; elle pourrait sous-estimer certaines incertitudes plus vastes sur le plan structurel.
+Les incertitudes supplémentaires liées à la présente évaluation découlent des éléments ci-dessous.
+
+1. Le manque de données fiables sur la composition selon l’âge pour l’espèce, qui fourniraient des renseignements supplémentaires sur l’ampleur du recrutement et la sélectivité des engins de pêche.
+1. La série chronologique relativement courte associée aux indices d’abondance issus de relevés indépendants de la pêche qui n’affiche aucune tendance évidente.
+1. L’incertitude associée à l’ampleur des rejets et des prises étrangères antérieures à 1996; la sous-estimation des rejets historiques, qui pourrait entraîner une sous-estimation de la productivité des stocks.
+1. Les biais liés aux données sur la fréquence selon la longueur antérieures à 1996 qui découlent probablement de la sous-représentation des longueurs des poissons ayant été capturés, mais remis à l’eau.
+1. Une mauvaise compréhension de la structure des stocks de morues du Pacifique dans les eaux du Pacifique. Par exemple, on ne comprend pas bien la connectivité entre les stocks de morues du Pacifique de la Colombie-Britannique et de l’Alaska. Les stocks de morues du Pacifique présents dans le golfe de l’Alaska sont en déclin depuis 2017, probablement en raison du réchauffement des eaux du Pacifique Nord [@barbeaux2020], et on ne sait pas s’il existe une relation entre les facteurs déterminant l’abondance de ces stocks et des stocks de la Colombie-Britannique.
+1. Une mauvaise compréhension de la relation entre les données des CPUE commerciales et l’abondance, et de la façon dont cette relation a été touchée par les changements en matière de gestion apportés à la pêche.
+
+# Conclusions
+
+Le présent document met à jour l’état des stocks de morues du Pacifique des zones 3CD et 5ABCD à la fin de l’année de pêche 2020 et fournit un avis sur les prises pour l’année 2021, sous la forme de tableaux de décision.
+À l’heure actuelle, l’évaluation indique que les deux stocks se trouvent dans la zone de prudence, comme c’était le cas lors de l’évaluation de 2018 [@dfo2019].
+Toutefois, on a estimé que l’abondance du stock de la zone 3CD a décliné et que la valeur de l’abondance s’est rapprochée du PRL par rapport à l’évaluation précédente.
+
+Une préoccupation importante liée à la présente évaluation est l’absence d’une mise à jour des données du relevé synoptique mené sur la côte ouest de l’île de Vancouver pour 2020.
+On recommande qu’un relevé soit effectué dans cette zone dès que possible et que le présent avis soit mis à jour dès que des données seront disponibles.
+Une analyse plus approfondie des récentes données de relevés, y compris la répartition des stocks sur les plans de la profondeur et spatial, et une analyse des données biologiques, comme la condition des poissons au fil du temps (relation longueur-poids) et la distribution spatiale des données sur la longueur pourraient aussi fournir des renseignements sur les causes possibles du rapide déclin de l’abondance apparent.
+D’autres recommandations clés en matière de recherche, qui permettraient d’améliorer la compréhension de la dynamique du stock et des pêches pour les deux stocks, sont fournies dans le document de @forrest2020.
+On devrait convenir d’une règle de contrôle des prises décrite de façon détaillée avant la prochaine mise à jour de l’évaluation.
+
+\clearpage

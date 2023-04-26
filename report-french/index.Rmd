@@ -1,0 +1,37 @@
+---
+title: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) ainsi que dans le détroit d’Hécate et le bassin de la Reine-Charlotte (zone 5ABCD) en 2020"
+title_short: "Mise à jour sur l’état des stocks de morues du Pacifique en 2020" 
+title_other: "Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island (Area 3CD), and Hecate Strait and Queen Charlotte Sound (Area 5ABCD) in 2020"
+year: 2021
+month: Janvier
+report_number: 002
+approver: |
+  Carmel Lowe\
+  Directrice régionale
+approval_year: 2020
+approval_month: Novembre
+approval_day: 26
+work_done_year: 2021
+work_done_month: Janvier
+branch: Direction des sciences
+region: Région du Pacifique
+header: "" # or "" to omit
+output:
+ csasdown::sr_pdf:
+  # csasdown::sr_word:
+   french: true
+   prepub: false
+type:
+  sr
+# ------------
+# End of options to set
+knit: bookdown::render_book
+link-citations: true
+bibliography: bib/refs.bib
+csl: csl/csas.csl # or csl/csas-french.csl for French
+lot: true
+lof: true
+header-includes:
+- \setcounter{section}{1}
+---
+
