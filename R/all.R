@@ -5,9 +5,6 @@
 # To debug in an R session, run these 3 commands first:
 # source(here::here("R/all.r"));load.models.into.parent.env();source(here::here("R/custom-knitr-variables.r"))
 
-# TODO: There's a bug in cache_pbs_data since new return_all_lengths argument.
-# Pulling the data from GFBio won't currently work
-
 library(lubridate)
 library(dplyr)
 library(ggplot2)
