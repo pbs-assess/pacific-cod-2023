@@ -39,10 +39,13 @@ rootd.models <- file.path(rootd, "models")
 rootd.pres <- file.path(rootd, "presentations")
 resultsd <- file.path(rootd.data, "results")
 
+if(!dir.exists(rootd.data)) dir.create(rootd.data)
+if(!dir.exists(resultsd)) dir.create(resultsd)
+
 source(file.path(rootd.R, "utilities.R"))
 source(file.path(rootd.R, "verify.R"))
-source(file.path(rootd.R, "model-setup.R"))
-source(file.path(rootd.R, "load-models.R"))
+#source(file.path(rootd.R, "model-setup.R"))
+#source(file.path(rootd.R, "load-models.R"))
 source(file.path(rootd.R, "mcmc-diagnostics.R"))
 source(file.path(rootd.R, "figures-biomass.R"))
 source(file.path(rootd.R, "figures-recruitment.R"))
@@ -61,7 +64,12 @@ source(file.path(rootd.R, "get-age-sample.R"))
 source(file.path(rootd.R, "get-data-functions.R"))
 source(file.path(rootd.R, "cpue-functions.R"))
 source(file.path(rootd.R, "tables-mean-weight.R"))
-source(file.path(rootd.R, "get.survey.mean.weight.R"))
+
+# Get the data
+source(file.path(rootd.R, "get-raw-data.R"))
+# Get the commercial mean weights once the data has been pulled
+source(file.path(rootd.R, "get-mean-weight.R"))
+source(file.path(rootd.R, "get-survey-mean-weight.R"))
 
 ## ggplot globals for project
 ggplot2::theme_set(gfplot::theme_pbs())
@@ -107,7 +115,6 @@ options(dplyr.summarise.inform = FALSE)
 #                       "pcod-tac-1996-2021.csv")
 # tac <- read.csv(tac.file, header = TRUE)
 #
-# # Get the commercial mean weights once the data has been pulled
-# source(file.path(rootd.R, "get-mean-weight.R"))
+
 
 

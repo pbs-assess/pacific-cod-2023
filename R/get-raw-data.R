@@ -6,6 +6,8 @@ dat.file <- file.path(rootd.data,
                       "pcod-cache",
                       "pacific-cod.rds")
 
+if(!dir.exists(file.path(rootd.data,"pcod-cache"))) dir.create(file.path(rootd.data,"pcod-cache"))
+
 if(!file.exists(dat.file)){
   gfdata::cache_pbs_data(species = "pacific cod",
                  path = file.path(rootd.data,
