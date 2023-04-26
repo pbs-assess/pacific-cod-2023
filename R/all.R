@@ -3,7 +3,9 @@
 #  other R source code files.
 #
 # To debug in an R session, run these 3 commands first:
-# source(here::here("R/all.r"));load.models.into.parent.env();source(here::here("R/custom-knitr-variables.r"))
+# source(here::here("R/all.r"));
+# load.models.into.parent.env();
+# source(here::here("R/custom-knitr-variables.r"))
 
 library(lubridate)
 library(dplyr)
@@ -61,42 +63,6 @@ source(file.path(rootd.R, "cpue-functions.R"))
 source(file.path(rootd.R, "tables-mean-weight.R"))
 source(file.path(rootd.R, "get.survey.mean.weight.R"))
 
-## # Load the raw data
-dat.file <- file.path(rootd.data,
-                      "pcod-cache",
-                      "pacific-cod.rds")
-
-if(!file.exists(dat.file)){
-  gfdata::cache_pbs_data(species = "pacific cod",
-                         path = file.path(rootd.data,
-                                          "pcod-cache"),
-                         survey_sets = TRUE,
-                         unsorted_only = FALSE,
-                         return_all_lengths = TRUE)
-}
-dat <- readRDS(dat.file)
-
-file.name <- here::here("data/generated/comm-samples-with-length-type.rds")
-
-if(!file.exists(file.name)){
-  comsamp_newgfdata <- gfdata::get_commercial_samples("pacific cod",
-                                                      unsorted_only = FALSE,
-                                                      return_all_lengths = TRUE)
-  saveRDS(comsamp_newgfdata,file.name)
-}else{
-  comsamp_newgfdata <- readRDS(file.name)
-}
-
-# # Replace commercial_samples
-dat$commercial_samples <- comsamp_newgfdata
-
-tac.file <- file.path(rootd.data,
-                      "pcod-tac-1996-2021.csv")
-tac <- read.csv(tac.file, header = TRUE)
-
-# Get the commercial mean weights once the data has been pulled
-source(file.path(rootd.R, "get-mean-weight.R"))
-
 ## ggplot globals for project
 ggplot2::theme_set(gfplot::theme_pbs())
 scale_colour_continuous <- scale_colour_viridis_c
@@ -107,3 +73,41 @@ scale_colour_discrete <- function(...) scale_colour_manual(..., values = sensiti
 scale_fill_discrete <- function(...) scale_fill_manual(... , values = sensitivity_colors)
 
 options(dplyr.summarise.inform = FALSE)
+
+# ## # Load the raw data - Moved to R/get-raw-data.R
+# dat.file <- file.path(rootd.data,
+#                       "pcod-cache",
+#                       "pacific-cod.rds")
+#
+# if(!file.exists(dat.file)){
+#   gfdata::cache_pbs_data(species = "pacific cod",
+#                          path = file.path(rootd.data,
+#                                           "pcod-cache"),
+#                          survey_sets = TRUE,
+#                          unsorted_only = FALSE,
+#                          return_all_lengths = TRUE)
+# }
+# dat <- readRDS(dat.file)
+#
+# file.name <- here::here("data/generated/comm-samples-with-length-type.rds")
+#
+# if(!file.exists(file.name)){
+#   comsamp_newgfdata <- gfdata::get_commercial_samples("pacific cod",
+#                                                       unsorted_only = FALSE,
+#                                                       return_all_lengths = TRUE)
+#   saveRDS(comsamp_newgfdata,file.name)
+# }else{
+#   comsamp_newgfdata <- readRDS(file.name)
+# }
+#
+# # # Replace commercial_samples
+# dat$commercial_samples <- comsamp_newgfdata
+#
+# tac.file <- file.path(rootd.data,
+#                       "pcod-tac-1996-2021.csv")
+# tac <- read.csv(tac.file, header = TRUE)
+#
+# # Get the commercial mean weights once the data has been pulled
+# source(file.path(rootd.R, "get-mean-weight.R"))
+
+

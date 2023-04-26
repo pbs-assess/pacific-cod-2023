@@ -1,5 +1,5 @@
 # Pull raw data for Pacific Cod stocks from GFBio using gfdata package
-# This is sourced from pcod-wcvi-report-2022.Rmd
+# This is sourced from all.R
 
 ## # Load the raw data
 dat.file <- file.path(rootd.data,
