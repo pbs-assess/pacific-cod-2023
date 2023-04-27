@@ -10,9 +10,15 @@ Status update for WCVI Pacific Cod stock
 
 3. Make the iscam input files
 
-4. Run the seven models with the input files 
+The above three steps are all called in the function **get-iscam-inputs.R**
+
+Then:
+
+4. Run the seven models with the input files and drop the resulting folders into the models folder 
 
 5. Make the draft SR
+
+- knit index.Rmd
 
 6. Convene the TWG
 

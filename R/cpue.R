@@ -4,7 +4,7 @@ spp <- "pcod"
 if (params$era == "modern") {
   fi <- here::here("data/generated/cpue-modern.rds")
   if (!file.exists(fi)) {
-    d1996 <- gfplot::get_cpue_index(gear = "bottom trawl", min_cpue_year = 1996)
+    d1996 <- gfdata::get_cpue_index(gear = "bottom trawl", min_cpue_year = 1996)
     readr::write_rds(d1996, fi)
   } else {
     d1996 <- readr::read_rds(fi)
@@ -12,7 +12,7 @@ if (params$era == "modern") {
 } else {
   fi <- here::here("data/generated/cpue-historic.rds")
   if (!file.exists(fi)) {
-    d <- gfplot::get_cpue_historical(species = NULL, end_year = 1995,
+    d <- gfdata::get_cpue_historical(species = NULL, end_year = 1995,
       alt_year_start_date = "04-01")
     readr::write_rds(d, fi)
   } else {
