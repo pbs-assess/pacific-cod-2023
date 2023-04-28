@@ -117,34 +117,8 @@ readr::write_csv(allcatch, here("data/generated/all-commercial-catch.csv"))
 # 4. Commercial mean weights (copied from R/get-mean-weight.R)
 # Get the commercial mean weights once the data has been pulled
 source(file.path(rootd.R, "get-mean-weight.R"))
-source(file.path(rootd.R, "get-survey-mean-weight.R"))
+source(file.path(rootd.R, "get-mean-weight-survey.R"))
 
-d <- dat$commercial_samples
-include.usa = TRUE
-#prevMeanWeight <- read.csv(file.path(rootd.data, "MeanWeights_previous.csv"))
-
-## 3CD
-w3cd <- get.mean.weight(d,
-                         dat$catch,
-                         areas = "3[CD]+",
-                         include.usa = include.usa,
-                         a = .ALPHA3,
-                         b = .BETA3) %>%
-        dplyr::filter(year!=2017) %>%
-        mutate(area="3CD")
-
-## 5ABCD
-w5abcd <- get.mean.weight(d,
-                           dat$catch,
-                           areas = c("5[AB]+", "5[CD]+"),
-                           include.usa = include.usa,
-                           a = .ALPHA5,
-                           b = .BETA5)%>%
-          mutate(area="5ABCD")
-
-allmeanweight <- rbind(w3cd,w5abcd)
-
-readr::write_csv(allmeanweight, here("data/generated/all-commercial-mean-weight.csv"))
 
 
 

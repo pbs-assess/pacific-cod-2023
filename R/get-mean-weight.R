@@ -30,7 +30,7 @@ df3CD <- get.mean.weight(d,
                          include.usa = include.usa,
                          a = .ALPHA3,
                          b = .BETA3)
-write_csv(df3CD,file.path(resultsd,"AnnualMeanWeight_3CD.csv"))
+write_csv(df3CD,file.path(generatedd,"AnnualMeanWeight_3CD.csv"))
 
 
 #################################################################
@@ -45,6 +45,7 @@ ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
         axis.text=element_text(size=12),
         axis.title=element_text(size=14,face="bold")) +
   scale_x_continuous(breaks=seq(min(df$year),max(df$year),by=5)) +
+  theme_pbs()+
   labs(x= "Fishing Year", y = "Annual Mean Weight (Kg)", title="Area 3CD")
-ggsave(file.path(resultsd,"AnnualMeanWeight_3CD.png"), width=8, height=6, units="in")
+ggsave(file.path(generatedd,"AnnualMeanWeight_3CD.png"), width=8, height=6, units="in")
 
