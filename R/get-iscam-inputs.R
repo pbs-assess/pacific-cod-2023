@@ -1,13 +1,17 @@
 # Run this file to create the inputs needed for the iscam model
 # All generated outputs are put in the data/generated folder
+
 # Author: Robyn Forrest (RF), Pacific Biological Station April-May 2023
 # Based on previous assessments with code originally by RF, Sean Anderson (SA) and Chris Grandin (CG)
 
 # This script can stand alone
-library(lubridate)
 library(tidyverse)
 library(gfdata)
 library(gfplot)
+library(reshape2)
+library(lubridate)
+library(RColorBrewer)
+library(ggsci)
 library(here)
 
 french<-FALSE

@@ -1,4 +1,6 @@
-# This script is called by all.R
+# Code to get the annual commercial mean weight
+
+# This script is called by get-iscam-inputs.R
 
 #Length-weight parameters
 #coastwide
@@ -24,14 +26,22 @@ d <- dat$commercial_samples
 include.usa <- TRUE
 
 ## 3CD
+# remove 2017
+# From 2022 TWG report 1:
+# "In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were
+# taken in 2018, and only two samples were taken in 2019 (total 360 fish).
+# The 2017 mean weight value was anomalously high (3.024 kg) and was not used in the
+#2020 stock assessment update (DFO 2021)."
+
 df3CD <- get.mean.weight(d,
                          dat$catch,
                          areas = "3[CD]+",
                          include.usa = include.usa,
                          a = .ALPHA3,
-                         b = .BETA3)
-write_csv(df3CD,file.path(generatedd,"AnnualMeanWeight_3CD.csv"))
+                         b = .BETA3)%>%
+  dplyr::filter(year!=2017)
 
+write_csv(df3CD,file.path(generatedd,"commercial_mean_weight_3CD.csv"))
 
 #################################################################
 ## Plot results
