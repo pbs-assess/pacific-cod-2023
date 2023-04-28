@@ -57,5 +57,5 @@ ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
   scale_x_continuous(breaks=seq(min(df$year),max(df$year),by=5)) +
   theme_pbs()+
   labs(x= "Fishing Year", y = "Annual Mean Weight (Kg)", title="Area 3CD")
-ggsave(file.path(generatedd,"AnnualMeanWeight_3CD.png"), width=8, height=6, units="in")
+ggsave(file.path(generatedd,"commercial_mean_weight_3CD.png"), width=8, height=6, units="in")
 

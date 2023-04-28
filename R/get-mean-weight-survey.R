@@ -1,5 +1,5 @@
 # Code to get the annual mean weight in the survey. Try to mimic the commercial mean
-# weight code as much as possible
+#  weight code as much as possible
 
 # This script is called by get-iscam-inputs.R
 
@@ -80,9 +80,9 @@ survey_mw_raw <- lengthwt_raw %>%
   group_by(year) %>%
   summarize(survey_mw_raw=mean(weight_calc))
 
-# Write out all the mean weigh index observations
+# For the record, write out all the mean weight index observations
 # get commercial mean weight that was generated in get-mean-weight.R
-cmw <- readr::read_csv(here::here("data/generated/commercial_mean_weight_3CD.csv"))
+cmw <- read_csv(here::here("data/generated/commercial_mean_weight_3CD.csv"))
 allmw <- cmw %>%
  rename(commercial_mw = mean_weight) %>%
   filter(year>=Years[1]) %>%
@@ -143,151 +143,170 @@ g <- survey_mw_raw %>%
 ggsave(file.path(generatedd,paste0("Weighted_v_Raw_Weights_Survey",
                                AREA,".png")))
 
-
-
 # ########################################
-#   # Now fit a linear model to predict commercial mw from survey mw
-#   # Follow Sean's advice
-#   cmw <- readr::read_csv(here::here("data/generated/AnnualMeanWeight_3CD.csv"))
-#   cmw <- dplyr::filter(cmw, area == AREA) %>%
-#     rename(commercial_mw = mean_weight) %>%
-#     select(-area)
+# Now fit a linear model to predict commercial mw from survey mw
+# Follow Sean's advice
+
+# 1. pull the commercial mean weight index generated in get-mean-weight.R
+cmw <- readr::read_csv(here::here("data/generated/commercial_mean_weight_3CD.csv"))
+# get the 2019 value in case we need it again
+cmw2019 <- cmw %>%
+  filter(year %in% 2019)
+
+cmw <- cmw %>%
+  rename(comm_mean_weight=mean_weight) %>%
+  filter(!year %in% 2019) #remove 2019. It is based on 2 samples (n=360). Note is was used in the 2020 assessment, but probably shouldn't have been
+
+# 2. Join the commercial and survey mean weight indices into one df
+# filter for years > 2000:
+#   sample sizes really increased in 2001, see 2022 TWG_report.pdf appendix A
+if (TYPE == "weighted") {
+    dat1 <- survey_mw_weighted %>%
+      rename(survey_mean_weight = survey_mw_weighted) %>%
+      full_join(cmw) %>%
+      arrange(year) %>%
+      filter(year >= 2000)
+    # # View(dat1)
+ } else {
+    dat1 <- survey_mw_raw %>%
+      rename(survey_mean_weight = survey_mw_raw) %>%
+      full_join(cmw) %>%
+      arrange(year) %>%
+      filter(year >= 2000)
+    # View(dat1)
+ }
+
+# 3. Plot time series of the two indices for years since 2000
+Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size")
+
+ g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
+    filter(!is.na(value)) %>%
+    ggplot(aes(year, value, colour = name)) +
+    geom_vline(xintercept = 2000:2022, lty = 1, col = "grey80") +
+    geom_point(size=3.5) +
+    geom_line(size=1.4) +
+    theme_light()+
+    ylim(0,3)+
+    scale_color_aaas()+
+    theme(title = element_text(size=12, face="bold"))+
+    theme(axis.text.x = element_text(size=12))+
+    theme(axis.text.y = element_text(size=12))+
+    theme(axis.title.x = element_text(size=14))+
+    theme(axis.title.y = element_text(size=14))+
+    theme(legend.text = element_text(size=12))+
+    theme(legend.title = element_text(size=13))+
+    labs(title = Title, y = "Mean weight", x = "Year")
+  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
+                                 AREA,".png")))
+
+# 4. Plot the two indices against each other (log space)
+#    Note that the last pair of survey and commercial index values was in 2016
+#    No survey in 2017, 2019 or 2020. No commercial samples in 2018.
+
+r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
+
+ g <- ggplot(dat1, aes(log(survey_mean_weight), log(comm_mean_weight))) +
+    geom_point() +
+    stat_smooth(method = "lm", se = FALSE)+
+    ggrepel::geom_text_repel(aes(label = year), size = 4) +
+    geom_abline(intercept = 0, slope = 1) +
+    #coord_fixed(xlim = c(r[1], r[2]), ylim = c(r[1], r[2])) +
+    gfplot::theme_pbs()+
+    theme(title = element_text(size=12, face="bold"))+
+    theme(axis.text.x = element_text(size=12))+
+    theme(axis.text.y = element_text(size=12))+
+    theme(axis.title.x = element_text(size=14))+
+    theme(axis.title.y = element_text(size=14))+
+    theme(legend.text = element_text(size=12))+
+    theme(legend.title = element_text(size=13))+
+    ylim(0,1.2)+xlim(0,1.2)+
+    labs(title = paste(AREA, TYPE), x = "Ln survey mean weight", y = "Ln comm mean weight")
+  ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
+                                 AREA,".png")))
 #
-#   if (TYPE == "weighted") {
-#     dat1 <- Annual_mean_wt_weighted %>%
-#       rename(survey_mw = annual_mean_weight) %>%
-#       full_join(cmw) %>%
-#       arrange(year) %>%
-#       filter(year >= 2000)
-#     # # View(dat1)
-#   } else {
-#     dat1 <- Annual_mean_wt_raw %>%
-#       rename(survey_mw = annual_mean_weight) %>%
-#       full_join(cmw) %>%
-#       arrange(year) %>%
-#       filter(year >= 2000)
-#     # View(dat1)
-#   }
+# ####################################################
+# predict commercial mw from a glm
+nosurvyr <- c(2017,2019,2020)
+# 1. Fit glm
+GLM <- glm(comm_mean_weight ~ log(survey_mean_weight),
+             family = Gamma(link = "log"),
+             data = dat1)
+summary(GLM)
+
+# 2. set up a new df for the predictions and predict comm mean weight from
+# survey mean weight for 2018, 2021 and 2022
+newdata <- dat1 %>%
+    dplyr::filter(!is.na(survey_mean_weight)) %>%
+    as.data.frame()
 #
-#   g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
-#     filter(!is.na(value)) %>%
-#     ggplot(aes(year, value, colour = name)) +
-#     geom_vline(xintercept = 2000:2022, lty = 1, col = "grey80") +
-#     geom_point(size=1.4) +
-#     geom_line(size=1.4) +
-#     ggtitle(paste(AREA, TYPE))+
-#     theme_light()+
-#     ylim(0,3.2)+
-#     #scale_colour_brewer(palette = "Dark2")+
-#     #scale_color_aaas()+
-#     scale_colour_viridis_d()+
-#     theme(title = element_text(size=12, face="bold"))+
-#     theme(axis.text.x = element_text(size=12))+
-#     theme(axis.text.y = element_text(size=12))+
-#     theme(axis.title.x = element_text(size=14))+
-#     theme(axis.title.y = element_text(size=14))+
-#     theme(legend.text = element_text(size=12))+
-#     theme(legend.title = element_text(size=13))+
-#     labs(title = paste(AREA), y = "Mean weight", x = "Year")
-#   ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
-#                                  AREA,".png")))
+pred_commercial_mean_weight <- predict(GLM, newdata, type="response")
 #
-#   r <- range(log(c(dat1$survey_mw, dat1$commercial_mw)), na.rm = TRUE)
-#
-#   g <- ggplot(dat1, aes(log(survey_mw), log(commercial_mw))) +
-#     geom_point() +
-#     stat_smooth(method = "lm", se = FALSE)+
-#     ggrepel::geom_text_repel(aes(label = year), size = 4) +
-#     geom_abline(intercept = 0, slope = 1) +
-#     #coord_fixed(xlim = c(r[1], r[2]), ylim = c(r[1], r[2])) +
-#     ggtitle(paste(AREA, TYPE))+
-#     gfplot::theme_pbs()+
-#     theme(title = element_text(size=12, face="bold"))+
-#     theme(axis.text.x = element_text(size=12))+
-#     theme(axis.text.y = element_text(size=12))+
-#     theme(axis.title.x = element_text(size=14))+
-#     theme(axis.title.y = element_text(size=14))+
-#     theme(legend.text = element_text(size=12))+
-#     theme(legend.title = element_text(size=13))+
-#     ylim(0,1.2)+xlim(0,1.2)+
-#     labs(title = paste(AREA), x = "Ln survey mean weight", y = "Ln comm mean weight")
-#   ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
-#                                  AREA,".png")))
-#
-#   ####################################################
-#   # predict commercial mw from regression
-#   nosurvyr <- c(2017,2019,2020)
-#
-#   GLM <- glm(commercial_mw ~ log(survey_mw),
-#              family = Gamma(link = "log"),
-#              data = dat1)
-#   summary(GLM)
-#
-#   newdata <- dat1 %>%
-#     dplyr::filter(!is.na(survey_mw)) %>%
-#     as.data.frame()
-#
-#   pred_commercial_mw <- predict(GLM, newdata, type="response")
-#
-#   comparedata <- newdata %>%
-#     cbind(pred_commercial_mw)
-#
-#   comparedata_allyrs  <-
-#     rbind(cbind(nosurvyr,
-#                 rep(NA,length(nosurvyr)),
-#                 rep(NA,length(nosurvyr)),
-#                 rep(NA,length(nosurvyr)))) %>%
-#     `colnames<-`(colnames(comparedata)) %>%
-#     rbind(comparedata) %>%
-#     arrange(year)
-#
+comparedata <- newdata %>%
+    cbind(pred_commercial_mean_weight)
+
+# put back the years with no survey data
+comparedata_allyrs  <-
+    rbind(cbind(nosurvyr,
+                rep(NA,length(nosurvyr)),
+                rep(NA,length(nosurvyr)),
+                rep(NA,length(nosurvyr)))) %>%
+    `colnames<-`(colnames(comparedata)) %>%
+    rbind(comparedata) %>%
+    arrange(year)
+
 #   # put back the observed commercial mean weights for years with no survey
 #   comparedata_allyrs[which(comparedata_allyrs$year==2019),3] <- cmw[which(cmw$year==2019),2]
-#
-#   g1 <- comparedata_allyrs %>%
-#     melt(id.vars="year", variable.name="Obs_vs_Pred", value.name="commercial_mw") %>%
-#     ggplot()+
-#     geom_point(aes(x=year, y=commercial_mw, colour=Obs_vs_Pred), size=2.5)+
-#     geom_line(aes(x=year, y=commercial_mw, colour=Obs_vs_Pred), lwd=1, lty=1)+
-#     theme_light()+
-#     #scale_colour_brewer(palette = "Dark2")+
-#     #scale_colour_viridis_d()+
-#     scale_color_aaas()+
-#     theme(title = element_text(size=12, face="bold"))+
-#     theme(axis.text.x = element_text(size=10))+
-#     theme(axis.text.y = element_text(size=12))+
-#     theme(axis.title.x = element_text(size=14))+
-#     theme(axis.title.y = element_text(size=14))+
-#     theme(legend.text = element_text(size=12))+
-#     theme(legend.title = element_text(size=13))+
-#     theme(legend.position = "right")+
-#     ylim(0,3.5)+
-#     scale_x_continuous(breaks=seq(min(comparedata_allyrs$year),max(comparedata_allyrs$year), by=2))+
-#     labs(title = paste(AREA), y = "Mean weight", x = "Year")
-#   #g1
-#   ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
-#                                  AREA,".png")))
-#
-#   # Now need to interpolate for years with no survey data
-#   # Only need to do this for years without comm samples
-#   comparedata_interpolate <- comparedata_allyrs %>%
-#     select(year,pred_commercial_mw)
-#
-#   # NOW interpolate values between 2018 and 2020 for updating the model files
-#     # Interpolate between 2018 and 2021
-#     interpolate <- comparedata_interpolate %>%
-#       filter(year%in%2018:2021) %>%
-#       approx(xout=2019:2020)
-#     #Add interpolated value to dataframe
-#     comparedata_interpolate[which(comparedata_interpolate$year %in% 2019:2020),2]<-interpolate$y
-#
-#   # write out the values
-#   readr::write_csv(comparedata_allyrs,
-#             file.path(generatedd,paste0("Comm_v_Survey_Weights_",
-#             AREA,"_all_compare.csv")))
-#
-#   readr::write_csv(comparedata_interpolate,
-#                    file.path(generatedd,paste0("Pred_comm_weight_with_interpolation_",
-#                                            AREA,".csv")))
-#
-#
+
+  g1 <- comparedata_allyrs %>%
+    melt(id.vars="year", variable.name="Obs_vs_Pred", value.name="commercial_mean_weight") %>%
+    ggplot()+
+    geom_point(aes(x=year, y=commercial_mean_weight, colour=Obs_vs_Pred), size=2.5)+
+    geom_line(aes(x=year, y=commercial_mean_weight, colour=Obs_vs_Pred), lwd=1, lty=1)+
+    theme_light()+
+    scale_color_aaas()+
+    theme(title = element_text(size=12, face="bold"))+
+    theme(axis.text.x = element_text(size=10))+
+    theme(axis.text.y = element_text(size=12))+
+    theme(axis.title.x = element_text(size=14))+
+    theme(axis.title.y = element_text(size=14))+
+    theme(legend.text = element_text(size=12))+
+    theme(legend.title = element_text(size=13))+
+    theme(legend.position = "right")+
+    ylim(0,3.5)+
+    scale_x_continuous(breaks=seq(min(comparedata_allyrs$year),max(comparedata_allyrs$year), by=2))+
+    labs(title = paste(AREA, TYPE), y = "Mean weight", x = "Year")
+  g1
+  ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
+                                 AREA,".png")))
+
+
+# Now need to interpolate for years with no survey data
+  # Only need to do this for years without comm samples
+  # MAY OR MAY NOT CHOOSE TO USE THESE VALUES: RUN MODELS WITH AND WITHOUT INTERPOLATION
+  pred_mean_weight_no_interpolate <- comparedata_allyrs %>%
+    select(year,pred_commercial_mean_weight)
+  pred_mean_weight_interpolate <- comparedata_allyrs %>%
+    select(year,pred_commercial_mean_weight)
+
+# Interpolate values between 2018 and 2020 for updating the model files
+    # Interpolate between 2018 and 2021
+    interpolate <- pred_mean_weight_interpolate %>%
+      filter(year%in%2018:2021) %>%
+      approx(xout=2019:2020)
+
+    #Add interpolated value to dataframe
+    pred_mean_weight_interpolate[which(pred_mean_weight_interpolate$year %in% 2019:2020),2]<-interpolate$y
+
+# write out the values
+  write_csv(comparedata_allyrs,
+           file.path(generatedd,paste0("Comm_v_Survey_Weights_",
+           AREA,"_all_compare.csv")))
+
+  write_csv(pred_mean_weight_interpolate,
+                    file.path(generatedd,paste0("Pred_comm_weight_with_interpolation_",
+                                            AREA,".csv")))
+  write_csv(pred_mean_weight_no_interpolate,
+            file.path(generatedd,paste0("Pred_comm_weight_without_interpolation_",
+                                        AREA,".csv")))
+
+
