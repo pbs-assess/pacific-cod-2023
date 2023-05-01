@@ -268,7 +268,7 @@ comparedata_allyrs  <-
                                  AREA,".png")))
 
 # bayesian posterior predictions?
-  if (FALSE) {
+  if (TRUE) {
 
     library(brms)
     fit <- brm(

@@ -1,0 +1,331 @@
+---
+title: "DRAFT. Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island in 2023"
+author: "Robyn Forrest and Sean Anderson"
+date: "May 1 2023"
+link-citations: true
+bibliography: bib/refs.bib
+csl: csl/csas.csl 
+documentclass: article
+geometry: margin=2.3cm
+output:
+  bookdown::pdf_document2:
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+---
+
+```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.path = "knitr-figs/",
+  cache.path = if (knitr:::is_latex_output()) "knitr-cache-tex/" else "knitr-cache-docx/",
+  fig.asp = 0.618,
+  fig.width = 6.5,
+  out.width = "5in",
+  echo = FALSE,
+  autodep = TRUE,
+  cache = TRUE,
+  cache.comments = FALSE,
+  dev = if (knitr:::is_latex_output()) "pdf" else "png",
+  dpi = 200,
+  fig.align = "center",
+  fig.pos = "htb"
+)
+french <- FALSE
+source(file.path(here::here(), "R", "all.R")) #Loading the data is in this file (or pulling it from GFBio if it doesn't exist yet)
+
+```
+
+```{r custom-vars, cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
+#NOTE. if adding sensitivity models need to modify load.models.into.parent.env()
+# in model-setup.R (as well as path names to sensitivity folders)
+build(ovwrt.base = FALSE,
+      ovwrt.sens = FALSE,
+      ovwrt.retro = FALSE,
+      burnin = 1000,
+      thin = 1)
+
+load.models.into.parent.env()
+
+source(file.path(rootd.R, "custom-knitr-variables.R")) # Making catch data objects is in this file
+```
+
+```{r setup-tables, cache=FALSE, echo=FALSE}
+if(!knitr:::is_latex_output())
+  options(knitr.table.format = "pandoc")
+```
+
+\clearpage
+
+# Context
+
+ALL TEXT TO BE UPDATED
+
+XXX
+
+We use the survey mean weight index to predict the commercial mean weight index so that we can have a continuous mean weight index, which represents the size of fish in the fishery, for the entire model period, beginning in 1956.
+
+# Methods
+
+For Area 3CD only, we took the following steps:
+
+Step 1. Develop a survey mean weight index;
+
+Step 2. Use a generalized linear regression model (GLM) with a log link to predict commercial mean weight from survey mean weight;
+
+Step 3. Update model data files with predicted commercial mean weight index values for 2018-2022, noting that predicted commercial mean weight index values will only be available for years in which there was a survey. Make alternative data files, with and without interpolation between years with predictions.
+
+Step 4. Run the models and evaluate sensitivity of model results to the updated commercial mean weight indices.
+
+## Step 1. Survey mean weight index
+
+We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight. For the survey, we replaced weighting by sequential quarter with weighting by depth stratum.
+
+The calculation of the survey annual mean weight index was done in the following steps. For simplicity, we have dropped year subscripts. Note that for Area 5ABCD, data from the QCS and HS surveys were pooled.
+
+1. For each specimen $i$, in each Sample ID $j$, in each depth stratum $s$, convert individual length ($L_{i,j,s}$)  to weight ($W_{i,j,s}$):
+
+\begin{equation}
+{W_{i,j,s}} = \alpha{L_{i,j,s}}^{\beta}
+\end{equation}
+
+where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")` for Area 3CD, and `r paste0("$\\alpha = ", .ALPHA, "$")` and `r paste0("$\\beta = ", .BETA, "$")` for Area 5ABCD.
+
+2. Calculate the mean weight ($W_j$) in each sample ID $j$, in each depth stratum $s$:
+
+\begin{equation}
+  {W_{j,s}} =  \frac{\sum\limits_{i=1}^{N_{j,s}}{{w_{i,j,s}}}}{{N_{j,s}}}
+\end{equation}
+
+where $N_{j,s}$ is the number of weights $W_{i,j,s}$ in sample ID $j$ and depth stratum $s$.
+
+3. Calculate the mean weight ($W_s$) for each depth stratum $s$, weighted by the sample weights $S$:
+
+\begin{equation}
+{W_s} = \frac{{\sum\limits_{j=1}^{{N_s}} {{W_{j,s}S_{j,s}}}}}{{\sum\limits_{j=1}^{{N_s}} {{S_{j,s}}}}}
+\end{equation}
+
+where $N_s$ is the number of samples in depth stratum $s$.
+
+4. Calculate the annual survey mean weight ($W$), weighted by the catch $C_s$ in each stratum $s$:
+
+\begin{equation}
+{W} = \frac{{\sum\limits_{s=1}^{{K}} {{W_sC_s}}}}{{\sum\limits_{s=1}^{{K}} {{C_s}}}}
+\end{equation}
+
+where $K$ is the number of depth strata surveyed in that year.
+
+## Step 2. Generalized linear regression model
+
+We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to log survey mean weights ($W_t$) from Step 1:
+
+\begin{align}
+{y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
+\log(\mu_t) = \beta_0 + \beta_1 \log(W_t) 
+\end{align}
+
+where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
+
+Using the `predict` function in R, we then used the model to predict commercial mean weights from survey mean weights. Note that we included the 2021 survey indices for both areas in the regression model.
+
+## Steps 3 and 4. Update model data files and run models
+
+We used the predicted commercial mean weights to update the commercial mean weight index for the years 2018-2022. For all other years, we updated the commercial mean weight data using the same code as was used in the 2020 Reference Case model. 
+
+*TODO: Summarise sampling effort (see Appendix A of first 2022 TWG report)*
+
+We note that commercial mean weights are only predicted from the GLM for years when there was a survey. There are therefore gaps in the predicted commercial mean weight index for 2019 and 2020. There was a WCVI survey in 2018, but no survey in 2020. Therefore, for the 2018-2020 period of interest, there was only a *predicted* commercial mean weight index point in 2018. We ran two alternative scenarios. **Scenario 1:** values for 2019 and 2020 were obtained by linear interpolation between the 2018 and 2021 predicted values; and **Scenario 2:** we used only the 2018 value. We used the `approx` function in R for the linear interpolation, in natural space.
+
+*TODO: Note about 2017*
+
+The joint posterior distribution for the stock assessment model was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. Posterior samples were drawn every XX iterations from a chain of length XX, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
+
+# Results
+
+## Step 1. Survey mean weight index
+
+Specimen weights were calculated from length data and length weight parameters using Equation 1. Specimen weights were also measured directly on the surveys. We chose to use the calculated weights, as this resulted in more samples, and using the directly-measured weights resulted in some depth strata without specimen weights. The relationship between measured and calculated weights was approximately linear (Figures \@ref(fig:fig-meas-vs-calc-weights-3cd) and \@ref(fig:fig-meas-vs-calc-weights-5abcd)).
+
+Comparison between the survey mean weight index, calculated from Equation 4, and the observed commercial mean weight index is shown in Figures \@ref(fig:fig-comm-vs-survey-weights-3cd) and \@ref(fig:fig-comm-vs-survey-weights-3cd-2) for Area 3CD and in Figures \@ref(fig:fig-comm-vs-survey-weights-5abcd) and \@ref(fig:fig-comm-vs-survey-weights-5abcd-2) for Area 5ABCD. 
+
+## Step 2. Generalized linear regression model
+
+For Area 3CD, the predicted commercial mean weight index (Equations 5 and 6) closely tracked the WCVI survey mean weight index (Figure \@ref(fig:all-mean-weight-series-3cd), yellow and purple series). It also tracked the observed commercial mean weight index until 2016 (Figure \@ref(fig:all-mean-weight-series-3cd), green series). After 2016, there is a mismatch in timing between the survey and commercial mean weight index. Survey data were collected in 2018 but no commercial samples were collected. There was no scheduled survey in 2019 but there were commercial samples. There was no survey or commercial sampling in 2020, due to the COVID-19 pandemic.
+
+For Area 5ABCD, the predicted commercial mean weight index (Figure \@ref(fig:all-mean-weight-series-5abcd), yellow series) loosely followed the observed survey and commercial mean weight series (Figure \@ref(fig:all-mean-weight-series-5abcd), purple and green series) but did not capture the scale of interannual variation in the observed series.
+
+## Steps 3 and 4. Update model data files and run models
+
+Commercial mean weight values used in the model scenarios are provided in Tables \@ref(tab:tab-mean-weight-recent-3cd) and \@ref(tab:tab-mean-weight-recent-5abcd). 
+
+### Area 3CD
+
+Maximum posterior density (MPD) model fits to the commercial mean weight index from the Reference Case model and Scenarios 1 and 2 are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc2). As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor, with the models tending to underestimate observed mean weight, especially in the earlier part of the time series. 
+
+Posterior biomass estimates from the Reference Case model are shown in Figure \@ref(fig:fig-model-ref-biomass-3cd). Compared to this model, Scenarios 1 and 2 resulted in reduced estimates of biomass for 2019-2020 and a reduced 2021 forecast (Table \@ref(tab:tab-est-biomass-3cd); Figure \@ref(fig:fig-sens-biomass-3cd)). The percentage change for the median 2021 forecast biomass ranged from -24.5% in Scenario 1 to -15.8% in Scenario 2 (Table \@ref(tab:tab-est-biomass-3cd-per)). Median posterior estimates of recruitment were much lower in 2019-2020 in Scenarios 1 and 2 compared to the Reference Case, with the percentage change ranging from -53.9% in Scenario 1 to -27.8% in Scenario 2 (Table \@ref(tab:tab-est-recruit-3cd); Figure \@ref(fig:fig-sens-recr-3cd)). We note that biases were larger in Scenario 1, where interpolation was applied, than in Scenario 2, where it was not.
+
+The lower estimates of 2019-2020 recruitment in Scenarios 1 and 2, compared to the Reference Case model, especially in Scenario 1, are mostly likely driven by the higher mean weights in 2018-2020 (Table \@ref(tab:tab-mean-weight-recent-3cd)), which would imply fewer small fish in the catch, all other things equal. 
+
+Clearly from Tables \@ref(tab:tab-est-biomass-3cd-per) and \@ref(tab:tab-est-recruit-3cd), recruitment estimates are more strongly influenced by the mean weight index than biomass estimates, which are more directly influenced by catch and indices of abundance. However, given the short lifespan of Pacific cod in BC (~10-11 years) and the assumed early age of maturity in the models (2 years), changes in estimates of recruitment are expected to impact estimates of biomass relatively quickly.  
+
+
+# Conclusions and recommendations
+
+We were able to derive a catch-weighted survey mean weight index for each area. We were able to derive a predicted commercial mean weight index from the survey mean weight index. The survey mean weight index was a better predictor of the commercial mean weight index in Area 3CD, compared to Area 5ABCD.
+
+The effects of the two alternative treatments in each area were stronger for Area 3CD than for Area 5ABCD, especially for recruitment. This was because the last observed 2019 mean weight index value used in the Reference Case model was much lower (~0.5-1.0 kg lower) than the values used for 2018-2020 in Scenarios 1 and 2. The larger perceived bias in Area 3CD should be considered in light of the fact that the 2019 and 2020 commercial mean weight values used in the 2020 Reference Case model were based on only two samples. Given the apparent strong relationship between the survey and fishery prior to 2016 (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd)), the predicted commercial mean weight index may represent more realistic values.
+
+The results of this exercise highlight obvious differences in selectivity between the commercial fishery and synoptic surveys, especially in Area 5ABCD, where the survey catches much smaller fish. This represents a violation of the assumptions of the delay-difference model, which assumes knife-edged selectivity in both the survey and fishery. However, violation of this assumption is probably less consequential than the assumption of the same knife-edged maturity. As long as the relative selectivities in the survey and fishery remain approximately constant, calibration exercises such as this may be an acceptable approach to continue the time series of the commercial mean weight index, although this should be evaluated through simulation-testing. 
+
+It should also be acknowledged that the surveys are biennial. Simple linear interpolation may be applied to fill in missing values, although we note that biases were larger in both areas when interpolation was applied.
+
+The decision point at this juncture is whether to proceed with a 2022 assessment update for Pacific Cod. The following considerations will inform this decision:
+
+1. Whether development of the survey mean weight indices and the predicted commercial mean weight indices requires more work, including possible simulation-testing, especially given the poorer fit for Area 5ABCD;
+
+2. If no to (1), whether the work presented here requires full peer review through CSAS;
+
+3. Whether further work is needed on the assessment itself (e.g., development of a recruitment index, consideration of other models);
+
+4. Knowledge that the 2022 WCVI survey data will not be available until Fall 2022; and
+
+5. Availability of Science staff, given time already spent on this exercise.
+
+\clearpage
+
+# References {-}
+
+<!-- This allows appendices to appear after the references -->
+<div id="refs"></div>
+
+\clearpage
+
+# Tables
+
+```{r tab-mean-weight-recent-3cd, results='asis'}
+mw.table(c(base.model.3cd, 
+           sens.models.11), 
+         c(base.model.3cd.name, 
+           sens.models.name.11), 
+         years=2010:2022,
+         area="3CD",
+         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018.")
+
+```
+
+\clearpage
+
+```{r tab-est-biomass-3cd, results='asis'}
+make.value.table.compare(c(base.model.3cd, 
+                           sens.models.11), 
+                 c(base.model.3cd.name, 
+                   sens.models.name.11), 
+                 years=2010:2022,
+                 type= 1,
+                 mpdmed="med",
+                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
+
+```
+
+```{r tab-est-biomass-3cd-per, results='asis'}
+make.value.table.compare(c(base.model.3cd, 
+                           sens.models.11), 
+                 c(base.model.3cd.name, 
+                   sens.models.name.11), 
+                 years=2010:2022,
+                 type= 1,
+                 mpdmed="med",
+                 caption = "Comparison of percentage difference in median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
+                 percent=TRUE)
+
+```
+
+\clearpage
+
+```{r tab-est-recruit-3cd, results='asis'}
+make.value.table.compare(c(base.model.3cd, 
+                           sens.models.11), 
+                 c(base.model.3cd.name, 
+                   sens.models.name.11),
+                 years=2010:2020,
+                 type= 2,
+                 mpdmed="med",
+                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
+                 percent=TRUE)
+
+```
+
+\clearpage
+
+# Figures
+
+```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata, Area 3CD", out.width="4in"}
+knitr::include_graphics(here::here("report/figures/3cd/Measured_v_Calc_weights_3CD.png"))
+
+```
+
+\clearpage
+
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index, Area 3CD", out.width="4in"}
+knitr::include_graphics(here::here("report/figures/3cd/Comm_v_Survey_weights_3CD.png"))
+
+```
+
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index, Area 3CD. The blue line shows linear fit.", out.width="4in"}
+knitr::include_graphics(here::here("report/figures/3cd/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
+
+```
+
+\clearpage
+
+```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (purple), observed commercial mean weight index (green), predicted mean weight index (yellow), Area 3CD.", out.width="4in"}
+knitr::include_graphics(here::here("report/figures/3cd/Compare_obs_v_predicted_3CD.png"))
+```
+
+\clearpage
+
+```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data for Area 3CD."}
+plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+          mw.compare.plot(base.model.3cd[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc1, fig.cap="Scenario 1 model MPD fit to the mean weight data for Area 3CD."}
+plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+          mw.compare.plot(sens.models.11[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data for Area 3CD."}
+plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+          mw.compare.plot(sens.models.11[[2]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+```{r fig-model-ref-biomass-3cd, fig.cap="Posterior biomass for the Reference Case model for Area 3CD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
+b.plot(base.model.3cd,
+       base.model.3cd.name,
+       depl = FALSE,
+       add.hist.ref = TRUE,
+       lrp = c(1986, 1986),
+       usr = c(1956, 2004), french=french)
+```
+
+\clearpage
+
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
+b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+```
+
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
+r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+```
+
