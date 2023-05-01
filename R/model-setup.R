@@ -35,7 +35,7 @@ if(verbose) cat0("Assessment year: \n  ", assess.yr)
 ## -----------------------------------------------------------------------------
 ## Year for last assessment - default is current year - 1
 ## -----------------------------------------------------------------------------
-last.assess.yr <- 2022
+last.assess.yr <- 2021
 if(verbose) cat0("Last assessment year: \n  ", last.assess.yr)
 
 ## -----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ if(verbose){
 
 ## The last non-forecast year in the model. This is the year for which the
 ## mcmc outputs will be used in reference point calculations.
-end.yr <- 2024
+end.yr <- 2022
 if(verbose){
   cat0("End year for model: \n  ", end.yr)
 }
@@ -97,6 +97,14 @@ if(verbose){
   cat0("Base model directory name for reference model 3cd:\n", base.model.3cd.dir.name)
   cat0("Base model pretty name for reference model 3cd:\n", base.model.3cd.name)
 }
+
+## -----------------------------------------------------------------------------
+## Sensitivity models group 11 (3CD) - individual imputation iterations
+## -----------------------------------------------------------------------------
+sens.models.dir.name.11 <- c(file.path(model.dir,
+                                       "1_1b_3CD_BASE_2023__no_interp"))
+
+sens.models.name.11 <- c("Sc. 2 no interpolation")
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (5ABCD)
@@ -323,27 +331,27 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)
 ## -----------------------------------------------------------------------------
-desc.models.3cd.dir.name <- c(base.model.3cd.dir.name,
-                              file.path(model.dir,
-                                        "1_2d_3CD_q_1"),
-                              file.path(model.dir,
-                                        "1_2e_3CD_q_cv06"),
-                              file.path(model.dir,
-                                        "1_3a_3CD_Mprior_mean04_sd01"),
-                              file.path(model.dir,
-                                        "1_5a_3CD_kage3"),
-                              file.path(model.dir,
-                                        "1_6b_3CD_sig015"),
-                              file.path(model.dir,
-                                        "1_7b_3CD_sigW015"))
-
-desc.models.3cd.name <- c(base.model.3cd.name,
-                          ifelse(french, "Sc 2d.", "2d) WCVISS ln(q) prior mean = ln(1.0)"),
-                          ifelse(french, "Sc 2e.", "2e) WCVISS ln(q) prior SD = 0.6"),
-                          ifelse(french, "Sc 3a.", "3a) M prior mean = 0.4, SD = 0.1"),
-                          ifelse(french, "Sc 5a.", "5a) kage = 3y and update FW parameters"),
-                          ifelse(french, "Sc 6b.", "6b) Fix sigma O = 0.15"),
-                          ifelse(french, "Sc 7b.", "7b) Fix sigma W = 0.15"))
+# desc.models.3cd.dir.name <- c(base.model.3cd.dir.name,
+#                               file.path(model.dir,
+#                                         "1_2d_3CD_q_1"),
+#                               file.path(model.dir,
+#                                         "1_2e_3CD_q_cv06"),
+#                               file.path(model.dir,
+#                                         "1_3a_3CD_Mprior_mean04_sd01"),
+#                               file.path(model.dir,
+#                                         "1_5a_3CD_kage3"),
+#                               file.path(model.dir,
+#                                         "1_6b_3CD_sig015"),
+#                               file.path(model.dir,
+#                                         "1_7b_3CD_sigW015"))
+#
+# desc.models.3cd.name <- c(base.model.3cd.name,
+#                           ifelse(french, "Sc 2d.", "2d) WCVISS ln(q) prior mean = ln(1.0)"),
+#                           ifelse(french, "Sc 2e.", "2e) WCVISS ln(q) prior SD = 0.6"),
+#                           ifelse(french, "Sc 3a.", "3a) M prior mean = 0.4, SD = 0.1"),
+#                           ifelse(french, "Sc 5a.", "5a) kage = 3y and update FW parameters"),
+#                           ifelse(french, "Sc 6b.", "6b) Fix sigma O = 0.15"),
+#                           ifelse(french, "Sc 7b.", "7b) Fix sigma W = 0.15"))
 
 ## -----------------------------------------------------------------------------
 ## Sensitivity models group 00 (3CD)
@@ -598,8 +606,8 @@ load.models.into.parent.env <- function(){
   # sens.models.108 <<- load.models(sens.models.dir.name.108)
 
   base.model.3cd <<- load.models(base.model.3cd.dir.name)
-  desc.models.3cd <<- load.models(desc.models.3cd.dir.name)
-  avg.model.3cd <<- avg.models(desc.models.3cd)
+  sens.models.11 <<- load.models(sens.models.dir.name.11)
+  #avg.model.3cd <<- avg.models(desc.models.3cd)
   # sens.models.00 <<- load.models(sens.models.dir.name.00)
   # sens.models.8.sub <<- load.models(sens.models.dir.name.8.sub)
   # sens.models.8.sub2 <<- load.models(sens.models.dir.name.8.sub2)
@@ -610,7 +618,7 @@ load.models.into.parent.env <- function(){
   # sens.models.11 <<- load.models(sens.models.dir.name.11)
   # sens.models.12 <<- load.models(sens.models.dir.name.12)
   # sens.models.13 <<- load.models(sens.models.dir.name.13)
-  sens.models.13.sub <<- load.models(sens.models.dir.name.13.sub)
+  # sens.models.13.sub <<- load.models(sens.models.dir.name.13.sub) # model av
   # sens.models.14 <<- load.models(sens.models.dir.name.14)
   # sens.models.15 <<- load.models(sens.models.dir.name.15)
 
@@ -634,14 +642,14 @@ build <- function(ovwrt.base = FALSE,
   ## ovwrt.retro - overwrite the RData files for the retrospective models?
 
   ## Base models
-  create.rdata.file(base.model.5abcd.dir.name,
-                    ovwrt.rdata = ovwrt.base,
-                    load.proj = TRUE,
-                    burnin = burnin,
-                    thin = thin,
-                    low = confidence.vals[1],
-                    high = confidence.vals[2],
-                    verbose = ss.verbose)
+  # create.rdata.file(base.model.5abcd.dir.name,
+  #                   ovwrt.rdata = ovwrt.base,
+  #                   load.proj = TRUE,
+  #                   burnin = burnin,
+  #                   thin = thin,
+  #                   low = confidence.vals[1],
+  #                   high = confidence.vals[2],
+  #                   verbose = ss.verbose)
   create.rdata.file(base.model.3cd.dir.name,
                     ovwrt.rdata = ovwrt.base,
                     load.proj = TRUE,
@@ -698,3 +706,4 @@ build <- function(ovwrt.base = FALSE,
   #                     verbose = verbose)
   # }
 }
+

@@ -23,6 +23,7 @@ library(PBSmodelling)
 library(xtable)
 library(tidyverse)
 library(RColorBrewer)
+library(ggsci)
 library(kableExtra)
 library(png)
 library(leaflet)
@@ -38,6 +39,7 @@ rootd.index <- file.path(rootd, "index")
 rootd.models <- file.path(rootd, "models")
 rootd.pres <- file.path(rootd, "presentations")
 generatedd <- file.path(rootd.data, "generated")
+resultsd <- file.path(rootd.data, "results")
 
 if(!dir.exists(rootd.data)) dir.create(rootd.data)
 if(!dir.exists(rootd.index)) dir.create(rootd.index)
@@ -67,11 +69,12 @@ source(file.path(rootd.R, "get-data-functions.R"))
 source(file.path(rootd.R, "cpue-functions.R"))
 source(file.path(rootd.R, "tables-mean-weight.R"))
 
-# Get the data
+# Get the data - this should already have been run by get-iscam-inputs.R
+# It should read the file that was sourced for making the model dat files
 source(file.path(rootd.R, "get-raw-data.R"))
 # Get the commercial mean weights once the data has been pulled
 source(file.path(rootd.R, "get-mean-weight.R"))
-source(file.path(rootd.R, "get-survey-mean-weight.R"))
+source(file.path(rootd.R, "get-mean-weight-survey.R"))
 
 ## ggplot globals for project
 ggplot2::theme_set(gfplot::theme_pbs())
