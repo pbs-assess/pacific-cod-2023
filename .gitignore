@@ -2,12 +2,8 @@
 data/pcod-cache/*
 .RData
 .RHistory
-.Rproj.user
-.Rhistory
-.RData
 .Ruserdata
 .Rapp.history
-*.Rproj
 *.pdf
 *.png
 *.rds
