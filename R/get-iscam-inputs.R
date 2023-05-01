@@ -78,8 +78,9 @@ cpue_pred_modern <- predictions
 arith_cpue_modern <- arith_cpue
 m_modern <- readRDS(here::here("data/generated/cpue-models-pcod-modern.rds"))
 
-readr::write_csv(cpue_pred_modern, here::here("data/generated/cpue-predictions-modern.csv"))
-readr::write_csv(cpue_pred_hist, here::here("data/generated/cpue-predictions-historical.csv"))
+#don't need to write these out. The R/cpue.R script already does it
+#readr::write_csv(cpue_pred_modern, here::here("data/generated/cpue-predictions-modern.csv"))
+#readr::write_csv(cpue_pred_hist, here::here("data/generated/cpue-predictions-historical.csv"))
 
 #=================================================================================
 # 3. Catch data
