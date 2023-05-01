@@ -50,6 +50,8 @@ write_csv(df3CD,file.path(generatedd,"commercial_mean_weight_3CD.csv"))
 df <- df3CD
 ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
   geom_line(lwd=1, colour=2) +
+  geom_point(aes(size = n_samples), pch = 21) +
+  scale_size_area(name = "Sampling events") +
   ylim(0,1.1*max(df$mean_weight)) +
   theme(plot.title=element_text(size=14,face="bold",hjust=0.5),
         axis.text=element_text(size=12),
@@ -57,5 +59,4 @@ ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
   scale_x_continuous(breaks=seq(min(df$year),max(df$year),by=5)) +
   theme_pbs()+
   labs(x= "Fishing Year", y = "Annual Mean Weight (Kg)", title="Area 3CD")
-ggsave(file.path(generatedd,"commercial_mean_weight_3CD.png"), width=8, height=6, units="in")
-
+ggsave(file.path(generatedd,"commercial_mean_weight_3CD.png"), width=8, height=6)

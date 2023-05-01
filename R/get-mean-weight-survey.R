@@ -19,6 +19,16 @@ AREA <- "3CD"
 print(AREA)
 Years <- 2004:2022
 
+mytheme <- gfplot::theme_pbs() +
+  theme(title = element_text(size=12, face="bold"))+
+  theme(axis.text.x = element_text(size=12))+
+  theme(axis.text.y = element_text(size=12))+
+  theme(axis.title.x = element_text(size=14))+
+  theme(axis.title.y = element_text(size=14))+
+  theme(legend.text = element_text(size=12))+
+  theme(legend.title = element_text(size=13))
+theme_set(mytheme)
+
 TYPE <- "weighted"
 # TYPE <- "raw"
 
@@ -94,6 +104,8 @@ allmw <- cmw %>%
 missing_years <- Years[!Years %in% allmw$year]
 missing_rows <- data.frame(year = missing_years,
                           commercial_mw=NA,
+                          n_samples = NA,
+                          n_specimens = NA,
                           survey_mw_raw=NA,
                           survey_mw_weighted=NA)
 
@@ -109,11 +121,6 @@ g <- lengthwt_raw %>%
   filter(!is.na(weight)) %>%
   ggplot() +
   geom_point(aes(x=weight, y=weight_calc), colour="darkblue") +
-  gfplot::theme_pbs() +
-  theme(axis.text.x = element_text(size=12))+
-  theme(axis.text.y = element_text(size=12))+
-  theme(axis.title.x = element_text(size=14))+
-  theme(axis.title.y = element_text(size=14))+
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
 ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_survey",
                                AREA,".png")))
@@ -128,17 +135,9 @@ g <- survey_mw_raw %>%
   geom_line(aes(x=year, y=mean_weight, colour=measurement_type,
                 linetype=measurement_type), size=1.5)+
   ylim(0,2.5)+
-  gfplot::theme_pbs()+
   #scale_colour_brewer(palette = "Dark2")+
   #scale_color_aaas()+
   scale_colour_viridis_d()+
-  theme(title = element_text(size=12, face="bold"))+
-  theme(axis.text.x = element_text(size=12))+
-  theme(axis.text.y = element_text(size=12))+
-  theme(axis.title.x = element_text(size=14))+
-  theme(axis.title.y = element_text(size=14))+
-  theme(legend.text = element_text(size=12))+
-  theme(legend.title = element_text(size=13))+
   labs(title = paste(AREA), y = "Survey mean weight", x = "Year")
 ggsave(file.path(generatedd,paste0("Weighted_v_Raw_Weights_Survey",
                                AREA,".png")))
@@ -183,20 +182,16 @@ Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size
     filter(!is.na(value)) %>%
     ggplot(aes(year, value, colour = name)) +
     geom_vline(xintercept = 2000:2022, lty = 1, col = "grey80") +
-    geom_point(size=3.5) +
+    # geom_point(size=3.5) +
     geom_line(size=1.4) +
-    theme_light()+
     ylim(0,3)+
     scale_color_aaas()+
-    theme(title = element_text(size=12, face="bold"))+
-    theme(axis.text.x = element_text(size=12))+
-    theme(axis.text.y = element_text(size=12))+
-    theme(axis.title.x = element_text(size=14))+
-    theme(axis.title.y = element_text(size=14))+
-    theme(legend.text = element_text(size=12))+
-    theme(legend.title = element_text(size=13))+
-    labs(title = Title, y = "Mean weight", x = "Year")
-  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
+    labs(title = Title, y = "Mean weight", x = "Year") +
+   geom_point(data = dat1, mapping = aes(year, comm_mean_weight, size = n_samples), inherit.aes = FALSE, pch = 21, na.rm = TRUE) +
+   scale_size_area(name = "Sampling events")
+
+ g
+ ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
                                  AREA,".png")))
 
 # 4. Plot the two indices against each other (log space)
@@ -206,22 +201,16 @@ Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size
 r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
 
  g <- ggplot(dat1, aes(log(survey_mean_weight), log(comm_mean_weight))) +
-    geom_point() +
+    geom_point(aes(size = n_samples), pch = 21) +
+    scale_size_area(name = "Sampling events", max_size = 10) +
     stat_smooth(method = "lm", se = FALSE)+
     ggrepel::geom_text_repel(aes(label = year), size = 4) +
     geom_abline(intercept = 0, slope = 1) +
     #coord_fixed(xlim = c(r[1], r[2]), ylim = c(r[1], r[2])) +
-    gfplot::theme_pbs()+
-    theme(title = element_text(size=12, face="bold"))+
-    theme(axis.text.x = element_text(size=12))+
-    theme(axis.text.y = element_text(size=12))+
-    theme(axis.title.x = element_text(size=14))+
-    theme(axis.title.y = element_text(size=14))+
-    theme(legend.text = element_text(size=12))+
-    theme(legend.title = element_text(size=13))+
     ylim(0,1.2)+xlim(0,1.2)+
     labs(title = paste(AREA, TYPE), x = "Ln survey mean weight", y = "Ln comm mean weight")
-  ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
+ g
+ ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
                                  AREA,".png")))
 #
 # ####################################################
@@ -232,6 +221,10 @@ GLM <- glm(comm_mean_weight ~ log(survey_mean_weight),
              family = Gamma(link = "log"),
              data = dat1)
 summary(GLM)
+
+DHARMa::testDispersion(GLM)
+sim <- DHARMa::simulateResiduals(fittedModel = GLM, plot = FALSE)
+plot(sim)
 
 # 2. set up a new df for the predictions and predict comm mean weight from
 # survey mean weight for 2018, 2021 and 2022
@@ -249,6 +242,8 @@ comparedata_allyrs  <-
     rbind(cbind(nosurvyr,
                 rep(NA,length(nosurvyr)),
                 rep(NA,length(nosurvyr)),
+                rep(NA,length(nosurvyr)),
+                rep(NA,length(nosurvyr)),
                 rep(NA,length(nosurvyr)))) %>%
     `colnames<-`(colnames(comparedata)) %>%
     rbind(comparedata) %>%
@@ -258,19 +253,12 @@ comparedata_allyrs  <-
 #   comparedata_allyrs[which(comparedata_allyrs$year==2019),3] <- cmw[which(cmw$year==2019),2]
 
   g1 <- comparedata_allyrs %>%
+    select(-n_samples, -n_specimens) |>
     melt(id.vars="year", variable.name="Obs_vs_Pred", value.name="commercial_mean_weight") %>%
     ggplot()+
     geom_point(aes(x=year, y=commercial_mean_weight, colour=Obs_vs_Pred), size=2.5)+
     geom_line(aes(x=year, y=commercial_mean_weight, colour=Obs_vs_Pred), lwd=1, lty=1)+
-    theme_light()+
     scale_color_aaas()+
-    theme(title = element_text(size=12, face="bold"))+
-    theme(axis.text.x = element_text(size=10))+
-    theme(axis.text.y = element_text(size=12))+
-    theme(axis.title.x = element_text(size=14))+
-    theme(axis.title.y = element_text(size=14))+
-    theme(legend.text = element_text(size=12))+
-    theme(legend.title = element_text(size=13))+
     theme(legend.position = "right")+
     ylim(0,3.5)+
     scale_x_continuous(breaks=seq(min(comparedata_allyrs$year),max(comparedata_allyrs$year), by=2))+
@@ -278,6 +266,59 @@ comparedata_allyrs  <-
   g1
   ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
                                  AREA,".png")))
+
+# bayesian posterior predictions?
+  if (FALSE) {
+
+    library(brms)
+    fit <- brm(
+      comm_mean_weight ~ log(survey_mean_weight),
+      family = Gamma(link = "log"),
+      data = dat1,
+      prior = c(
+        prior(normal(0, 1), class = "b"),
+        prior(normal(0, 20), class = "Intercept")
+      ),
+    )
+    fit
+    plot(fit)
+
+    # with/without obs. error?
+    # pred_mean_weight <- posterior_predict(fit, newdata = newdata)
+    pred_mean_weight <- exp(posterior_linpred(fit, newdata = newdata))
+
+    x <- comparedata_allyrs
+    plot(x$year, x$comm_mean_weight, col = "red", ylim = c(0.8, 3.5), xlab = "Year", ylab = "Mean weight")
+    lines(x$year, x$comm_mean_weight, col = "red")
+    points(newdata$year, newdata$survey_mean_weight, col = "blue")
+    lines(newdata$year, newdata$survey_mean_weight, col = "blue")
+    points(x$year, x$pred_commercial_mean_weight, col = "darkgreen")
+    lines(x$year, x$pred_commercial_mean_weight, col = "darkgreen")
+    for (i in 1:500) {
+      jit <- jitter(newdata$year, amount = 0.2)
+      points(jit, pred_mean_weight[i,], col = "#00640010")
+      lines(jit, pred_mean_weight[i,], col = "#00640005")
+    }
+    legend("topleft", legend = c("Commercial", "Survey", "Predicted commercial"), col = c("red", "blue", "darkgreen"), pch = c(21, 21, 21))
+
+    p <- as.data.frame(fit)
+    .x <- seq(log(min(newdata$survey_mean_weight)), log(max(newdata$survey_mean_weight)), length.out = 100)
+    plot(log(dat1$survey_mean_weight), dat1$comm_mean_weight)
+    for (i in 1:1000) {
+      lines(.x, exp(p$b_Intercept[i] + p$b_logsurvey_mean_weight[i] * .x), col = "#00000010")
+    }
+
+    ci <- t(apply(pred_mean_weight, 2, quantile, probs = c(0.25, 0.75))) |>
+      as.data.frame() |>
+      mutate(obs = semi_join(comparedata_allyrs, newdata) |> pull(comm_mean_weight)) |>
+      mutate(covered = obs > `25%` & obs < `75%`)
+    ci
+    mean(ci$covered, na.rm = TRUE)
+
+    brms::pp_check(fit, ndraws = 200)
+    brms::pp_check(fit, ndraws = 200, type = "ecdf_overlay")
+
+  }
 
 
 # Now need to interpolate for years with no survey data
