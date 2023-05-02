@@ -4,7 +4,7 @@ author: "Robyn Forrest and Sean Anderson"
 date: "May 1 2023"
 link-citations: true
 bibliography: bib/refs.bib
-csl: csl/csas.csl 
+#csl: csl/csas.csl 
 documentclass: article
 geometry: margin=2.3cm
 output:
@@ -263,7 +263,7 @@ make.value.table.compare(c(base.model.3cd,
 # Figures
 
 ```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata, Area 3CD", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/3cd/Measured_v_Calc_weights_3CD.png"))
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 
 ```
 
