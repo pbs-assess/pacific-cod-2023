@@ -39,73 +39,73 @@ catch.3.gear.vessel <- total.catch.yr.qtr.gear.vessel(dat$catch,
 ##     usa = sum(usa_catch),
 ##     total_catch = sum(total_catch))
 
-catch.5 <- total.catch.yr.qtr(dat$catch,
-                              areas = "5[ABCD]+",
-                              include.usa = TRUE)
-
-catch.5.discards <- total.catch.discards(dat$catch, areas="5[ABCD]+")
-
-catch.5.gear <- total.catch.yr.qtr.gear(dat$catch,
-                                        areas = "5[ABCD]+")
-
-catch.5.gear.vessel <- total.catch.yr.qtr.gear.vessel(dat$catch,
-                                                      areas = "5[ABCD]+")
-
-catch.5ab <- total.catch.yr.qtr(dat$catch,
-                                areas = "5[AB]+",
-                                include.usa = TRUE)
-catch.5ab.discards <- total.catch.discards(dat$catch, areas="5[AB]+")
-
-catch.5cd <- total.catch.yr.qtr(dat$catch,
-                                areas = "5[CD]+",
-                                include.usa = TRUE)
-catch.5cd.discards <- total.catch.discards(dat$catch, areas="5[CD]+")
-
-catch.5e <- total.catch.yr.qtr(dat$catch,
-                                areas = "5[E]+",
-                                include.usa = FALSE)
-catch.5e.discards <- total.catch.discards(dat$catch, areas="5[E]+")
+# catch.5 <- total.catch.yr.qtr(dat$catch,
+#                               areas = "5[ABCD]+",
+#                               include.usa = TRUE)
+#
+# catch.5.discards <- total.catch.discards(dat$catch, areas="5[ABCD]+")
+#
+# catch.5.gear <- total.catch.yr.qtr.gear(dat$catch,
+#                                         areas = "5[ABCD]+")
+#
+# catch.5.gear.vessel <- total.catch.yr.qtr.gear.vessel(dat$catch,
+#                                                       areas = "5[ABCD]+")
+#
+# catch.5ab <- total.catch.yr.qtr(dat$catch,
+#                                 areas = "5[AB]+",
+#                                 include.usa = TRUE)
+# catch.5ab.discards <- total.catch.discards(dat$catch, areas="5[AB]+")
+#
+# catch.5cd <- total.catch.yr.qtr(dat$catch,
+#                                 areas = "5[CD]+",
+#                                 include.usa = TRUE)
+# catch.5cd.discards <- total.catch.discards(dat$catch, areas="5[CD]+")
+#
+# catch.5e <- total.catch.yr.qtr(dat$catch,
+#                                 areas = "5[E]+",
+#                                 include.usa = FALSE)
+# catch.5e.discards <- total.catch.discards(dat$catch, areas="5[E]+")
 
 # Nov 12 2020.
 # Read in 2018 catch table from 2018 res doc to get pre-1996 discards
 # seems pre-1996 discards are not being read in by gfdata::cache_pbs_data()
 catch.2018.3cd <- readRDS(here::here("data/2018-catch-tables/tab-catch-3cd.rds"))
-catch.2018.5abcd <- readRDS(here::here("data/2018-catch-tables/tab-catch-5abcd.rds"))
+#catch.2018.5abcd <- readRDS(here::here("data/2018-catch-tables/tab-catch-5abcd.rds"))
 
 pre.1996.discards.3cd <- catch.2018.3cd %>%
                     dplyr::filter(Year<1996) %>%
                     #dplyr::filter(Year>1955) %>%
                     dplyr::select("Year","released at sea")
 
-pre.1996.discards.5abcd <- catch.2018.5abcd %>%
-                    dplyr::filter(Year<1996) %>%
-                    #dplyr::filter(Year>1955) %>%
-                    dplyr::select("Year","released at sea")
+# pre.1996.discards.5abcd <- catch.2018.5abcd %>%
+#                     dplyr::filter(Year<1996) %>%
+#                     #dplyr::filter(Year>1955) %>%
+#                     dplyr::select("Year","released at sea")
 
-q.5abcd.desc <- paste0("$q_1$ = Hecate Strait Assemblage survey, ",
-                       "$q_2$ = Queen Charlotte Sound Synoptic Survey, ",
-                       "$q_3$ = Hecate Strait Synoptic Survey, ",
-                       "$q_4$ = Commercial CPUE pre-1996, and ",
-                       "$q_5$ = Commercial CPUE post-1995.")
+# q.5abcd.desc <- paste0("$q_1$ = Hecate Strait Assemblage survey, ",
+#                        "$q_2$ = Queen Charlotte Sound Synoptic Survey, ",
+#                        "$q_3$ = Hecate Strait Synoptic Survey, ",
+#                        "$q_4$ = Commercial CPUE pre-1996, and ",
+#                        "$q_5$ = Commercial CPUE post-1995.")
 
 q.3cd.desc <- paste0("$q_1$ = West Coast Vancouver Island Synoptic Survey, ",
                      "$q_2$ = Commercial CPUE pre-1996, ",
                      "$q_3$ = Commercial CPUE post-1995, and ",
                      "$q_4$ = NMFS Triennial Survey (Canadian portion).")
 
-b5 <- base.model.5abcd[[1]]
-start.yr5 <- b5$dat$syr
-end.yr5 <- b5$dat$nyr
-sage5 <- b5$dat$sage
-nage5 <- b5$dat$nage
-linf5 <- b5$dat$linf
-k5 <- b5$dat$k
-lwscal5 <- b5$dat$lwscal
-lwpow5 <- b5$dat$lwpow
-t05 <- b5$dat$to
-alpha.g5 <- b5$dat$dd.alpha.g
-rho.g5 <- b5$dat$dd.rho.g
-wk5 <- b5$dat$dd.wk
+# b5 <- base.model.5abcd[[1]]
+# start.yr5 <- b5$dat$syr
+# end.yr5 <- b5$dat$nyr
+# sage5 <- b5$dat$sage
+# nage5 <- b5$dat$nage
+# linf5 <- b5$dat$linf
+# k5 <- b5$dat$k
+# lwscal5 <- b5$dat$lwscal
+# lwpow5 <- b5$dat$lwpow
+# t05 <- b5$dat$to
+# alpha.g5 <- b5$dat$dd.alpha.g
+# rho.g5 <- b5$dat$dd.rho.g
+# wk5 <- b5$dat$dd.wk
 #
 b3 <- base.model.3cd[[1]]
 start.yr3 <- b3$dat$syr
