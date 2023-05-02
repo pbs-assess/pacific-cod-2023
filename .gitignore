@@ -70,4 +70,5 @@ report-french/knitr-figs
 report-french/_book
 report/_book
 data/
+*knitr-cache-tex*
 
