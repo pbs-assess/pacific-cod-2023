@@ -85,7 +85,7 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "1a) Reference model 3CD")
 base.model.3cd.dir.name <- file.path(model.dir,
-                                     "1_1a_3CD_BASE_2023")
+                                     "1_1a_3CD_BASE_2023_interp")
 
 # base.model.5abcd.name <- ifelse(french, "Sc 1a. Ref", "1a) Reference model 5ABCD")
 # base.model.5abcd.dir.name <- file.path(model.dir,
@@ -102,7 +102,7 @@ if(verbose){
 ## Sensitivity models group 11 (3CD) - individual imputation iterations
 ## -----------------------------------------------------------------------------
 sens.models.dir.name.11 <- c(file.path(model.dir,
-                                       "1_1b_3CD_BASE_2023__no_interp"))
+                                       "1_1b_3CD_BASE_2023_no_interp"))
 
 sens.models.name.11 <- c("Sc. 2 no interpolation")
 
@@ -661,8 +661,8 @@ build <- function(ovwrt.base = FALSE,
 
   ## Sensitivity models need to be unlisted from their groups
   ##  and placed into a single list for the for loop below to work right
-  sens.models.names.list <- c(#unlist(desc.models.5abcd.dir.name),
-                              unlist(desc.models.3cd.dir.name)#,
+  #sens.models.names.list <- c(#unlist(desc.models.5abcd.dir.name),
+                              #unlist(desc.models.3cd.dir.name)#,
                               # unlist(sens.models.dir.name.0),
                               # unlist(sens.models.dir.name.1),
                               # unlist(sens.models.dir.name.2),
@@ -680,8 +680,10 @@ build <- function(ovwrt.base = FALSE,
                               # unlist(sens.models.dir.name.12),
                               # unlist(sens.models.dir.name.13),
                               # unlist(sens.models.dir.name.14),
-                              # unlist(sens.models.dir.name.15)
-                              )
+                              # unlist(sens.models.dir.name.15))
+
+  sens.models.names.list <- c(unlist(sens.models.dir.name.11))
+
   ## Sensitivity models
   for(model.nm in sens.models.names.list){
     create.rdata.file(model.nm,

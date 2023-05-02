@@ -74,6 +74,7 @@ source(file.path(rootd.R, "tables-mean-weight.R"))
 source(file.path(rootd.R, "get-raw-data.R"))
 # Get the commercial mean weights once the data has been pulled
 source(file.path(rootd.R, "get-mean-weight.R"))
+cat("Getting mean weight index with glm\n")
 source(file.path(rootd.R, "get-mean-weight-survey.R"))
 
 ## ggplot globals for project
