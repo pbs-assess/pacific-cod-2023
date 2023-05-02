@@ -263,26 +263,26 @@ make.value.table.compare(c(base.model.3cd,
 # Figures
 
 ```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata, Area 3CD", out.width="4in"}
-knitr::include_graphics(here::here("report/figures/3cd/Measured_v_Calc_weights_3CD.png"))
+knitr::include_graphics(here::here("data/generated/3cd/Measured_v_Calc_weights_3CD.png"))
 
 ```
 
 \clearpage
 
 ```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index, Area 3CD", out.width="4in"}
-knitr::include_graphics(here::here("report/figures/3cd/Comm_v_Survey_weights_3CD.png"))
+knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
 
 ```
 
 ```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index, Area 3CD. The blue line shows linear fit.", out.width="4in"}
-knitr::include_graphics(here::here("report/figures/3cd/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
+knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
 
 ```
 
 \clearpage
 
 ```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (purple), observed commercial mean weight index (green), predicted mean weight index (yellow), Area 3CD.", out.width="4in"}
-knitr::include_graphics(here::here("report/figures/3cd/Compare_obs_v_predicted_3CD.png"))
+knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 
 \clearpage
@@ -294,16 +294,9 @@ plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
           ncol = 2)
 ```
 
-```{r fig-base-mean-weight-3cd-sc1, fig.cap="Scenario 1 model MPD fit to the mean weight data for Area 3CD."}
+```{r fig-base-mean-weight-3cd-sc1, fig.cap="Scenario 2 model MPD fit to the mean weight data for Area 3CD."}
 plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
           mw.compare.plot(sens.models.11[[1]], french=french),
-          nrow = 1,
-          ncol = 2)
-```
-
-```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data for Area 3CD."}
-plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2020, french=french),
-          mw.compare.plot(sens.models.11[[2]], french=french),
           nrow = 1,
           ncol = 2)
 ```
