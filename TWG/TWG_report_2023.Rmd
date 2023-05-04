@@ -210,7 +210,7 @@ mw.table(c(base.model.3cd,
            sens.models.name.11), 
          years=2010:2022,
          area="3CD",
-         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018.")
+         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018.")
 
 ```
 
@@ -224,7 +224,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
+                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
 
 ```
 
@@ -236,7 +236,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of percentage difference in median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
+                 caption = "Comparison of percentage difference in median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
                  percent=TRUE)
 
 ```
@@ -254,7 +254,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 2,
                  mpdmed="med",
-                 caption = "Comparison of recent median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
+                 caption = "Comparison of recent median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
 
 ```
 
@@ -266,15 +266,26 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2020,
                  type= 2,
                  mpdmed="med",
-                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
+                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
                  percent=TRUE)
 
 ```
 
+\clearpage
+
+## Probabilities of stock breaching reference points
 
 ```{r summary-tab-stock-status-avg-3cd, results='asis'}
 stock.status(avg.model.3cd,
-                caption = paste0("Current stock status with model averaging for Area 3CD. Models averaged are: ",
+                caption = paste0("Current stock status with model averaging. Models averaged are: ",
+                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
+                                 "."), french=french, make.table=TRUE,) #
+```
+
+
+```{r summary-tab-stock-status-avg-3cd, results='asis'}
+decision.table.zero.tac(avg.model.3cd,
+                caption = paste0("Probabilities of stock breaching reference points under TAC = 0 for a one-year projection, with model averaging. Models averaged are: ",
                                  and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
                                  "."), french=french, make.table=TRUE,) #
 ```
@@ -283,39 +294,39 @@ stock.status(avg.model.3cd,
 
 # Figures
 
-```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata, Area 3CD", out.width="4in"}
+```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 
 ```
 
 \clearpage
 
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index, Area 3CD", out.width="4in"}
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
 
 ```
 
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index, Area 3CD. The blue line shows linear fit.", out.width="4in"}
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index. The blue line shows linear fit.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
 
 ```
 
 \clearpage
 
-```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (purple), observed commercial mean weight index (green), predicted mean weight index (yellow), Area 3CD.", out.width="4in"}
+```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 
 \clearpage
 
-```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data for Area 3CD."}
+```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-base-mean-weight-3cd-sc1, fig.cap="Scenario 2 model MPD fit to the mean weight data for Area 3CD."}
+```{r fig-base-mean-weight-3cd-sc1, fig.cap="Scenario 2 model MPD fit to the mean weight data."}
 plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
           mw.compare.plot(sens.models.11[[1]], french=french),
           nrow = 1,
@@ -324,7 +335,7 @@ plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
 
 \clearpage
 
-```{r fig-model-ref-biomass-3cd, fig.cap="Posterior biomass for the Reference Case model for Area 3CD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
+```{r fig-model-ref-biomass-3cd, fig.cap="Posterior biomass for the Reference Case model. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(base.model.3cd,
        base.model.3cd.name,
        depl = FALSE,
@@ -335,11 +346,11 @@ b.plot(base.model.3cd,
 
 \clearpage
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
 r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
@@ -363,7 +374,7 @@ r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3c
 
 ## Model-averaged posterior results
 
-```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
+```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(avg.model.3cd,
        base.model.3cd.name,
        depl = FALSE,
@@ -373,7 +384,7 @@ b.plot(avg.model.3cd,
        
 ```
 
-```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
+```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
 f.plot(avg.model.3cd,
        base.model.3cd.name,
        add.hist.ref = TRUE,

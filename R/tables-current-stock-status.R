@@ -1,3 +1,10 @@
+# Rebuilding trigger guidelines:  Stock is considered to be at or below its LRP if
+# the terminal year stock status indicator is estimated to be at or below the LRP
+# with a greater than 50 percent probability OR if the projected stock status
+# indicator falls below the LRP with a greater than 50 percent probability under
+# a zero catch scenario in a 1-year projection
+# https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1
+
 stock.status <- function(model,
                            caption = "",
                            make.table = TRUE,
@@ -44,10 +51,8 @@ stock.status <- function(model,
 
   #1. P(B2023<LRP)
   dat[1, 1] <- f(mean(d$B2023Bmin < 1), 2)
-
   #2. P(B2023<USR)
   dat[1, 2] <- f(mean(d$B2023BAvgS < 1), 2)
-
   #3. P(F2022<LRR)
   dat[1, 3] <- f(mean(d$F2022FAvgS > 1), 2)
 
@@ -65,9 +70,6 @@ stock.status <- function(model,
     }
   }
 
-  #colnames(dat) <- col.names
-
-  # Kable not printing right now
 
   if(make.table){
     kable(dat,
