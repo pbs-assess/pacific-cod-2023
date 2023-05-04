@@ -51,7 +51,7 @@ f.plot <- function(models,
     ylab(en2fr("Fishing mortality",translate=french, allow_missing = TRUE))
 
   if(add.hist.ref){
-    if(is.na(lrr)){
+    if(is.na(lrr[1])){
       cat0("Supply year ranges for lrr when add.hist.ref is TRUE")
     }else{
        yrs <- f$Year

@@ -175,6 +175,7 @@ retro.names <- c("- 1 year",
 load.models.into.parent.env <- function(){
   base.model.3cd <<- load.models(base.model.3cd.dir.name)
   sens.models.11 <<- load.models(sens.models.dir.name.11)
+  desc.models.3cd <<- load.models(desc.models.3cd.dir.name)
   avg.model.3cd <<- avg.models(desc.models.3cd)
 
   # base.retro.models.3cd <<- load.models(retro.dir.names.3cd)

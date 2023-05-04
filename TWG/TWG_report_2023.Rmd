@@ -170,8 +170,6 @@ Posterior biomass estimates from the Reference Case model are shown in Figure \@
 The lower estimates of 2019-2020 recruitment in Scenarios 1 and 2, compared to the Reference Case model, especially in Scenario 1, are mostly likely driven by the higher mean weights in 2018-2020 (Table \@ref(tab:tab-mean-weight-recent-3cd)), which would imply fewer small fish in the catch, all other things equal. 
 
 Clearly from Tables \@ref(tab:tab-est-biomass-3cd-per) and \@ref(tab:tab-est-recruit-3cd), recruitment estimates are more strongly influenced by the mean weight index than biomass estimates, which are more directly influenced by catch and indices of abundance. However, given the short lifespan of Pacific cod in BC (~10-11 years) and the assumed early age of maturity in the models (2 years), changes in estimates of recruitment are expected to impact estimates of biomass relatively quickly.  
-
-
 # Conclusions and recommendations
 
 We were able to derive a catch-weighted survey mean weight index for each area. We were able to derive a predicted commercial mean weight index from the survey mean weight index. The survey mean weight index was a better predictor of the commercial mean weight index in Area 3CD, compared to Area 5ABCD.
@@ -245,7 +243,20 @@ make.value.table.compare(c(base.model.3cd,
 
 \clearpage
 
+
 ```{r tab-est-recruit-3cd, results='asis'}
+make.value.table.compare(c(base.model.3cd, 
+                   sens.models.11), 
+                 c(base.model.3cd.name, 
+                   sens.models.name.11), 
+                 years=2010:2022,
+                 type= 2,
+                 mpdmed="med",
+                 caption = "Comparison of recent median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
+
+```
+
+```{r tab-est-recruit-3cd-per, results='asis'}
 make.value.table.compare(c(base.model.3cd, 
                            sens.models.11), 
                  c(base.model.3cd.name, 
@@ -321,4 +332,38 @@ b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.nam
 ```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
 r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
+
+\clearpage
+
+## Sensitivity of the models to the seven sensitivity cases used for model-averaging
+
+
+
+
+\clearpage
+
+## Model-averaged posterior results
+
+```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
+b.plot(avg.model.3cd,
+       base.model.3cd.name,
+       depl = FALSE,
+       add.hist.ref = TRUE,
+       lrp = c(1986, 1986),
+       usr = c(1956, 2004), french=french)
+       
+```
+
+```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
+f.plot(avg.model.3cd,
+       base.model.3cd.name,
+       add.hist.ref = TRUE,
+       lrr = c(1956, 2004), 
+       french=french)
+
+```
+
+
+\clearpage
+
 
