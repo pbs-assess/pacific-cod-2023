@@ -35,7 +35,7 @@ r.plot <- function(models,
   rt.median <- median(rt$`Recruits (thousands)`)
   rt.mean <- mean(rt$`Recruits (thousands)`)
 
-  horiz.offset <- 2
+  horiz.offset <- 0.5
   p <- ggplot(rt, aes(x = Year,
                       y = `Recruits (thousands)`,
                       ymin = lowercv,
