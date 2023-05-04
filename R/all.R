@@ -68,6 +68,7 @@ source(file.path(rootd.R, "get-age-sample.R"))
 source(file.path(rootd.R, "get-data-functions.R"))
 source(file.path(rootd.R, "cpue-functions.R"))
 source(file.path(rootd.R, "tables-mean-weight.R"))
+source(file.path(rootd.R, "tables-current-stock-status.R")) #new May 2023. RF
 
 # Get the data - this should already have been run by get-iscam-inputs.R
 # It should read the file that was sourced for making the model dat files

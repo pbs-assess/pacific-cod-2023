@@ -241,6 +241,7 @@ make.value.table.compare(c(base.model.3cd,
 
 ```
 
+
 \clearpage
 
 
@@ -267,6 +268,14 @@ make.value.table.compare(c(base.model.3cd,
                  caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses, Area 3CD. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
                  percent=TRUE)
 
+```
+
+
+```{r summary-tab-stock-status-avg-3cd, results='asis'}
+stock.status(avg.model.3cd,
+                caption = paste0("Current stock status with model averaging for Area 3CD. Models averaged are: ",
+                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
+                                 "."), french=french) #
 ```
 
 \clearpage
