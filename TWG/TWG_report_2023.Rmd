@@ -246,6 +246,7 @@ make.value.table.compare(c(base.model.3cd,
 
 
 ```{r tab-est-recruit-3cd, results='asis'}
+
 make.value.table.compare(c(base.model.3cd, 
                    sens.models.11), 
                  c(base.model.3cd.name, 
@@ -275,7 +276,7 @@ make.value.table.compare(c(base.model.3cd,
 stock.status(avg.model.3cd,
                 caption = paste0("Current stock status with model averaging for Area 3CD. Models averaged are: ",
                                  and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
-                                 "."), french=french) #
+                                 "."), french=french, make.table=TRUE,) #
 ```
 
 \clearpage

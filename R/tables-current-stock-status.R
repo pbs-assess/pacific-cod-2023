@@ -65,25 +65,25 @@ stock.status <- function(model,
     }
   }
 
-  colnames(dat) <- col.names
+  #colnames(dat) <- col.names
 
-  dat
+  # Kable not printing right now
 
-  # if(make.table){
-  #   kable(dat,
-  #         caption = caption,
-  #         booktabs = TRUE,
-  #         longtable = TRUE,
-  #         linesep = "",
-  #         escape = FALSE,
-  #         format = "latex",
-  #         col.names = col.names) #%>%
-  #      kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 8.5) %>%
-  #      kableExtra::column_spec(1, width = "2.7cm") %>%
-  #      kableExtra::column_spec(2:6, width = "2.0cm")
-  # }else{
-  #   dat
-  # }
+  if(make.table){
+    kable(dat,
+          caption = caption,
+          booktabs = TRUE,
+          longtable = TRUE,
+          linesep = "",
+          escape = FALSE,
+          format = "latex",
+          col.names = col.names) %>%
+       kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 8.5) %>%
+       kableExtra::column_spec(1, width = "2.7cm") %>%
+       kableExtra::column_spec(2:6, width = "2.0cm")
+  }else{
+    dat
+  }
 }
 
 suggested.ref.points <- function(french=FALSE, definition_text="definition", caption_text="caption"){
