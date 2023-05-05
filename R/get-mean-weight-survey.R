@@ -206,6 +206,7 @@ r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
     stat_smooth(method = "lm", se = FALSE)+
     ggrepel::geom_text_repel(aes(label = year), size = 4) +
     geom_abline(intercept = 0, slope = 1) +
+   coord_equal() +
     #coord_fixed(xlim = c(r[1], r[2]), ylim = c(r[1], r[2])) +
     ylim(0,1.2)+xlim(0,1.2)+
     labs(title = paste(AREA, TYPE), x = "Ln survey mean weight", y = "Ln comm mean weight")
@@ -215,16 +216,19 @@ r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
 #
 # ####################################################
 # predict commercial mw from a glm
-nosurvyr <- c(2017,2019,2020)
-# 1. Fit glm
-GLM <- glm(comm_mean_weight ~ log(survey_mean_weight),
-             family = Gamma(link = "log"),
-             data = dat1)
-summary(GLM)
+ nosurvyr <- c(2017,2019,2020)
+ # 1. Fit glm
+ GLM <- glm(comm_mean_weight ~ log(survey_mean_weight),
+   family = Gamma(link = "log"),
+   data = dat1)
 
-DHARMa::testDispersion(GLM)
-sim <- DHARMa::simulateResiduals(fittedModel = GLM, plot = FALSE)
-plot(sim)
+ if (FALSE) {
+   summary(GLM)
+
+   DHARMa::testDispersion(GLM)
+   sim <- DHARMa::simulateResiduals(fittedModel = GLM, plot = FALSE)
+   plot(sim)
+  }
 
 # 2. set up a new df for the predictions and predict comm mean weight from
 # survey mean weight for 2018, 2021 and 2022
@@ -287,6 +291,26 @@ comparedata_allyrs  <-
     # pred_mean_weight <- posterior_predict(fit, newdata = newdata)
     pred_mean_weight <- exp(posterior_linpred(fit, newdata = newdata))
 
+    # fine most positive extreme slopes in last 3 time steps:
+    w <- reshape2::melt(pred_mean_weight) |>
+      rename(iter = Var1, year = Var2)
+    slopes <- w |>
+      filter(year >= 8) |> # predicted years
+      group_by(iter) |>
+      group_split() |>
+      purrr::map_dfr(function(.x) {
+        m <- lm(value ~ year, data = .x)
+        data.frame(slope = coef(m)[[2]], iter = .x$iter[1])
+      }) |>
+      arrange(slope)
+
+    hist(slopes$slope, breaks = 100)
+    abline(v = 0, lty = 2, col = "red")
+
+    qs <- quantile(slopes$slope, probs = c(0.05, 0.5, 0.95))
+    # slopes[slopes$slope > qs[[3]], ]
+    pos <- slopes[slopes$slope > qs[[3]], ]
+
     x <- comparedata_allyrs
     plot(x$year, x$comm_mean_weight, col = "red", ylim = c(0.8, 3.5), xlab = "Year", ylab = "Mean weight")
     lines(x$year, x$comm_mean_weight, col = "red")
@@ -300,6 +324,13 @@ comparedata_allyrs  <-
       lines(jit, pred_mean_weight[i,], col = "#00640005")
     }
     legend("topleft", legend = c("Commercial", "Survey", "Predicted commercial"), col = c("red", "blue", "darkgreen"), pch = c(21, 21, 21))
+
+    #####
+    for (i in seq_along(unique(pos$iter))) {
+      xx <- dplyr::filter(w, iter == unique(pos$iter)[i])
+      lines(newdata$year, xx$value, col = "#BF40BF20", lwd = 1)
+    }
+    #####
 
     p <- as.data.frame(fit)
     .x <- seq(log(min(newdata$survey_mean_weight)), log(max(newdata$survey_mean_weight)), length.out = 100)
@@ -317,6 +348,7 @@ comparedata_allyrs  <-
 
     brms::pp_check(fit, ndraws = 200)
     brms::pp_check(fit, ndraws = 200, type = "ecdf_overlay")
+
 
   }
 
