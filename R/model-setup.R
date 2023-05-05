@@ -96,9 +96,12 @@ if(verbose){
 ## Sensitivity models group 11 (3CD) - individual imputation iterations
 ## -----------------------------------------------------------------------------
 sens.models.dir.name.11 <- c(file.path(model.dir,
-                                       "1_1b_3CD_BASE_2023_no_interp"))
+                                       "1_1b_3CD_BASE_2023_no_interp"),
+                             file.path(model.dir,
+                                       "1_1c_3CD_BASE_2023_constant2016")
+                             )
 
-sens.models.name.11 <- c("Sc. 2 no interpolation")
+sens.models.name.11 <- c("Sc. 2 no interpolation", "Sc. 3 constant 2016 mean weight")
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)
