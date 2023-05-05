@@ -12,62 +12,36 @@ catch.table <- function(dat,
     dplyr::filter(year<2023) %>%
     summarize(Year = year[1],
       USA = sum(usa_catch),
-      `landings` = sum(landed_canada),
-      `released at sea` = sum(discarded_canada)) %>%
+      `Landings` = sum(landed_canada),
+      `Released at sea` = sum(discarded_canada)) %>%
     select(-year)
 
   # Hardwire the pre-1996 discards (pasted from 2018 res doc)
   row1995 <- 1995-1953+1
   pre1996disc <- as.numeric(pre.1996.disc$`released at sea`)
-  j$`released at sea`[1:row1995] <- pre1996disc
+  j$`Released at sea`[1:row1995] <- pre1996disc
 
   #Calculate total and total catch inlcuding pre-1996 discards
    j <- j %>%
-    mutate(`total` = landings + `released at sea`,
-           `Total catch` = `total` + `USA`)
+    mutate(`Total` = Landings + `Released at sea`,
+           `Total catch` = `Total` + `USA`)
 
   j <- j[!is.na(j$`Total catch`),]
 
-  j <- j[,c("Year", "landings", "released at sea", "total", "USA", "Total catch")]
+  j <- j[,c("Year", "Landings", "Released at sea", "Total", "USA", "Total catch")]
 
-  #j[,-1] <- round(j[,-1], 0) #they get rounded below anyway
-
-    # Now do the extrapolation based on the average proportion taken in the first 2 quarters
-    # Use last three years only, not including the last year in the data
-    # last_year <- dat %>%
-    #   tail(1) %>%
-    #   pull(year)
-    # yrs <- (last_year - 3):(last_year - 1)
-    # catch_last3yrs_first2quarters <- dat %>%
-    #   filter(year %in% yrs) %>%
-    #   filter(quarter %in% 1:2) %>%
-    #   group_by(year) %>%
-    #   summarize(total_catch_first2_quarters = sum(total_catch))
-    # catch_last3yrs_all_quarters <- j %>%
-    #   filter(Year %in% yrs) %>%
-    #   select(Year, `Total catch`) %>%
-    #   rename(year = Year, total_catch = `Total catch`)
-    # catch_last3yrs <- catch_last3yrs_first2quarters %>%
-    #   left_join(catch_last3yrs_all_quarters, by = "year") %>%
-    #   mutate(proportion = total_catch_first2_quarters / total_catch)
-
-    # catch_prop <<- catch_last3yrs$proportion #put in global space
-    # avg_prop <<- mean(catch_last3yrs$proportion) #put in global space
-    #
-    # j$landings[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
-    # j$total[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
-    # j$`Total catch`[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
+  j[,-1] <- round(j[,-1], 1) #they get rounded below anyway
 
     #export unrounded table for model dat files
     #readr::write_csv(j,here::here("data", paste0("catch_table_",area,".csv")))
 
     #this also rounds the values
- j[,c(2,3,4,5,6)] <- apply(j[,c(2,3,4,5,6)],
-                            2,
-                            function(x){
-                              tmp <- as.numeric(x)
-                              f(tmp)
-                            })
+ # j[,c(2,3,4,5,6)] <- apply(j[,c(2,3,4,5,6)],
+ #                            2,
+ #                            function(x){
+ #                              tmp <- as.numeric(x)
+ #                              f(tmp)
+ #                            })
 
 
   colnames(j) <- c(en2fr(colnames(j)[1], translate = french, allow_missing = TRUE),

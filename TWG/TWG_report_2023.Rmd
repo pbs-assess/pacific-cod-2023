@@ -345,12 +345,9 @@ decision.table.zero.tac(avg.model.3cd,
                                  "."), french=french) #
 ```
 
-
-
 \clearpage
 
 # Figures
-
 
 ```{r surv-canadian, fig.cap="Pacific Cod survey data for the West Coast Vancouver Island synoptic bottom trawl survey (SYN WCVI), showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod."}
 gfplot::tidy_survey_index(dat$survey_index,
@@ -364,9 +361,6 @@ make.catches.plot(catch.3, french=french) +
   scale_y_continuous(labels = comma,
                        limits = c(0, NA))
 ```
-
-
-
 
 
 ```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata", out.width="4in"}
