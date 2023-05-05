@@ -70,7 +70,6 @@ stock.status <- function(model,
     }
   }
 
-
   if(make.table){
     kable(dat,
           caption = caption,

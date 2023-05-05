@@ -1,7 +1,9 @@
+#Note that format=pandoc is currently causing errors
+
 decision.table <- function(model,
                            caption = "",
                            make.table = TRUE,
-                           format = "pandoc",
+                           format = "html",
                            tac.vec = NA,
                            make.lt.gt = TRUE,
                            french=FALSE){
@@ -10,57 +12,59 @@ decision.table <- function(model,
 
   model <- model[[1]]
 
-  dat <- as.data.frame(matrix(NA,
-                              ncol = 6,
-                              nrow = length(tac)))
-  if(format == "html"){
-    col.names <- c("2021 Catch (mt)",
-                   "P(B2022 < B2021)",
-                   "P(F2021 > F2020)",
-                   "P(B2022 < LRP)",
-                   "P(B2022 < USR)",
-                   "P(F2021 > LRR)")
-
-  }else{
-    col.names <- c(latex.mlc(c("$2021$", "$\\mathrm{Catch (mt)}$")),
-                   latex.mlc(c("$P(B_{2022} <$", "$B_{2021})$")),
-                   latex.mlc(c("$P(F_{2021} >$", "$F_{2020})$")),
-                   latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{LRP})$")),
-                   latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{USR})$")),
-                   latex.mlc(c("$P(F_{2021} >$", "$\\mathrm{LRR})$")))
-  }
-  if(french==TRUE){
-    if(format == "html"){
-      col.names <- c("2021 Prise (mt)",
-                     "P(B2022 < B2021)",
-                     "P(F2021 > F2020)",
-                     "P(B2022 < PRL)",
-                     "P(B2022 < RSS)",
-                     "P(F2021 > TEL)")
-
-    }else{
-      col.names <- c(latex.mlc(c("$2021$", "$\\mathrm{Prise (mt)}$")),
-                     latex.mlc(c("$P(B_{2022}<$", "$B_{2021})$")),
-                     latex.mlc(c("$P(F_{2021} >$", "$F_{2020})$")),
-                     latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{PRL})$")),
-                     latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{RSS})$")),
-                     latex.mlc(c("$P(F_{2021} >$", "$\\mathrm{TEL})$")))
-    }
-  }
-
   tac <- model$proj$tac.vec
   if(!is.na(tac.vec[1])){
     tac <- tac.vec[tac.vec %in% tac]
   }
+
+  dat <- as.data.frame(matrix(NA,
+                              ncol = 6,
+                              nrow = length(tac)))
+  if(format == "html"){
+    col.names <- c("2023 Catch (mt)",
+                   "P(B2024 < B2023)",
+                   "P(F2023 > F2022)",
+                   "P(B2024 < LRP)",
+                   "P(B2024 < USR)",
+                   "P(F2023 > LRR)")
+
+  }else{
+    col.names <- c(latex.mlc(c("$2023$", "$\\mathrm{Catch (mt)}$")),
+                   latex.mlc(c("$P(B_{2024} <$", "$B_{2023})$")),
+                   latex.mlc(c("$P(F_{2023} >$", "$F_{2022})$")),
+                   latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{LRP})$")),
+                   latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{USR})$")),
+                   latex.mlc(c("$P(F_{2023} >$", "$\\mathrm{LRR})$")))
+  }
+  if(french==TRUE){
+    if(format == "html"){
+      col.names <- c("2023 Prise (mt)",
+                     "P(B2024 < B2023)",
+                     "P(F2023 > F2022)",
+                     "P(B2024 < PRL)",
+                     "P(B2024 < RSS)",
+                     "P(F2023 > TEL)")
+
+    }else{
+      col.names <- c(latex.mlc(c("$2023$", "$\\mathrm{Prise (mt)}$")),
+                     latex.mlc(c("$P(B_{2024}<$", "$B_{2023})$")),
+                     latex.mlc(c("$P(F_{2023} >$", "$F_{2022})$")),
+                     latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{PRL})$")),
+                     latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{RSS})$")),
+                     latex.mlc(c("$P(F_{2023} >$", "$\\mathrm{TEL})$")))
+    }
+  }
+
+
   for(t in seq_along(tac)){
     d <- as.data.frame(model$mcmccalcs$proj.dat)
     d <- d[d$TAC == tac[t],]
     dat[t, 1] <- f(tac[t], 0)
-    dat[t, 2] <- f(mean(d$B2022B2021 < 1), 2)
-    dat[t, 3] <- f(mean(d$F2021F2020 > 1), 2)
-    dat[t, 4] <- f(mean(d$B2022Bmin < 1), 2)
-    dat[t, 5] <- f(mean(d$B2022BAvgS < 1), 2)
-    dat[t, 6] <- f(mean(d$F2021FAvgS > 1), 2)
+    dat[t, 2] <- f(mean(d$B2024B2023 < 1), 2)
+    dat[t, 3] <- f(mean(d$F2023F2022 > 1), 2)
+    dat[t, 4] <- f(mean(d$B2024Bmin < 1), 2)
+    dat[t, 5] <- f(mean(d$B2024BAvgS < 1), 2)
+    dat[t, 6] <- f(mean(d$F2023FAvgS > 1), 2)
   }
 
   if(make.lt.gt){
@@ -104,59 +108,60 @@ decision.table <- function(model,
 # https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1
 
 decision.table.zero.tac <- function(model,
-                           caption = "",
-                           make.table = TRUE,
-                           format = "pandoc",
-                           tac.vec = NA,
-                           make.lt.gt = TRUE,
-                           french=FALSE){
+                                 caption = "",
+                                 make.table = TRUE,
+                                 format = "html",
+                                 tac.vec = NA,
+                                 make.lt.gt = TRUE,
+                                 french=FALSE){
   ## make.lt.gt = add less than and greater than
-  ## sybols in table. Changes those columns to character
+  ## symbols in table. Changes those columns to character
 
   model <- model[[1]]
-
-  dat <- as.data.frame(matrix(NA,
-                              ncol = 4,
-                              nrow = 1))
-  if(format == "html"){
-    col.names <- c("2021 Catch (mt)",
-                   "P(B2022 < B2021)",
-                   "P(B2022 < LRP)",
-                   "P(B2022 < USR)")
-
-  }else{
-    col.names <- c(latex.mlc(c("$2021$", "$\\mathrm{Catch (mt)}$")),
-                   latex.mlc(c("$P(B_{2022} <$", "$B_{2021})$")),
-                   latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{LRP})$")),
-                   latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{USR})$")))
-  }
-  if(french==TRUE){
-    if(format == "html"){
-      col.names <- c("2021 Prise (mt)",
-                     "P(B2022 < B2021)",
-                     "P(B2022 < PRL)",
-                     "P(B2022 < RSS)")
-
-    }else{
-      col.names <- c(latex.mlc(c("$2021$", "$\\mathrm{Prise (mt)}$")),
-                     latex.mlc(c("$P(B_{2022}<$", "$B_{2021})$")),
-                     latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{PRL})$")),
-                     latex.mlc(c("$P(B_{2022} <$", "$\\mathrm{RSS})$")))
-    }
-  }
 
   tac <- model$proj$tac.vec
   if(!is.na(tac.vec[1])){
     tac <- tac.vec[tac.vec %in% tac]
   }
 
-    d <- as.data.frame(model$mcmccalcs$proj.dat) %>%
-      dplyr::filter(TAC==0)
+  dat <- as.data.frame(matrix(NA,
+                              ncol = 4,
+                              nrow = 1))
+  if(format == "html"){
+    col.names <- c("2023 Catch (mt)",
+                   "P(B2024 < B2023)",
+                   "P(B2024 < LRP)",
+                   "P(B2024 < USR)")
 
-    dat[1, 1] <- f(tac[1], 0)
-    dat[1, 2] <- f(mean(d$B2024B2023 < 1), 2)
-    dat[1, 3] <- f(mean(d$B2024Bmin < 1), 2)
-    dat[1, 4] <- f(mean(d$B2024BAvgS < 1), 2)
+  }else{
+    col.names <- c(latex.mlc(c("$2023$", "$\\mathrm{Catch (mt)}$")),
+                   latex.mlc(c("$P(B_{2024} <$", "$B_{2023})$")),
+                   latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{LRP})$")),
+                   latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{USR})$")))
+  }
+  if(french==TRUE){
+    if(format == "html"){
+      col.names <- c("2023 Prise (mt)",
+                     "P(B2024 < B2023)",
+                    "P(B2024 < PRL)",
+                     "P(B2024 < RSS)")
+
+    }else{
+      col.names <- c(latex.mlc(c("$2023$", "$\\mathrm{Prise (mt)}$")),
+                     latex.mlc(c("$P(B_{2024}<$", "$B_{2023})$")),
+                     latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{PRL})$")),
+                     latex.mlc(c("$P(B_{2024} <$", "$\\mathrm{RSS})$")))
+    }
+  }
+
+  #get probabilities of posterior current stock status (B2023 and F2022)
+  d <- as.data.frame(model$mcmccalcs$proj.dat) %>%
+    dplyr::filter(TAC==0)
+
+  dat[1, 1] <- f(tac[1], 0)
+  dat[1, 2] <- f(mean(d$B2024B2023 < 1), 2)
+  dat[1, 3] <- f(mean(d$B2024Bmin < 1), 2)
+  dat[1, 4] <- f(mean(d$B2024BAvgS < 1), 2)
 
 
   if(make.lt.gt){

@@ -279,16 +279,25 @@ make.value.table.compare(c(base.model.3cd,
 stock.status(avg.model.3cd,
                 caption = paste0("Current stock status with model averaging. Models averaged are: ",
                                  and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
-                                 "."), french=french, make.table=TRUE,) #
+                                 "."), french=french) #
 ```
 
-
-```{r summary-tab-stock-status-avg-3cd, results='asis'}
+```{r summary-tab-projection-zero-avg-3cd, results='asis'}
 decision.table.zero.tac(avg.model.3cd,
-                caption = paste0("Probabilities of stock breaching reference points under TAC = 0 for a one-year projection, with model averaging. Models averaged are: ",
-                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
-                                 "."), french=french, make.table=TRUE,) #
+               caption = paste0("Probabilities of stock breaching reference points under TAC = 0 for a one-year projection, with model averaging. Models averaged are: ",
+                                and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
+                                "."), 
+               french=french) #
 ```
+
+```{r summary-tab-decision-avg-3cd, results='asis'}
+ decision.table(avg.model.3cd,
+                caption = paste0("Decision table with model averaging. Models averaged are: ",
+                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
+                                 "."), french=french) #
+```
+
+
 
 \clearpage
 
