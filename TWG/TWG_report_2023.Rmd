@@ -258,7 +258,7 @@ mw.table(c(base.model.3cd,
            sens.models.name.11), 
          years=2010:2022,
          area="3CD",
-         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018.")
+         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018; Scenario 3 = use the 2016 mean weight index value for 2018-2022.")
 
 ```
 
@@ -272,7 +272,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
+                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022; Scenario 3 = use the 2016 mean weight index value for 2018-2022.")
 
 ```
 
@@ -389,18 +389,27 @@ knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weigh
 \clearpage
 
 ```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data."}
-plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-base-mean-weight-3cd-sc1, fig.cap="Scenario 2 model MPD fit to the mean weight data."}
-plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data."}
+plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
+
+
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 3 model MPD fit to the mean weight data."}
+plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[2]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
 
 \clearpage
 
