@@ -3,6 +3,7 @@ make.catches.plot <- function(dat,
                               last.yr = 2022,
                               french=FALSE){
   dat <- dat %>%
+    dplyr::filter(year<2023) %>%
     select(-total_catch) %>%
     group_by(year) %>%
     summarize(usa_catch = sum(usa_catch),

@@ -9,6 +9,7 @@ catch.table <- function(dat,
 
   j <- dat %>%
     group_by(year) %>%
+    dplyr::filter(year<2023) %>%
     summarize(Year = year[1],
       USA = sum(usa_catch),
       `landings` = sum(landed_canada),
@@ -33,29 +34,29 @@ catch.table <- function(dat,
 
     # Now do the extrapolation based on the average proportion taken in the first 2 quarters
     # Use last three years only, not including the last year in the data
-    last_year <- dat %>%
-      tail(1) %>%
-      pull(year)
-    yrs <- (last_year - 3):(last_year - 1)
-    catch_last3yrs_first2quarters <- dat %>%
-      filter(year %in% yrs) %>%
-      filter(quarter %in% 1:2) %>%
-      group_by(year) %>%
-      summarize(total_catch_first2_quarters = sum(total_catch))
-    catch_last3yrs_all_quarters <- j %>%
-      filter(Year %in% yrs) %>%
-      select(Year, `Total catch`) %>%
-      rename(year = Year, total_catch = `Total catch`)
-    catch_last3yrs <- catch_last3yrs_first2quarters %>%
-      left_join(catch_last3yrs_all_quarters, by = "year") %>%
-      mutate(proportion = total_catch_first2_quarters / total_catch)
+    # last_year <- dat %>%
+    #   tail(1) %>%
+    #   pull(year)
+    # yrs <- (last_year - 3):(last_year - 1)
+    # catch_last3yrs_first2quarters <- dat %>%
+    #   filter(year %in% yrs) %>%
+    #   filter(quarter %in% 1:2) %>%
+    #   group_by(year) %>%
+    #   summarize(total_catch_first2_quarters = sum(total_catch))
+    # catch_last3yrs_all_quarters <- j %>%
+    #   filter(Year %in% yrs) %>%
+    #   select(Year, `Total catch`) %>%
+    #   rename(year = Year, total_catch = `Total catch`)
+    # catch_last3yrs <- catch_last3yrs_first2quarters %>%
+    #   left_join(catch_last3yrs_all_quarters, by = "year") %>%
+    #   mutate(proportion = total_catch_first2_quarters / total_catch)
 
-    catch_prop <<- catch_last3yrs$proportion #put in global space
-    avg_prop <<- mean(catch_last3yrs$proportion) #put in global space
-
-    j$landings[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
-    j$total[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
-    j$`Total catch`[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
+    # catch_prop <<- catch_last3yrs$proportion #put in global space
+    # avg_prop <<- mean(catch_last3yrs$proportion) #put in global space
+    #
+    # j$landings[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
+    # j$total[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
+    # j$`Total catch`[nrow(j)] <- j$`Total catch`[nrow(j)] / avg_prop
 
     #export unrounded table for model dat files
     #readr::write_csv(j,here::here("data", paste0("catch_table_",area,".csv")))
@@ -68,10 +69,6 @@ catch.table <- function(dat,
                               f(tmp)
                             })
 
-    # do not show 2020 Canada landings and discards individually as
-    # they are already accounted for in the extrapolation
-    j$`released at sea`[nrow(j)] <- "-"
-    j$`landings`[nrow(j)] <- "-"
 
   colnames(j) <- c(en2fr(colnames(j)[1], translate = french, allow_missing = TRUE),
                   en2fr(colnames(j)[2], translate = french, allow_missing = TRUE, case="lower"),
@@ -81,9 +78,10 @@ catch.table <- function(dat,
                   en2fr(colnames(j)[6], translate = french, allow_missing = TRUE))
 
   #Add Canada to colnames for cols 2-4
-  for(k in 2:4){
-    colnames(j)[k] <- latex.mlc(c("Canada", colnames(j)[k]))
-  }
+  # for(k in 2:4){
+  #   #colnames(j)[k] <- latex.mlc(c("Canada", colnames(j)[k]))
+  #   colnames(j)[k] <- paste(c("Canada", colnames(j)[k]))
+  # }
 
   colnames(j) <- latex.bold(colnames(j))
 
@@ -95,7 +93,6 @@ catch.table <- function(dat,
   }
 
   #cut off first three years
-
 
   csasdown::csas_table(j[4:nrow(j),], caption = cap, escape = FALSE,
     align = c("l", "r", "r", "r", "r", "r")) %>%

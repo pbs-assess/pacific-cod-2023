@@ -62,11 +62,23 @@ if(!knitr:::is_latex_output())
 
 # Context
 
-The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021]. The stock assessment is a delay-difference model, fit to commercial and survey indices of abundance, commercial catch and an an index of commercial mean weight, which is derived from commercial length samples [see @forrest2020 for methodology]. Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. The 2020 assessment update used the 2019 mean weight value for 2020 for both stocks. For the 2022 assessment update, it will have been three years since the time series of commercial mean weights was updated (i.e., no new data since 2019). 
+The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021]. 
+Fishery-independent synoptic bottom trawl surveys are conducted biennially in BC, usually occurring in even-numbered years for West Coast Vancouver Island (WCVI). 
+However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey did not occur.
+The 2018 survey index for WCVI was very low, at approximately 26--27% of the magnitude of the 2014 and 2016 observations. 
+An interim survey was conducted in 2021, and the regular WCVI survey was conducted in 2022. Both the 2021 and 2022 survey points were of similar low magnitude to that in 2018 (Figure \@ref(fig:fig-summary-indices-3cd); Table ())
+
+
+The commercial catch  per unit effort (CPUE) index has also decreased since 2016 (Figure \@ref(fig:fig-summary-indices-3cd)).
+Catches in 2018 and 2019 in Area 3CD were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
+
+
+
+The stock assessment is a delay-difference model, fit to commercial and survey indices of abundance, commercial catch and an an index of commercial mean weight, which is derived from commercial length samples [see @forrest2020 for methodology]. Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. The 2020 assessment update used the 2019 mean weight value for 2020 for both stocks. For the 2022 assessment update, it will have been three years since the time series of commercial mean weights was updated (i.e., no new data since 2019). 
 
 In general, even before the pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). The 2017 mean weight value was anomalously high (3.024 kg) and was not used in the 2020 stock assessment update [@dfo2021]. 
 
-XXX
+
 
 We use the survey mean weight index to predict the commercial mean weight index so that we can have a continuous mean weight index, which represents the size of fish in the fishery, for the entire model period, beginning in 1956.
 
@@ -205,6 +217,40 @@ The decision point at this juncture is whether to proceed with a 2022 assessment
 
 # Tables
 
+
+```{r tab-catch-3cd}
+catch.table(catch.3,
+            catch.3.discards,
+            pre.1996.discards.3cd,
+            area = "3CD",
+ cap = paste0("Reported catch (mt) of Pacific Cod in Area 3CD ",
+              "by Canada and the USA, ",
+              min(catch.3$year)+3, "--", max(catch.3$year),
+              ". The reported releases at sea (discards) for the period ", min(catch.3$year)+3,
+              "--1995 are ",
+              "likely unrepresentative of true discarding because the estimates were taken ",
+              "from logbooks in the absence of observers. Discard estimates since 1996 are based on at-sea ",
+              "observations and are considered to be more representative of true discarding. Numbers are rounded for presentation."), french=french)
+```
+
+\clearpage
+
+```{r surv-canadian-table, results='asis'}
+dplyr::filter(dat$survey_index, survey_abbrev %in%
+  c("SYN WCVI")) %>%
+  dplyr::select(survey_abbrev, year, biomass, re, lowerci, upperci, num_sets, num_pos_sets) %>%
+  dplyr::mutate(lowerci = round(lowerci/1000, 1), upperci = round(upperci/1000, 1),
+    biomass = round(biomass/1000, 1), re = round(re, 2)) %>%
+  dplyr::rename(`Survey abbrev.` = survey_abbrev, Year = year, Biomass = biomass,
+    CV = re, `Lower CI` = lowerci, `Upper CI` = upperci, Sets = num_sets, `Positive sets` = num_pos_sets) %>%
+  dplyr::arrange(`Survey abbrev.`, Year) %>%
+  knitr::kable(caption = "Pacific Cod survey data for the WCVI synoptic trawl survey (SYN WCVI) in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod.", booktabs = TRUE, linesep = "", 
+    format = "pandoc")
+```
+
+\clearpage
+
+
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd, 
            sens.models.11), 
@@ -304,6 +350,24 @@ decision.table.zero.tac(avg.model.3cd,
 \clearpage
 
 # Figures
+
+
+```{r surv-canadian, fig.cap="Pacific Cod survey data for the West Coast Vancouver Island synoptic bottom trawl survey (SYN WCVI), showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod."}
+gfplot::tidy_survey_index(dat$survey_index,
+  survey = "SYN WCVI") %>%
+  plot_survey_index(french=french)
+```
+
+
+```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea releases."}
+make.catches.plot(catch.3, french=french) +
+  scale_y_continuous(labels = comma,
+                       limits = c(0, NA))
+```
+
+
+
+
 
 ```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
@@ -410,8 +474,6 @@ f.plot(avg.model.3cd,
 
 # Changes in commercial length sampling {#sec:AppendixA}
 
-## Area 3CD
-
 ```{r get-length-samples-3cd}
 
 comm_samp <- dat$commercial_samples %>% 
@@ -438,14 +500,14 @@ knitr::kable(summary_by_year,
 
 ```
 
-```{r plot-length-samples-3cd, fig.cap="Summary of commercial length samples since 2012 for Area 3CD. Mean lengths are unweighted by catch and are presented simply to visualise changes in sampling effort since 2012."}
+```{r plot-length-samples-3cd, fig.cap="Summary of raw commercial length samples since 2000 for Area 3CD. Mean lengths are unweighted by catch."}
 
 g <- summary_by_year %>% 
-  dplyr::filter(Year>2011) %>% 
+  dplyr::filter(Year>1999) %>% 
   ggplot(aes(x=Year, y=`Raw mean length`))+
   geom_point(size=3)+
   geom_errorbar(aes(ymin=`Raw mean length`-`SE length`, ymax=`Raw mean length`+ `SE length`),  width=0.1)+
-  labs(x = "Year", y = "Raw mean weight (cm)")+
+  labs(x = "Year", y = "Raw mean length (cm)")+
   gfplot::theme_pbs()+
   scale_color_viridis_d() +
   theme(plot.title = element_text(face="bold", size=14),
