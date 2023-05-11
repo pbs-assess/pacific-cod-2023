@@ -98,10 +98,14 @@ if(verbose){
 sens.models.dir.name.11 <- c(file.path(model.dir,
                                        "1_1b_3CD_BASE_2023_no_interp"),
                              file.path(model.dir,
-                                       "1_1c_3CD_BASE_2023_constant2016")
+                                       "1_1c_3CD_BASE_2023_constant2016"),
+                             file.path(model.dir,
+                                       "1_1c_3CD_BASE_2023_constant2016_sigw15")
                              )
 
-sens.models.name.11 <- c("Sc. 2 no interpolation", "Sc. 3 constant 2016 mean weight")
+sens.models.name.11 <- c("Sc. 2 no interpolation",
+                         "Sc. 3 constant 2016 mean weight",
+                         "Sc. 4. const sigW015")
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)

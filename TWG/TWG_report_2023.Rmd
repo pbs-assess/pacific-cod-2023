@@ -258,7 +258,7 @@ mw.table(c(base.model.3cd,
            sens.models.name.11), 
          years=2010:2022,
          area="3CD",
-         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018; Scenario 3 = use the 2016 mean weight index value for 2018-2022.")
+         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018; Scenario 3 = use the 2016 mean weight index value for 2018-2022; Scenario 4 = Same as Sc 3 but with sigW = 0.15.")
 
 ```
 
@@ -403,9 +403,17 @@ plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, fre
 ```
 
 
-```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 3 model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data."}
 plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[2]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data."}
+plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[3]], french=french),
           nrow = 1,
           ncol = 2)
 ```
