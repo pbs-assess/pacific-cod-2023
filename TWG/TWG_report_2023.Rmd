@@ -349,6 +349,8 @@ decision.table.zero.tac(avg.model.3cd,
 
 # Figures
 
+## Data
+
 ```{r surv-canadian, fig.cap="Pacific Cod survey data for the West Coast Vancouver Island synoptic bottom trawl survey (SYN WCVI), showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = "SYN WCVI") %>%
@@ -388,6 +390,8 @@ knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weigh
 
 \clearpage
 
+## Mean weight index
+
 ```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
@@ -421,6 +425,10 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 \clearpage
 
+## Model results
+
+### Reference model
+
 ```{r fig-model-ref-biomass-3cd, fig.cap="Posterior biomass for the Reference Case model. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(base.model.3cd,
        base.model.3cd.name,
@@ -431,6 +439,8 @@ b.plot(base.model.3cd,
 ```
 
 \clearpage
+
+### Sensitivity to mean weight index
 
 ```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
