@@ -415,7 +415,7 @@ plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, fre
 ```
 
 
-```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data with sigW = 0.05."}
 plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[3]], french=french),
           nrow = 1,
@@ -543,4 +543,10 @@ g
 
 \clearpage
 
+# Generalized Linear Model to predict commercial mean length index {#sec:AppendixB}
 
+xxx
+
+\clearpage
+
+# Model diagnostics {#sec:AppendixC}
