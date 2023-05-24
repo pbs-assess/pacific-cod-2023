@@ -577,7 +577,7 @@ Using the `predict` function in R, we then used the model to predict commercial 
 
 In log space, the GLM linear fit estimated an intercept of 0.341 (s.e. 0.109), or 1.41 kg in natural space, with slope = 0.751 (s.e. 0.231).
 
-Text describing Figure \@ref(fig:all-mean-weight-series-3cd) 
+Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index , and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
 
 
 ```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (blue), observed commercial mean weight index (red), and predicted mean weight index (green) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, the year of the first survey.", out.width="4in"}
