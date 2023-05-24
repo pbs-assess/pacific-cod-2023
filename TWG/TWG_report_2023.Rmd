@@ -527,17 +527,23 @@ where $K$ is the number of depth strata surveyed in that year.
 \clearpage
 
 ## Results
-
+Figure 
 Figure \@ref(fig:fig-meas-vs-calc-weights-3cd) shows the relationship between observed weights obtained by directly weighing individual fish vs weights calculated using Equation 1.
 Figure \@ref(fig:fig-comm-vs-survey-weights-3cd) shows the commercial mean weight index obtained from the methods described in @forrest2020, compared with the survey mean weight index obtained from Equations 1--4.
 Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2) shows the commercial mean weight index plotted against with the survey mean weight index, with a linear regression line.
 The number of sampling events is indicated by the sizes of the circles in Figures \@ref(fig:fig-comm-vs-survey-weights-3cd) and \@ref(fig:fig-comm-vs-survey-weights-3cd-2).
 
+
+
+```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. 2020. Size of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.png"))
+```
+
 ```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs calculated weights from the WCVI survey, all years all depth strata", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Size of the circles indicates the number of sampling events. For visualization purposes, the commercial mean weight index is truncated to begin in 2000.", out.width="4in"}
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Size of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
 ```
 
