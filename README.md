@@ -10,7 +10,7 @@ Status update for WCVI Pacific Cod stock
 
 3. Make the iscam input files
 
-The above three steps are all called in the function **get-iscam-inputs.R**
+The above three steps are all called in the file **get-iscam-inputs.R**
 
 Then:
 
