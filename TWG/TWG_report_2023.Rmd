@@ -97,6 +97,12 @@ We use the survey mean weight index to predict the commercial mean weight index 
 
 # Methods
 
+## Data
+
+*TODO: Summarise sampling effort (see Appendix A of first 2022 TWG report)*
+
+## Modelling steps
+
 For Area 3CD only, we took the following steps:
 
 Step 1. Develop a survey mean weight index (see Appendix B for methods and results);
@@ -119,23 +125,23 @@ Step 5. Run the seven sensitivity models for model averaging and report stock st
 The four sensitivity cases differ in terms of the treatment of the mean weight index for the years 2018--2022. 
 All scenarios used the commercial mean weight index for the years 1956--2016, noting that there was no 2017 index point, as in the 2020 assessment.
 
-*TODO: Summarise sampling effort (see Appendix A of first 2022 TWG report)*
+
 
 We note that commercial mean weights are only predicted from the GLM for years when there was a survey. There are therefore gaps in the predicted commercial mean weight index for 2019 and 2020. There was a WCVI survey in 2018, but no survey in 2020. Therefore, for the 2018-2020 period of interest, there was only a *predicted* commercial mean weight index point in 2018. We ran two alternative scenarios. **Scenario 1:** values for 2019 and 2020 were obtained by linear interpolation between the 2018 and 2021 predicted values; and **Scenario 2:** we used only the 2018 value. We used the `approx` function in R for the linear interpolation, in natural space.
 
-*TODO: Note about 2017*
-
 For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
-# Model-averaged stock status
+## Model-averaged stock status
 
 
 
-## Steps 3 and 4. Update model data files and run models
+# Results
+
+## Data
 
 Commercial mean weight values used in the model scenarios are provided in Tables \@ref(tab:tab-mean-weight-recent-3cd) and \@ref(tab:tab-mean-weight-recent-5abcd). 
 
-### Area 3CD
+## Model scenarios: Sensitivity to mean weight 
 
 Maximum posterior density (MPD) model fits to the commercial mean weight index from the Reference Case model and Scenarios 1 and 2 are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc2). As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor, with the models tending to underestimate observed mean weight, especially in the earlier part of the time series. 
 
@@ -143,8 +149,13 @@ Posterior biomass estimates from the Reference Case model are shown in Figure \@
 
 The lower estimates of 2019-2020 recruitment in Scenarios 1 and 2, compared to the Reference Case model, especially in Scenario 1, are mostly likely driven by the higher mean weights in 2018-2020 (Table \@ref(tab:tab-mean-weight-recent-3cd)), which would imply fewer small fish in the catch, all other things equal. 
 
-Clearly from Tables \@ref(tab:tab-est-biomass-3cd-per) and \@ref(tab:tab-est-recruit-3cd), recruitment estimates are more strongly influenced by the mean weight index than biomass estimates, which are more directly influenced by catch and indices of abundance. However, given the short lifespan of Pacific cod in BC (~10-11 years) and the assumed early age of maturity in the models (2 years), changes in estimates of recruitment are expected to impact estimates of biomass relatively quickly.  
-# Conclusions and recommendations
+Clearly from Tables \@ref(tab:tab-est-biomass-3cd-per) and \@ref(tab:tab-est-recruit-3cd), recruitment estimates are more strongly influenced by the mean weight index than biomass estimates, which are more directly influenced by catch and indices of abundance. However, given the short lifespan of Pacific cod in BC (~10-11 years) and the assumed early age of maturity in the models (2 years), changes in estimates of recruitment are expected to impact estimates of biomass relatively quickly. 
+
+## Model-averaged stock status
+
+
+
+# Conclusions
 
 We were able to derive a catch-weighted survey mean weight index for each area. We were able to derive a predicted commercial mean weight index from the survey mean weight index. The survey mean weight index was a better predictor of the commercial mean weight index in Area 3CD, compared to Area 5ABCD.
 
@@ -152,19 +163,6 @@ The effects of the two alternative treatments in each area were stronger for Are
 
 The results of this exercise highlight obvious differences in selectivity between the commercial fishery and synoptic surveys, especially in Area 5ABCD, where the survey catches much smaller fish. This represents a violation of the assumptions of the delay-difference model, which assumes knife-edged selectivity in both the survey and fishery. However, violation of this assumption is probably less consequential than the assumption of the same knife-edged maturity. As long as the relative selectivities in the survey and fishery remain approximately constant, calibration exercises such as this may be an acceptable approach to continue the time series of the commercial mean weight index, although this should be evaluated through simulation-testing. 
 
-It should also be acknowledged that the surveys are biennial. Simple linear interpolation may be applied to fill in missing values, although we note that biases were larger in both areas when interpolation was applied.
-
-The decision point at this juncture is whether to proceed with a 2022 assessment update for Pacific Cod. The following considerations will inform this decision:
-
-1. Whether development of the survey mean weight indices and the predicted commercial mean weight indices requires more work, including possible simulation-testing, especially given the poorer fit for Area 5ABCD;
-
-2. If no to (1), whether the work presented here requires full peer review through CSAS;
-
-3. Whether further work is needed on the assessment itself (e.g., development of a recruitment index, consideration of other models);
-
-4. Knowledge that the 2022 WCVI survey data will not be available until Fall 2022; and
-
-5. Availability of Science staff, given time already spent on this exercise.
 
 \clearpage
 
@@ -325,28 +323,6 @@ make.catches.plot(catch.3, french=french) +
 ```
 
 
-```{r fig-meas-vs-calc-weights-3cd, fig.cap="Measured vs calculated weights from the WCVI survey, all years all depth strata", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
-
-```
-
-\clearpage
-
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
-
-```
-
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index. The blue line shows linear fit.", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
-
-```
-
-\clearpage
-
-```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM.", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
-```
 
 \clearpage
 
@@ -423,7 +399,6 @@ b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3c
 ```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging."}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
-
 
 
 \clearpage
@@ -507,9 +482,15 @@ g
 
 ## Methods
 
-We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight. For the survey, we replaced weighting by sequential quarter with weighting by depth stratum.
+We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight. 
+We also adapted the approach for the West Coast Vancouver Island Synoptic Survey by replacing weighting by sequential quarter, which was done for the commercial samples, with weighting by depth stratum (Equations 3 and 4).
+This was done because the survey is depth-stratified.
 
-The calculation of the survey annual mean weight index was done in the following steps. For simplicity, we have dropped year subscripts. Note that for Area 5ABCD, data from the QCS and HS surveys were pooled.
+Note that for the survey mean weight index, we derived weights of individual fish from the measured lengths, using published length-weight parameters rather than using weights that were directly measured (Equation 1).
+This was because far more fish were measured than were weighed.
+This also follows the approach used for the commercial mean weight index.
+
+The calculation of the survey annual mean weight index was done in the following steps. For simplicity, we have dropped year subscripts.
 
 1. For each specimen $i$, in each Sample ID $j$, in each depth stratum $s$, convert individual length ($L_{i,j,s}$)  to weight ($W_{i,j,s}$):
 
@@ -517,7 +498,7 @@ The calculation of the survey annual mean weight index was done in the following
 {W_{i,j,s}} = \alpha{L_{i,j,s}}^{\beta}
 \end{equation}
 
-where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")` for Area 3CD, and `r paste0("$\\alpha = ", .ALPHA, "$")` and `r paste0("$\\beta = ", .BETA, "$")` for Area 5ABCD.
+where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")`.
 
 2. Calculate the mean weight ($W_j$) in each sample ID $j$, in each depth stratum $s$:
 
@@ -543,16 +524,35 @@ where $N_s$ is the number of samples in depth stratum $s$.
 
 where $K$ is the number of depth strata surveyed in that year.
 
+\clearpage
+
 ## Results
 
+Figure \@ref(fig:fig-meas-vs-calc-weights-3cd) shows the relationship between observed weights obtained by directly weighing individual fish vs weights calculated using Equation 1.
+Figure \@ref(fig:fig-comm-vs-survey-weights-3cd) shows the commercial mean weight index obtained from the methods described in @forrest2020, compared with the survey mean weight index obtained from Equations 1--4.
+Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2) shows the commercial mean weight index plotted against with the survey mean weight index, with a linear regression line.
+The number of sampling events is indicated by the sizes of the circles in Figures \@ref(fig:fig-comm-vs-survey-weights-3cd) and \@ref(fig:fig-comm-vs-survey-weights-3cd-2).
+
+```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs calculated weights from the WCVI survey, all years all depth strata", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
+```
+
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Size of the circles indicates the number of sampling events.", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
+```
+
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index. The blue line shows linear fit. Size of the circles indicates the number of sampling events.", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
+```
+
+\clearpage
 
 
+# Generalized Linear Model to predict commercial mean length index {#sec:AppendixC}
 
-#Generalized Linear Model to predict commercial mean length index {#sec:AppendixC}
+## Methods
 
-## Step 2. Generalized linear regression model
-
-We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to log survey mean weights ($W_t$) from Step 1:
+We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to the log survey mean weights ($W_t$), calculated in Appendix A:
 
 \begin{align}
 {y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
@@ -561,8 +561,20 @@ We used a simple GLM with a Gamma log link function, to estimate model fit of co
 
 where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
 
-Using the `predict` function in R, we then used the model to predict commercial mean weights from survey mean weights. 
-Note that we included the 2021 survey indices for both areas in the regression model.
+Using the `predict` function in R, we then used the model to predict commercial mean weights from available survey mean weights. 
+
+
+## Results
+
+**TODO: Add table of GLM results**
+
+Text describing Figure \@ref(fig:all-mean-weight-series-3cd) 
+
+
+```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM.", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
+```
+
 
 \clearpage
 
