@@ -93,74 +93,31 @@ This Science Response reports results from the Science Response Process of Decem
 The update uses the same model configurations as the 2020 assessment [@dfo2021], including model-averaged stock status based on the same seven sensitivity analyses as in 2020.
 The commercial mean weight index is derived from the GLM presented to the TWG in 2022.
 
-We use the survey mean weight index to predict the commercial mean weight index for only the last four years of the assessment so that we can have a continuous mean weight index for the entire model period, beginning in 1956.
+We use the survey mean weight index to predict the commercial mean weight index for only the last five years of the assessment so that we can have a continuous mean weight index for the entire model period, beginning in 1956.
 
 # Methods
 
 For Area 3CD only, we took the following steps:
 
-Step 1. Develop a survey mean weight index;
+Step 1. Develop a survey mean weight index (see Appendix B for methods and results);
 
-Step 2. Use a generalized linear regression model (GLM) with a log link to predict commercial mean weight from survey mean weight;
+Step 2. Use a generalized linear regression model (GLM) with a log link to predict commercial mean weight from survey mean weight (see Appendix C for methods and results);
 
-Step 3. Update model data files with predicted commercial mean weight index values for 2018-2022, noting that predicted commercial mean weight index values will only be available for years in which there was a survey. Make alternative data files, with and without interpolation between years with predictions.
+Step 3. Update model data files with predicted commercial mean weight index values for 2018-2022, noting that predicted commercial mean weight index values are only available for years in which there was a survey (i.e., predicted values are generated only for survey years 2018, 2021 and 2022).
+
+Evaluate four alternative scenarios that differ only in treatment of the last four years of mean weight data (see next section).
 
 Step 4. Run the models and evaluate sensitivity of model results to the updated commercial mean weight indices.
 
-## Step 1. Survey mean weight index
+Step 5. Select the best mean weight index scenario (based on model diagnostics and TWG consensus) to use in the seven sensitivity cases for model-averaging and update the data files accordingly.
 
-We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight. For the survey, we replaced weighting by sequential quarter with weighting by depth stratum.
+Step 5. Run the seven sensitivity models for model averaging and report stock status.
 
-The calculation of the survey annual mean weight index was done in the following steps. For simplicity, we have dropped year subscripts. Note that for Area 5ABCD, data from the QCS and HS surveys were pooled.
 
-1. For each specimen $i$, in each Sample ID $j$, in each depth stratum $s$, convert individual length ($L_{i,j,s}$)  to weight ($W_{i,j,s}$):
+## Model scenarios: Sensitivity to mean weight 
 
-\begin{equation}
-{W_{i,j,s}} = \alpha{L_{i,j,s}}^{\beta}
-\end{equation}
-
-where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")` for Area 3CD, and `r paste0("$\\alpha = ", .ALPHA, "$")` and `r paste0("$\\beta = ", .BETA, "$")` for Area 5ABCD.
-
-2. Calculate the mean weight ($W_j$) in each sample ID $j$, in each depth stratum $s$:
-
-\begin{equation}
-  {W_{j,s}} =  \frac{\sum\limits_{i=1}^{N_{j,s}}{{w_{i,j,s}}}}{{N_{j,s}}}
-\end{equation}
-
-where $N_{j,s}$ is the number of weights $W_{i,j,s}$ in sample ID $j$ and depth stratum $s$.
-
-3. Calculate the mean weight ($W_s$) for each depth stratum $s$, weighted by the sample weights $S$:
-
-\begin{equation}
-{W_s} = \frac{{\sum\limits_{j=1}^{{N_s}} {{W_{j,s}S_{j,s}}}}}{{\sum\limits_{j=1}^{{N_s}} {{S_{j,s}}}}}
-\end{equation}
-
-where $N_s$ is the number of samples in depth stratum $s$.
-
-4. Calculate the annual survey mean weight ($W$), weighted by the catch $C_s$ in each stratum $s$:
-
-\begin{equation}
-{W} = \frac{{\sum\limits_{s=1}^{{K}} {{W_sC_s}}}}{{\sum\limits_{s=1}^{{K}} {{C_s}}}}
-\end{equation}
-
-where $K$ is the number of depth strata surveyed in that year.
-
-## Step 2. Generalized linear regression model
-
-We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to log survey mean weights ($W_t$) from Step 1:
-
-\begin{align}
-{y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
-\log(\mu_t) = \beta_0 + \beta_1 \log(W_t) 
-\end{align}
-
-where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
-
-Using the `predict` function in R, we then used the model to predict commercial mean weights from survey mean weights. Note that we included the 2021 survey indices for both areas in the regression model.
-
-## Steps 3 and 4. Update model data files and run models
-
-We used the predicted commercial mean weights to update the commercial mean weight index for the years 2018-2022. For all other years, we updated the commercial mean weight data using the same code as was used in the 2020 Reference Case model. 
+The four sensitivity cases differ in terms of the treatment of the mean weight index for the years 2018--2022. 
+All scenarios used the commercial mean weight index for the years 1956--2016, noting that there was no 2017 index point, as in the 2020 assessment.
 
 *TODO: Summarise sampling effort (see Appendix A of first 2022 TWG report)*
 
@@ -168,21 +125,11 @@ We note that commercial mean weights are only predicted from the GLM for years w
 
 *TODO: Note about 2017*
 
-The joint posterior distribution for the stock assessment model was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. Posterior samples were drawn every XX iterations from a chain of length XX, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
+For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
-# Results
+# Model-averaged stock status
 
-## Step 1. Survey mean weight index
 
-Specimen weights were calculated from length data and length weight parameters using Equation 1. Specimen weights were also measured directly on the surveys. We chose to use the calculated weights, as this resulted in more samples, and using the directly-measured weights resulted in some depth strata without specimen weights. The relationship between measured and calculated weights was approximately linear (Figures \@ref(fig:fig-meas-vs-calc-weights-3cd) and \@ref(fig:fig-meas-vs-calc-weights-5abcd)).
-
-Comparison between the survey mean weight index, calculated from Equation 4, and the observed commercial mean weight index is shown in Figures \@ref(fig:fig-comm-vs-survey-weights-3cd) and \@ref(fig:fig-comm-vs-survey-weights-3cd-2) for Area 3CD and in Figures \@ref(fig:fig-comm-vs-survey-weights-5abcd) and \@ref(fig:fig-comm-vs-survey-weights-5abcd-2) for Area 5ABCD. 
-
-## Step 2. Generalized linear regression model
-
-For Area 3CD, the predicted commercial mean weight index (Equations 5 and 6) closely tracked the WCVI survey mean weight index (Figure \@ref(fig:all-mean-weight-series-3cd), yellow and purple series). It also tracked the observed commercial mean weight index until 2016 (Figure \@ref(fig:all-mean-weight-series-3cd), green series). After 2016, there is a mismatch in timing between the survey and commercial mean weight index. Survey data were collected in 2018 but no commercial samples were collected. There was no scheduled survey in 2019 but there were commercial samples. There was no survey or commercial sampling in 2020, due to the COVID-19 pandemic.
-
-For Area 5ABCD, the predicted commercial mean weight index (Figure \@ref(fig:all-mean-weight-series-5abcd), yellow series) loosely followed the observed survey and commercial mean weight series (Figure \@ref(fig:all-mean-weight-series-5abcd), purple and green series) but did not capture the scale of interannual variation in the observed series.
 
 ## Steps 3 and 4. Update model data files and run models
 
@@ -556,10 +503,67 @@ g
 
 \clearpage
 
-# Generalized Linear Model to predict commercial mean length index {#sec:AppendixB}
+# Developing a survey mean weight index {#sec:AppendixB}
 
-xxx
+## Methods
+
+We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight. For the survey, we replaced weighting by sequential quarter with weighting by depth stratum.
+
+The calculation of the survey annual mean weight index was done in the following steps. For simplicity, we have dropped year subscripts. Note that for Area 5ABCD, data from the QCS and HS surveys were pooled.
+
+1. For each specimen $i$, in each Sample ID $j$, in each depth stratum $s$, convert individual length ($L_{i,j,s}$)  to weight ($W_{i,j,s}$):
+
+\begin{equation}
+{W_{i,j,s}} = \alpha{L_{i,j,s}}^{\beta}
+\end{equation}
+
+where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")` for Area 3CD, and `r paste0("$\\alpha = ", .ALPHA, "$")` and `r paste0("$\\beta = ", .BETA, "$")` for Area 5ABCD.
+
+2. Calculate the mean weight ($W_j$) in each sample ID $j$, in each depth stratum $s$:
+
+\begin{equation}
+  {W_{j,s}} =  \frac{\sum\limits_{i=1}^{N_{j,s}}{{w_{i,j,s}}}}{{N_{j,s}}}
+\end{equation}
+
+where $N_{j,s}$ is the number of weights $W_{i,j,s}$ in sample ID $j$ and depth stratum $s$.
+
+3. Calculate the mean weight ($W_s$) for each depth stratum $s$, weighted by the sample weights $S$:
+
+\begin{equation}
+{W_s} = \frac{{\sum\limits_{j=1}^{{N_s}} {{W_{j,s}S_{j,s}}}}}{{\sum\limits_{j=1}^{{N_s}} {{S_{j,s}}}}}
+\end{equation}
+
+where $N_s$ is the number of samples in depth stratum $s$.
+
+4. Calculate the annual survey mean weight ($W$), weighted by the catch $C_s$ in each stratum $s$:
+
+\begin{equation}
+{W} = \frac{{\sum\limits_{s=1}^{{K}} {{W_sC_s}}}}{{\sum\limits_{s=1}^{{K}} {{C_s}}}}
+\end{equation}
+
+where $K$ is the number of depth strata surveyed in that year.
+
+## Results
+
+
+
+
+#Generalized Linear Model to predict commercial mean length index {#sec:AppendixC}
+
+## Step 2. Generalized linear regression model
+
+We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to log survey mean weights ($W_t$) from Step 1:
+
+\begin{align}
+{y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
+\log(\mu_t) = \beta_0 + \beta_1 \log(W_t) 
+\end{align}
+
+where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
+
+Using the `predict` function in R, we then used the model to predict commercial mean weights from survey mean weights. 
+Note that we included the 2021 survey indices for both areas in the regression model.
 
 \clearpage
 
-# Model diagnostics {#sec:AppendixC}
+# Model diagnostics {#sec:AppendixD}
