@@ -232,6 +232,8 @@ r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
    family = Gamma(link = "log"),
    data = dat1)
 
+ summary(GLM)
+
  if (FALSE) {
    summary(GLM)
 
