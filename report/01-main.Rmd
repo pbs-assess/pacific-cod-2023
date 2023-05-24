@@ -1,7 +1,7 @@
 
 # Context
 
-The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2018 [@forrest2020; @dfo2019].
+The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021].
 Separate assessments were undertaken for stocks in Area 3CD (West Coast Vancouver Island, WCVI) and Area 5ABCD (consisting of Queen Charlotte Sound (QCS) and Hecate Strait (HS) combined) (Figure \@ref(fig:fig-map)).
 Both the 3CD and 5ABCD stocks were assessed to be in the Cautious Zone [@dfo2009].
 
