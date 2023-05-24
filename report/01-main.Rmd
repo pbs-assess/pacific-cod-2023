@@ -1,13 +1,12 @@
 
 # Context
 
-The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021].
-Separate assessments were undertaken for stocks in Area 3CD (West Coast Vancouver Island, WCVI) and Area 5ABCD (consisting of Queen Charlotte Sound (QCS) and Hecate Strait (HS) combined) (Figure \@ref(fig:fig-map)).
-Both the 3CD and 5ABCD stocks were assessed to be in the Cautious Zone [@dfo2009].
+The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021]. 
+Fishery-independent synoptic bottom trawl surveys are conducted biennially in BC, usually occurring in even-numbered years for West Coast Vancouver Island (WCVI). 
+However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey did not occur.
+The 2018 survey index for WCVI was very low, at approximately 26--27% of the magnitude of the 2014 and 2016 observations. 
+An interim survey was conducted in 2021, and the regular WCVI survey was conducted in 2022. Both the 2021 and 2022 survey points were of similar low magnitude to that in 2018 (Figure \@ref(fig:fig-summary-indices-3cd); Table ())
 
-Fishery-independent synoptic bottom trawl surveys are conducted biennially in BC, usually occurring in even-numbered years for WCVI, and odd-numbered years in QCS and HS.
-However, due to the coronavirus disease 2019 (COVID-19) pandemic, the scheduled 2020 WCVI survey did not occur.
-The 2018 survey index for WCVI was very low, at approximately 26--27% of the magnitude of the 2014 and 2016 observations (Figure \@ref(fig:fig-summary-indices-3cd)).
 The commercial catch  per unit effort (CPUE) index has also decreased since 2016 (Figure \@ref(fig:fig-summary-indices-3cd)).
 Catches in 2018 and 2019 in Area 3CD were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
 

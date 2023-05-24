@@ -1,5 +1,5 @@
 ---
-title: "DRAFT. Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island at the beginning of 2023. For the Pacific Cod Technical Working Group."
+title: "DRAFT. Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island in 2023. Report for the Pacific Cod Technical Working Group."
 author: "Robyn Forrest and Sean Anderson"
 date: "May 1 2023"
 link-citations: true
@@ -66,21 +66,34 @@ The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia 
 Fishery-independent synoptic bottom trawl surveys are conducted biennially in BC, usually occurring in even-numbered years for West Coast Vancouver Island (WCVI). 
 However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey did not occur.
 The 2018 survey index for WCVI was very low, at approximately 26--27% of the magnitude of the 2014 and 2016 observations. 
-An interim survey was conducted in 2021, and the regular WCVI survey was conducted in 2022. Both the 2021 and 2022 survey points were of similar low magnitude to that in 2018 (Figure \@ref(fig:fig-summary-indices-3cd); Table ())
-
+An interim survey was conducted in 2021, and the regular WCVI survey was conducted in 2022. Both the 2021 and 2022 survey points were of similar low magnitude to that in 2018 (Figure \@ref(fig:fig-summary-indices-3cd); Table (tab: surv-canadian-table))
 
 The commercial catch  per unit effort (CPUE) index has also decreased since 2016 (Figure \@ref(fig:fig-summary-indices-3cd)).
-Catches in 2018 and 2019 in Area 3CD were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
+Catches in 2018 and 2019 in Area 3CD were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)). 
 
+The stock assessment is a delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch and an index of commercial mean weight, which is derived from commercial length samples [see @forrest2020 for methodology].
+The commercial mean weight index provides information about recruitment strength to the model.
+Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. 
 
+However, even before the pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
+The 2020 assessment update used the 2019 mean weight value for both 2019 and 2020 for both the Area 3CD and the Area 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks [@dfo2021].
 
-The stock assessment is a delay-difference model, fit to commercial and survey indices of abundance, commercial catch and an an index of commercial mean weight, which is derived from commercial length samples [see @forrest2020 for methodology]. Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. The 2020 assessment update used the 2019 mean weight value for 2020 for both stocks. For the 2022 assessment update, it will have been three years since the time series of commercial mean weights was updated (i.e., no new data since 2019). 
+A request for science advice for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD stocks. The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
+The request advised only to proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
+Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
+Analyses found that the 2020 Area 3CD model was sensitive to the removal of the last three years of the mean weight index [unpublished].
+Following this finding, the TWG met again and evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a mean weight index derived from survey samples. 
+The TWG found that the GLM provided a reasonable prediction of the commercial mean weight index for Area 3CD.
+The GLM did not have acceptable predictive power for the 5ABCD stock.
 
-In general, even before the pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). The 2017 mean weight value was anomalously high (3.024 kg) and was not used in the 2020 stock assessment update [@dfo2021]. 
+Given the ongoing very low catches of Area 3CD Pacific Cod and model predictions of very low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
+However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in the timely evaluation of stock status.
 
+This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023.
+The update uses the same model configurations as the 2020 assessment [@dfo2021], including model-averaged stock status based on the same seven sensitivity analyses as in 2020.
+The commercial mean weight index is derived from the GLM presented to the TWG in 2022.
 
-
-We use the survey mean weight index to predict the commercial mean weight index so that we can have a continuous mean weight index, which represents the size of fish in the fishery, for the entire model period, beginning in 1956.
+We use the survey mean weight index to predict the commercial mean weight index for only the last four years of the assessment so that we can have a continuous mean weight index for the entire model period, beginning in 1956.
 
 # Methods
 
