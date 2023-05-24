@@ -1,9 +1,9 @@
 ---
 title: "Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island in 2023"
-title_short: "Pacific Cod status update in 2022"
-title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2022"
-year: 2021
-month: January
+title_short: "WCVI Pacific Cod status update in 2023"
+title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2023"
+year: 2023
+month: June
 report_number: 01
 approver: |
   Andrew Thomson\
