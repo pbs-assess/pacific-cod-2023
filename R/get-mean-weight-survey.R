@@ -146,15 +146,25 @@ ggsave(file.path(generatedd,paste0("Weighted_v_Raw_Weights_Survey",
 # Now fit a linear model to predict commercial mw from survey mw
 # Follow Sean's advice
 
+# remove 2017
+# From 2022 TWG report 1:
+# "In Area 3CD, only 4 samples were taken in 2017 (total 300 fish), no samples were
+# taken in 2018, and only two samples were taken in 2019 (total 360 fish).
+# The 2017 mean weight value was anomalously high (3.024 kg) and was not used in the
+#2020 stock assessment update (DFO 2021)."
+
+# Also remove 2019. It is based on 2 samples (n=360).
+# Note 2019 was used in the 2020 assessment, but probably shouldn't have been.
+
 # 1. pull the commercial mean weight index generated in get-mean-weight.R
 cmw <- readr::read_csv(here::here("data/generated/commercial_mean_weight_3CD.csv"))
 # get the 2019 value in case we need it again
 cmw2019 <- cmw %>%
-  filter(year %in% 2019)
+  filter(year %in% c(2017, 2019))
 
 cmw <- cmw %>%
   rename(comm_mean_weight=mean_weight) %>%
-  filter(!year %in% 2019) #remove 2019. It is based on 2 samples (n=360). Note is was used in the 2020 assessment, but probably shouldn't have been
+  filter(!year %in% c(2017, 2019))
 
 # 2. Join the commercial and survey mean weight indices into one df
 # filter for years > 2000:

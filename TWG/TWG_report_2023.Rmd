@@ -537,7 +537,7 @@ The number of sampling events is indicated by the sizes of the circles in Figure
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Size of the circles indicates the number of sampling events.", out.width="4in"}
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Size of the circles indicates the number of sampling events. For visualization purposes, the commercial mean weight index is truncated to begin in 2000.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
 ```
 
@@ -552,7 +552,7 @@ knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_
 
 ## Methods
 
-We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to the log survey mean weights ($W_t$), calculated in Appendix A:
+We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to the log survey mean weights ($W_t$), calculated in Appendix B:
 
 \begin{align}
 {y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
@@ -560,6 +560,8 @@ We used a simple GLM with a Gamma log link function, to estimate model fit of co
 \end{align}
 
 where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
+Note that the observed 2017 and 2019 commercial mean weight index points were removed from the analysis due to the low sample sizes they were based on (Appendix A).
+However, they would have no impact on the results anyway, since there were no surveys in these years.
 
 Using the `predict` function in R, we then used the model to predict commercial mean weights from available survey mean weights. 
 
@@ -571,7 +573,7 @@ Using the `predict` function in R, we then used the model to predict commercial 
 Text describing Figure \@ref(fig:all-mean-weight-series-3cd) 
 
 
-```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM.", out.width="4in"}
+```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (blue), observed commercial mean weight index (red), and predicted mean weight index (green) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, the year of the first survey.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 

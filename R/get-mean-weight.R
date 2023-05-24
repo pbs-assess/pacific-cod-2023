@@ -26,37 +26,38 @@ d <- dat$commercial_samples
 include.usa <- TRUE
 
 ## 3CD
-# remove 2017
-# From 2022 TWG report 1:
-# "In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were
-# taken in 2018, and only two samples were taken in 2019 (total 360 fish).
-# The 2017 mean weight value was anomalously high (3.024 kg) and was not used in the
-#2020 stock assessment update (DFO 2021)."
-
 df3CD <- get.mean.weight(d,
                          dat$catch,
                          areas = "3[CD]+",
                          include.usa = include.usa,
                          a = .ALPHA3,
-                         b = .BETA3)%>%
-  dplyr::filter(year!=2017)
+                         b = .BETA3) #%>%
+  #dplyr::filter(year!=2017) # Remove this at the next step (in get-mean-weight-survey.R)
 
 write_csv(df3CD,file.path(generatedd,"commercial_mean_weight_3CD.csv"))
 
 #################################################################
 ## Plot results
 
+removed <-  df3CD %>%
+  filter(year %in% c(2017, 2019)) %>%
+  select(mean_weight)
+removed <- as.numeric(c(removed[1,1], removed[2,1]))
+
 ## 3CD
-df <- df3CD
+df <- df3CD %>%
+  filter(!year %in% c(2017, 2019))
 ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
   geom_line(lwd=1, colour=2) +
   geom_point(aes(size = n_samples), pch = 21) +
+  geom_point(aes(x=2017 ,y=removed[1]), pch=4, col=1, size=3) +
+  geom_point(aes(x=2019 ,y=removed[2]), pch=4, col=1, size=3) +
   scale_size_area(name = "Sampling events") +
   ylim(0,1.1*max(df$mean_weight)) +
   theme(plot.title=element_text(size=14,face="bold",hjust=0.5),
         axis.text=element_text(size=12),
         axis.title=element_text(size=14,face="bold")) +
-  scale_x_continuous(breaks=seq(min(df$year),max(df$year),by=5)) +
+  scale_x_continuous(breaks=seq(min(df$year),max(df$year+4),by=4)) +
   theme_pbs()+
   labs(x= "Fishing Year", y = "Annual Mean Weight (Kg)", title="Area 3CD")
-ggsave(file.path(generatedd,"commercial_mean_weight_3CD.png"), width=8, height=6)
+ggsave(file.path(generatedd,"Commercial_mean_weight_3CD.png"), width=8, height=6)
