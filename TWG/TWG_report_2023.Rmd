@@ -74,10 +74,8 @@ The stock assessment is a delay-difference model [@deriso1980], fit to commercia
 The commercial mean weight index provides information about recruitment strength to the model.
 Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. 
 
-However, even before the pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
-Given the lack of samples, the 2020 assessment update used the 2019 mean weight value for both 2019 and 2020 for both the Area 3CD and the Area 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks [@dfo2021].
-
-A request for science advice for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD stocks. The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
+A request for science advice for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks. 
+The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
 The request advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
 Analyses found that the 2020 Area 3CD model was sensitive to the removal of the last three years of the mean weight index (unpublished report, available on request to the authors).
@@ -88,20 +86,61 @@ The GLM did not have acceptable predictive power for the 5ABCD stock.
 Given the ongoing low catches of Area 3CD Pacific Cod and model predictions of very low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
 However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
-This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023.
-The update uses the same model configurations as the 2020 assessment [@dfo2021], including model-averaged stock status based on the same seven sensitivity analyses as in 2020.
+<!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023 ADD BACK IN TO SR-->.
+This stock status update uses the same model configurations as the 2020 assessment [@dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2020.
 Recent values of the commercial mean weight index are derived from the GLM presented to the TWG in 2022.
-The WCVI survey mean weight index is used to predict the commercial mean weight index for only the last five years of the assessment to enable a continuous mean weight index for the entire model period, beginning in 1956.
+The GLM is used to predict the commercial mean weight index for only the last five years of the assessment.
+Prior to 2018, the commercial mean weight index derived from commercial lengths is used.
+This enables a continuous mean weight index for the entire model period, beginning in 1956.
 
 # Methods
 
 ## Data
 
-*TODO: Summarise sampling effort (see Appendix A of first 2022 TWG report)*
+Data were extracted from DFO databases using methods described in @forrest2020.
+Biological data from fishery-independent and commercial fishery sources were available up until April 2023.
+
+### Commercial catch
+
+Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd)) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to March 31, 2023).
+Catch data prior to 1981 include catch by US vessels [@forrest2015; @forrest2020].
+Fishing years are defined as beginning on April 1 for all years, and are referenced by starting year, e.g., fishing year 1957 runs from April 1, 1957 to March 31, 1958 [see @forrest2020].
+
+### Canadian bottom trawl surveys
+
+Survey indices (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:surv-canadian)) were calculated using a swept area analysis, documented in Appendix A of @forrest2020.
+Abundance in Area 3CD (Figure \@ref(fig:fig-map)) is indexed by the WCVI Synoptic Survey.
+The survey was first conducted in 2004 and is conducted in alternating (even-numbered) years.
+Due to the COVID-19 pandemic the 2020 survey was postponed to 2021,then returned to its regular biennial schedule in 2022.
+
+### NMFS Triennial Survey (in Canadian waters)
+
+An additional relative abundance index for Area 3CD was developed using data from the
+National Marine Fisheries Service (NMFS) Triennial survey, which operated off the lower half of WCVI between 1980 and 2001.
+See Appendix A of @forrest2020 for details.
+
+### Commercial CPUE
+
+Standardized commercial CPUE indices were developed for the historical (1956--1995) and modern (1996--2019) periods.
+The indices were developed using a Tweedie generalized linear mixed model (GLMM) described in detail in Appendix B of @forrest2020.
+The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (Figure \@ref(fig:cpue-index-ts-hist)).
+The modern-period GLMMs included predictors for depth, latitude, locality, month, vessel, and a locality-year interaction (Figure \@ref(fig:fig-modern-cpue-3cd)).
+
+### Annual mean weight in commercial catch
+
+Annual mean weight in the commercial catch was calculated using the methodology decribed in Appendix C of @forrest2020.
+Commercial biological samples were available for calculating mean weight from 1956 to 2019.
+There has been no biological sampling on commercial trawl vessels since 2019.
+However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A of this document). 
+In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
+The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
+Due to lack of samples, the 2020 assessment update used the 2019 mean weight value for both 2019 and 2020 [@dfo2021].
+However, we note that the 2019 index point was also based on only two samples.
+A methodology for predicting the commercial mean weight index from a mean weight index derived from length samples taken in the WCVI Synoptic Survey is described in Appendix B and C.
 
 ## Modelling steps
 
-For Area 3CD only, we took the following steps:
+In order to investigate the sensitivity of the model to different treatments of the commercial mean weight index, the following steps were taken:
 
 Step 1. Develop a survey mean weight index (see Appendix B for methods and results);
 
@@ -208,7 +247,7 @@ catch.table(catch.3,
 
 \clearpage
 
-# Model results
+## Model results
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd, 
