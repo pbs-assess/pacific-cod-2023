@@ -1,5 +1,6 @@
 gg_cpue <- list()
 spp <- "pcod"
+AREA <- "3CD"
 
 if (params$era == "modern") {
   fi <- here::here("data/generated/cpue-modern.rds")
@@ -13,7 +14,7 @@ if (params$era == "modern") {
   fi <- here::here("data/generated/cpue-historic.rds")
   if (!file.exists(fi)) {
     d <- gfdata::get_cpue_historical(species = NULL, end_year = 1995,
-      alt_year_start_date = "04-01")
+                                     alt_year_start_date = "04-01")
     readr::write_rds(d, fi)
   } else {
     d <- readr::read_rds(fi)
@@ -25,20 +26,20 @@ if (params$era == "modern") {
     # d1996$catch_kg <- d1996$landed_kg + d1996$discarded_kg
     # d1996 <- mutate(d1996, species_common_name = ifelse(species_code == 222, "pacific cod", "ignore me"))
     out <- tidy_cpue_index(d1996,
-      species_common = tolower(params$species_proper),
-      gear = "bottom trawl",
-      alt_year_start_date = "04-01",
-      use_alt_year = params$april1_year,
-      year_range = c(1996, 2022),
-      lat_range = c(48, Inf),
-      min_positive_tows = 100,
-      min_positive_trips = 5,
-      min_yrs_with_trips = 5,
-      depth_band_width = 25,
-      area_grep_pattern = area,
-      depth_bin_quantiles = c(0.001, 0.999),
-      min_bin_prop = 0.001,
-      lat_band_width = 0.1)
+                           species_common = tolower(params$species_proper),
+                           gear = "bottom trawl",
+                           alt_year_start_date = "04-01",
+                           use_alt_year = params$april1_year,
+                           year_range = c(1996, 2022),
+                           lat_range = c(48, Inf),
+                           min_positive_tows = 100,
+                           min_positive_trips = 5,
+                           min_yrs_with_trips = 5,
+                           depth_band_width = 25,
+                           area_grep_pattern = area,
+                           depth_bin_quantiles = c(0.001, 0.999),
+                           min_bin_prop = 0.001,
+                           lat_band_width = 0.1)
     out$area <- area_name
     out
   }
@@ -46,13 +47,13 @@ if (params$era == "modern") {
 } else {
   define_fleet <- function(area, area_name) {
     out <- tidy_cpue_historical(d,
-      species_common = tolower(params$species_proper),
-      use_alt_year = params$april1_year,
-      year_range = c(1956, 1995),
-      depth_band_width = 25,
-      area_grep_pattern = area,
-      depth_bin_quantiles = c(0.001, 0.999),
-      min_bin_prop = 0.001)
+                                species_common = tolower(params$species_proper),
+                                use_alt_year = params$april1_year,
+                                year_range = c(1956, 1995),
+                                depth_band_width = 25,
+                                area_grep_pattern = area,
+                                depth_bin_quantiles = c(0.001, 0.999),
+                                min_bin_prop = 0.001)
     out$area <- area_name
     out
   }
@@ -64,7 +65,7 @@ depth_bands <- as.numeric(as.character(unique(bind_rows(dfleet)$depth)))
 gg_cpue$depth <- dfleet %>%
   bind_rows() %>%
   mutate(`Trip or fishing event\ncaught this species` =
-      ifelse(pos_catch == 1, "Yes", "No")) %>%
+           ifelse(pos_catch == 1, "Yes", "No")) %>%
   ggplot(aes(best_depth, fill = `Trip or fishing event\ncaught this species`)) +
   geom_histogram(binwidth = 10) +
   ylim(0, NA) +
@@ -121,17 +122,17 @@ if (params$era == "modern") {
 }
 
 torun <- expand.grid(formula = formulas$formula,
-  area = params$area_name, stringsAsFactors = FALSE)
+                     area = params$area_name, stringsAsFactors = FALSE)
 torun <- inner_join(torun, formulas, by = "formula")
 
 if (params$skip_single_variable_models) {
   torun <- filter(torun,
-    formula_version %in% c("Unstandardized", "Full standardization minus interactions",
-      "Full standardization"))
+                  formula_version %in% c("Unstandardized", "Full standardization minus interactions",
+                                         "Full standardization"))
 }
 
 file_model <- here::here(paste0("data/generated/cpue-models-",
-  spp, "-", params$era, ".rds"))
+                                spp, "-", params$era, ".rds"))
 
 if (!file.exists(file_model)) {
   invisible(capture.output({
@@ -148,13 +149,13 @@ if (!file.exists(file_model)) {
 
 predictions <- plyr::ldply(model, predict_cpue_index_tweedie)
 readr::write_csv(predictions,
-  here::here(paste0("data/generated/cpue-predictions-", spp, "-", params$era, ".csv")))
+                 here::here(paste0("data/generated/cpue-predictions-", spp, "-", params$era, ".csv")))
 
 for (i in seq_along(dfleet)) {
-   if ("hours_fished" %in% names(dfleet[[i]])) {
-     dfleet[[i]] <- dplyr::rename(dfleet[[i]], effort = hours_fished)
-   }
- }
+  if ("hours_fished" %in% names(dfleet[[i]])) {
+    dfleet[[i]] <- dplyr::rename(dfleet[[i]], effort = hours_fished)
+  }
+}
 
 arith_cpue <- dfleet %>%
   bind_rows() %>%
@@ -167,11 +168,14 @@ arith_cpue <- dfleet %>%
   ungroup()
 
 gg_cpue$pred <- predictions %>%
-  filter(formula_version %in% c("Unstandardized", "Full standardization")) %>%
+  filter(formula_version %in% c("Full standardization")) %>%
   gfplot:::plot_cpue_predictions("Combined", scale = TRUE) +
   geom_line(data = arith_cpue, aes(year, est),
-    inherit.aes = FALSE, lty = 2) +
+            inherit.aes = FALSE, lty = 2) +
   scale_x_continuous(breaks = seq(1950, 2050, 5))
 
 gg_cpue$pred
+
+# write to file
+ggsave(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardized_",AREA,".png")))
 

@@ -1,7 +1,7 @@
 ---
 title: "DRAFT. Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island in 2023. Report for the Pacific Cod Technical Working Group."
 author: "Robyn Forrest and Sean Anderson"
-date: "May 1 2023"
+date: "May 25 2023"
 link-citations: true
 bibliography: bib/refs.bib
 #csl: csl/csas.csl 
@@ -62,18 +62,17 @@ if(!knitr:::is_latex_output())
 
 # Context
 
-The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021]. 
-Fishery-independent synoptic bottom trawl surveys are conducted biennially in BC, usually occurring in even-numbered years for West Coast Vancouver Island (WCVI). 
-However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey did not occur.
-The 2018 survey index for WCVI was very low, at approximately 26--27% of the magnitude of the 2014 and 2016 observations. 
-An interim survey was conducted in 2021, and the regular WCVI survey was conducted in 2022. Both the 2021 and 2022 survey points were of similar low magnitude to that in 2018 (Figure \@ref(fig:fig-summary-indices-3cd); Table (tab: surv-canadian-table))
-
-The commercial catch  per unit effort (CPUE) index has also decreased since 2016 (Figure \@ref(fig:fig-summary-indices-3cd)).
-Catches in 2018 and 2019 in Area 3CD were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)). 
+The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*) found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
+This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations; (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
+Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, returning to its regular biennial schedule in 2022. 
+Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:surv-canadian)).
+Catches from 2018--2020 were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)). 
+The commercial CPUE index also decreased substantially in 2018 but has increased slightly since then, with the increases in commercial catch (Figure \@ref(fig:fig-modern-cpue-3cd), Table \@ref(tab:tab-catch-3cd)).
+Given the low index point in 2018, the 2020 Science Response recommended updating the assessment when new survey information became available.
 
 The stock assessment is a delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch and an index of commercial mean weight, which is derived from commercial length samples [see @forrest2020 for methodology].
 The commercial mean weight index provides information about recruitment strength to the model.
-Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. 
+Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. 
 
 However, even before the pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
 The 2020 assessment update used the 2019 mean weight value for both 2019 and 2020 for both the Area 3CD and the Area 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks [@dfo2021].
@@ -175,21 +174,7 @@ The results of this exercise highlight obvious differences in selectivity betwee
 
 # Tables
 
-
-```{r tab-catch-3cd}
-catch.table(catch.3,
-            catch.3.discards,
-            pre.1996.discards.3cd,
-            area = "3CD",
- cap = paste0("Reported catch (mt) of Pacific Cod in Area 3CD ",
-              "by Canada and the USA, ",
-              min(catch.3$year)+3, "--", max(catch.3$year),
-              ". The reported releases at sea (discards) for the period ", min(catch.3$year)+3,
-              "--1995 are ",
-              "likely unrepresentative of true discarding because the estimates were taken ",
-              "from logbooks in the absence of observers. Discard estimates since 1996 are based on at-sea ",
-              "observations and are considered to be more representative of true discarding. Numbers are rounded for presentation."), french=french)
-```
+## Data
 
 \clearpage
 
@@ -208,6 +193,23 @@ dplyr::filter(dat$survey_index, survey_abbrev %in%
 
 \clearpage
 
+
+```{r tab-catch-3cd}
+catch.table(catch.3,
+            catch.3.discards,
+            pre.1996.discards.3cd,
+            area = "3CD",
+ cap = paste0("Reported catch (mt) of Pacific Cod in Area 3CD ",
+              "by Canada and the USA, ",
+              min(catch.3$year)+3, "--", max(catch.3$year),
+              ". The reported releases at sea (discards) for the period ", min(catch.3$year)+3,
+              "--1995 are ",
+              "likely unrepresentative of true discarding because the estimates were taken ",
+              "from logbooks in the absence of observers. Discard estimates since 1996 are based on at-sea ",
+              "observations and are considered to be more representative of true discarding. Numbers are rounded for presentation."), french=french)
+```
+
+\clearpage
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd, 
@@ -315,13 +317,16 @@ gfplot::tidy_survey_index(dat$survey_index,
   plot_survey_index(french=french)
 ```
 
-
 ```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea releases."}
 make.catches.plot(catch.3, french=french) +
   scale_y_continuous(labels = comma,
                        limits = c(0, NA))
 ```
 
+```{r fig-modern-cpue-3cd, fig.cap="Pacific Cod commercial CPUE. Red series shows the fully standardized model described in Forrest et al. (2020). The aritmetic mean is shown with the dashed line."}
+knitr::include_graphics(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardized_3CD.png")))
+
+```
 
 
 \clearpage

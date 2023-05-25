@@ -52,7 +52,7 @@ surv_index <- dat$survey_index %>%
 write_csv(surv_index, here::here("data/generated/all_surveys.csv"))
 
 #=================================================================================
-# 2. CPUE indices: these take a long time
+# 2. CPUE indices: these take a long time to run the first time
 params <- list()
 params$species_proper <- "Pacific Cod"
 params$april1_year <- TRUE
@@ -77,6 +77,9 @@ gg_cpue_modern <- gg_cpue
 cpue_pred_modern <- predictions
 arith_cpue_modern <- arith_cpue
 m_modern <- readRDS(here::here("data/generated/cpue-models-pcod-modern.rds"))
+
+#Figure
+cpue_pred_modern$pred
 
 #don't need to write these out. The R/cpue.R script already does it
 #readr::write_csv(cpue_pred_modern, here::here("data/generated/cpue-predictions-modern.csv"))
