@@ -70,7 +70,7 @@ Catches from 2018--2020 were also much lower than previous years (Table \@ref(ta
 The commercial CPUE index also decreased substantially in 2018 but has increased slightly since then, with the increases in commercial catch (Figure \@ref(fig:fig-modern-cpue-3cd), Table \@ref(tab:tab-catch-3cd)).
 Given the low index point in 2018, the 2020 Science Response recommended updating the assessment when new survey information became available.
 
-The stock assessment is a delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch and an index of commercial mean weight, which is derived from commercial length samples [see Appendix C of @forrest2020 for methodology].
+The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch and an index of commercial mean weight, which is derived from commercial length samples [see Appendix C of @forrest2020 for methodology].
 The commercial mean weight index provides information about recruitment strength to the model.
 Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. 
 
@@ -130,7 +130,7 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 
 The whole commercial annual mean weight index was calculated using the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
-Note that there may be minor differences in the mean weight index compared to that calculated in @forrest2020 due to routine updates of the databases (for example, in 2022 it was discovered that some Pacific Cod length samples had been incorrectly coded as total length instead of fork length).
+Note that there may be minor differences in the mean weight index compared to that calculated in @forrest2020 due to routine updates and corrections in the databases.
 
 There has been no biological sampling on commercial trawl vessels since 2019.
 However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). 
@@ -173,19 +173,25 @@ Sc. 3 No GLM, with extrap: For the last seven years of the time series, use the 
 
 Sc 4. No GLM, no extrap: Same as Sc. 3 but do not include any values for 2021 and 2022.
 
-For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
+For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. 
+Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
 ## Model-averaged stock status
 
+The previous two stock assessments for 3CD Pacific Cod used a model-averaging approach to develop estimates of stock status and decision tables [@dfo2019; @dfo2021].
+A set of seven model scenarios for for model averaging was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for the 2018 assessment [@dfo2019].
+The same set of model scenarios (with updated data) were used in the 2020 update [@dfo2021].
+Full details on the model configurations and assumptions for each scenario are provided in @forrest2020.
 
+To proceed with estimating stock status using the model-averaging approach, it is necessary to select a scenario for treatment of the commercial mean weight index, to use in all seven models.
+This decision will ultimately be made with guidance of the TWG.
+In the meantime, noting the similarity of all four mean weight index scenarios (see Results), the seven sensitivity models were set up with the same commercial mean weight index that was used in Sc. 1 (Interpolation) above.
+
+As above, posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
 # Results
 
-## Data
-
-Commercial mean weight values used in the model scenarios are provided in Tables \@ref(tab:tab-mean-weight-recent-3cd) and \@ref(tab:tab-mean-weight-recent-5abcd). 
-
-## Model scenarios: Sensitivity to mean weight 
+## Model scenarios: sensitivity to treatment of the commercial mean weight index 
 
 Maximum posterior density (MPD) model fits to the commercial mean weight index from the Reference Case model and Scenarios 1 and 2 are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc2). As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor, with the models tending to underestimate observed mean weight, especially in the earlier part of the time series. 
 
