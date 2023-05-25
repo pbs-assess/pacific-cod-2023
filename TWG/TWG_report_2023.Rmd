@@ -86,7 +86,7 @@ The GLM did not have acceptable predictive power for the 5ABCD stock.
 Given the ongoing low catches of Area 3CD Pacific Cod and model predictions of very low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
 However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
-<!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023 ADD BACK IN TO SR-->.
+<!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
 This stock status update uses the same model configurations as the 2020 assessment [@dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2020.
 Recent values of the commercial mean weight index are derived from the GLM presented to the TWG in 2022.
 The GLM is used to predict the commercial mean weight index for only the last five years of the assessment.
@@ -109,7 +109,7 @@ Fishing years are defined as beginning on April 1 for all years, and are referen
 ### Canadian bottom trawl surveys
 
 Survey indices (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:surv-canadian)) were calculated using a swept area analysis, documented in Appendix A of @forrest2020.
-Abundance in Area 3CD (Figure \@ref(fig:fig-map)) is indexed by the WCVI Synoptic Survey.
+Abundance in Area 3CD is indexed by the WCVI Synoptic Survey.
 The survey was first conducted in 2004 and is conducted in alternating (even-numbered) years.
 Due to the COVID-19 pandemic the 2020 survey was postponed to 2021,then returned to its regular biennial schedule in 2022.
 
@@ -121,9 +121,9 @@ See Appendix A of @forrest2020 for details.
 
 ### Commercial CPUE
 
-Standardized commercial CPUE indices were developed for the historical (1956--1995) and modern (1996--2019) periods.
+Standardized commercial CPUE indices were developed for the historical (1956--1995) and modern (1996--2022) periods.
 The indices were developed using a Tweedie generalized linear mixed model (GLMM) described in detail in Appendix B of @forrest2020.
-The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (Figure \@ref(fig:cpue-index-ts-hist)).
+The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (see @forrest2020).
 The modern-period GLMMs included predictors for depth, latitude, locality, month, vessel, and a locality-year interaction (Figure \@ref(fig:fig-modern-cpue-3cd)).
 
 ### Annual mean weight in commercial catch
@@ -131,12 +131,14 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 Annual mean weight in the commercial catch was calculated using the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
 There has been no biological sampling on commercial trawl vessels since 2019.
-However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A of this document). 
+However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). 
 In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
-Due to lack of samples, the 2020 assessment update used the 2019 mean weight value for both 2019 and 2020 [@dfo2021].
+Due to lack of samples, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020 [@dfo2021].
 However, we note that the 2019 index point was also based on only two samples.
-A methodology for predicting the commercial mean weight index from a mean weight index derived from length samples taken in the WCVI Synoptic Survey is described in Appendix B and C.
+Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from length samples taken in the WCVI Synoptic Survey.
+The methodology was presented to the TWG in 2022 and provided a reasonable fit to the observed commercial mean weight data.
+The methodology is described here in Appendix B and C.
 
 ## Modelling steps
 
