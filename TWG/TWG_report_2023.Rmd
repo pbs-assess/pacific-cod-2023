@@ -128,17 +128,18 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 
 ### Annual mean weight in commercial catch
 
-Annual mean weight in the commercial catch was calculated using the methodology decribed in Appendix C of @forrest2020.
+The whole commercial annual mean weight index was calculated using the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
+Note that there may be minor differences in the mean weight index compared to that calculated in @forrest2020 due to routine updates of the databases (for example, in 2022 it was discovered that some Pacific Cod length samples had been incorrectly coded as total length instead of fork length).
+
 There has been no biological sampling on commercial trawl vessels since 2019.
 However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). 
 In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
-Due to lack of samples, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020 [@dfo2021].
-However, we note that the 2019 index point was also based on only two samples.
-Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from length samples taken in the WCVI Synoptic Survey.
+Due to lack of samples, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020 [@dfo2021], although we note that this was not ideal as the 2019 index point was also based on only two samples.
+
+Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from length samples in the WCVI Synoptic Survey (Appendices B and C).
 The methodology was presented to the TWG in 2022 and provided a reasonable fit to the observed commercial mean weight data.
-The methodology is described here in Appendix B and C.
 
 ## Modelling steps
 
@@ -162,13 +163,15 @@ Step 6. Run the seven sensitivity models for model averaging and report stock st
 All scenarios used the commercial mean weight index for the years 1956--2016, with no 2017 index point, as in the 2020 assessment.
 The GLM (Appendix B) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted values were generated for survey years 2018, 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 
-Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
+Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. Values of the index used in the different scenarios since 2010 are shown in Table \@ref(fig:tab-mean-weight-recent-3cd).
 
-1. For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
+Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
 
-2. For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022, leaving 2019 and 2020 blank.
+Sc. 2 No interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Do not include values for 2019 and 2020.
 
-We note that commercial mean weights are only predicted from the GLM for years when there was a survey. There are therefore gaps in the predicted commercial mean weight index for 2019 and 2020. There was a WCVI survey in 2018, but no survey in 2020. Therefore, for the 2018-2020 period of interest, there was only a *predicted* commercial mean weight index point in 2018. We ran two alternative scenarios. **Scenario 1:** values for 2019 and 2020 were obtained by linear interpolation between the 2018 and 2021 predicted values; and **Scenario 2:** we used only the 2018 value. We used the `approx` function in R for the linear interpolation, in natural space.
+Sc. 3 No GLM, with extrap: For the last seven years of the time series, use the same approach as in the 2021 assessment [@dfo2021], i.e, commercial mean weight index values for 2016, 2019 and 2020, where the 2020 value was set the same as the 2019 value. Continue to use the 2019 value for 2021 and 2022.
+
+Sc 4. No GLM, no extrap: Same as Sc. 3 but do not include any values for 2021 and 2022.
 
 For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
@@ -203,7 +206,6 @@ We were able to derive a catch-weighted survey mean weight index for each area. 
 The effects of the two alternative treatments in each area were stronger for Area 3CD than for Area 5ABCD, especially for recruitment. This was because the last observed 2019 mean weight index value used in the Reference Case model was much lower (~0.5-1.0 kg lower) than the values used for 2018-2020 in Scenarios 1 and 2. The larger perceived bias in Area 3CD should be considered in light of the fact that the 2019 and 2020 commercial mean weight values used in the 2020 Reference Case model were based on only two samples. Given the apparent strong relationship between the survey and fishery prior to 2016 (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd)), the predicted commercial mean weight index may represent more realistic values.
 
 The results of this exercise highlight obvious differences in selectivity between the commercial fishery and synoptic surveys, especially in Area 5ABCD, where the survey catches much smaller fish. This represents a violation of the assumptions of the delay-difference model, which assumes knife-edged selectivity in both the survey and fishery. However, violation of this assumption is probably less consequential than the assumption of the same knife-edged maturity. As long as the relative selectivities in the survey and fishery remain approximately constant, calibration exercises such as this may be an acceptable approach to continue the time series of the commercial mean weight index, although this should be evaluated through simulation-testing. 
-
 
 \clearpage
 
