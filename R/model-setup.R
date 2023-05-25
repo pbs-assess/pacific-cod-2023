@@ -83,7 +83,7 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Base model names and directories
 ## -----------------------------------------------------------------------------
-base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "1a) Reference model 3CD")
+base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 with interpolation")
 base.model.3cd.dir.name <- file.path(model.dir,
                                      "1_1a_3CD_BASE_2023_interp")
 
@@ -103,9 +103,9 @@ sens.models.dir.name.11 <- c(file.path(model.dir,
                                        "1_1c_3CD_BASE_2023_constant2016_sigw15")
                              )
 
-sens.models.name.11 <- c("Sc. 2 no interpolation",
-                         "Sc. 3 constant 2016 mean weight",
-                         "Sc. 4. const sigW015")
+sens.models.name.11 <- c("Sc. 2 No interpolation",
+                         "Sc. 3 Constant 2016 mean weight",
+                         "Sc. 4. Const sigW015")
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)
