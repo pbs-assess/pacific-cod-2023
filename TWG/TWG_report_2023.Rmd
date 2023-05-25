@@ -148,23 +148,25 @@ Step 1. Develop a survey mean weight index (see Appendix B for methods and resul
 
 Step 2. Use a generalized linear regression model (GLM) with a log link to predict commercial mean weight from survey mean weight (see Appendix C for methods and results);
 
-Step 3. Update model data files with predicted commercial mean weight index values for 2018-2022, noting that predicted commercial mean weight index values are only available for years in which there was a survey (i.e., predicted values are generated only for survey years 2018, 2021 and 2022).
-
-Evaluate four alternative scenarios that differ only in treatment of the last four years of mean weight data (see next section).
+Step 3. Update model data files with predicted commercial mean weight index values for 2018-2022, noting that predicted commercial mean weight index values are only available for years in which there was a survey.
+Therefore, evaluate four alternative scenarios that differ only in treatment of the last five years of the commercial mean weight index (see next section).
 
 Step 4. Run the models and evaluate sensitivity of model results to the updated commercial mean weight indices.
 
 Step 5. Select the best mean weight index scenario (based on model diagnostics and TWG consensus) to use in the seven sensitivity cases for model-averaging and update the data files accordingly.
 
-Step 5. Run the seven sensitivity models for model averaging and report stock status.
+Step 6. Run the seven sensitivity models for model averaging and report stock status.
 
+## Model scenarios: sensitivity to treatment of the commercial mean weight index
 
-## Model scenarios: Sensitivity to mean weight 
+All scenarios used the commercial mean weight index for the years 1956--2016, with no 2017 index point, as in the 2020 assessment.
+The GLM (Appendix B) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted values were generated for survey years 2018, 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 
-The four sensitivity cases differ in terms of the treatment of the mean weight index for the years 2018--2022. 
-All scenarios used the commercial mean weight index for the years 1956--2016, noting that there was no 2017 index point, as in the 2020 assessment.
+Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
 
+1. For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
 
+2. For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022, leaving 2019 and 2020 blank.
 
 We note that commercial mean weights are only predicted from the GLM for years when there was a survey. There are therefore gaps in the predicted commercial mean weight index for 2019 and 2020. There was a WCVI survey in 2018, but no survey in 2020. Therefore, for the 2018-2020 period of interest, there was only a *predicted* commercial mean weight index point in 2018. We ran two alternative scenarios. **Scenario 1:** values for 2019 and 2020 were obtained by linear interpolation between the 2018 and 2021 predicted values; and **Scenario 2:** we used only the 2018 value. We used the `approx` function in R for the linear interpolation, in natural space.
 
@@ -214,8 +216,6 @@ The results of this exercise highlight obvious differences in selectivity betwee
 
 # Tables
 
-## Data
-
 ```{r surv-canadian-table, results='asis'}
 dplyr::filter(dat$survey_index, survey_abbrev %in%
   c("SYN WCVI")) %>%
@@ -249,7 +249,6 @@ catch.table(catch.3,
 
 \clearpage
 
-## Model results
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd, 
@@ -321,7 +320,6 @@ make.value.table.compare(c(base.model.3cd,
 
 \clearpage
 
-## Probabilities of stock breaching reference points
 
 ```{r summary-tab-stock-status-avg-3cd, results='asis'}
 stock.status(avg.model.3cd,
@@ -349,8 +347,6 @@ decision.table.zero.tac(avg.model.3cd,
 
 # Figures
 
-## Data
-
 ```{r surv-canadian, fig.cap="Pacific Cod survey data for the West Coast Vancouver Island synoptic bottom trawl survey (SYN WCVI), showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = "SYN WCVI") %>%
@@ -371,7 +367,6 @@ knitr::include_graphics(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardi
 
 \clearpage
 
-## Mean weight index
 
 ```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
@@ -406,9 +401,6 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 \clearpage
 
-## Model results
-
-### Reference model
 
 ```{r fig-model-ref-biomass-3cd, fig.cap="Posterior biomass for the Reference Case model. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(base.model.3cd,
@@ -421,7 +413,6 @@ b.plot(base.model.3cd,
 
 \clearpage
 
-### Sensitivity to mean weight index
 
 ```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
@@ -432,8 +423,6 @@ r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.nam
 ```
 
 \clearpage
-
-## Sensitivity of the models to the seven sensitivity cases used for model-averaging
 
 
 ```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging."}
@@ -448,7 +437,6 @@ r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3c
 
 \clearpage
 
-## Model-averaged posterior results
 
 ```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(avg.model.3cd,
