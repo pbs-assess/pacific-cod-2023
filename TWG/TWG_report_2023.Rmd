@@ -164,7 +164,8 @@ All scenarios used the commercial mean weight index derived from commercial leng
 There was no 2017 index point in any scenario, as in the 2020 assessment.
 The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 
-Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. Values of the index used in the different scenarios since 2010 are shown in Table \@ref(tab:tab-mean-weight-recent-3cd).
+Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
+Values of the index used in the different scenarios since 2010 are shown in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
 
@@ -194,7 +195,22 @@ As above, posterior samples were drawn every 2,500 iterations from a chain of le
 
 ## Model scenarios: sensitivity to treatment of the commercial mean weight index 
 
-Maximum posterior density (MPD) model fits to the commercial mean weight index from the Reference Case model and Scenarios 1 and 2 are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc2). As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor, with the models tending to underestimate observed mean weight, especially in the earlier part of the time series. 
+Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4). 
+As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
+This is most likely a data issue, where there are missing lengths of small fish prior to the beginning of observer coverage in 1996, where the majority of fish measured were "keepers", i.e., only larger, landed fish.
+
+The model fit the commercial mean weight index very well for Sc. 1 and 2, which used values from the GLM from 2018 onwards, with and without interpolation, respectively (Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
+The fit was very similar for both scenarios. 
+The models without GLM values (Sc. 3 and 4) poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) to \@ref(fig:fig-base-mean-weight-3cd-sc4)).
+The model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
+This pattern is consistent with predicted recruitment from all four models (Table \@ref(tab:tab-est-recruit-3cd)), which estimate a large decline in recruitment between 2016 and 2018.
+A population with fewer recruits is expected to have a higher than average mean weight of individuals.
+The models predicted an increase in recruitment between 2019 and 2022 , which would result in the subsequent decrease in estimated mean weight (Table \@ref(tab:tab-est-recruit-3cd), Figure \@ref(fig:fig-sens-recr-3cd)).
+All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that other data sources had a greater influence on model estimates than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE.
+This indicates that the survey mean weight index, used to predict the commercial mean weight index in Sc. 1 and 2, is consistent with other data sources and better indexes mean weight patterns than attempting to extrapolate from the last observations of the commercial mean weight index (Sc. 3 and 4).
+
+
+
 
 Posterior biomass estimates from the Reference Case model are shown in Figure \@ref(fig:fig-model-ref-biomass-3cd). Compared to this model, Scenarios 1 and 2 resulted in reduced estimates of biomass for 2019-2020 and a reduced 2021 forecast (Table \@ref(tab:tab-est-biomass-3cd); Figure \@ref(fig:fig-sens-biomass-3cd)). The percentage change for the median 2021 forecast biomass ranged from -24.5% in Scenario 1 to -15.8% in Scenario 2 (Table \@ref(tab:tab-est-biomass-3cd-per)). Median posterior estimates of recruitment were much lower in 2019-2020 in Scenarios 1 and 2 compared to the Reference Case, with the percentage change ranging from -53.9% in Scenario 1 to -27.8% in Scenario 2 (Table \@ref(tab:tab-est-recruit-3cd); Figure \@ref(fig:fig-sens-recr-3cd)). We note that biases were larger in Scenario 1, where interpolation was applied, than in Scenario 2, where it was not.
 
@@ -240,7 +256,6 @@ dplyr::filter(dat$survey_index, survey_abbrev %in%
 
 \clearpage
 
-
 ```{r tab-catch-3cd}
 catch.table(catch.3,
             catch.3.discards,
@@ -258,7 +273,6 @@ catch.table(catch.3,
 
 \clearpage
 
-
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd, 
            sens.models.11), 
@@ -266,7 +280,36 @@ mw.table(c(base.model.3cd,
            sens.models.name.11), 
          years=2010:2022,
          area="3CD",
-         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.")
+         caption="Comparison of mean weight values used in the four commercial mean weight scenarios. Methods for scenario descriptions.")
+
+```
+
+\clearpage
+
+```{r tab-est-recruit-3cd, results='asis'}
+
+make.value.table.compare(c(base.model.3cd, 
+                           sens.models.11), 
+                 c(base.model.3cd.name, 
+                   sens.models.name.11), 
+                 years=2010:2022,
+                 type= 2,
+                 mpdmed="med",
+                 caption = "Comparison of recent median posterior recruitment estimates from the four commercial mean weight scenarios. See Methods for scenario descriptions.")
+
+```
+
+
+```{r tab-est-recruit-3cd-per, results='asis'}
+make.value.table.compare(c(base.model.3cd, 
+                           sens.models.11), 
+                 c(base.model.3cd.name, 
+                   sens.models.name.11),
+                 years=2010:2022,
+                 type= 2,
+                 mpdmed="med",
+                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the four commercial mean weight scenarios. See Methods for scenario descriptions.",
+                 percent=TRUE)
 
 ```
 
@@ -280,7 +323,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.")
+                 caption = "Comparison of recent median posterior biomass estimates ffrom the four commercial mean weight scenarios. See Methods for scenario descriptions.")
 
 ```
 
@@ -292,38 +335,11 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of percentage difference in median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.",
+                 caption = "Comparison of percentage difference in median posterior biomass estimates from the four commercial mean weight scenarios. See Methods for scenario descriptions.",
                  percent=TRUE)
 
 ```
 
-
-\clearpage
-
-
-```{r tab-est-recruit-3cd, results='asis'}
-
-make.value.table.compare(c(base.model.3cd), 
-                 c(base.model.3cd.name), 
-                 years=2010:2022,
-                 type= 2,
-                 mpdmed="med",
-                 caption = "Comparison of recent median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.")
-
-```
-
-```{r tab-est-recruit-3cd-per, results='asis'}
-make.value.table.compare(c(base.model.3cd, 
-                           sens.models.11), 
-                 c(base.model.3cd.name, 
-                   sens.models.name.11),
-                 years=2010:2020,
-                 type= 2,
-                 mpdmed="med",
-                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.",
-                 percent=TRUE)
-
-```
 
 \clearpage
 
@@ -370,9 +386,7 @@ knitr::include_graphics(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardi
 
 ```
 
-
 \clearpage
-
 
 ```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
@@ -406,13 +420,15 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 \clearpage
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. See Methods for scenario descriptions."}
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. See Methods for scenario descriptions."}
+r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+```
+
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. See Methods for scenario descriptions."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios. See Methods for scenario descriptions."}
-r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
-```
+
 
 \clearpage
 
@@ -601,7 +617,7 @@ In log space, the GLM linear fit estimated an intercept of 0.341 (s.e. 0.109), o
 Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index , and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
 
 
-```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (green), observed commercial mean weight index (blue), and predicted mean weight index (red) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="4in"}
+```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index (green), observed commercial mean weight index (blue), and predicted commercial mean weight index (red) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 
