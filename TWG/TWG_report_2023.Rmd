@@ -230,7 +230,8 @@ Given the consistency of the GLM-derived commercial mean weight index with other
 
 ## Model-averaged stock status
 
-
+Posterior estimates of biomass from the seven sensitivity models are shown in Figure \@ref(fig:fig-model-average-biomass-3cd).
+Estimates of recruitment and fishing mortality are shown in Figures \@ref(fig:fig-model-average-recruit-3cd) and \@ref(fig:fig-model-average-f-3cd).
 
 
 # Conclusions
@@ -437,23 +438,22 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. See Methods for scenario descriptions."}
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions."}
 r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. See Methods for scenario descriptions."}
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
 
-
 \clearpage
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
+```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
@@ -468,6 +468,7 @@ b.plot(avg.model.3cd,
        usr = c(1956, 2004), french=french)
        
 ```
+
 
 ```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
 f.plot(avg.model.3cd,
