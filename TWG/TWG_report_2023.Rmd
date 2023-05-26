@@ -128,7 +128,7 @@ The indices were developed using a Tweedie generalized linear mixed model (GLMM)
 The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (see @forrest2020).
 The modern-period GLMMs included predictors for depth, latitude, locality, month, vessel, and a locality-year interaction (Figure \@ref(fig:fig-modern-cpue-3cd)).
 
-### Commercial annual mean weigh index
+### Commercial annual mean weight index
 
 The commercial annual mean weight index was calculated using the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
@@ -147,9 +147,9 @@ Here, four alternative treatments of the commercial mean weight index are presen
 
 In order to investigate the sensitivity of the model to different treatments of the commercial mean weight index, the following steps were taken:
 
-Step 1. Develop a mean weight index based on length samples from the WCVI Synoptic Survey (see Appendix B for methods and results);
+Step 1. Develop a mean weight index based on length samples from the WCVI Synoptic Survey (see Appendix B for methods and results).
 
-Step 2. Use a generalized linear regression model (GLM) with a Gamma log link to predict commercial mean weight index values from the survey mean weight index (see Appendix C for methods and results);
+Step 2. Use a generalized linear regression model (GLM) with a Gamma log link to predict commercial mean weight index values from the survey mean weight index (see Appendix C for methods and results).
 
 Step 3. Update model data files with new data streams, including the commercial mean weight index.
 Four alternative scenarios were evaluated, which differed in the treatment of the last five years of the commercial mean weight index (see next section).
@@ -199,24 +199,22 @@ Maximum posterior density (MPD) model fits to the commercial mean weight index f
 As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
 This is most likely a data issue, where there are missing lengths of small fish prior to the beginning of observer coverage in 1996, where the majority of fish measured were "keepers", i.e., only larger, landed fish.
 
-The model fit the commercial mean weight index very well for Sc. 1 and 2, which used values from the GLM from 2018 onwards, with and without interpolation, respectively (Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
-The fit was very similar for both scenarios. 
-The models without GLM values (Sc. 3 and 4) poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) to \@ref(fig:fig-base-mean-weight-3cd-sc4)).
+The models which used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index very well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
+The fit was very similar for  scenarios both with and without interpolation in 2019--2020. 
+The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
 The model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
-This pattern is consistent with predicted recruitment from all four models (Table \@ref(tab:tab-est-recruit-3cd)), which estimate a large decline in recruitment between 2016 and 2018.
+This pattern is consistent with predicted recruitment from all four models (Table \@ref(tab:tab-est-recruit-3cd)), which estimated a large decline in recruitment between 2016 and 2018.
 A population with fewer recruits is expected to have a higher than average mean weight of individuals.
-The models predicted an increase in recruitment between 2019 and 2022 , which would result in the subsequent decrease in estimated mean weight (Table \@ref(tab:tab-est-recruit-3cd), Figure \@ref(fig:fig-sens-recr-3cd)).
-All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that other data sources had a greater influence on model estimates than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE.
-This indicates that the survey mean weight index, used to predict the commercial mean weight index in Sc. 1 and 2, is consistent with other data sources and better indexes mean weight patterns than attempting to extrapolate from the last observations of the commercial mean weight index (Sc. 3 and 4).
+The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decrease in commercial mean weight (Table \@ref(tab:tab-est-recruit-3cd), Figure \@ref(fig:fig-sens-recr-3cd)).
 
+All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that other data sources had a greater influence on model estimates than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE (Figures \@ref(fig:fig-catch-3cd) to \@ref(fig:fig-modern-cpue-3cd).
+This strongly suggests that the survey mean weight index, used to predict the commercial mean weight index in Sc. 1 and 2, is consistent with other data sources and, therefore, better indexes mean weight patterns than attempting to extrapolate from the last observations of the commercial mean weight index (Sc. 3 and 4).
 
+Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd). 
+All four models estimated a very similar pattern in biomass (Tables \@ref(tab:tab-est-biomass-3cd)).
+The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8 percent (Sc. 3 compared to Sc. 1 in 2021).
 
-
-Posterior biomass estimates from the Reference Case model are shown in Figure \@ref(fig:fig-model-ref-biomass-3cd). Compared to this model, Scenarios 1 and 2 resulted in reduced estimates of biomass for 2019-2020 and a reduced 2021 forecast (Table \@ref(tab:tab-est-biomass-3cd); Figure \@ref(fig:fig-sens-biomass-3cd)). The percentage change for the median 2021 forecast biomass ranged from -24.5% in Scenario 1 to -15.8% in Scenario 2 (Table \@ref(tab:tab-est-biomass-3cd-per)). Median posterior estimates of recruitment were much lower in 2019-2020 in Scenarios 1 and 2 compared to the Reference Case, with the percentage change ranging from -53.9% in Scenario 1 to -27.8% in Scenario 2 (Table \@ref(tab:tab-est-recruit-3cd); Figure \@ref(fig:fig-sens-recr-3cd)). We note that biases were larger in Scenario 1, where interpolation was applied, than in Scenario 2, where it was not.
-
-The lower estimates of 2019-2020 recruitment in Scenarios 1 and 2, compared to the Reference Case model, especially in Scenario 1, are mostly likely driven by the higher mean weights in 2018-2020 (Table \@ref(tab:tab-mean-weight-recent-3cd)), which would imply fewer small fish in the catch, all other things equal. 
-
-Clearly from Tables \@ref(tab:tab-est-biomass-3cd-per) and \@ref(tab:tab-est-recruit-3cd), recruitment estimates are more strongly influenced by the mean weight index than biomass estimates, which are more directly influenced by catch and indices of abundance. However, given the short lifespan of Pacific cod in BC (~10-11 years) and the assumed early age of maturity in the models (2 years), changes in estimates of recruitment are expected to impact estimates of biomass relatively quickly. 
+Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences among scenarios, we based the scenarios for model-averaging on Sc. 1.
 
 ## Model-averaged stock status
 
