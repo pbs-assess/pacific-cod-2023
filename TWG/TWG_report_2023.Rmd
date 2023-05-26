@@ -62,6 +62,13 @@ if(!knitr:::is_latex_output())
 
 # Context
 
+The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
+While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [Guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that for stocks not subject to the FSP, DFO's PA Policy still applies [@dfo2009], *" [...] and under the policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP"* 
+
+The Guidance provides the following definitions of whether a stock should be considered to be at or below its LRP:
+
+*"[A stock] is considered to be at or below its LRP if the terminal year stock status indicator is estimated to be at or below the LRP with a greater than 50% probability or if the projected stock status indicator falls below the LRP with a greater than 50% probability under a zero catch scenario in a 1-year projection, unless an alternative method or probability is defined in stock-specific precautionary approach framework."*
+
 The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*) found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
 This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
 Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022. 
@@ -230,8 +237,14 @@ Given the consistency of the GLM-derived commercial mean weight index with other
 
 ## Model-averaged stock status
 
-Posterior estimates of biomass from the seven sensitivity models are shown in Figure \@ref(fig:fig-model-average-biomass-3cd).
-Estimates of recruitment and fishing mortality are shown in Figures \@ref(fig:fig-model-average-recruit-3cd) and \@ref(fig:fig-model-average-f-3cd).
+Sensitivity of posterior biomass estimates to the settings in the seven scenarios are shown in Figure \@ref(fig:fig-model-average-biomass-3cd).
+Sensitivity of posterior recruitment estimates are shown in Figure \@ref(fig:fig-model-average-recruit-3cd).
+As in previous assessments [@forrest2020], of the seven scenarios, the model was most sensitive to the assumed standard deviation in the prior for survey catchability ($q$).
+
+Model-averaged posterior estimates for biomass and fishing mortality are shown in Figures \@ref(fig:fig-model-average-biomass-3cd) and \@ref(fig:fig-model-average-f-3cd), respectively.
+While the fishing mortality is estimated to be well-below the limit reference point, defined as the average fishing mortality between 1956 and 2004 (@forrest2020), there is a non-zero probability that the stock is below the limit reference point (LRP), which is defined as the estimated biomass in 1985 (@forrest2020).
+
+
 
 
 # Conclusions
