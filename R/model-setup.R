@@ -35,7 +35,7 @@ if(verbose) cat0("Assessment year: \n  ", assess.yr)
 ## -----------------------------------------------------------------------------
 ## Year for last assessment - default is current year - 1
 ## -----------------------------------------------------------------------------
-last.assess.yr <- 2021
+last.assess.yr <- 2022
 if(verbose) cat0("Last assessment year: \n  ", last.assess.yr)
 
 ## -----------------------------------------------------------------------------
@@ -85,7 +85,7 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 Interpolation")
 base.model.3cd.dir.name <- file.path(model.dir,
-                                     "1_1a_3CD_BASE_2023_interp")
+                                     "1a_3CD_2023_interp")
 
 if(verbose){
   cat0("Base model directory name for reference model 3cd:\n", base.model.3cd.dir.name)
@@ -96,11 +96,11 @@ if(verbose){
 ## Sensitivity models group 11 (3CD) - individual imputation iterations
 ## -----------------------------------------------------------------------------
 sens.models.dir.name.11 <- c(file.path(model.dir,
-                                       "1_1b_3CD_BASE_2023_no_interp"),
+                                       "1b_3CD_2023_no_interp"),
                              file.path(model.dir,
-                                       "1_1c_3CD_BASE_2023_noGLM_extrap"),
+                                       "1c_3CD_2023_noGLM_extrap"),
                              file.path(model.dir,
-                                       "1_1c_3CD_BASE_2023_noGLM_no_extrap")
+                                       "1d_3CD_2023_noGLM_no_extrap")
                              )
 
 sens.models.name.11 <- c("Sc. 2 No interpolation",
@@ -112,17 +112,17 @@ sens.models.name.11 <- c("Sc. 2 No interpolation",
 ## -----------------------------------------------------------------------------
 desc.models.3cd.dir.name <- c(base.model.3cd.dir.name,
                               file.path(model.dir,
-                                        "1_2d_3CD_q_1"),
+                                        "2d_3CD_q_1"),
                               file.path(model.dir,
-                                        "1_2e_3CD_q_cv06"),
+                                        "2e_3CD_q_cv06"),
                               file.path(model.dir,
-                                        "1_3a_3CD_Mprior_mean04_sd01"),
+                                        "3a_3CD_Mprior_mean04_sd01"),
                               file.path(model.dir,
-                                        "1_5a_3CD_kage3"),
+                                        "5a_3CD_kage3"),
                               file.path(model.dir,
-                                        "1_6b_3CD_sig015"),
+                                        "6b_3CD_sig015"),
                               file.path(model.dir,
-                                        "1_7b_3CD_sigW015"))
+                                        "7b_3CD_sigW015"))
 
 desc.models.3cd.name <- c(base.model.3cd.name,
                           ifelse(french, "Sc 2d.", "2d) WCVISS ln(q) prior mean = ln(1.0)"),

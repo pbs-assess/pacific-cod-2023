@@ -279,7 +279,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022; Scenario 3 = use the 2016 mean weight index value for 2018-2022.")
+                 caption = "Comparison of recent median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.")
 
 ```
 
@@ -291,7 +291,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
-                 caption = "Comparison of percentage difference in median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
+                 caption = "Comparison of percentage difference in median posterior biomass estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.",
                  percent=TRUE)
 
 ```
@@ -302,14 +302,12 @@ make.value.table.compare(c(base.model.3cd,
 
 ```{r tab-est-recruit-3cd, results='asis'}
 
-make.value.table.compare(c(base.model.3cd, 
-                   sens.models.11), 
-                 c(base.model.3cd.name, 
-                   sens.models.name.11), 
+make.value.table.compare(c(base.model.3cd), 
+                 c(base.model.3cd.name), 
                  years=2010:2022,
                  type= 2,
                  mpdmed="med",
-                 caption = "Comparison of recent median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.")
+                 caption = "Comparison of recent median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.")
 
 ```
 
@@ -321,7 +319,7 @@ make.value.table.compare(c(base.model.3cd,
                  years=2010:2020,
                  type= 2,
                  mpdmed="med",
-                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022.",
+                 caption = "Comparison of percentage difference in median posterior recruitment estimates from the 2022 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.",
                  percent=TRUE)
 
 ```

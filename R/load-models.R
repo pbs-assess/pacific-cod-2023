@@ -1328,3 +1328,4 @@ calc.mpd.logs <- function(mpd,
   names(vals) <- log.names
   c(mpd, vals)
 }
+
