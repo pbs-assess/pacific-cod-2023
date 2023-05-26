@@ -1,7 +1,7 @@
 ---
 title: "DRAFT. Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island in 2023. Report for the Pacific Cod Technical Working Group."
 author: "Robyn Forrest and Sean Anderson"
-date: "May 25 2023"
+date: "May 26, 2023"
 link-citations: true
 bibliography: bib/refs.bib
 #csl: csl/csas.csl 
@@ -163,6 +163,7 @@ Step 5. Select a scenario for the commercial mean weight index (based on model d
 All scenarios used the commercial mean weight index derived from commercial length samples for the years 1956--2016.
 There was no 2017 index point in any scenario, as in the 2020 assessment.
 The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
+As in previous assessments, all scenarios assumed an observation error of $\sigma_W$ = 0.2, which controls the fit to the mean weight in the likelihood function [@dfo2021].
 
 Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
 Values of the index used in the different scenarios since 2010 are shown in Table \@ref(tab:tab-mean-weight-recent-3cd).
@@ -196,8 +197,10 @@ As above, posterior samples were drawn every 2,500 iterations from a chain of le
 ## Model scenarios: sensitivity to treatment of the commercial mean weight index 
 
 Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4). 
-As in previous assessments [@forrest2020], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
-This is most likely a data issue, where there are missing lengths of small fish prior to the beginning of observer coverage in 1996, where the majority of fish measured were "keepers", i.e., only larger, landed fish.
+As in previous assessments [@forrest2020; @dfo2021], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
+This is most likely because most of the length measurements in this part of the time series came from fish classified as "keepers", i.e., not released at sea (see @forrest2015 for discussion of this issue for the Area 5AB and 5CD stocks).
+Smaller, released fish are therefore likely underrepresented in the annual mean weight data prior to the introduction of at-sea observers in 1996.
+A scenario with a smaller value of $\sigma_W$, which controls the fit to the mean weight in the likelihood function, is included in the model-averaging set (Sc 7b).
 
 The models which used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index very well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
 The fit was very similar for  scenarios both with and without interpolation in 2019--2020. 
@@ -214,9 +217,13 @@ Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fi
 All four models estimated a very similar pattern in biomass (Tables \@ref(tab:tab-est-biomass-3cd)).
 The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8 percent (Sc. 3 compared to Sc. 1 in 2021).
 
-Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences among scenarios, we based the scenarios for model-averaging on Sc. 1.
+Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
 
 ## Model-averaged stock status
+
+The same seven sensitivity cases from the 2018 and 2021 stock assessments were used for model-averaging.
+These are fully described in @forrest2018, but briefly, they are:
+
 
 
 
@@ -356,12 +363,18 @@ decision.table.zero.tac(avg.model.3cd,
                french=french) #
 ```
 
+<!--
+
+Don't include a decision table
+
 ```{r summary-tab-decision-avg-3cd, results='asis'}
  decision.table(avg.model.3cd,
                 caption = paste0("Decision table with model averaging. Models averaged are: ",
                                  and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
                                  "."), french=french) #
 ```
+
+-->
 
 \clearpage
 
