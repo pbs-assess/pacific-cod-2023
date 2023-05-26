@@ -265,7 +265,7 @@ mw.table(c(base.model.3cd,
            sens.models.name.11), 
          years=2010:2022,
          area="3CD",
-         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. Scenario 1 = Use predicted commercial mean weight index value for 2018, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018; Scenario 3 = use the 2016 mean weight index value for 2018-2022; Scenario 4 = Same as Sc 3 but with sigW = 0.15.")
+         caption="Comparison of mean weight values used in the 2020 Reference Case model and sensitivity analyses. See Methods for scenario descriptions.")
 
 ```
 
@@ -326,7 +326,6 @@ make.value.table.compare(c(base.model.3cd,
 
 \clearpage
 
-
 ```{r summary-tab-stock-status-avg-3cd, results='asis'}
 stock.status(avg.model.3cd,
                 caption = paste0("Current stock status with model averaging. Models averaged are: ",
@@ -374,7 +373,7 @@ knitr::include_graphics(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardi
 \clearpage
 
 
-```{r fig-base-mean-weight-3cd, fig.cap="Reference Case model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
@@ -397,7 +396,7 @@ plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, fre
 ```
 
 
-```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data with sigW = 0.05."}
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data."}
 plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[3]], french=french),
           nrow = 1,
@@ -420,23 +419,23 @@ b.plot(base.model.3cd,
 \clearpage
 
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. See Methods for scenario descriptions."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios. Scenario 1 = Use predicted commercial mean weight index value for 2018, 2021 and 2022, and interpolated values for 2019 and 2020; Scenario 2 = Use only the predicted commercial mean weight index value for 2018, 2021 and 2022."}
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to model scenarios. See Methods for scenario descriptions."}
 r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
 \clearpage
 
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging."}
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
 
-```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging."}
+```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
