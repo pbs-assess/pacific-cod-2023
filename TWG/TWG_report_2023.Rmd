@@ -183,10 +183,19 @@ Posterior samples were drawn every 2,500 iterations from a chain of length 5 mil
 
 The previous two stock assessments for 3CD Pacific Cod used a model-averaging approach to develop estimates of stock status and decision tables [@dfo2019; @dfo2021].
 A set of seven model scenarios for for model averaging was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for the 2018 assessment [@dfo2019].
-The same set of model scenarios (with updated data) were used in the 2020 update [@dfo2021].
-Full details on the model configurations and assumptions for each scenario are provided in @forrest2020.
 
-To proceed with estimating stock status using the model-averaging approach, it is necessary to select a scenario for treatment of the commercial mean weight index, to use in all seven models.
+The same seven sensitivity cases from the 2018 and 2021 stock assessments were used here for model-averaging.
+These are fully described in @forrest2020, but briefly (retaining the original scenario names from @forrest2020), they are:
+
+1.	Sc. 1a Reference model (this is Sc. 1 from the above analyses);
+2.	Sc. 2d Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$;
+3.	Sc. 2e Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6;
+4.	Sc. 3a Set the parameters of the prior probability distribution for $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$;
+5.	Sc. 5a Set knife-edged age at recruitment = 3 years;
+6.	Sc. 6b Reduce the overall observation error term $\sigma_O = 0.15$; and
+7.	Sc. 7b Reduce the SD in the likelihood for the fit to average annual mean weight $\sigma_W = 0.15$.
+
+To proceed with estimating stock status using the model-averaging approach, it was necessary to select a scenario for treatment of the commercial mean weight index, to use in all seven models.
 This decision will ultimately be made with guidance of the TWG.
 In the meantime, noting the similarity of all four mean weight index scenarios (see Results), the seven sensitivity models were set up with the same commercial mean weight index that was used in Sc. 1 (Interpolation) above.
 
@@ -200,7 +209,7 @@ Maximum posterior density (MPD) model fits to the commercial mean weight index f
 As in previous assessments [@forrest2020; @dfo2021], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
 This is most likely because most of the length measurements in this part of the time series came from fish classified as "keepers", i.e., not released at sea (see @forrest2015 for discussion of this issue for the Area 5AB and 5CD stocks).
 Smaller, released fish are therefore likely underrepresented in the annual mean weight data prior to the introduction of at-sea observers in 1996.
-A scenario with a smaller value of $\sigma_W$, which controls the fit to the mean weight in the likelihood function, is included in the model-averaging set (Sc 7b).
+A scenario with a smaller value of $\sigma_W$, which controls the fit to the mean weight in the likelihood function, is included in the model-averaging set (Sc. 7b).
 
 The models which used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index very well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
 The fit was very similar for  scenarios both with and without interpolation in 2019--2020. 
@@ -220,9 +229,6 @@ The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher bio
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
 
 ## Model-averaged stock status
-
-The same seven sensitivity cases from the 2018 and 2021 stock assessments were used for model-averaging.
-These are fully described in @forrest2018, but briefly, they are:
 
 
 
