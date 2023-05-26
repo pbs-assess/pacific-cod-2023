@@ -248,10 +248,10 @@ newdata <- dat1 %>%
     dplyr::filter(!is.na(survey_mean_weight)) %>%
     as.data.frame()
 #
-pred_commercial_mean_weight <- predict(GLM, newdata, type="response")
+pred_comm_mean_weight <- predict(GLM, newdata, type="response")
 #
 comparedata <- newdata %>%
-    cbind(pred_commercial_mean_weight)
+    cbind(pred_comm_mean_weight)
 
 # put back the years with no survey data
 comparedata_allyrs  <-
@@ -269,11 +269,15 @@ comparedata_allyrs  <-
 #   comparedata_allyrs[which(comparedata_allyrs$year==2019),3] <- cmw[which(cmw$year==2019),2]
 
   g1 <- comparedata_allyrs %>%
+    as.data.frame() %>%
     select(-n_samples, -n_specimens) |>
-    melt(id.vars="year", variable.name="Obs_vs_Pred", value.name="commercial_mean_weight") %>%
+    melt(id.vars="year", variable.name="obs_vs_pred", value.name="comm_mean_weight") %>%
+    mutate(across("obs_vs_pred", str_replace, "survey_mean_weight", "survey"),
+           across("obs_vs_pred", str_replace, "comm_mean_weight", "comm"),
+           across("obs_vs_pred", str_replace, "pred_comm_mean_weight", "pred_comm")) %>%
     ggplot()+
-    geom_point(aes(x=year, y=commercial_mean_weight, colour=Obs_vs_Pred), size=2.5)+
-    geom_line(aes(x=year, y=commercial_mean_weight, colour=Obs_vs_Pred), lwd=1, lty=1)+
+    geom_point(aes(x=year, y=comm_mean_weight, colour=obs_vs_pred), size=2.5)+
+    geom_line(aes(x=year, y=comm_mean_weight, colour=obs_vs_pred), lwd=1, lty=1)+
     scale_color_aaas()+
     theme(legend.position = "right")+
     ylim(0,3.5)+
@@ -328,8 +332,8 @@ comparedata_allyrs  <-
     lines(x$year, x$comm_mean_weight, col = "red")
     points(newdata$year, newdata$survey_mean_weight, col = "blue")
     lines(newdata$year, newdata$survey_mean_weight, col = "blue")
-    points(x$year, x$pred_commercial_mean_weight, col = "darkgreen")
-    lines(x$year, x$pred_commercial_mean_weight, col = "darkgreen")
+    points(x$year, x$pred_comm_mean_weight, col = "darkgreen")
+    lines(x$year, x$pred_comm_mean_weight, col = "darkgreen")
     for (i in 1:500) {
       jit <- jitter(newdata$year, amount = 0.2)
       points(jit, pred_mean_weight[i,], col = "#00640010")
@@ -369,9 +373,9 @@ comparedata_allyrs  <-
   # Only need to do this for years without comm samples
   # MAY OR MAY NOT CHOOSE TO USE THESE VALUES: RUN MODELS WITH AND WITHOUT INTERPOLATION
   pred_mean_weight_no_interpolate <- comparedata_allyrs %>%
-    select(year,pred_commercial_mean_weight)
+    select(year,pred_comm_mean_weight)
   pred_mean_weight_interpolate <- comparedata_allyrs %>%
-    select(year,pred_commercial_mean_weight)
+    select(year,pred_comm_mean_weight)
 
 # Interpolate values between 2018 and 2020 for updating the model files
     # Interpolate between 2018 and 2021

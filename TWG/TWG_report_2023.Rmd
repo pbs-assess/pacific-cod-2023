@@ -98,7 +98,9 @@ This enables a continuous mean weight index for the entire model period, beginni
 ## Data
 
 Data were extracted from DFO databases using methods described in @forrest2020.
-Biological data from fishery-independent and commercial fishery sources were available up until April 2023.
+Data from fishery-independent and commercial fishery sources were available up until April 2023.
+All time series were calculated using currently-available data.
+Minor differences in the time series compared to those calculated in @forrest2020 are due to routine updates and corrections in the databases.
 
 ### Commercial catch
 
@@ -126,44 +128,43 @@ The indices were developed using a Tweedie generalized linear mixed model (GLMM)
 The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (see @forrest2020).
 The modern-period GLMMs included predictors for depth, latitude, locality, month, vessel, and a locality-year interaction (Figure \@ref(fig:fig-modern-cpue-3cd)).
 
-### Annual mean weight in commercial catch
+### Commercial annual mean weigh index
 
-The whole commercial annual mean weight index was calculated using the methodology decribed in Appendix C of @forrest2020.
+The commercial annual mean weight index was calculated using the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
-Note that there may be minor differences in the mean weight index compared to that calculated in @forrest2020 due to routine updates and corrections in the databases.
 
 There has been no biological sampling on commercial trawl vessels since 2019.
-However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod since 2015 (Appendix A). 
+However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod, starting in 2016 (Appendix A). 
 In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
-Due to lack of samples, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020 [@dfo2021], although we note that this was not ideal as the 2019 index point was also based on only two samples.
+Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020 [@dfo2021], although this was not ideal as the 2019 index point was also based on only two samples.
 
-Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from length samples in the WCVI Synoptic Survey (Appendices B and C).
-The methodology was presented to the TWG in 2022 and provided a reasonable fit to the observed commercial mean weight data.
+Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from WCVI Synoptic Survey length samples (Appendices B and C).
+The methodology was presented to the TWG in 2022, who found it provided a reasonable fit to the commercial mean weight index derived from commercial data.
+Here, four alternative treatments of the commercial mean weight index are presented, which differ in the treatment of the index since 2018.
 
 ## Modelling steps
 
 In order to investigate the sensitivity of the model to different treatments of the commercial mean weight index, the following steps were taken:
 
-Step 1. Develop a survey mean weight index (see Appendix B for methods and results);
+Step 1. Develop a mean weight index based on length samples from the WCVI Synoptic Survey (see Appendix B for methods and results);
 
-Step 2. Use a generalized linear regression model (GLM) with a log link to predict commercial mean weight from survey mean weight (see Appendix C for methods and results);
+Step 2. Use a generalized linear regression model (GLM) with a Gamma log link to predict commercial mean weight index values from the survey mean weight index (see Appendix C for methods and results);
 
-Step 3. Update model data files with predicted commercial mean weight index values for 2018-2022, noting that predicted commercial mean weight index values are only available for years in which there was a survey.
-Therefore, evaluate four alternative scenarios that differ only in treatment of the last five years of the commercial mean weight index (see next section).
+Step 3. Update model data files with new data streams, including the commercial mean weight index.
+Four alternative scenarios were evaluated, which differed in the treatment of the last five years of the commercial mean weight index (see next section).
 
-Step 4. Run the models and evaluate sensitivity of model results to the updated commercial mean weight indices.
+Step 4. Run the models and evaluate sensitivity of model results to treatment of the updated commercial mean weight indices.
 
-Step 5. Select the best mean weight index scenario (based on model diagnostics and TWG consensus) to use in the seven sensitivity cases for model-averaging and update the data files accordingly.
-
-Step 6. Run the seven sensitivity models for model averaging and report stock status.
+Step 5. Select a scenario for the commercial mean weight index (based on model diagnostics and TWG consensus) to use in the seven sensitivity cases for model-averaging, run the models and calculate model-averaged stock status.
 
 ## Model scenarios: sensitivity to treatment of the commercial mean weight index
 
-All scenarios used the commercial mean weight index for the years 1956--2016, with no 2017 index point, as in the 2020 assessment.
-The GLM (Appendix B) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted values were generated for survey years 2018, 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
+All scenarios used the commercial mean weight index derived from commercial length samples for the years 1956--2016.
+There was no 2017 index point in any scenario, as in the 2020 assessment.
+The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 
-Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. Values of the index used in the different scenarios since 2010 are shown in Table \@ref(fig:tab-mean-weight-recent-3cd).
+Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. Values of the index used in the different scenarios since 2010 are shown in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
 
@@ -403,9 +404,7 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
           ncol = 2)
 ```
 
-
 \clearpage
-
 
 ```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to model scenarios. See Methods for scenario descriptions."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
@@ -602,7 +601,7 @@ In log space, the GLM linear fit estimated an intercept of 0.341 (s.e. 0.109), o
 Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index , and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
 
 
-```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (blue), observed commercial mean weight index (red), and predicted mean weight index (green) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, the year of the first survey.", out.width="4in"}
+```{r all-mean-weight-series-3cd, fig.cap="Survey mean weight index (green), observed commercial mean weight index (blue), and predicted mean weight index (red) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 
