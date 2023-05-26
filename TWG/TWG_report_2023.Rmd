@@ -373,14 +373,14 @@ knitr::include_graphics(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardi
 \clearpage
 
 
-```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[1]], french=french),
           nrow = 1,
@@ -388,7 +388,7 @@ plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, fre
 ```
 
 
-```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[2]], french=french),
           nrow = 1,
@@ -396,25 +396,13 @@ plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, fre
 ```
 
 
-```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data."}
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[3]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-
-\clearpage
-
-
-```{r fig-model-ref-biomass-3cd, fig.cap="Posterior biomass for the Reference Case model. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
-b.plot(base.model.3cd,
-       base.model.3cd.name,
-       depl = FALSE,
-       add.hist.ref = TRUE,
-       lrp = c(1986, 1986),
-       usr = c(1956, 2004), french=french)
-```
 
 \clearpage
 
@@ -429,19 +417,15 @@ r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.nam
 
 \clearpage
 
-
 ```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
-
 
 ```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-
 \clearpage
-
 
 ```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(avg.model.3cd,
