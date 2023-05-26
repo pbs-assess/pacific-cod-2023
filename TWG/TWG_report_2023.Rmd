@@ -12,6 +12,7 @@ output:
     toc: yes
     fig_caption: yes
     number_sections: yes
+urlcolor: blue
 ---
 
 ```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
@@ -63,13 +64,15 @@ if(!knitr:::is_latex_output())
 # Context
 
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
-While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [Guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that for stocks not subject to the FSP, DFO's PA Policy still applies [@dfo2009], *" [...] and under the policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP"* 
+While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [Guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP, DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies: 
+
+*"[...] and under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."* 
 
 The Guidance provides the following definitions of whether a stock should be considered to be at or below its LRP:
 
 *"[A stock] is considered to be at or below its LRP if the terminal year stock status indicator is estimated to be at or below the LRP with a greater than 50% probability or if the projected stock status indicator falls below the LRP with a greater than 50% probability under a zero catch scenario in a 1-year projection, unless an alternative method or probability is defined in stock-specific precautionary approach framework."*
 
-The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*) found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
+The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*), which is not prescribed as a major stock, found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
 This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
 Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022. 
 Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:surv-canadian)).
@@ -231,7 +234,7 @@ This strongly suggests that the survey mean weight index, used to predict the co
 
 Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd). 
 All four models estimated a very similar pattern in biomass (Tables \@ref(tab:tab-est-biomass-3cd)).
-The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8 percent (Sc. 3 compared to Sc. 1 in 2021).
+The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021).
 
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
 
@@ -244,8 +247,10 @@ As in previous assessments [@forrest2020], of the seven scenarios, the model was
 Model-averaged posterior estimates for biomass and fishing mortality are shown in Figures \@ref(fig:fig-model-average-biomass-3cd) and \@ref(fig:fig-model-average-f-3cd), respectively.
 While the fishing mortality is estimated to be well-below the limit reference point, defined as the average fishing mortality between 1956 and 2004 (@forrest2020), there is a non-zero probability that the stock is below the limit reference point (LRP), which is defined as the estimated biomass in 1985 (@forrest2020).
 
+As stated above, a stock is considered to be below its LRP, thereby triggering requirements for a rebuilding plan, if the terminal year biomass is estiamted to be below the LRP with greater than 50% probability or if there is a 50% probability of being below the LRP in a one year projection with zero catch.
 
-
+Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability that the biomass at the beginning of 2023 is below the LRP.
+Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock will be below the limit reference point at the beginning of 2024 under a zero catch policy.
 
 # Conclusions
 
