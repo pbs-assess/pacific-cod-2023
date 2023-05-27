@@ -663,11 +663,16 @@ Using the `predict` function in R, we then used the model to predict commercial 
 
 ## Results
 
-**TODO: Best way to describe the GLM results? Does the t statistic mean anything useful?**
+
 
 In log space, the GLM linear fit estimated an intercept of 0.341 (s.e. 0.109), or 1.41 kg in natural space, with slope = 0.751 (s.e. 0.231).
 
 Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index , and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
+The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
+The predictions underestimated the observed commercial index in 2012 and, following the survey trend, overestimated the commercial index in 2016.
+
+**TODO: Best way to describe the GLM results? Show the summary results or report AIC ... AIC doesn't seem useful without a comparison**
+
 
 
 ```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index (green), observed commercial mean weight index (blue), and predicted commercial mean weight index (red) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="4in"}
