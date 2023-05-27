@@ -252,13 +252,30 @@ As stated above, a stock is considered to be below its LRP, thereby triggering r
 Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability that the biomass at the beginning of 2023 is below the LRP.
 Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock will be below the limit reference point at the beginning of 2024 under a zero catch policy.
 
-# Conclusions
+# Summary and conclusions
 
-We were able to derive a catch-weighted survey mean weight index for each area. We were able to derive a predicted commercial mean weight index from the survey mean weight index. The survey mean weight index was a better predictor of the commercial mean weight index in Area 3CD, compared to Area 5ABCD.
+The survey mean weight index was a reasonable predictor of the commercial mean weight index in Area 3CD.
+The predicted commercial mean weight index followed the observed commercial mean weight index very closely in most years.
+Sensitivity models that did not include GLM estimates of the commercial mean weight index did not fit the extrapolated mean weight index values after 2018.
+This was likely because the catch date and indices of abundance provided a stronger signal of low recruitment between 2017 and 2019.
 
-The effects of the two alternative treatments in each area were stronger for Area 3CD than for Area 5ABCD, especially for recruitment. This was because the last observed 2019 mean weight index value used in the Reference Case model was much lower (~0.5-1.0 kg lower) than the values used for 2018-2020 in Scenarios 1 and 2. The larger perceived bias in Area 3CD should be considered in light of the fact that the 2019 and 2020 commercial mean weight values used in the 2020 Reference Case model were based on only two samples. Given the apparent strong relationship between the survey and fishery prior to 2016 (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd)), the predicted commercial mean weight index may represent more realistic values.
+The seven models used for model averaging used a commercial mean weight index that included values from the GLM.
+Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP and a 16% probability that the stock will be below the limit reference point at the beginning of 2024 under a zero catch policy.
+Therefore the stock does not meet the requirement of 50% probability of being below the LRP required to trigger a rebuilding plan (see Context).
+However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
+Current fishing mortality is estimated to be low (< 0.05 */y*) but increasing, with an approximate 70% increase in commercial catch between 2021 and 2022.
 
-The results of this exercise highlight obvious differences in selectivity between the commercial fishery and synoptic surveys, especially in Area 5ABCD, where the survey catches much smaller fish. This represents a violation of the assumptions of the delay-difference model, which assumes knife-edged selectivity in both the survey and fishery. However, violation of this assumption is probably less consequential than the assumption of the same knife-edged maturity. As long as the relative selectivities in the survey and fishery remain approximately constant, calibration exercises such as this may be an acceptable approach to continue the time series of the commercial mean weight index, although this should be evaluated through simulation-testing. 
+Other Pacific Cod populations (notably in Alasaka) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020].
+However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
+There has not been a thorough analysis of potential causes for the current decline in the Area 3CD stock, which may be related to fishing, climate change, declines in body condition, movement or other factors and we recommend that resources be allocated to investigate alternative hypotheses.
+
+The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of using the delay-difference model for assessing BC Pacific Cod populations.
+Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
+Therefore, we recommend resources be allocated to investigating other approaches for providing catch advice for Pacific Cod stocks.
+This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or a more data-limited approach such as adjusting the annual catches following changes in the survey indices.
+Versions of the latter approach are used by the International Council for the Exploration of the Seas (ICES) for data-limited (Category 3) stocks [@ices2022].
+In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
+We recommend evaluation and comparison of multiple approaches.
 
 \clearpage
 
