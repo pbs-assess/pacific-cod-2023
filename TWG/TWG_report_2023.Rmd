@@ -66,9 +66,9 @@ if(!knitr:::is_latex_output())
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
 While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [Guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP, DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies: 
 
-*"[...] and under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."* 
+*"[...] under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."* 
 
-The Guidance provides the following definitions of whether a stock should be considered to be at or below its LRP:
+For the purpose of triggering a rebuilding plan, the Guidance provides the following definitions of whether a stock is at or below its LRP:
 
 *"[A stock] is considered to be at or below its LRP if the terminal year stock status indicator is estimated to be at or below the LRP with a greater than 50% probability or if the projected stock status indicator falls below the LRP with a greater than 50% probability under a zero catch scenario in a 1-year projection, unless an alternative method or probability is defined in stock-specific precautionary approach framework."*
 
@@ -76,9 +76,9 @@ The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*), which is not 
 This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
 Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022. 
 Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:surv-canadian)).
-Catches from 2018--2020 were also much lower than previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)). 
-The commercial CPUE index also decreased substantially in 2018 but has increased slightly since then, with the increases in commercial catch (Figure \@ref(fig:fig-modern-cpue-3cd), Table \@ref(tab:tab-catch-3cd)).
-Given the low index point in 2018, the 2020 Science Response recommended updating the assessment when new survey information became available.
+Catches from 2018--2020 were also much lower than in previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)). 
+The commercial CPUE index also decreased substantially in 2018 but has increased slightly since then, with increases in commercial catch (Figure \@ref(fig:fig-modern-cpue-3cd), Table \@ref(tab:tab-catch-3cd)).
+Given the low index point in 2018, the 2020 Science Response recommended updating the assessment when new survey information became available [@dfo2021].
 
 The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch and an index of commercial mean weight, which is derived from commercial length samples [see Appendix C of @forrest2020 for methodology].
 The commercial mean weight index provides information about recruitment strength to the model.
@@ -89,19 +89,17 @@ The request had two steps: 1) an evaluation to assess the potential sensitivity 
 The request advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
 Analyses found that the 2020 Area 3CD model was sensitive to the removal of the last three years of the mean weight index (unpublished report, available on request to the authors).
-Following this finding, the TWG met again and evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a mean weight index derived from WCVI survey samples, assuming the fishery and the survey are sampling the same population. 
-The TWG found that the GLM provided a reasonable prediction of the commercial mean weight index for Area 3CD.
+Following this finding, the TWG met again and evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a mean weight index derived from WCVI survey samples. 
+The TWG found that the GLM provided a reasonable prediction of the commercial mean weight index for the Area 3CD stock.
 The GLM did not have acceptable predictive power for the 5ABCD stock.
+Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA.
 
-Given the ongoing low catches of Area 3CD Pacific Cod and model predictions of very low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
+Given the ongoing low catches of Area 3CD Pacific Cod and model estimates of very low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
 However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 <!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
-This stock status update uses the same model configurations as the 2020 assessment [@dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2020.
-Recent values of the commercial mean weight index are derived from the GLM presented to the TWG in 2022.
-The GLM is used to predict the commercial mean weight index for only the last five years of the assessment.
-Prior to 2018, the commercial mean weight index derived from commercial lengths is used.
-This enables a continuous mean weight index for the entire model period, beginning in 1956.
+This stock status update uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
+However, for two scenarios, recent values of the commercial mean weight index are derived from the GLM presented to the TWG in 2022.
 
 # Methods
 
@@ -110,7 +108,7 @@ This enables a continuous mean weight index for the entire model period, beginni
 Data were extracted from DFO databases using methods described in @forrest2020.
 Data from fishery-independent and commercial fishery sources were available up until April 2023.
 All time series were calculated using currently-available data.
-Minor differences in the time series compared to those calculated in @forrest2020 are due to routine updates and corrections in the databases.
+Minor differences in the time series compared to those presented in previous assessments are due to routine updates and corrections in the databases.
 
 ### Commercial catch
 
@@ -118,10 +116,9 @@ Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-c
 Catch data prior to 1981 include catch by US vessels [@forrest2015; @forrest2020].
 Fishing years are defined as beginning on April 1 for all years, and are referenced by starting year, e.g., fishing year 1957 runs from April 1, 1957 to March 31, 1958 [see @forrest2020].
 
-### Canadian bottom trawl surveys
+### WCVI Synoptic bottom trawl survey
 
-Survey indices (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:surv-canadian)) were calculated using a swept area analysis, documented in Appendix A of @forrest2020.
-Abundance in Area 3CD is indexed by the WCVI Synoptic Survey.
+The WCVI Synpotic Survey index (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:surv-canadian)) was calculated using a swept area analysis, documented in Appendix A of @forrest2020.
 The survey was first conducted in 2004 and is conducted in alternating (even-numbered) years.
 Due to the COVID-19 pandemic the 2020 survey was postponed to 2021,then returned to its regular biennial schedule in 2022.
 
@@ -134,24 +131,23 @@ See Appendix A of @forrest2020 for details.
 ### Commercial CPUE
 
 Standardized commercial CPUE indices were developed for the historical (1956--1995) and modern (1996--2022) periods.
-The indices were developed using a Tweedie generalized linear mixed model (GLMM) described in detail in Appendix B of @forrest2020.
-The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (see @forrest2020).
+The indices were developed using a Tweedie generalized linear mixed model (GLMM) described in Appendix B of @forrest2020.
+The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction.
 The modern-period GLMMs included predictors for depth, latitude, locality, month, vessel, and a locality-year interaction (Figure \@ref(fig:fig-modern-cpue-3cd)).
 
 ### Commercial annual mean weight index
 
-The commercial annual mean weight index was calculated using the methodology decribed in Appendix C of @forrest2020.
+The commercial annual mean weight index was calculated using commercial length samples, with the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
 
 There has been no biological sampling on commercial trawl vessels since 2019.
 However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific cod, starting in 2016 (Appendix A). 
 In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
-Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020 [@dfo2021], although this was not ideal as the 2019 index point was also based on only two samples.
+Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal as the 2019 index point was also based on only two samples.
 
 Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from WCVI Synoptic Survey length samples (Appendices B and C).
 The methodology was presented to the TWG in 2022, who found it provided a reasonable fit to the commercial mean weight index derived from commercial data.
-Here, four alternative treatments of the commercial mean weight index are presented, which differ in the treatment of the index since 2018.
 
 ## Modelling steps
 
@@ -161,10 +157,9 @@ Step 1. Develop a mean weight index based on length samples from the WCVI Synopt
 
 Step 2. Use a generalized linear regression model (GLM) with a Gamma log link to predict commercial mean weight index values from the survey mean weight index (see Appendix C for methods and results).
 
-Step 3. Update model data files with new data streams, including the commercial mean weight index.
-Four alternative scenarios were evaluated, which differed in the treatment of the last five years of the commercial mean weight index (see next section).
+Step 3. Update model data files with new data streams, with four alternative treatments of the commercial mean weight index (see next section).
 
-Step 4. Run the models and evaluate sensitivity of model results to treatment of the updated commercial mean weight indices.
+Step 4. Run the models and evaluate sensitivity of model results to treatment of the commercial mean weight index.
 
 Step 5. Select a scenario for the commercial mean weight index (based on model diagnostics and TWG consensus) to use in the seven sensitivity cases for model-averaging, run the models and calculate model-averaged stock status.
 
@@ -175,7 +170,7 @@ There was no 2017 index point in any scenario, as in the 2020 assessment.
 The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 As in previous assessments, all scenarios assumed an observation error of $\sigma_W$ = 0.2, which controls the fit to the mean weight in the likelihood function [@dfo2021].
 
-Therefore four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
+Four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
 Values of the index used in the different scenarios since 2010 are shown in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
@@ -195,19 +190,19 @@ The previous two stock assessments for 3CD Pacific Cod used a model-averaging ap
 A set of seven model scenarios for for model averaging was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for the 2018 assessment [@dfo2019].
 
 The same seven sensitivity cases from the 2018 and 2021 stock assessments were used here for model-averaging.
-These are fully described in @forrest2020, but briefly (retaining the original scenario names from @forrest2020), they are:
+However, to proceed with estimating stock status using the model-averaging approach, it was necessary to select a base scenario for treatment of the commercial mean weight index, to use in all seven models.
+This decision will ultimately be made with guidance of the TWG.
+In the meantime, noting the similarity of all four mean weight index scenarios (see Results), the seven sensitivity models were set up with the same commercial mean weight index as in Sc. 1 above.
 
-1.	Sc. 1a Reference model (this is Sc. 1 from the above analyses);
+The sensitivity cases are fully described in @forrest2020, but briefly (retaining the original scenario names for all but the first scenario), they are:
+
+1.	Sc. 1a Interpolation (this is Sc. 1 from the above analyses);
 2.	Sc. 2d Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$;
 3.	Sc. 2e Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6;
 4.	Sc. 3a Set the parameters of the prior probability distribution for $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$;
 5.	Sc. 5a Set knife-edged age at recruitment = 3 years;
 6.	Sc. 6b Reduce the overall observation error term $\sigma_O = 0.15$; and
 7.	Sc. 7b Reduce the SD in the likelihood for the fit to average annual mean weight $\sigma_W = 0.15$.
-
-To proceed with estimating stock status using the model-averaging approach, it was necessary to select a scenario for treatment of the commercial mean weight index, to use in all seven models.
-This decision will ultimately be made with guidance of the TWG.
-In the meantime, noting the similarity of all four mean weight index scenarios (see Results), the seven sensitivity models were set up with the same commercial mean weight index that was used in Sc. 1 (Interpolation) above.
 
 As above, posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
@@ -221,36 +216,35 @@ This is most likely because most of the length measurements in this part of the 
 Smaller, released fish are therefore likely underrepresented in the annual mean weight data prior to the introduction of at-sea observers in 1996.
 A scenario with a smaller value of $\sigma_W$, which controls the fit to the mean weight in the likelihood function, is included in the model-averaging set (Sc. 7b).
 
-The models which used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index very well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
+The models that used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index very well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
 The fit was very similar for  scenarios both with and without interpolation in 2019--2020. 
 The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
 The model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
-This pattern is consistent with predicted recruitment from all four models (Table \@ref(tab:tab-est-recruit-3cd)), which estimated a large decline in recruitment between 2016 and 2018.
+This pattern is consistent with predicted recruitment from all four models (Table \@ref(tab:tab-est-recruit-3cd)), which estimated low recruitment between 2016 and 2018.
 A population with fewer recruits is expected to have a higher than average mean weight of individuals.
-The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decrease in commercial mean weight (Table \@ref(tab:tab-est-recruit-3cd), Figure \@ref(fig:fig-sens-recr-3cd)).
-
-All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that other data sources had a greater influence on model estimates than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE (Figures \@ref(fig:fig-catch-3cd) to \@ref(fig:fig-modern-cpue-3cd).
-This strongly suggests that the survey mean weight index, used to predict the commercial mean weight index in Sc. 1 and 2, is consistent with other data sources and, therefore, better indexes mean weight patterns than attempting to extrapolate from the last observations of the commercial mean weight index (Sc. 3 and 4).
+The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight (Table \@ref(tab:tab-est-recruit-3cd), Figure \@ref(fig:fig-sens-recr-3cd)).
+All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that the other indices had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:surv-canadian) to \@ref(fig:fig-modern-cpue-3cd)).
+This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from earlier observations (Sc. 3 and 4).
 
 Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd). 
-All four models estimated a very similar pattern in biomass (Tables \@ref(tab:tab-est-biomass-3cd)).
+All four models estimated a very similar pattern in biomass (Table \@ref(tab:tab-est-biomass-3cd)).
 The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021).
 
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
 
 ## Model-averaged stock status
 
-Sensitivity of posterior biomass estimates to the settings in the seven scenarios are shown in Figure \@ref(fig:fig-model-average-biomass-3cd).
-Sensitivity of posterior recruitment estimates are shown in Figure \@ref(fig:fig-model-average-recruit-3cd).
-As in previous assessments [@forrest2020], of the seven scenarios, the model was most sensitive to the assumed standard deviation in the prior for survey catchability ($q$).
+Sensitivity of posterior biomass estimates to the settings in the seven scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd-all-avg).
+Sensitivity of posterior recruitment estimates are shown in Figure \@ref(fig:fig-sens-recr-3cd-all-avg).
+As in previous assessments, of the seven scenarios, the model was most sensitive to the assumed standard deviation in the prior for survey catchability ($q$).
 
 Model-averaged posterior estimates for biomass and fishing mortality are shown in Figures \@ref(fig:fig-model-average-biomass-3cd) and \@ref(fig:fig-model-average-f-3cd), respectively.
-While the fishing mortality is estimated to be well-below the limit reference point, defined as the average fishing mortality between 1956 and 2004 (@forrest2020), there is a non-zero probability that the stock is below the limit reference point (LRP), which is defined as the estimated biomass in 1985 (@forrest2020).
+While the fishing mortality is estimated to be well-below the limit removal reference, which is defined as the average fishing mortality between 1956 and 2004 [@forrest2020], there is a non-zero probability that the stock is below the limit reference point (LRP), which is defined as the estimated biomass in 1985 [@forrest2020].
 
-As stated above, a stock is considered to be below its LRP, thereby triggering requirements for a rebuilding plan, if the terminal year biomass is estiamted to be below the LRP with greater than 50% probability or if there is a 50% probability of being below the LRP in a one year projection with zero catch.
+As stated in the Context section, a stock is considered to be below its LRP, thereby triggering requirements for a rebuilding plan, if the terminal year biomass is estimated to be below the LRP with greater than 50% probability or if there is a greater than 50% probability of being below the LRP in a one year projection with zero catch.
 
 Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability that the biomass at the beginning of 2023 is below the LRP.
-Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock will be below the limit reference point at the beginning of 2024 under a zero catch policy.
+Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.
 
 # Summary and conclusions
 
@@ -260,15 +254,15 @@ Sensitivity models that did not include GLM estimates of the commercial mean wei
 This was likely because the catch data and indices of abundance provided a strong signal of low recruitment between 2017 and 2019, which reduced the influence of the commercial mean weight index on the model likelihood.
 
 The seven models used for model averaging all used a commercial mean weight index that included values from the GLM (Sc. 1).
-Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP and a 16% probability that the stock will be below the limit reference point at the beginning of 2024 under a zero catch policy.
+Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP and a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.
 Therefore, the stock does not meet the requirement of 50% probability of being below the LRP required under the Guidance to trigger a rebuilding plan (see Context).
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
 Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
 
-Other Pacific Cod populations (notably in Alasaka) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020].
+Other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
-There has not been a thorough analysis of potential causes for the current decline in the Area 3CD stock, which may be related to fishing, climate change, declines in body condition, movement or other factors.
-We recommend that resources be allocated to investigate alternative hypotheses fpr changes in abundance of Pacific Cod in BC waters.
+There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to fishing, climate change, declines in body condition, movement or other factors.
+We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
 
 The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the delay-difference model as a primary tool for assessing BC Pacific Cod populations.
 Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
@@ -680,13 +674,10 @@ knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weigh
 
 # Model diagnostics {#sec:AppendixD}
 
-Here we provide model diagnostics for Sc. 1, the first of the commercial mean weight scenarios and the Reference model in the model-averaged reference model.
+Here we provide model diagnostics for Sc. 1, the first of the commercial mean weight scenarios, which is also used as the base model in the model-averaged set of models.
 For brevity, we do not show full diagnostics for the other models, only the index fits.
 
-## Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
-
-The diagnostics and index fits presented here look very similar to those published for the 2020 reference model [@dfo2021].
-
+## Sc. 1 Diagnostics
 
 ```{r tab-param-est-table-3cd-diag, results='asis'}
 pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$")
@@ -711,17 +702,17 @@ plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5),
           label_x = c(0.15, 0.13, 0.13, 0.2))
 ```
 
-```{r fig-base-catch-fit-3cd-diag, fig.cap="MPD fit to the catch data for for Sc. 1. For clarity, only MPD results are shown"}
+```{r fig-base-catch-fit-3cd-diag, fig.cap="MPD fit to the catch data for Sc. 1. For clarity, only MPD results are shown"}
 catch.fit.plot(base.model.3cd, every = 5, last.yr = 2020)
 ```
 
-(ref:priorpostcaption3cd) Histograms of posterior samples with prior probability distributions (lines) used in Sc. 1 model. MPD estimate shown as vertical dashed line. Note that the West Coast Vancouver Island Synoptic Survey used a normal prior distribution on $ln(q)$.
+(ref:priorpostcaption3cd) Histograms of posterior samples with prior probability distributions (lines) used in Sc. 1. MPD estimate shown as vertical dashed line. Note that the West Coast Vancouver Island Synoptic Survey used a normal prior distribution on $ln(q)$. q.3cd.desc.
 
 ```{r fig-base-mcmc-priors-posts-3cd, fig.cap=paste("(ref:priorpostcaption3cd)")}
 make.priors.posts.plot(base.model.3cd, priors.only = FALSE)
 ```
 
-```{r fig-base-mcmc-pairs-3cd, fig.cap=paste0("Pairs plots of posterior samples for the Area 3CD reference model. ", q.3cd.desc)}
+```{r fig-base-mcmc-pairs-3cd, fig.cap=paste0("Pairs plots of posterior samples for Sc. 1. ", q.3cd.desc)}
 make.pairs.plot(base.model.3cd)
 ```
 
@@ -736,26 +727,25 @@ make.autocor.plot(base.model.3cd)
 
 \clearpage
 
-
 ## Fits to the indices of abundance for sensitivity analyses
 
 ### Commercial mean weight index scenarios.
 
 
-```{r fig-sens11-index-wcviss-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, WCVISS, Area 3CD."}
+```{r fig-sens11-index-wcviss-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, WCVISS."}
 i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 1, leg.loc = "topleft")
 ```
 
-```{r fig-sens11-index-triennial-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, NMFS Triennial survey, Area 3CD."}
+```{r fig-sens11-index-triennial-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, NMFS Triennial survey."}
 i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 4)
 ```
 
-```{r fig-sens11-index-cpue-pre1996-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errows, commercial CPUE pre-1996, Area 3CD."}
+```{r fig-sens11-index-cpue-pre1996-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errows, commercial CPUE pre-1996."}
 i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 2, every = 5) +
   ylab("Commercial CPUE (kg/hour)")
 ```
 
-```{r fig-sens11-index-cpue-post1995-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, commercial CPUE post-1995, Area 3CD."}
+```{r fig-sens11-index-cpue-post1995-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, commercial CPUE post-1995."}
 i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 3, leg.loc = "topleft") + ylab("Commercial CPUE (kg/hour)")
 ```
 
