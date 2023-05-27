@@ -644,7 +644,6 @@ knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_
 
 \clearpage
 
-
 # Generalized Linear Model to predict commercial mean length index {#sec:AppendixC}
 
 ## Methods
@@ -663,8 +662,6 @@ Using the `predict` function in R, we then used the model to predict commercial 
 
 ## Results
 
-
-
 In log space, the GLM linear fit estimated an intercept of 0.341 (s.e. 0.109), or 1.41 kg in natural space, with slope = 0.751 (s.e. 0.231).
 
 Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index , and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
@@ -679,7 +676,108 @@ The predictions underestimated the observed commercial index in 2012 and, follow
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 
-
 \clearpage
 
 # Model diagnostics {#sec:AppendixD}
+
+Here we provide model diagnostics for Sc. 1, the first of the commercial mean weight scenarios and the Reference model in the model-averaged reference model.
+For brevity, we do not show full diagnostics for the other models, only the index fits.
+
+## Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
+
+The diagnostics and index fits presented here look very similar to those published for the 2020 reference model [@dfo2021].
+
+
+```{r tab-param-est-table-3cd-diag, results='asis'}
+pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$")
+make.parameters.est.table(base.model.3cd,
+  caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
+    "97.5\\textsuperscript{th} percentile) and MPD ",
+    "estimates of key parameters from Sc.1. $R_0$ is in thousands of fish. $B_0$ is in tonnes. ",
+    q.3cd.desc),
+  omit_pars = pars_est_omit)
+```
+
+```{r fig-base-index-fits-3cd-diag, fig.cap="MPD fits to observed indices of abundance (points) for Sc. 1 from (a) the West Coast Vancouver Island Synoptic Survey, (b) the Commercial CPUE pre-1996, (c) the Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion)."}
+plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5),
+          i.plot(base.model.3cd, base.model.3cd.name, 2, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(base.model.3cd, base.model.3cd.name, 3, every = 5)
+            + ylab("Commercial CPUE (kg/hour)"),
+          i.plot(base.model.3cd, base.model.3cd.name, 4, every = 5),
+          nrow = 2,
+          ncol = 2,
+          labels = c("(a)", "(b)", "(c)", "(d)"),
+          label_x = c(0.15, 0.13, 0.13, 0.2))
+```
+
+```{r fig-base-catch-fit-3cd-diag, fig.cap="MPD fit to the catch data for for Sc. 1. For clarity, only MPD results are shown"}
+catch.fit.plot(base.model.3cd, every = 5, last.yr = 2020)
+```
+
+(ref:priorpostcaption3cd) Histograms of posterior samples with prior probability distributions (lines) used in Sc. 1 model. MPD estimate shown as vertical dashed line. Note that the West Coast Vancouver Island Synoptic Survey used a normal prior distribution on $ln(q)$.
+
+```{r fig-base-mcmc-priors-posts-3cd, fig.cap=paste("(ref:priorpostcaption3cd)")}
+make.priors.posts.plot(base.model.3cd, priors.only = FALSE)
+```
+
+```{r fig-base-mcmc-pairs-3cd, fig.cap=paste0("Pairs plots of posterior samples for the Area 3CD reference model. ", q.3cd.desc)}
+make.pairs.plot(base.model.3cd)
+```
+
+
+```{r fig-base-mcmc-trace-3cd, fig.cap=paste0("Traceplots of posterior samples for Sc. 1. ", q.3cd.desc)}
+make.traces.plot(base.model.3cd)
+```
+
+```{r fig-base-mcmc-autocor-3cd, fig.cap=paste0("Autocorrelation plots for for Sc. 1. ", q.3cd.desc)}
+make.autocor.plot(base.model.3cd)
+```
+
+\clearpage
+
+
+## Fits to the indices of abundance for sensitivity analyses
+
+### Commercial mean weight index scenarios.
+
+
+```{r fig-sens13-index-wcviss-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, WCVISS, Area 3CD."}
+i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 1, leg.loc = "topleft")
+```
+
+```{r fig-sens13-index-triennial-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, NMFS Triennial survey, Area 3CD."}
+i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 4)
+```
+
+```{r fig-sens13-index-cpue-pre1996-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errows, commercial CPUE pre-1996, Area 3CD."}
+i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 2, every = 5) +
+  ylab("Commercial CPUE (kg/hour)")
+```
+
+```{r fig-sens13-index-cpue-post1995-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, commercial CPUE post-1995, Area 3CD."}
+i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 3, leg.loc = "topleft") + ylab("Commercial CPUE (kg/hour)")
+```
+
+
+\clearpage
+
+### Model-averaging scenarios
+
+
+```{r fig-sens13-index-wcviss-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, WCVISS, Area 3CD."}
+i.plot(desc.models.3cd, desc.models.3cd.name, ind = 1, leg.loc = "topleft")
+```
+
+```{r fig-sens13-index-triennial-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, NMFS Triennial survey, Area 3CD."}
+i.plot(desc.models.3cd, desc.models.3cd.name, ind = 4)
+```
+
+```{r fig-sens13-index-cpue-pre1996-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errows, commercial CPUE pre-1996, Area 3CD."}
+i.plot(desc.models.3cd, desc.models.3cd.name, ind = 2, every = 5) +
+  ylab("Commercial CPUE (kg/hour)")
+```
+
+```{r fig-sens13-index-cpue-post1995-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, commercial CPUE post-1995, Area 3CD."}
+i.plot(desc.models.3cd, desc.models.3cd.name, ind = 3, leg.loc = "topleft") + ylab("Commercial CPUE (kg/hour)")
+```
