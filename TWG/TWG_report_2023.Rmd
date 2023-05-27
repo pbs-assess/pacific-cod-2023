@@ -257,25 +257,25 @@ Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability
 The survey mean weight index was a reasonable predictor of the commercial mean weight index in Area 3CD.
 The predicted commercial mean weight index followed the observed commercial mean weight index very closely in most years.
 Sensitivity models that did not include GLM estimates of the commercial mean weight index did not fit the extrapolated mean weight index values after 2018.
-This was likely because the catch date and indices of abundance provided a stronger signal of low recruitment between 2017 and 2019.
+This was likely because the catch data and indices of abundance provided a strong signal of low recruitment between 2017 and 2019, which reduced the influence of the commercial mean weight index on the model likelihood.
 
-The seven models used for model averaging used a commercial mean weight index that included values from the GLM.
+The seven models used for model averaging all used a commercial mean weight index that included values from the GLM (Sc. 1).
 Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP and a 16% probability that the stock will be below the limit reference point at the beginning of 2024 under a zero catch policy.
-Therefore the stock does not meet the requirement of 50% probability of being below the LRP required to trigger a rebuilding plan (see Context).
+Therefore, the stock does not meet the requirement of 50% probability of being below the LRP required under the Guidance to trigger a rebuilding plan (see Context).
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
-Current fishing mortality is estimated to be low (< 0.05 */y*) but increasing, with an approximate 70% increase in commercial catch between 2021 and 2022.
+Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
 
 Other Pacific Cod populations (notably in Alasaka) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
-There has not been a thorough analysis of potential causes for the current decline in the Area 3CD stock, which may be related to fishing, climate change, declines in body condition, movement or other factors and we recommend that resources be allocated to investigate alternative hypotheses.
+There has not been a thorough analysis of potential causes for the current decline in the Area 3CD stock, which may be related to fishing, climate change, declines in body condition, movement or other factors.
+We recommend that resources be allocated to investigate alternative hypotheses fpr changes in abundance of Pacific Cod in BC waters.
 
-The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of using the delay-difference model for assessing BC Pacific Cod populations.
+The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the delay-difference model as a primary tool for assessing BC Pacific Cod populations.
 Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
-Therefore, we recommend resources be allocated to investigating other approaches for providing catch advice for Pacific Cod stocks.
-This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or a more data-limited approach such as adjusting the annual catches following changes in the survey indices.
-Versions of the latter approach are used by the International Council for the Exploration of the Seas (ICES) for data-limited (Category 3) stocks [@ices2022].
+Therefore, in the absence of resuming a full commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
+This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
+Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
-We recommend evaluation and comparison of multiple approaches.
 
 \clearpage
 
