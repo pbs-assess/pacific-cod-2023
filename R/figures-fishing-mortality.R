@@ -83,7 +83,7 @@ f.plot <- function(models,
                    color = j$Color,
                     linetype = "dashed",
                     size = 1,
-                    show.guide = TRUE)
+                    show.legend = TRUE)
     }
   }
 

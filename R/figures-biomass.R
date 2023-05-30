@@ -126,7 +126,7 @@ b.plot <- function(models,
     xlab(en2fr("Year",translate=french, allow_missing = TRUE))
 
   if(!depl & add.hist.ref){
-    if(is.na(lrp) || is.na(usr)){
+    if(any(is.na(lrp)) || any(is.na(usr))){
       cat0("Supply year ranges for both lrp and usr when add.hist.ref is TRUE")
     }else{
       yrs <- bt$Year
