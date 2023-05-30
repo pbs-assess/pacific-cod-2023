@@ -44,12 +44,14 @@ catch.table <- function(dat,
  #                            })
 
 
-  colnames(j) <- c(en2fr(colnames(j)[1], translate = french, allow_missing = TRUE),
-                  en2fr(colnames(j)[2], translate = french, allow_missing = TRUE, case="lower"),
-                  en2fr(colnames(j)[3], translate = french, allow_missing = TRUE, case="lower"),
-                  en2fr(colnames(j)[4], translate = french, allow_missing = TRUE, case="lower"),
-                  en2fr(colnames(j)[5], translate = french, allow_missing = TRUE),
-                  en2fr(colnames(j)[6], translate = french, allow_missing = TRUE))
+  if (french) {
+    colnames(j) <- c(en2fr(colnames(j)[1], translate = french, allow_missing = TRUE),
+      en2fr(colnames(j)[2], translate = french, allow_missing = TRUE, case="lower"),
+      en2fr(colnames(j)[3], translate = french, allow_missing = TRUE, case="lower"),
+      en2fr(colnames(j)[4], translate = french, allow_missing = TRUE, case="lower"),
+      en2fr(colnames(j)[5], translate = french, allow_missing = TRUE),
+      en2fr(colnames(j)[6], translate = french, allow_missing = TRUE))
+  }
 
   #Add Canada to colnames for cols 2-4
   # for(k in 2:4){
