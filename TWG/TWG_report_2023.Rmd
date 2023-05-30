@@ -227,7 +227,7 @@ All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-pe
 This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from earlier observations (Sc. 3 and 4).
 
 Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd). 
-All four models estimated a very similar pattern in biomass (Table \@ref(tab:tab-est-biomass-3cd)).
+All four models estimated a similar pattern in biomass (Table \@ref(tab:tab-est-biomass-3cd)).
 The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021).
 
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
@@ -249,22 +249,22 @@ Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability
 # Summary and conclusions
 
 The survey mean weight index was a reasonable predictor of the commercial mean weight index in Area 3CD.
-The predicted commercial mean weight index followed the observed commercial mean weight index very closely in most years.
+The predicted commercial mean weight index followed the observed commercial mean weight index closely in most years.
 Sensitivity models that did not include GLM estimates of the commercial mean weight index did not fit the extrapolated mean weight index values after 2018.
 This was likely because the catch data and indices of abundance provided a strong signal of low recruitment between 2017 and 2019, which reduced the influence of the commercial mean weight index on the model likelihood.
 
 The seven models used for model averaging all used a commercial mean weight index that included values from the GLM (Sc. 1).
-Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP and a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.
+Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP and a 16% probability that the stock would be below the LRP at the beginning of 2024 under a zero catch policy.
 Therefore, the stock does not meet the requirement of 50% probability of being below the LRP required under the Guidance to trigger a rebuilding plan (see Context).
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
 Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
 
 Other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
-There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to fishing, climate change, declines in body condition, movement or other factors.
+There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to fishing, climate change, declines in body condition, movement, or other factors.
 We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
 
-The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the delay-difference model as a primary tool for assessing BC Pacific Cod populations.
+The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
 Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
 Therefore, in the absence of resuming a full commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
 This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
@@ -471,10 +471,21 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
+```{r fig-sens-recr-3cd-zoomed, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. \\textbf{This version is zoomed in to 2015--2022.}"}
+r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+  coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
+  scale_x_continuous(breaks = 2015:2022)
+```
+
 ```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions."}
 b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 ```
 
+```{r fig-sens-biomass-3cd-zoomed, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. \\textbf{This version is zoomed in to 2015--2022.}"}
+b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+    coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
+  scale_x_continuous(breaks = 2015:2022)
+```
 
 \clearpage
 
@@ -498,6 +509,7 @@ b.plot(avg.model.3cd,
        
 ```
 
+TODO: version of B/LRP + B/USR?
 
 ```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
 f.plot(avg.model.3cd,
@@ -702,11 +714,11 @@ plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5),
           label_x = c(0.15, 0.13, 0.13, 0.2))
 ```
 
-```{r fig-base-catch-fit-3cd-diag, fig.cap="MPD fit to the catch data for Sc. 1. For clarity, only MPD results are shown"}
+```{r fig-base-catch-fit-3cd-diag, fig.cap="MPD fit to the catch data for Sc. 1. For clarity, only MPD results are shown."}
 catch.fit.plot(base.model.3cd, every = 5, last.yr = 2020)
 ```
 
-(ref:priorpostcaption3cd) Histograms of posterior samples with prior probability distributions (lines) used in Sc. 1. MPD estimate shown as vertical dashed line. Note that the West Coast Vancouver Island Synoptic Survey used a normal prior distribution on $ln(q)$. q.3cd.desc.
+(ref:priorpostcaption3cd) Histograms of posterior samples with prior probability distributions (lines) used in Sc. 1. MPD estimate shown as vertical dashed line. Note that the West Coast Vancouver Island Synoptic Survey used a normal prior distribution on $ln(q)$.
 
 ```{r fig-base-mcmc-priors-posts-3cd, fig.cap=paste("(ref:priorpostcaption3cd)")}
 make.priors.posts.plot(base.model.3cd, priors.only = FALSE)
@@ -730,7 +742,6 @@ make.autocor.plot(base.model.3cd)
 ## Fits to the indices of abundance for sensitivity analyses
 
 ### Commercial mean weight index scenarios.
-
 
 ```{r fig-sens11-index-wcviss-3cd, fig.cap="MPD index fits showing sensitivity to the assumed value of observation and process errors, WCVISS."}
 i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 1, leg.loc = "topleft")
