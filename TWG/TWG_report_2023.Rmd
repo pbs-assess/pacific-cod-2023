@@ -654,7 +654,7 @@ knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_
 
 ## Methods
 
-We used a simple GLM with a Gamma log link function, to estimate model fit of commercial mean weights ($y_t$) in year $t$ to the log survey mean weights ($W_t$), calculated in Appendix B:
+We used a GLM with a gamma observation model and a log link, to estimate commercial mean weights ($y_t$) in year $t$ based on survey mean weights ($W_t$), calculated in Appendix B:
 
 \begin{align}
 {y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
@@ -663,20 +663,15 @@ We used a simple GLM with a Gamma log link function, to estimate model fit of co
 
 where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
 
-Using the `predict` function in R, we then used the model to predict commercial mean weights from available survey mean weights. 
-
-
 ## Results
 
-In log space, the GLM linear fit estimated an intercept of 0.341 (s.e. 0.109), or 1.41 kg in natural space, with slope = 0.751 (s.e. 0.231).
+The GLM estimated an intercept ($\beta_0$) of 0.34 (95% CI: XX--XX), or 1.41 kg (95% CI: XX--XX) in natural space. The model estimated $\beta_1$ as 0.75 (95% CI: XX--XX) meaning a 1% increase in survey mean weight was associated with a 0.75% increase in commercial mean weight.
 
-Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index , and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
+A quantile-quantile plot of residuals transformed to have a N(0, 1) distribution if the model were consistent with the data revealed... TODO finish this and plots... deviance explained... leverage...
+
+Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
 The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
 The predictions underestimated the observed commercial index in 2012 and, following the survey trend, overestimated the commercial index in 2016.
-
-**TODO: Best way to describe the GLM results? Show the summary results or report AIC ... AIC doesn't seem useful without a comparison**
-
-
 
 ```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index (green), observed commercial mean weight index (blue), and predicted commercial mean weight index (red) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="4in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
