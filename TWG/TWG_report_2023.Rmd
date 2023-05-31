@@ -260,7 +260,7 @@ Therefore, the stock does not meet the requirement of 50% probability of being b
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
 Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
 
-Other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020].
+Other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020; laurel2020; abookire2022].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
 There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to fishing, climate change, declines in body condition, movement, or other factors.
 We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
@@ -515,11 +515,12 @@ x <- tidyr::pivot_longer(x, cols = -iter, names_to = "year", values_to = "b") %>
 lrp <- filter(x, year == 1986L) %>% rename(lrp = b) %>% select(-year)
 x <- left_join(x, lrp)
 usr <- filter(x, year %in% seq(1956, 2004)) %>%
-  group_by(iter) %>%`
+  group_by(iter) %>%
   summarise(usr = mean(b))
 x <- left_join(x, usr) |> 
   mutate(b_lrp = b / lrp, b_usr = b / usr) |> 
   filter(year <= 2023)
+
 g <- x |> 
   group_by(year) |> 
   summarise(lwr = quantile(b_lrp, probs = 0.025), upr = quantile(b_lrp, probs = 0.975), lwr2 = quantile(b_lrp, probs = 0.25), upr2 = quantile(b_lrp, probs = 0.75), med = median(b_lrp)) |> 
