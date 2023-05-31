@@ -701,7 +701,7 @@ knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_
 
 ## Methods
 
-We used a GLM with a gamma observation model and a log link [@mccullagh1989, p. 292], to estimate commercial mean weights ($y_t$) in year $t$ based on survey mean weights ($W_t$), calculated in Appendix B. Our model was fit as
+We used a GLM with gamma-distributed observations and a log link [@mccullagh1989, p. 292], to estimate commercial mean weights ($y_t$) in year $t$ based on survey mean weights ($W_t$), calculated in Appendix B. Our model was fit as
 \begin{align}
 {y_t} \sim \mathrm{Gamma}(\phi, \mu_t / \phi), \\
 \log(\mu_t) = \beta_0 + \beta_1 \log(W_t),
