@@ -709,7 +709,7 @@ We used a GLM with a gamma observation model and a log link [@mccullagh1989, p. 
 where $\mu_t$ represents the expected value at time $t$,
 $\beta_0$ and $\beta_1$ represent an intercept and slope,
 $\phi$ represents the gamma shape parameter,
-and the term $\mu_t / \phi$ represents the gamma scale parameter.
+and the term $\mu_t / \phi$ represents the gamma scale.
 The shape parameter can be reparameterized into the coefficient of variation (CV) as $\phi = 1 / \mathrm{CV}^2$ or $\mathrm{CV} = 1 / \sqrt{\phi}$.
 
 ## Results
