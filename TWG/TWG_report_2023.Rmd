@@ -515,7 +515,7 @@ x <- tidyr::pivot_longer(x, cols = -iter, names_to = "year", values_to = "b") %>
 lrp <- filter(x, year == 1986L) %>% rename(lrp = b) %>% select(-year)
 x <- left_join(x, lrp)
 usr <- filter(x, year %in% seq(1956, 2004)) %>%
-  group_by(iter) %>%
+  group_by(iter) %>%`
   summarise(usr = mean(b))
 x <- left_join(x, usr) |> 
   mutate(b_lrp = b / lrp, b_usr = b / usr) |> 
@@ -545,7 +545,7 @@ g1 <- x |>
 cowplot::plot_grid(g1, g, ncol = 1, align = "v")
 ```
 
-```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows eight threshold of 0.5 probability."}
+```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows a threshold of 0.5 probability."}
 x |> 
   group_by(year) |> 
   summarise(prob_lrp = mean(b_lrp < 1)) |> 
