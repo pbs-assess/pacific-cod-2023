@@ -468,24 +468,20 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions."}
-r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
-```
-
-```{r fig-sens-recr-3cd-zoomed, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. \\textbf{This version is zoomed in to 2015--2022.}"}
-r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
   scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions."}
-b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
-```
-
-```{r fig-sens-biomass-3cd-zoomed, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. \\textbf{This version is zoomed in to 2015--2022.}"}
-b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
   scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
 \clearpage
@@ -510,7 +506,7 @@ b.plot(avg.model.3cd,
 
 ```
 
-```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass over biomass at the LRP and biomass at the USR for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represents the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
+```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass over biomass at the USR and biomass at the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represents the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
 x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
 x <- as.data.frame(x)
 x$iter <- seq_len(nrow(x))
@@ -546,7 +542,7 @@ g1 <- x |>
   coord_cartesian(xlim = range(x$year), ylim = c(0, NA), expand = FALSE) +
   ylab("B / USR") + xlab("Year")
 
-cowplot::plot_grid(g, g1, ncol = 1)
+cowplot::plot_grid(g1, g, ncol = 1, align = "v")
 ```
 
 ```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows eight threshold of 0.5 probability."}
