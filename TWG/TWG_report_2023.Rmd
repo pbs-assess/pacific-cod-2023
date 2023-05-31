@@ -4,7 +4,7 @@ author: "Robyn Forrest and Sean Anderson"
 date: "May 26, 2023"
 link-citations: true
 bibliography: bib/refs.bib
-#csl: csl/csas.csl 
+csl: bib/csas.csl
 documentclass: article
 geometry: margin=2.3cm
 output:
@@ -13,6 +13,7 @@ output:
     fig_caption: yes
     number_sections: yes
 urlcolor: blue
+linkcolor: blue
 ---
 
 ```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
@@ -64,9 +65,9 @@ if(!knitr:::is_latex_output())
 # Context
 
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
-While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [Guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP, DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies: 
+While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [Guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP, DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
 
-*"[...] under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."* 
+*"[...] under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."*
 
 For the purpose of triggering a rebuilding plan, the Guidance provides the following definitions of whether a stock is at or below its LRP:
 
@@ -74,22 +75,22 @@ For the purpose of triggering a rebuilding plan, the Guidance provides the follo
 
 The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*), which is not prescribed as a major stock, found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
 This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
-Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022. 
+Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022.
 Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:surv-canadian)).
-Catches from 2018--2020 were also lower than in previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)). 
+Catches from 2018--2020 were also lower than in previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
 The commercial CPUE index also decreased substantially in 2018 but has increased slightly since then, with increases in commercial catch (Figure \@ref(fig:fig-modern-cpue-3cd), Table \@ref(tab:tab-catch-3cd)).
 Given the low index point in 2018, the 2020 Science Response recommended updating the assessment when new survey information became available [@dfo2021].
 
 The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch, and an index of commercial mean weight, which is derived from commercial length samples [see Appendix C of @forrest2020 for methodology].
 The commercial mean weight index provides information about recruitment strength to the model.
-Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019. 
+Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019.
 
-A request for science advice for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks. 
+A request for science advice for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks.
 The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
 The request advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
 Analyses found that the 2020 Area 3CD model was sensitive to the removal of the last three years of the mean weight index (unpublished report, available on request to the authors).
-Following this finding, the TWG met again and evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a mean weight index derived from WCVI survey samples. 
+Following this finding, the TWG met again and evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a mean weight index derived from WCVI survey samples.
 The TWG found that the GLM provided a reasonable prediction of the commercial mean weight index for the Area 3CD stock.
 The GLM did not have acceptable predictive power for the 5ABCD stock.
 Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA.
@@ -141,9 +142,9 @@ The commercial annual mean weight index was calculated using commercial length s
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
 
 There has been no biological sampling on commercial trawl vessels since 2019.
-However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific Cod, starting in 2016 (Appendix A). 
-In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
-The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021]. 
+However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific Cod, starting in 2016 (Appendix A).
+In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish).
+The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021].
 Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal as the 2019 index point was also based on only two samples.
 
 Therefore a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from WCVI Synoptic Survey length samples (Appendices B and C).
@@ -170,7 +171,7 @@ There was no 2017 index point in any scenario, as in the 2020 assessment.
 The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 As in previous assessments, all scenarios (except one sensitivity scenario) assumed an observation error of $\sigma_W$ = 0.2, which controls the fit to the mean weight in the likelihood function [@dfo2021].
 
-Four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022. 
+Four sensitivity cases were explored, which differed in terms of the treatment of the commercial mean weight index for the years 2018--2022.
 Values of the index used in the different scenarios since 2010 are shown in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 Sc. 1 Interpolation: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
@@ -181,7 +182,7 @@ Sc. 3 No GLM, with extrap: For the last seven years of the time series, use the 
 
 Sc 4. No GLM, no extrap: Same as Sc. 3 but do not include any values for 2021 and 2022.
 
-For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012]. 
+For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012].
 Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
 ## Model-averaged stock status
@@ -208,16 +209,16 @@ As above, posterior samples were drawn every 2,500 iterations from a chain of le
 
 # Results
 
-## Model scenarios: sensitivity to treatment of the commercial mean weight index 
+## Model scenarios: sensitivity to treatment of the commercial mean weight index
 
-Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4). 
+Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
 As in previous assessments [@forrest2020; @dfo2021], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
 This is most likely because most of the length measurements in this part of the time series came from fish classified as "keepers", i.e., not released at sea (see @forrest2015 for discussion of this issue for the Area 5AB and 5CD stocks).
 Smaller, released fish are therefore likely underrepresented in the annual mean weight data prior to the introduction of at-sea observers in 1996.
 A scenario with a smaller value of $\sigma_W$, which controls the fit to the mean weight in the likelihood function, is included in the model-averaging set (Sc. 7b).
 
-The models that used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)). 
-The fit was similar for  scenarios both with and without interpolation in 2019--2020. 
+The models that used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)).
+The fit was similar for  scenarios both with and without interpolation in 2019--2020.
 The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
 The model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
 This pattern is consistent with predicted recruitment from all four models (Table \@ref(tab:tab-est-recruit-3cd)), which estimated low recruitment between 2016 and 2018.
@@ -226,7 +227,7 @@ The models estimated an increase in recruitment between 2019 and 2022, which wou
 All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that the other indices had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:surv-canadian) to \@ref(fig:fig-modern-cpue-3cd)).
 This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from earlier observations (Sc. 3 and 4).
 
-Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd). 
+Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd).
 All four models estimated a similar pattern in biomass (Table \@ref(tab:tab-est-biomass-3cd)).
 The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021).
 
@@ -291,7 +292,7 @@ dplyr::filter(dat$survey_index, survey_abbrev %in%
   dplyr::rename(`Survey abbrev.` = survey_abbrev, Year = year, Biomass = biomass,
     CV = re, `Lower CI` = lowerci, `Upper CI` = upperci, Sets = num_sets, `Positive sets` = num_pos_sets) %>%
   dplyr::arrange(`Survey abbrev.`, Year) %>%
-  knitr::kable(caption = "Pacific Cod survey data for the WCVI synoptic trawl survey (SYN WCVI) in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod.", booktabs = TRUE, linesep = "", 
+  knitr::kable(caption = "Pacific Cod survey data for the WCVI synoptic trawl survey (SYN WCVI) in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod.", booktabs = TRUE, linesep = "",
     format = "pandoc")
 ```
 
@@ -315,10 +316,10 @@ catch.table(catch.3,
 \clearpage
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
-mw.table(c(base.model.3cd, 
-           sens.models.11), 
-         c(base.model.3cd.name, 
-           sens.models.name.11), 
+mw.table(c(base.model.3cd,
+           sens.models.11),
+         c(base.model.3cd.name,
+           sens.models.name.11),
          years=2010:2022,
          area="3CD",
          caption="Comparison of mean weight values used in the four commercial mean weight scenarios. Methods for scenario descriptions.")
@@ -329,10 +330,10 @@ mw.table(c(base.model.3cd,
 
 ```{r tab-est-recruit-3cd, results='asis'}
 
-make.value.table.compare(c(base.model.3cd, 
-                           sens.models.11), 
-                 c(base.model.3cd.name, 
-                   sens.models.name.11), 
+make.value.table.compare(c(base.model.3cd,
+                           sens.models.11),
+                 c(base.model.3cd.name,
+                   sens.models.name.11),
                  years=2010:2022,
                  type= 2,
                  mpdmed="med",
@@ -342,9 +343,9 @@ make.value.table.compare(c(base.model.3cd,
 
 
 ```{r tab-est-recruit-3cd-per, results='asis'}
-make.value.table.compare(c(base.model.3cd, 
-                           sens.models.11), 
-                 c(base.model.3cd.name, 
+make.value.table.compare(c(base.model.3cd,
+                           sens.models.11),
+                 c(base.model.3cd.name,
                    sens.models.name.11),
                  years=2010:2022,
                  type= 2,
@@ -357,10 +358,10 @@ make.value.table.compare(c(base.model.3cd,
 \clearpage
 
 ```{r tab-est-biomass-3cd, results='asis'}
-make.value.table.compare(c(base.model.3cd, 
-                           sens.models.11), 
-                 c(base.model.3cd.name, 
-                   sens.models.name.11), 
+make.value.table.compare(c(base.model.3cd,
+                           sens.models.11),
+                 c(base.model.3cd.name,
+                   sens.models.name.11),
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
@@ -369,10 +370,10 @@ make.value.table.compare(c(base.model.3cd,
 ```
 
 ```{r tab-est-biomass-3cd-per, results='asis'}
-make.value.table.compare(c(base.model.3cd, 
-                           sens.models.11), 
-                 c(base.model.3cd.name, 
-                   sens.models.name.11), 
+make.value.table.compare(c(base.model.3cd,
+                           sens.models.11),
+                 c(base.model.3cd.name,
+                   sens.models.name.11),
                  years=2010:2022,
                  type= 1,
                  mpdmed="med",
@@ -395,7 +396,7 @@ stock.status(avg.model.3cd,
 decision.table.zero.tac(avg.model.3cd,
                caption = paste0("Probabilities of stock breaching reference points under TAC = 0 for a one-year projection, with model averaging. Models averaged are: ",
                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
-                                "."), 
+                                "."),
                french=french) #
 ```
 
@@ -506,34 +507,83 @@ b.plot(avg.model.3cd,
        add.hist.ref = TRUE,
        lrp = c(1986, 1986),
        usr = c(1956, 2004), french=french)
-       
+
 ```
 
-TODO: version of B/LRP + B/USR?
+```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass over biomass at the LRP and biomass at the USR for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represents the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
+x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
+x <- as.data.frame(x)
+x$iter <- seq_len(nrow(x))
+x <- tidyr::pivot_longer(x, cols = -iter, names_to = "year", values_to = "b") %>%
+  mutate(year = as.integer(year))
+lrp <- filter(x, year == 1986L) %>% rename(lrp = b) %>% select(-year)
+x <- left_join(x, lrp)
+usr <- filter(x, year %in% seq(1956, 2004)) %>%
+  group_by(iter) %>%
+  summarise(usr = mean(b))
+x <- left_join(x, usr) |> 
+  mutate(b_lrp = b / lrp, b_usr = b / usr) |> 
+  filter(year <= 2023)
+g <- x |> 
+  group_by(year) |> 
+  summarise(lwr = quantile(b_lrp, probs = 0.025), upr = quantile(b_lrp, probs = 0.975), lwr2 = quantile(b_lrp, probs = 0.25), upr2 = quantile(b_lrp, probs = 0.75), med = median(b_lrp)) |> 
+  ggplot(aes(year, med, ymin = lwr, ymax = upr)) +
+  geom_ribbon(fill = "grey90") +
+  geom_ribbon(aes(ymin = lwr2, ymax = upr2), fill = "grey75") +
+  geom_line() +
+  geom_hline(yintercept = 1, lty = 2, col = "grey50") +
+  coord_cartesian(xlim = range(x$year), ylim = c(0, NA), expand = FALSE) +
+  ylab("B / LRP") + xlab("Year")
+
+g1 <- x |> 
+  group_by(year) |> 
+  summarise(lwr = quantile(b_usr, probs = 0.025), upr = quantile(b_usr, probs = 0.975), lwr2 = quantile(b_usr, probs = 0.25), upr2 = quantile(b_usr, probs = 0.75), med = median(b_usr)) |> 
+  ggplot(aes(year, med, ymin = lwr, ymax = upr)) +
+  geom_ribbon(fill = "grey90") +
+  geom_ribbon(aes(ymin = lwr2, ymax = upr2), fill = "grey75") +
+  geom_line() +
+  geom_hline(yintercept = 1, lty = 2, col = "grey50") +
+  coord_cartesian(xlim = range(x$year), ylim = c(0, NA), expand = FALSE) +
+  ylab("B / USR") + xlab("Year")
+
+cowplot::plot_grid(g, g1, ncol = 1)
+```
+
+```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows eight threshold of 0.5 probability."}
+x |> 
+  group_by(year) |> 
+  summarise(prob_lrp = mean(b_lrp < 1)) |> 
+  ggplot(aes(year, prob_lrp)) +
+  geom_line() +
+  geom_hline(yintercept = .5, lty = 2, col = "grey50") +
+  coord_cartesian(xlim = c(2014, 2023), ylim = c(0, 0.55), expand = FALSE) +
+  ylab("P(B < LRP)") + xlab("Year") +
+  scale_x_continuous(breaks = seq(2012, 2022, 2))
+```
 
 ```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
 f.plot(avg.model.3cd,
        base.model.3cd.name,
        add.hist.ref = TRUE,
-       lrr = c(1956, 2004), 
+       lrr = c(1956, 2004),
        french=french)
 
 ```
 
 \clearpage
 
-# (APPENDIX) Appendix {-} 
+# (APPENDIX) Appendix {-}
 
 # Changes in commercial length sampling {#sec:AppendixA}
 
 ```{r get-length-samples-3cd}
 
-comm_samp <- dat$commercial_samples %>% 
-  dplyr::filter(major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND"), 
-                year>1995) 
+comm_samp <- dat$commercial_samples %>%
+  dplyr::filter(major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND"),
+                year>1995)
 
-summary_by_year <- comm_samp %>% 
-  select(year,sample_id,length) %>% 
+summary_by_year <- comm_samp %>%
+  select(year,sample_id,length) %>%
   group_by(year) %>%
   summarize(nsamples=n_distinct(sample_id),
             nlengths=sum(!is.na(length)),
@@ -554,8 +604,8 @@ knitr::kable(summary_by_year,
 
 ```{r plot-length-samples-3cd, fig.cap="Summary of raw commercial length samples since 2000 for Area 3CD. Mean lengths are unweighted by catch."}
 
-g <- summary_by_year %>% 
-  dplyr::filter(Year>1999) %>% 
+g <- summary_by_year %>%
+  dplyr::filter(Year>1999) %>%
   ggplot(aes(x=Year, y=`Raw mean length`))+
   geom_point(size=3)+
   geom_errorbar(aes(ymin=`Raw mean length`-`SE length`, ymax=`Raw mean length`+ `SE length`),  width=0.1)+
@@ -578,7 +628,7 @@ g
 
 ## Methods
 
-We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight. 
+We followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight.
 We also adapted the approach for the West Coast Vancouver Island Synoptic Survey by replacing weighting by sequential quarter, which was done for the commercial samples, with weighting by depth stratum (Equations 3 and 4).
 This was done because the survey is depth-stratified.
 
@@ -644,7 +694,7 @@ knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_surve
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Log commercial mean weight index vs log survey mean weight index. The blue line shows linear fit. Size of the circles indicates the number of sampling events.", out.width="4in"}
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year.", out.width="4.2in"}
 knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
 ```
 
@@ -654,26 +704,34 @@ knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_
 
 ## Methods
 
-We used a GLM with a gamma observation model and a log link, to estimate commercial mean weights ($y_t$) in year $t$ based on survey mean weights ($W_t$), calculated in Appendix B:
-
+We used a GLM with a gamma observation model and a log link [@mccullagh1989, p. 292], to estimate commercial mean weights ($y_t$) in year $t$ based on survey mean weights ($W_t$), calculated in Appendix B. Our model was fit as
 \begin{align}
-{y_t} \sim \mathrm{Gamma}(\phi / \mu_t, \phi), \\
-\log(\mu_t) = \beta_0 + \beta_1 \log(W_t) 
+{y_t} \sim \mathrm{Gamma}(\phi, \mu_t / \phi), \\
+\log(\mu_t) = \beta_0 + \beta_1 \log(W_t),
 \end{align}
 
-where the $\phi$ parameter contributes to both the rate and shape of the Gamma distribution.
+where $\mu_t$ represents the expected value at time $t$,
+$\beta_0$ and $\beta_1$ represent an intercept and slope,
+$\phi$ represents the gamma shape parameter,
+and the term $\mu_t / \phi$ represents the gamma scale parameter.
+The shape parameter can be reparameterized into the coefficient of variation (CV) as $\phi = 1 / \mathrm{CV}^2$ or $\mathrm{CV} = 1 / \sqrt{\phi}$.
 
 ## Results
 
-The GLM estimated an intercept ($\beta_0$) of 0.34 (95% CI: XX--XX), or 1.41 kg (95% CI: XX--XX) in natural space. The model estimated $\beta_1$ as 0.75 (95% CI: XX--XX) meaning a 1% increase in survey mean weight was associated with a 0.75% increase in commercial mean weight.
+The GLM estimated an intercept ($\beta_0$) of 0.34 (95% CI: 0.13--0.57), or 1.41 kg (95% CI: 1.14--1.76 kg) in natural space (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
+The model estimated $\beta_1$ as 0.75 (95% CI: 0.25--1.17), meaning a 1% increase in survey mean weight was associated with a 0.75% (95% CI: 0.25%--1.17%) increase in commercial mean weight (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
+The CV was estimated as 0.12.
+A quantile-quantile plot of residuals transformed to have a Normal(0, 1) distribution if the model were consistent with the data did not reveal any substantial deviations from the expectation (Figure \@ref(fig:qqnorm-glm)).
 
-A quantile-quantile plot of residuals transformed to have a N(0, 1) distribution if the model were consistent with the data revealed... TODO finish this and plots... deviance explained... leverage...
-
-Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series, the survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
+Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series: the survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
 The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
 The predictions underestimated the observed commercial index in 2012 and, following the survey trend, overestimated the commercial index in 2016.
 
-```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index (green), observed commercial mean weight index (blue), and predicted commercial mean weight index (red) from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="4in"}
+```{r qqnorm-glm, fig.cap="Quantile-quantile plot of the GLM predicting commercial mean weight from survey mean weight. The residuals have been transformed to be Normal(0, 1) if the model were consistent with the data. The line indicates the one-to-one line.", out.width="2.6in"}
+knitr::include_graphics(here::here("data/generated/qq-resids3CD.png"))
+```
+
+```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index, observed commercial mean weight index, and predicted commercial mean weight index from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="5in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
 ```
 

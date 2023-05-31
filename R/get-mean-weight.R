@@ -64,3 +64,4 @@ ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
                                           linetype = 2))+
   labs(x= "Fishing Year", y = "Annual Mean Weight (Kg)", title="Area 3CD")
 ggsave(file.path(generatedd,"Commercial_mean_weight_3CD.png"), width=8, height=6)
+

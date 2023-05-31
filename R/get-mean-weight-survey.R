@@ -188,21 +188,28 @@ if (TYPE == "weighted") {
 # 3. Plot time series of the two indices for years since 2000
 Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size")
 
+# pal <- RColorBrewer::brewer.pal(3, "Dark2")
+pal <- unname(colorBlindness::availableColors()[-1])
  g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
+   mutate(name = gsub("survey_mean_weight", "Survey", name)) |>
+   mutate(name = gsub("comm_mean_weight", "Commercial", name)) |>
     filter(!is.na(value)) %>%
     ggplot(aes(year, value, colour = name)) +
-    geom_vline(xintercept = 2000:2022, lty = 1, col = "grey80") +
+    geom_vline(xintercept = 2000:2022, lty = 1, col = "grey90") +
+   # theme(panel.grid.major.x = element_line(colour = "grey90")) +
+   # theme(panel.grid.minor.x = element_line(colour = "grey90")) +
     # geom_point(size=3.5) +
     geom_line(size=1.4) +
     ylim(0,3)+
-    scale_color_aaas()+
+    # scale_color_aaas()+
+   scale_colour_manual(values = c("Commercial" = pal[1], "Survey" = pal[2])) +
     labs(title = Title, y = "Mean weight", x = "Year") +
    geom_point(data = dat1, mapping = aes(year, comm_mean_weight, size = n_samples), inherit.aes = FALSE, pch = 21, na.rm = TRUE) +
-   scale_size_area(name = "Sampling events")
-
+   scale_size_area(name = "Sampling events") +
+   labs(colour = "Type")
  g
  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
-                                 AREA,".png")))
+                                 AREA,".png")), width = 7, height = 4)
 
 # 4. Plot the two indices against each other (log space)
 #    Note that the last pair of survey and commercial index values was in 2016
@@ -210,19 +217,6 @@ Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size
 
 r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
 
- g <- ggplot(dat1, aes(log(survey_mean_weight), log(comm_mean_weight))) +
-    geom_point(aes(size = n_samples), pch = 21) +
-    scale_size_area(name = "Sampling events", max_size = 10) +
-    stat_smooth(method = "lm", se = FALSE)+
-    ggrepel::geom_text_repel(aes(label = year), size = 4) +
-    geom_abline(intercept = 0, slope = 1) +
-   coord_equal() +
-    #coord_fixed(xlim = c(r[1], r[2]), ylim = c(r[1], r[2])) +
-    ylim(0,1.2)+xlim(0,1.2)+
-    labs(title = paste(AREA, TYPE), x = "Ln survey mean weight", y = "Ln comm mean weight")
- g
- ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
-                                 AREA,".png")))
 #
 # ####################################################
 # predict commercial mw from a glm
@@ -232,7 +226,64 @@ r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
    family = Gamma(link = "log"),
    data = dat1)
 
- summary(GLM)
+ # do same with sdmTMB to get easy quantile residuals and shape parameter:
+ dat_noNA <- subset(dat1, !is.na(survey_mean_weight) & !is.na(comm_mean_weight))
+ m1 <- sdmTMB::sdmTMB(
+   comm_mean_weight ~ log(survey_mean_weight),
+   family = Gamma(link = "log"), spatial = FALSE,
+   data = dat_noNA
+ )
+
+ r <- residuals(m1)
+ rr <- qqnorm(r, plot.it = FALSE)
+ g <- ggplot(data.frame(x = rr$x, y = rr$y), aes(x, y)) +
+   geom_point() +
+   labs(x = "Theoretical quantiles", y = "Sample quantiles") +
+   geom_abline(intercept = 0, slope = 1) +
+   # theme_light() +
+   coord_fixed()
+ ggsave(file.path(generatedd,paste0("qq-resids",
+   AREA,".png")), width = 3.8, height = 3.9)
+
+ p <- sdmTMB::get_pars(m1)
+ shape <- exp(p$ln_phi)
+ # 1/CV^2 = shape
+ # CV^2 = 1 / shape
+ # CV = 1 / sqrt(shape)
+ cv <- 1 / sqrt(shape)
+
+ nd <- data.frame(survey_mean_weight = seq(min(dat_noNA$survey_mean_weight), max(dat_noNA$survey_mean_weight), length.out = 400))
+ suppressMessages({
+   p <- predict(m1, se_fit = TRUE, newdata = nd)
+ })
+ p$lwr2 <- exp(p$est - qnorm(0.75) * p$est_se)
+ p$upr2 <- exp(p$est + qnorm(0.75) * p$est_se)
+ p$lwr <- exp(p$est - qnorm(0.975) * p$est_se)
+ p$upr <- exp(p$est + qnorm(0.975) * p$est_se)
+ p$est <- exp(p$est)
+
+ g <- ggplot(dat1, aes(survey_mean_weight, comm_mean_weight, colour = year)) +
+   #coord_fixed(xlim = c(r[1], r[2]), ylim = c(r[1], r[2])) +
+   # ylim(0,1.2)+xlim(0,1.2)+
+   geom_ribbon(data = p, aes(x = survey_mean_weight, ymin = lwr, ymax = upr), inherit.aes = FALSE, fill = "grey90") +
+   geom_ribbon(data = p, aes(x = survey_mean_weight, ymin = lwr2, ymax = upr2), inherit.aes = FALSE, fill = "grey80") +
+   geom_line(data = p, aes(x = survey_mean_weight, y = est), inherit.aes = FALSE) +
+   geom_point(aes(size = n_samples), pch = 19, alpha = 0.3) +
+   geom_point(aes(size = n_samples), pch = 21) +
+   scale_size_area(name = "Sampling events", max_size = 10) +
+   # stat_smooth(method = "lm", se = FALSE)+
+   ggrepel::geom_text_repel(aes(label = year), size = 4, point.padding = 12) +
+   scale_colour_viridis_c() +
+   geom_abline(intercept = 0, slope = 1, colour = "grey40", lty = 2) +
+   # labs(title = paste(AREA, TYPE), x = "Survey mean weight", y = "Commercial mean weight", colour = "Year") +
+   labs(x = "Survey mean weight", y = "Commercial mean weight", colour = "Year") +
+   scale_x_log10() +
+   scale_y_log10() +
+   coord_fixed()
+   # theme_light()
+
+ ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
+   AREA,".png")), width = 5.5, height = 4.5)
 
  if (FALSE) {
    summary(GLM)
@@ -268,24 +319,26 @@ comparedata_allyrs  <-
 #   # put back the observed commercial mean weights for years with no survey
 #   comparedata_allyrs[which(comparedata_allyrs$year==2019),3] <- cmw[which(cmw$year==2019),2]
 
+# pal <- ggsci::pal_aaas()(3)
   g1 <- comparedata_allyrs %>%
     as.data.frame() %>%
     select(-n_samples, -n_specimens) |>
     melt(id.vars="year", variable.name="obs_vs_pred", value.name="comm_mean_weight") %>%
-    mutate(across("obs_vs_pred", str_replace, "survey_mean_weight", "survey"),
-           across("obs_vs_pred", str_replace, "comm_mean_weight", "comm"),
-           across("obs_vs_pred", str_replace, "pred_comm_mean_weight", "pred_comm")) %>%
+    mutate(across("obs_vs_pred", str_replace, "survey_mean_weight", "Survey"),
+      across("obs_vs_pred", str_replace, "pred_comm_mean_weight", "Predicted commercial"),
+           across("obs_vs_pred", str_replace, "comm_mean_weight", "Commercial")) %>%
     ggplot()+
     geom_point(aes(x=year, y=comm_mean_weight, colour=obs_vs_pred), size=2.5)+
     geom_line(aes(x=year, y=comm_mean_weight, colour=obs_vs_pred), lwd=1, lty=1)+
-    scale_color_aaas()+
+    # scale_color_aaas()+
+    scale_colour_manual(values = c("Commercial" = pal[1], "Survey" = pal[2], "Predicted commercial" = pal[3])) +
     theme(legend.position = "right")+
-    ylim(0,3.5)+
+    ylim(0,3)+
     scale_x_continuous(breaks=seq(min(comparedata_allyrs$year),max(comparedata_allyrs$year), by=2))+
-    labs(title = paste(AREA, TYPE), y = "Mean weight", x = "Year")
+    labs(title = paste(AREA, TYPE), y = "Mean weight", x = "Year", colour = "Time series type")
   g1
   ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
-                                 AREA,".png")))
+                                 AREA,".png")), width = 7.5, height = 4)
 
 # bayesian posterior predictions?
   if (FALSE) {
