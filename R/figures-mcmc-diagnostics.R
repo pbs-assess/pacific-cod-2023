@@ -186,7 +186,7 @@ plot.marg <- function(xx,
   #set xlim for non-uniform priors
   if(specs==0) {
     xlim <- c(min(xvals), max(xvals))
-  }else xlim <- c(0.45*min(xvals), 1.75*max(xvals))
+  }else xlim <- c(min(xvals)-0.2, max(xvals)+0.2) #xlim <- c(0.45*min(xvals), 1.75*max(xvals))
 
   ss <- hist(as.matrix(xx$p),
              prob = TRUE,
@@ -197,6 +197,7 @@ plot.marg <- function(xx,
              xlim = xlim,
              ylab = "",
              ...)
+
   func <- function(x){xx$fn(x, xx$p1, xx$p2)}
   ## Plot prior
   curve(func,
@@ -212,6 +213,7 @@ plot.marg <- function(xx,
          lwd = 2,
          lty = 2,
          col = 2)
+
 }
 
 make.traces.plot <- function(model,
