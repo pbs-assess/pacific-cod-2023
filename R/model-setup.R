@@ -83,7 +83,7 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Base model names and directories
 ## -----------------------------------------------------------------------------
-base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 Interpolation")
+base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 GLM Interpolation")
 base.model.3cd.dir.name <- file.path(model.dir,
                                      "1a_3CD_2023_interp")
 
@@ -103,7 +103,7 @@ sens.models.dir.name.11 <- c(file.path(model.dir,
                                        "1d_3CD_2023_noGLM_no_extrap")
                              )
 
-sens.models.name.11 <- c("Sc. 2 No interpolation",
+sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
                          "Sc. 3 No GLM, with extrap",
                          "Sc. 4 No GLM, no extrap")
 
