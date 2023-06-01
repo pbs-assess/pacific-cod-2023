@@ -250,7 +250,7 @@ Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability
 
 # Summary and conclusions
 
-The survey annual mean weight index was a reasonable predictor of the commercial annual mean weight index in Area 3CD.
+The survey annual mean weight index was a good predictor of the commercial annual mean weight index in Area 3CD.
 The predicted commercial mean weight index followed the observed commercial mean weight index closely in most years.
 Models that did not include GLM estimates of the commercial mean weight index (Sc. 3 and 4) did not fit the extrapolated mean weight index values after 2018.
 This was likely because the catch data and indices of abundance provided a strong signal of low recruitment between 2017 and 2019, which reduced the influence of the commercial mean weight index on the model likelihood.
