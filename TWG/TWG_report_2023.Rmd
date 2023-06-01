@@ -168,7 +168,7 @@ Step 5. Select a scenario for the commercial mean weight index to use in the sev
 ## Model scenarios: sensitivity to treatment of the commercial mean weight index
 
 All models were based on the Area 3CD Reference Case model from the 2020 assessment [@dfo2021].
-Model settings were identical but all data streams were updated.
+Model settings were identical to that model but all data streams were updated.
 All scenarios used the commercial annual mean weight index derived from commercial length samples for the years 1956--2016.
 There was no 2017 index point in any scenario, as in the 2020 assessment.
 The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
