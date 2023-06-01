@@ -245,7 +245,7 @@ While the fishing mortality is estimated to be well-below the limit removal refe
 
 As stated in the Context section, a stock is considered to be below its LRP, thereby triggering requirements for a rebuilding plan, if the terminal year biomass is estimated to be below the LRP with greater than 50% probability or if there is a greater than 50% probability of being below the LRP in a one year projection with zero catch.
 
-Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability that the biomass at the beginning of 2023 is below the LRP and >99% probability that the stock is below the USR. See also Figures \@ref(fig:fig-model-average-biomass-3cd-rel) and \@ref(fig:fig-model-average-p-lrp), noting that Figure \@ref(fig:fig-model-average-p-lrp) indicates that the model set estimated just over 50% probability of the stock being below the LRP in 2021.
+Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability that the biomass at the beginning of 2023 is below the LRP and >99% probability that the stock is below the USR. See also Figures \@ref(fig:fig-model-average-biomass-3cd-rel) and \@ref(fig:fig-model-average-p-lrp), noting that Figure \@ref(fig:fig-model-average-p-lrp) indicates that the models estimated just over 50% probability of the stock being below the LRP in 2021.
 Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.
 
 # Summary and conclusions
@@ -692,10 +692,6 @@ knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_surve
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year.", out.width="4.2in"}
-knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
-```
-
 \clearpage
 
 # Generalized Linear Model to predict commercial mean length index {#sec:AppendixC}
@@ -725,6 +721,10 @@ A quantile-quantile plot of residuals transformed to have a Normal(0, 1) distrib
 Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three series: the survey mean weight index, observed commercial mean weight index, and predicted mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
 The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
 The predictions underestimated the observed commercial index in 2012 and, following the survey trend, overestimated the commercial index in 2016.
+
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year.", out.width="4.2in"}
+knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
+```
 
 ```{r qqnorm-glm, fig.cap="Quantile-quantile plot of the GLM predicting commercial mean weight from survey mean weight. The residuals have been transformed to be Normal(0, 1) if the model were consistent with the data. The line indicates the one-to-one line.", out.width="2.6in"}
 knitr::include_graphics(here::here("data/generated/qq-resids3CD.png"))
