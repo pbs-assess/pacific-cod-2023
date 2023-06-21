@@ -1,7 +1,7 @@
 ---
-title: "DRAFT. Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island in 2023. Report for the Pacific Cod Technical Working Group."
+title: "Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific cod. Report for the Technical Working Group."
 author: "Robyn Forrest and Sean Anderson"
-date: "May 26, 2023"
+date: "June 21, 2023"
 link-citations: true
 bibliography: bib/refs.bib
 csl: bib/csas.csl
@@ -64,6 +64,7 @@ if(!knitr:::is_latex_output())
 
 # Context
 
+<!--
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
 While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP, DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
 
@@ -72,8 +73,9 @@ While the FSP only apply to major stocks prescribed in the *Fishery (General) Re
 For the purpose of triggering a rebuilding plan, the guidance provides the following definitions of whether a stock is at or below its LRP:
 
 *"[A stock] is considered to be at or below its LRP if the terminal year stock status indicator is estimated to be at or below the LRP with a greater than 50% probability or if the projected stock status indicator falls below the LRP with a greater than 50% probability under a zero catch scenario in a 1-year projection, unless an alternative method or probability is defined in a stock-specific precautionary approach framework."*
+-->
 
-The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*), which is not prescribed as a major stock, found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
+The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*) found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
 This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
 
 Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022.
@@ -99,9 +101,9 @@ Presumably due to the ongoing low catches of Area 3CD Pacific Cod and model esti
 However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 <!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
-This stock status update uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
-Prior to estimating model-averaged stock status, the impacts of different treatments of the commercial mean weight index are evaluated, including two scenarios that use recent index values derived from the GLM presented to the TWG in 2022. 
-The commercial mean weight index from one of these scenarios is selected and used in the seven models used for model-averaging. 
+This reprot uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
+The impacts of different treatments of the commercial mean weight index are evaluated, including two scenarios that use recent index values derived from the GLM presented to the TWG in 2022 (Appendices B and C). 
+We are seeking feedback on which commercial mean weight index from one of these scenarios to use in the seven models to estimate stock status. 
 
 # Methods
 
@@ -140,7 +142,7 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 ### Commercial annual mean weight index
 
 The commercial annual mean weight index was calculated using commercial length samples, with the methodology described in Appendix C of @forrest2020.
-Commercial biological samples were available for calculating mean weight from 1956 to 2019.
+Commercial biological samples were available for calculating mean weight from 1956 to 2019 (excluding 2018).
 
 There has been no biological sampling on commercial trawl vessels since 2019.
 However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific Cod, starting in 2016 (Appendix A).
@@ -148,8 +150,8 @@ In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples w
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update [@dfo2021].
 Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal, as the 2019 index point was also based on only two samples.
 
-Therefore, a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from WCVI Synoptic Survey length samples (Appendices B and C).
-The methodology was presented to the TWG in 2022, who found it provided a reasonable fit to the commercial mean weight index derived from commercial data (see also Appendix C).
+Therefore, a methodology was developed for predicting the commercial mean weight index from an annual mean weight index derived from WCVI Synoptic Survey length samples.
+The methodology was presented to the TWG in 2022, who found it provided a reasonable fit to the commercial mean weight index derived from commercial data.
 
 ## Modelling steps
 
@@ -157,7 +159,7 @@ In order to investigate the sensitivity of the model to different treatments of 
 
 Step 1. Develop an annual mean weight index based on length samples from the WCVI Synoptic Survey (see Appendix B for methods and results).
 
-Step 2. Use a GLM with gamma observation error and a log link to predict commercial annual mean weight index values from the survey mean weight index (see Appendix C for methods and results).
+Step 2. Use a GLM with gamma observation error and a log link to predict commercial annual mean weight index values from the survey annual mean weight index (see Appendix C for methods and results).
 
 Step 3. Update model data files with new data streams, with four alternative treatments of the commercial mean weight index (see next section).
 
@@ -168,7 +170,7 @@ Step 5. Select a scenario for the commercial mean weight index to use in the sev
 ## Model scenarios: sensitivity to treatment of the commercial mean weight index
 
 All models were based on the Area 3CD Reference Case model from the 2020 assessment [@dfo2021].
-Model settings were identical to that model but all data streams were updated.
+Model settings were identical to that model but all data streams were updated to the end of the 2023-23 fishing year.
 All scenarios used the commercial annual mean weight index derived from commercial length samples for the years 1956--2016.
 There was no 2017 index point in any scenario, as in the 2020 assessment.
 The GLM (Appendix C) predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
@@ -188,6 +190,7 @@ Sc 4. No GLM, no extrap: Same as Sc. 3 but do not include any values for 2021 an
 For all model runs, the joint posterior distribution was numerically approximated using the Markov Chain Monte Carlo (MCMC) routines built into AD Model Builder (Metropolis-Hastings algorithm) [@fournier2012].
 Posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
 
+<!--
 ## Model-averaged stock status
 
 The previous two stock assessments for 3CD Pacific Cod used a model-averaging approach to develop estimates of stock status and decision tables [@dfo2019; @dfo2021].
@@ -209,6 +212,7 @@ The sensitivity cases are fully described in @forrest2020, but briefly (retainin
 7.	Sc. 7b Reduce the SD in the likelihood for the fit to average annual mean weight $\sigma_W = 0.15$.
 
 As above, posterior samples were drawn every 2,500 iterations from a chain of length 5 million, resulting in 2,000 posterior samples (the first 1,000 samples were dropped to allow for sufficient burn-in).
+-->
 
 # Results
 
@@ -236,6 +240,7 @@ The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher bio
 
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
 
+<!--
 ## Model-averaged stock status
 
 Sensitivity of posterior biomass estimates to the settings in the seven scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd-all-avg).
@@ -249,6 +254,7 @@ As stated in the Context section, a stock is considered to be below its LRP, the
 
 Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability (i.e., about 1 out of 4 chance) that the biomass at the beginning of 2023 is below the LRP and >99% probability that the stock is below the USR. See also Figures \@ref(fig:fig-model-average-biomass-3cd-rel) and \@ref(fig:fig-model-average-p-lrp), noting that Figure \@ref(fig:fig-model-average-p-lrp) indicates that the models estimated just over 50% probability of the stock being below the LRP in 2021.
 Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.
+-->
 
 # Summary and conclusions
 
