@@ -1,5 +1,5 @@
 ---
-title: "Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific cod. Report for the Technical Working Group."
+title: "Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group."
 author: "Robyn Forrest and Sean Anderson"
 date: "June 21, 2023"
 link-citations: true
@@ -76,7 +76,7 @@ For the purpose of triggering a rebuilding plan, the guidance provides the follo
 -->
 
 The 2020 stock assessment for Pacific Cod (*Gadus macrocephalus*) found the Area 3CD (West Coast of Vancouver Island: WCVI) stock to be in the Cautious Zone with > 99% probability [@dfo2021].
-This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table))).
+This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table)).
 
 Due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, then returned to its regular biennial schedule in 2022.
 Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:surv-canadian)).
@@ -91,8 +91,7 @@ A Request for Science Information and Advice (RSIA) for Pacific Cod was issued i
 The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
 The request advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
-Analyses found that the 2020 Area 3CD model was sensitive to the removal of the last three years of the mean weight index (unpublished report, available on request).
-Following this finding, the TWG met again and evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a mean weight index derived from WCVI survey samples.
+The TWG evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from an annual mean weight index derived from WCVI survey samples.
 The TWG found that the GLM provided a reasonable prediction of the commercial mean weight index for the Area 3CD stock.
 The GLM did not have acceptable predictive power for the 5ABCD stock.
 Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA.
@@ -101,9 +100,9 @@ Presumably due to the ongoing low catches of Area 3CD Pacific Cod and model esti
 However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 <!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
-This reprot uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
-The impacts of different treatments of the commercial mean weight index are evaluated, including two scenarios that use recent index values derived from the GLM presented to the TWG in 2022 (Appendices B and C). 
-We are seeking feedback on which commercial mean weight index from one of these scenarios to use in the seven models to estimate stock status. 
+This report evaluates four different treatments of the commercial annual mean weight index for 2018-2022 in a model configured the same as the the 2018 and 2020 reference models [@forrest2020; @dfo2021].
+The different treatments of the commercial annual mean weight index include two scenarios that use recent index values derived from the GLM presented to the TWG in 2022 (Appendices B and C), and two that do not. 
+We are seeking feedback on which of these scenarios to use in the models for estimation of model-averaged stock status. 
 
 # Methods
 
