@@ -217,6 +217,7 @@ As above, posterior samples were drawn every 2,500 iterations from a chain of le
 
 ## Model scenarios: sensitivity to treatment of the commercial mean weight index
 
+Model diagnostics are shown in Appendix D.
 Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
 As in previous assessments [@forrest2020; @dfo2021], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
 This is most likely because most of the length measurements in this part of the time series came from fish classified as "keepers", i.e., not released at sea (see @forrest2015 for discussion of this issue for the Area 5AB and 5CD stocks).
