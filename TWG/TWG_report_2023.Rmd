@@ -95,7 +95,7 @@ The GLM did not have acceptable predictive power for the 5ABCD stock.
 Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA.
 
 Presumably due to the ongoing low catches of Area 3CD Pacific Cod and model estimates of low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
-However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
+However, given the three low index points in 2018, 2021 and 2022, Science issued a RSIA requesting a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 <!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
 This stock status update uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.

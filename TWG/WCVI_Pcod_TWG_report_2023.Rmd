@@ -97,11 +97,11 @@ The GLM did not have acceptable predictive power for the 5ABCD stock.
 Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA.
 
 Presumably due to the ongoing low catches of Area 3CD Pacific Cod and model estimates of low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
-However, given the three low index points in 2018, 2021 and 2022, Science has requested a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
+However, given the three low index points in 2018, 2021 and 2022, Science has issued a RSIA requesting a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 <!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
-This report evaluates four different treatments of the commercial annual mean weight index for 2018-2022 in a model configured the same as the the 2018 and 2020 reference models [@forrest2020; @dfo2021].
-The different treatments of the commercial annual mean weight index include two scenarios that use recent index values derived from the GLM presented to the TWG in 2022 (Appendices B and C), and two that do not. 
+This report evaluates four different treatments of the commercial annual mean weight index for 2018-2022 in a delay-difference model configured in the same way as the the 2018 and 2020 reference models [@forrest2020; @dfo2021].
+The four different treatments of the commercial annual mean weight index include two scenarios that use recent index values derived from the GLM presented to the TWG in 2022 (Appendices B and C), and two that do not. 
 We are seeking feedback on which of these scenarios to use in the models for estimation of model-averaged stock status. 
 
 # Methods
@@ -231,11 +231,11 @@ This pattern is consistent with predicted recruitment from all four models (Tabl
 A population with fewer recruits is expected to have a higher than average mean weight of individuals.
 The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight (Table \@ref(tab:tab-est-recruit-3cd), Figure \@ref(fig:fig-sens-recr-3cd)).
 All four models showed a similar pattern (Table \@ref(tab:tab-est-recruit-3cd-per)), indicating that the other indices had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:surv-canadian) to \@ref(fig:fig-modern-cpue-3cd)).
-This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from earlier observations, as in Sc. 3 and 4.
+This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from 2019, as in Sc. 3 and 4.
 
 Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd).
 All four models estimated a similar pattern in biomass (Table \@ref(tab:tab-est-biomass-3cd)).
-The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021).
+The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021), noting that Sc. 3 and 4 did not fit the mean weight index.
 
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we recommend using Sc. 1 for all the models in the model-averaging set for estimating stock status.
 
@@ -262,14 +262,17 @@ The predicted commercial mean weight index followed the observed commercial mean
 Models that did not include GLM estimates of the commercial mean weight index (Sc. 3 and 4) did not fit the extrapolated mean weight index values after 2018.
 This was likely because the catch data and indices of abundance provided a strong signal of low recruitment between 2017 and 2019, which reduced the influence of the commercial mean weight index on the model likelihood.
 
+**Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, we recommend using Sc. 1 for all the models in the model-averaging set for estimating stock status.**
+
 <!--
 The seven models used for model averaging all used a commercial mean weight index that included values from the GLM (Sc. 1).
 Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP at the beginning of 2023, and a 16% probability that the stock would be below the LRP at the beginning of 2024 under zero catches.
 Therefore, the stock does not currently meet the threshold of 50% probability of being below the LRP required under the rebuilding guidance to trigger a rebuilding plan (see Context).
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
 Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
+-->
 
-Other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020; @laurel2020].
+We note that other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020; @laurel2020].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
 There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to climate change, poor egg hatching survival, declines in body condition, movement, fishing, or other factors.
 We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
@@ -280,8 +283,6 @@ Therefore, in the absence of resuming a full commercial biological sampling prog
 This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
--->
-
 
 \clearpage
 
