@@ -238,7 +238,7 @@ Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fi
 All four models estimated a similar pattern in biomass (Table \@ref(tab:tab-est-biomass-3cd)).
 The scenarios without the GLM values (Sc. 3 and 4) estimated slightly higher biomass for 2020--2022 than Sc. 1 and 2 (Table \@ref(tab:tab-est-biomass-3cd-per)), but the maximum percentage difference was only 7.8% (Sc. 3 compared to Sc. 1 in 2021).
 
-Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we based the scenarios for model-averaging on Sc. 1.
+Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios (Figure \@ref(fig:fig-sens-biomass-3cd)), we recommend using Sc. 1 for all the models in the model-averaging set for estimating stock status.
 
 <!--
 ## Model-averaged stock status
@@ -263,6 +263,7 @@ The predicted commercial mean weight index followed the observed commercial mean
 Models that did not include GLM estimates of the commercial mean weight index (Sc. 3 and 4) did not fit the extrapolated mean weight index values after 2018.
 This was likely because the catch data and indices of abundance provided a strong signal of low recruitment between 2017 and 2019, which reduced the influence of the commercial mean weight index on the model likelihood.
 
+<!--
 The seven models used for model averaging all used a commercial mean weight index that included values from the GLM (Sc. 1).
 Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP at the beginning of 2023, and a 16% probability that the stock would be below the LRP at the beginning of 2024 under zero catches.
 Therefore, the stock does not currently meet the threshold of 50% probability of being below the LRP required under the rebuilding guidance to trigger a rebuilding plan (see Context).
@@ -280,6 +281,8 @@ Therefore, in the absence of resuming a full commercial biological sampling prog
 This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
+-->
+
 
 \clearpage
 
@@ -391,7 +394,7 @@ make.value.table.compare(c(base.model.3cd,
 
 ```
 
-
+<!--
 \clearpage
 
 ```{r summary-tab-stock-status-avg-3cd, results='asis'}
@@ -419,6 +422,7 @@ Don't include a decision table
 ```
 
 -->
+
 
 \clearpage
 
@@ -457,14 +461,12 @@ plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, fre
           ncol = 2)
 ```
 
-
 ```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[2]], french=french),
           nrow = 1,
           ncol = 2)
 ```
-
 
 ```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
@@ -491,6 +493,7 @@ g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.mode
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
+<!--
 \clearpage
 
 ```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
@@ -575,7 +578,7 @@ x |>
   ylab("P(B < LRP)") + xlab("Year") +
   scale_x_continuous(breaks = seq(2012, 2022, 2))
 ```
-
+-->
 \clearpage
 
 # (APPENDIX) Appendix {-}
@@ -820,7 +823,7 @@ i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.nam
 i.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), ind = 3, leg.loc = "topleft") + ylab("Commercial CPUE (kg/hour)")
 ```
 
-
+<!--
 \clearpage
 
 ### Model-averaging scenarios
@@ -843,3 +846,4 @@ i.plot(desc.models.3cd, desc.models.3cd.name, ind = 2, every = 5) +
 i.plot(desc.models.3cd, desc.models.3cd.name, ind = 3, leg.loc = "topleft") + ylab("Commercial CPUE (kg/hour)")
 ```
 
+-->
