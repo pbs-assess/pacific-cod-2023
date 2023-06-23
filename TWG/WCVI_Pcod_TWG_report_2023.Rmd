@@ -1,7 +1,7 @@
 ---
 title: "Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group."
 author: "Robyn Forrest and Sean Anderson"
-date: "June 21, 2023"
+date: "June 23, 2023"
 link-citations: true
 bibliography: bib/refs.bib
 csl: bib/csas.csl
@@ -100,7 +100,7 @@ Presumably due to the ongoing low catches of Area 3CD Pacific Cod and model esti
 However, given the three low index points in 2018, 2021 and 2022, Science has issued a RSIA requesting a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 <!--This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023. ADD BACK IN TO SR-->
-This report evaluates four different treatments of the commercial annual mean weight index for 2018-2022 in a delay-difference model configured in the same way as the the 2018 and 2020 reference models [@forrest2020; @dfo2021].
+This report evaluates four different treatments of the commercial annual mean weight index for 2018-2022 in a delay-difference model configured in the same way as the 2018 and 2020 reference models [@forrest2020; @dfo2021].
 The four different treatments of the commercial annual mean weight index include two scenarios that use recent index values derived from the GLM presented to the TWG in 2022 (Appendices B and C), and two that do not. 
 We are seeking feedback on which of these scenarios to use in the models for estimation of model-averaged stock status. 
 
@@ -271,7 +271,7 @@ Model-averaged estimates of biomass indicated a 24% probability that the stock i
 Therefore, the stock does not currently meet the threshold of 50% probability of being below the LRP required under the rebuilding guidance to trigger a rebuilding plan (see Context).
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
 Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
--->
+
 
 We note that other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020; @laurel2020].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
@@ -284,6 +284,8 @@ Therefore, in the absence of resuming a full commercial biological sampling prog
 This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
+
+-->
 
 \clearpage
 
