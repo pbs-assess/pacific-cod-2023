@@ -1,6 +1,8 @@
 # Code to get the annual mean weight in the survey. Try to mimic the commercial mean
 #  weight code as much as possible
 
+# Copy of get-mean-weight-survey.R to address questions from Paul Starr: July 20, 2023
+
 # This script is called by get-iscam-inputs.R
 
 # This was for the 2022 technical working group meeting to look at whether we can
@@ -10,6 +12,7 @@
 
 # June 2 2022. Robyn Forrest (RF)
 # Updated April 28 2023. RF
+# Updated July 20 2023. RF
 
 # TODO: Check that the catch weighting makes sense
 # Well, none of it really makes sense because length sampling has been
