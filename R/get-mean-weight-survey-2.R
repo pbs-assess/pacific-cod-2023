@@ -128,6 +128,45 @@ g <- lengthwt_raw %>%
 ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_survey",
                                AREA,".png")))
 
+#============================================================================================
+# Residual plot for Paul
+M1 <- lm(weight_calc~weight,
+         data = lengthwt_raw)
+R1 <- rstandard(M1)
+
+# plot model fit
+# base R
+par(mfrow = c(1,1))
+plot(lengthwt_raw$weight_calc, lengthwt_raw$weight)
+abline(M1, col=2, lwd=2)
+
+# ggplot
+g <- lengthwt_raw %>%
+  filter(!is.na(weight)) %>%
+  ggplot(aes(x=weight, y=weight_calc)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)+
+  labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
+g
+
+# plot basic diagnostics
+par(mfrow = c(2,2))
+ plot(M1)
+
+# histogram of residuals
+g2 <- R1 %>%
+  as.data.frame() %>%
+  ggplot(aes(x=R1)) +
+  geom_histogram(binwidth=0.1,
+                 colour="black", fill="lightgray")+
+  xlab("Residuals: calc weight vs obs weight")
+g2
+
+
+
+
+#============================================================================================
+
 # Plot annual mean weights
 g <- survey_mw_raw %>%
   rename(raw=survey_mw_raw) %>%
