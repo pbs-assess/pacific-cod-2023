@@ -127,46 +127,6 @@ g <- lengthwt_raw %>%
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
 ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_survey",
                                AREA,".png")))
-
-#============================================================================================
-# Residual plot for Paul
-M1 <- lm(weight_calc~weight,
-         data = lengthwt_raw)
-R1 <- rstandard(M1)
-
-# plot model fit
-# base R
-par(mfrow = c(1,1))
-plot(lengthwt_raw$weight_calc, lengthwt_raw$weight)
-abline(M1, col=2, lwd=2)
-
-# ggplot
-g <- lengthwt_raw %>%
-  filter(!is.na(weight)) %>%
-  ggplot(aes(x=weight, y=weight_calc)) +
-  geom_point() +
-  geom_smooth(method='lm', formula= y~x)+
-  labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
-g
-
-# plot basic diagnostics
-par(mfrow = c(2,2))
- plot(M1)
-
-# histogram of residuals
-g2 <- R1 %>%
-  as.data.frame() %>%
-  ggplot(aes(x=R1)) +
-  geom_histogram(binwidth=0.1,
-                 colour="black", fill="lightgray")+
-  xlab("Residuals: calc weight vs obs weight")
-g2
-
-
-
-
-#============================================================================================
-
 # Plot annual mean weights
 g <- survey_mw_raw %>%
   rename(raw=survey_mw_raw) %>%
@@ -492,5 +452,96 @@ comparedata_allyrs  <-
   write_csv(pred_mean_weight_no_interpolate,
             file.path(generatedd,paste0("Pred_comm_weight_without_interpolation_",
                                         AREA,".csv")))
+
+#============================================================================================
+# Extra analyses for Paul Starr
+
+#============================================================================================
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 2a Residual plot of calc weight vs obs weight
+M1 <- lm(weight_calc~weight,
+         data = lengthwt_raw)
+R1 <- rstandard(M1)
+
+# plot model fit
+# base R
+par(mfrow = c(1,1))
+plot(lengthwt_raw$weight_calc, lengthwt_raw$weight)
+abline(M1, col=2, lwd=2)
+
+# ggplot
+g <- lengthwt_raw %>%
+  filter(!is.na(weight)) %>%
+  ggplot(aes(x=weight, y=weight_calc)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)+
+  labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
+g
+
+# plot basic diagnostics
+par(mfrow = c(2,2))
+plot(M1)
+
+# histogram of residuals
+g2 <- R1 %>%
+  as.data.frame() %>%
+  ggplot(aes(x=R1)) +
+  geom_histogram(binwidth=0.1,
+                 colour="black", fill="lightgray")+
+  xlab("Residuals: calc weight vs obs weight")
+g2
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# In log space
+M2 <- lm(log(weight_calc)~log(weight),
+         data = lengthwt_raw)
+R2 <- rstandard(M2)
+
+# plot model fit
+# base R
+par(mfrow = c(1,1))
+plot(log(lengthwt_raw$weight_calc), log(lengthwt_raw$weight))
+abline(M2, col=2, lwd=2)
+
+# ggplot
+g <- lengthwt_raw %>%
+  filter(!is.na(weight)) %>%
+  mutate(log_weight_calc=log(weight_calc),
+         log_weight=log(weight)) %>%
+  ggplot(aes(x=log_weight, y=log_weight_calc)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)+
+  labs(title = paste(AREA), y = "Calculated log(weight from length)", x = "log(Measured weight)")
+g
+
+# plot basic diagnostics
+par(mfrow = c(2,2))
+plot(M2)
+
+# histogram of residuals
+g2 <- R2 %>%
+  as.data.frame() %>%
+  ggplot(aes(x=R2)) +
+  geom_histogram(binwidth=0.1,
+                 colour="black", fill="lightgray")+
+  xlab("Residuals: log calc weight vs log obs weight")
+g2
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 2c Look at whether there are tows with multiple sample IDs
+sample_ids <- lengthwt_raw %>%
+  select(year, fishing_event_id,sample_id) %>%
+  group_by(year, fishing_event_id) %>%
+  summarize(unique_sample_id=n_distinct(sample_id)) %>%
+  arrange(desc(unique_sample_id))
+
+cat("The maximum number of samples per tow is", max(sample_ids$unique_sample_id))
+
+# NO, no tows with more than one sample
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 2d
+
+#============================================================================================
 
 
