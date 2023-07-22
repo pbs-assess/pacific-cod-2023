@@ -511,7 +511,7 @@ g <- lengthwt_raw %>%
   ggplot(aes(x=log_weight, y=log_weight_calc)) +
   geom_point() +
   geom_smooth(method='lm', formula= y~x)+
-  labs(title = paste(AREA), y = "Calculated log(weight from length)", x = "log(Measured weight)")
+  labs(title = paste(AREA), y = "Calculated log(weight from length)", x = "log(observed weight)")
 g
 
 # plot basic diagnostics
@@ -526,6 +526,62 @@ g2 <- R2 %>%
                  colour="black", fill="lightgray")+
   xlab("Residuals: log calc weight vs log obs weight")
 g2
+
+# Compare number of calculated to observed samples
+compare <- lengthwt_raw %>%
+  select(year, weight, weight_calc) %>%
+  group_by(year) %>%
+  summarise(across(everything(), ~ sum(!is.na(.)))) %>%
+  melt(id="year", variable.name="Weight_measure", value.name="Nspecimens") %>%
+  rename("Year"=year) %>%
+  ggplot(aes(x=Year,y=Nspecimens,fill=Weight_measure)) +
+  geom_bar(stat='identity', position='dodge')
+compare
+
+# There are 934 fewer observed weights than calculated weights
+
+# Re-calculate the survey mean weight index using observed weights
+# 1. get the mean weight in the samples, with the catch weight from the fishing event
+# Equivalent to Eq C.6 in the 2018 assessment
+Mean_wt_samples_obs <- lengthwt_raw %>%
+  group_by(year, sample_id, grouping_code) %>%
+  filter(!is.na(weight)) %>%
+  summarize(mean_weight=mean(weight),
+            sum_weight=sum(weight),
+            catch_weight=catch_weight[1])
+
+# now weight by depth stratum. Sort of the equivalent of Eq C.7 in the 2018 assessment,
+# which weighted by sequential quarter
+# only do calculated mean weight ... not enough weight obs per strata
+
+# From Appendix C of 2018 assessment
+# The mean weight (Ws) for each stratum [sequential quarter] was then calculated,
+# weighted by the sample weight of Pacifc Cod (Sj ) in each SampleID (j).
+# If the sample weight was recorded as data, it is used.
+# Otherwise, the sum of the calculated weights from the sample is used
+# Ws = Sum(Wjs*Sjs)/Sum(Sjs)
+# Each Sum is over Ks, which is the number of sample ids in each stratum
+# for sampleid j and stratum s
+
+Mean_weight_stratum_obs <- Mean_wt_samples_obs %>%
+  group_by(year, grouping_code) %>%
+  summarize(stratum_mean_wt=sum(mean_weight*sum_weight)/sum(sum_weight),
+            stratum_catch_wt=sum(catch_weight))
+
+#Equivalent to Eq C.8 in the 2018 assessment
+survey_mw_weighted_obs <- Mean_weight_stratum_obs %>%
+  group_by(year) %>%
+  summarize(survey_mw_weighted_obs=sum(stratum_mean_wt*stratum_catch_wt)/sum(stratum_catch_wt))
+
+# Now bind these with the index from the calculated weights
+survey_mw_compare <- survey_mw_weighted %>%
+  full_join(survey_mw_weighted_obs) %>%
+  rename("weight_calc"=survey_mw_weighted,
+         "weight_obs"=survey_mw_weighted_obs) %>%
+  melt(id="year", variable.name = "Method", value.name="Index_value") %>%
+  ggplot() +
+  geom_line(aes(x=year, y=Index_value, colour=Method), lwd=2)
+survey_mw_compare
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 2c Look at whether there are tows with multiple sample IDs
