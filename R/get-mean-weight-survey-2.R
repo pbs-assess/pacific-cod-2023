@@ -580,7 +580,8 @@ survey_mw_compare <- survey_mw_weighted %>%
          "weight_obs"=survey_mw_weighted_obs) %>%
   melt(id="year", variable.name = "Method", value.name="Index_value") %>%
   ggplot() +
-  geom_line(aes(x=year, y=Index_value, colour=Method), lwd=2)
+  geom_line(aes(x=year, y=Index_value, colour=Method), lwd=2)+
+  ylim(0,3)
 survey_mw_compare
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
