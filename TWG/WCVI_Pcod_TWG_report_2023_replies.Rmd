@@ -16,7 +16,123 @@ urlcolor: blue
 linkcolor: blue
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Context
+
+This document provides replies to comments received from the Pacific Cod technical working group on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
+Replies are provided in response to each comment in turn.
+
+# Responses
+
+## Section 1. 2017 index point
+
+**Comment 1a. Section 2.1.5.** there is a contradiction in the 2nd paragraph in this section; it states “In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
+The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update (DFO 2021).
+Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal, as the 2019 index point was also based on only two samples.” 
+But according to Table 8, the 2017 sample was based on 4 samples, not 2. 
+
+**Response:**
+
+This was a typo that will be corrected in the Science Response.
+
+**Comment 1b.** While I sympathise with excluding the 2017 estimate, dropping it simply because it was too high is potentially not a sound response. 
+
+**Response:**
+
+Since this Science Response will be an update, we made this choice to be consistent with the 2020 advice [@dfo2021].
+
+TODO: However, for illustration, we have run a scenario based on Sc. 1 in the TWG Report that includes the 2017 value.
+
+## Section 2. Appendix B: Survey mean weight index
+
+**Comment 2a i. Eq. 1.** Since this is a Bayesian analysis, shouldn’t we be including some uncertainty in the conversion of length to weight?
+
+**Response:**
+
+TODO
+
+**Comment 2a ii.** I don’t fully understand Figure 12, but it only makes sense to me if there is a wide spread of measured weights for each calculated weight. 
+The spread is quite large for weights in the 3-4 kg range which may lead to bias. Perhaps we should see a residual plot from Figure 12 to better understand the relationship between the observed and calculated mean weights. 
+
+**Response:**
+
+TODO
+
+**Comment 2b.** I accept that this is the procedure used for the commercial mean weights as well, but we have an opportunity to better understand potential bias this procedure may be introducing. 
+Also, I think that the uncertainty in both sets of calculations of mean weight should be included in the transformation.
+
+**Response:**
+
+TODO
+
+**Comment 2c. Eq. 2.** I assume that the sample ID is a survey tow? can there be more than one sample taken from a single tow? If so, shouldn’t they be combined?
+
+**Response:**
+
+We have checked the database and there were no cases where there was more than one sample ID associated with a fishing event ID (tow).
+
+TODO: possibly include the summary table.
+
+**Comment 2d. Figure 13.** It would be better if you indicated the survey years with a data point and avoided connecting the points between survey years. That way you avoid the problem with the 2007 commercial mean weight lying below an interpolated mean weight from the survey which never existed.
+
+**Response:**
+
+TODO
+
+**Comment 2e.** While I take your point that the GLM model performed adequately for most years, it failed quite badly in both 2012 and 2016, where both observed values lie well outside of the model credibility envelope.
+My understanding of this model is that it is basically a simple regression without attempting any additional explanatory power.
+Would it be possible to include in the model some spatial information, such as the number of tows in 3C or 3D (among both the survey and the commercial data) that might improve the predictive capacity of the model? Or depth information?
+
+**Response:**
+
+TODO
+
+## Section 3. Model results
+
+**Comment 3a.** While the four scenarios modelled in Section 2.3 seem reasonable, the actual model is obviously very insensitive to the different scenarios (as can be seen in Figures 8 and 9).
+While I appreciate the need to use the delay-difference model (having made the same choice myself), I am afraid that it doesn’t do a very convincing job of using the mean weight data.
+The lack of sensitivity to these mean weight scenarios leads one to the conclusion that worrying about the mean weight information is not very productive given the current model.
+The model appears to be responsive to the biomass indices but Figure 8 indicates that while there is some recruitment variation among the four mean weight scenarios, it makes little difference to the biomass trends in Figure 9.
+
+**Response:**
+
+TODO
+
+**Comment 3b.** Figures 4, 5, 6 and 7: would it be possible to see a time series of residuals to the mean weight fits? 
+
+**Response:**
+
+TODO
+
+**Comment 3c.** The MCMC traces in Figure 21 are not very persuasive. nor are the autocorrelation plots. perhaps try longer chains and more burn-in?
+
+**Response:**
+
+TODO
+
+**Comment 3d.** Figure 26: the years need to be alternated so we can read them.
+
+**Response:**
+
+TODO
+
+## Section 4. Likelihood
+
+**Comment 4a.** I agree with the choice of mean weight Scenario #1, given the lack of sensitivity by this model to these data.
+However, I think we should pursue some investigation to understand this lack of sensitivity to the mean weight data, and perhaps consider an alternative parameterisation of this model.
+Or a different model.
+Right now, it seems to me that we basically have a surplus production model, which may be the best we can do under the circumstances.
+
+**Response:**
+
+TODO
+
+
+
+\clearpage
+
+# References {-}
+
+<!-- This allows appendices to appear after the references -->
+<div id="refs"></div>
+
 
