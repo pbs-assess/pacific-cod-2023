@@ -16,6 +16,47 @@ urlcolor: blue
 linkcolor: blue
 ---
 
+```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.path = "knitr-figs/",
+  cache.path = if (knitr:::is_latex_output()) "knitr-cache-tex/" else "knitr-cache-docx/",
+  fig.asp = 0.618,
+  fig.width = 6.5,
+  out.width = "5in",
+  echo = FALSE,
+  autodep = TRUE,
+  cache = TRUE,
+  cache.comments = FALSE,
+  dev = if (knitr:::is_latex_output()) "pdf" else "png",
+  dpi = 200,
+  fig.align = "center",
+  fig.pos = "htb"
+)
+french <- FALSE
+source(file.path(here::here(), "R", "all.R")) #Loading the data is in this file (or pulling it from GFBio if it doesn't exist yet)
+source(file.path(here::here(), "R", "get-mean-weight-survey-2.R")) # file with analyses just for this report. Some of it will move into "get-mean-weight-survey-2.R in the SR"
+
+```
+
+```{r custom-vars, cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
+#NOTE. if adding sensitivity models need to modify load.models.into.parent.env()
+# in model-setup.R (as well as path names to sensitivity folders)
+build(ovwrt.base = FALSE,
+      ovwrt.sens = FALSE,
+      ovwrt.retro = FALSE,
+      burnin = 1000,
+      thin = 1)
+
+load.models.into.parent.env()
+
+source(file.path(rootd.R, "custom-knitr-variables.R")) # Making catch data objects is in this file
+```
+
+
 # Context
 
 This document provides replies to comments received from the Pacific Cod technical working group on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
@@ -48,14 +89,55 @@ TODO: However, we have run a scenario based on Sc. 1 in the TWG Report that incl
 
 **Response:**
 
-TODO
+The length-weight parameter parameters were estimates taken directly from the 2018 Pacific cod update [@forrest2020]:
+
+*“The models were fit as robust linear regressions: ln(Ws) = ln(a) + b · ln(Ls) with an M estimator (Venables and Ripley 2002). Robust linear models were chosen over linear models with normally distributed error to downweight the infuence of a small number of outlying specimens.”*
+
+We could re-estimate them using a Bayesian analysis with priors, but we are reluctant to do so.
+We have not done this before for conversion of commercial mean lengths to weight, which has been peer reviewed twice through CSAS.
+The length-weight relationship is one of the least uncertain parts of the assessment, compared to its many other uncertainties.
+
+However, we should be updating the length-weight parameters to include more recent data.
+Therefore we have updated the length-weight model, as shown in Figure \@ref(fig:fig-LWfit-3cd).
+
+```{r fig-LWfit-3cd, fig.cap="Length-weight relationship for female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
+
+knitr::include_graphics(here::here("data/generated/New_LW_fit_3CD.png"))
+
+```
+
+```{r fig-LWfit-3cd-both, fig.cap="Length-weight relationship for combined female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
+
+knitr::include_graphics(here::here("data/generated/New_LW_fit_both_sex_3CD.png"))
+
+lwa <- signif(exp(LWM$model$coefficients[1]),6)
+lwb <- round(LWM$model$coefficients[2],2)
+
+```
+
+The fits for males and females was nearly identical so we fit the model again with data for both males and females (Figure \@ref(fig:fig-LWfit-3cd-both)).
+The updated length-weight parameters are `r paste0("$a = ", lwa, "$")` and `r paste0("$b = ", lwb, "$")`. 
+This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, "$")` used in the previous two assessments.
+
+TODO: run a version of the model with the new parameters.
+
+\clearpage
+
 
 **Comment 2a ii.** I don’t fully understand Figure 12, but it only makes sense to me if there is a wide spread of measured weights for each calculated weight. 
 The spread is quite large for weights in the 3-4 kg range which may lead to bias. Perhaps we should see a residual plot from Figure 12 to better understand the relationship between the observed and calculated mean weights. 
 
 **Response:**
 
-TODO
+Figure 12 was the plot of individual fish weights calculated from the length-weight relationship vs the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights-3cd)).
+
+```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
+```
+
+
+
+\clearpage
 
 **Comment 2b.** I accept that this is the procedure used for the commercial mean weights as well, but we have an opportunity to better understand potential bias this procedure may be introducing. 
 Also, I think that the uncertainty in both sets of calculations of mean weight should be included in the transformation.

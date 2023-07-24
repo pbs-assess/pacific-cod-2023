@@ -51,7 +51,7 @@ lengthwt_raw <- dat$survey_samples %>%
   filter(survey_abbrev %in% SURVEY,
          usability_code %in% c(0, 1, 2, 6),
          !is.na(length)) %>%
-  select(year,fishing_event_id, sample_id,grouping_code,length,weight) %>%
+  select(year,fishing_event_id, sample_id,specimen_id, sex,grouping_code,length,weight) %>%
   mutate(weight_calc=.ALPHA*length^.BETA, weight=weight/1000) %>%
   left_join(catch_weight_summary)
 
@@ -419,10 +419,7 @@ comparedata_allyrs  <-
 
     brms::pp_check(fit, ndraws = 200)
     brms::pp_check(fit, ndraws = 200, type = "ecdf_overlay")
-
-
   }
-
 
 # Now need to interpolate for years with no survey data
   # Only need to do this for years without comm samples
@@ -455,9 +452,36 @@ comparedata_allyrs  <-
 
 #============================================================================================
 # Extra analyses for Paul Starr
-
 #============================================================================================
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 1b Update L-W parameters, using the same rlm model as in 2018
+# Add usability code = 1 for fit_length_weight, and convert weight to grams (plot converts to kg)
+
+lwdat <- lengthwt_raw %>%
+    mutate(usability_code=1,
+           weight=weight*1000)
+
+# males and females
+LWMf <- gfplot::fit_length_weight(lwdat, sex="female", method = "rlm")
+LWMm <- gfplot::fit_length_weight(lwdat, sex="male", method = "rlm")
+plot_length_weight(object_female=LWMf, object_male=LWMm, pt_alpha=1)
+ggsave(file.path(generatedd,paste0("New_LW_fit_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+# both sexes
+LWM <- gfplot::fit_length_weight(lwdat, sex="all", method = "rlm")
+plot_length_weight(object_all=LWM, pt_alpha=1)
+ggsave(file.path(generatedd,paste0("New_LW_fit_both_sex_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+
+# Updated L-W parameters
+#3CD
+.ALPHA <- 7.65616e-06
+.BETA <- 3.08
+
+
+
 # 2a Residual plot of calc weight vs obs weight
 M1 <- lm(weight_calc~weight,
          data = lengthwt_raw)
@@ -465,9 +489,9 @@ R1 <- rstandard(M1)
 
 # plot model fit
 # base R
-par(mfrow = c(1,1))
-plot(lengthwt_raw$weight_calc, lengthwt_raw$weight)
-abline(M1, col=2, lwd=2)
+# par(mfrow = c(1,1))
+# plot(lengthwt_raw$weight_calc, lengthwt_raw$weight)
+# abline(M1, col=2, lwd=2)
 
 # ggplot
 g <- lengthwt_raw %>%
@@ -476,11 +500,10 @@ g <- lengthwt_raw %>%
   geom_point() +
   geom_smooth(method='lm', formula= y~x)+
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
-g
 
 # plot basic diagnostics
-par(mfrow = c(2,2))
-plot(M1)
+# par(mfrow = c(2,2))
+# plot(M1)
 
 # histogram of residuals
 g2 <- R1 %>%
@@ -489,7 +512,7 @@ g2 <- R1 %>%
   geom_histogram(binwidth=0.1,
                  colour="black", fill="lightgray")+
   xlab("Residuals: calc weight vs obs weight")
-g2
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # In log space
@@ -499,9 +522,9 @@ R2 <- rstandard(M2)
 
 # plot model fit
 # base R
-par(mfrow = c(1,1))
-plot(log(lengthwt_raw$weight_calc), log(lengthwt_raw$weight))
-abline(M2, col=2, lwd=2)
+# par(mfrow = c(1,1))
+# plot(log(lengthwt_raw$weight_calc), log(lengthwt_raw$weight))
+# abline(M2, col=2, lwd=2)
 
 # ggplot
 g <- lengthwt_raw %>%
@@ -512,11 +535,11 @@ g <- lengthwt_raw %>%
   geom_point() +
   geom_smooth(method='lm', formula= y~x)+
   labs(title = paste(AREA), y = "Calculated log(weight from length)", x = "log(observed weight)")
-g
+
 
 # plot basic diagnostics
-par(mfrow = c(2,2))
-plot(M2)
+# par(mfrow = c(2,2))
+# plot(M2)
 
 # histogram of residuals
 g2 <- R2 %>%
@@ -525,7 +548,7 @@ g2 <- R2 %>%
   geom_histogram(binwidth=0.1,
                  colour="black", fill="lightgray")+
   xlab("Residuals: log calc weight vs log obs weight")
-g2
+
 
 # Compare number of calculated to observed samples
 compare <- lengthwt_raw %>%
@@ -536,7 +559,7 @@ compare <- lengthwt_raw %>%
   rename("Year"=year) %>%
   ggplot(aes(x=Year,y=Nspecimens,fill=Weight_measure)) +
   geom_bar(stat='identity', position='dodge')
-compare
+#compare
 
 # There are 934 fewer observed weights than calculated weights
 
@@ -582,7 +605,7 @@ survey_mw_compare <- survey_mw_weighted %>%
   ggplot() +
   geom_line(aes(x=year, y=Index_value, colour=Method), lwd=2)+
   ylim(0,3)
-survey_mw_compare
+#survey_mw_compare
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 2c Look at whether there are tows with multiple sample IDs
@@ -592,7 +615,7 @@ sample_ids <- lengthwt_raw %>%
   summarize(unique_sample_id=n_distinct(sample_id)) %>%
   arrange(desc(unique_sample_id))
 
-cat("The maximum number of samples per tow is", max(sample_ids$unique_sample_id))
+#cat("The maximum number of samples per tow is", max(sample_ids$unique_sample_id))
 
 # NO, no tows with more than one sample
 

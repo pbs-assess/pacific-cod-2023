@@ -96,7 +96,7 @@ if(verbose){
 ## Sensitivity models group 11 (3CD) - individual imputation iterations
 ## -----------------------------------------------------------------------------
 sens.models.dir.name.11 <- c(file.path(model.dir,
-                                       "1b_3CD_2023_interp_incl_2017"),
+                                       "1a_3CD_2023_interp_incl_2017"),
                              file.path(model.dir,
                                        "1b_3CD_2023_no_interp"),
                              file.path(model.dir,
