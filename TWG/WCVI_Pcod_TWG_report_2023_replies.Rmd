@@ -1,0 +1,22 @@
+---
+title: "Replies to TWG comments on: Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group."
+author: "Robyn Forrest and Sean Anderson"
+date: "`r Sys.Date()`"
+link-citations: true
+bibliography: bib/refs.bib
+csl: bib/csas.csl
+documentclass: article
+geometry: margin=2.3cm
+output:
+  bookdown::pdf_document2:
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+urlcolor: blue
+linkcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
