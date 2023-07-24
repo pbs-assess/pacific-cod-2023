@@ -25,7 +25,7 @@ Replies are provided in response to each comment in turn.
 
 ## Section 1. 2017 index point
 
-**Comment 1a. Section 2.1.5.** there is a contradiction in the 2nd paragraph in this section; it states “In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
+**Comment 1a. Section 2.1.5.** There is a contradiction in the 2nd paragraph in this section; it states “In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish). 
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on two samples, it was not used in the 2020 stock assessment update (DFO 2021).
 Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal, as the 2019 index point was also based on only two samples.” 
 But according to Table 8, the 2017 sample was based on 4 samples, not 2. 
@@ -40,7 +40,7 @@ This was a typo that will be corrected in the Science Response.
 
 Since this Science Response will be an update, we made this choice to be consistent with the 2020 advice [@dfo2021].
 
-TODO: However, for illustration, we have run a scenario based on Sc. 1 in the TWG Report that includes the 2017 value.
+TODO: However, we have run a scenario based on Sc. 1 in the TWG Report that includes the 2017 value.
 
 ## Section 2. Appendix B: Survey mean weight index
 
@@ -126,7 +126,7 @@ Right now, it seems to me that we basically have a surplus production model, whi
 
 TODO
 
-
+# Conclusions and next steps
 
 \clearpage
 

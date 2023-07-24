@@ -83,7 +83,7 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Base model names and directories
 ## -----------------------------------------------------------------------------
-base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 GLM Interpolation")
+base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1a GLM Interpolation")
 base.model.3cd.dir.name <- file.path(model.dir,
                                      "1a_3CD_2023_interp")
 
@@ -96,6 +96,8 @@ if(verbose){
 ## Sensitivity models group 11 (3CD) - individual imputation iterations
 ## -----------------------------------------------------------------------------
 sens.models.dir.name.11 <- c(file.path(model.dir,
+                                       "1b_3CD_2023_interp_incl_2017"),
+                             file.path(model.dir,
                                        "1b_3CD_2023_no_interp"),
                              file.path(model.dir,
                                        "1c_3CD_2023_noGLM_extrap"),
@@ -103,7 +105,8 @@ sens.models.dir.name.11 <- c(file.path(model.dir,
                                        "1d_3CD_2023_noGLM_no_extrap")
                              )
 
-sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
+sens.models.name.11 <- c("Sc. 1b GLM Interpolation (incl. 2017)",
+                         "Sc. 2 GLM No interpolation",
                          "Sc. 3 No GLM, with extrap",
                          "Sc. 4 No GLM, no extrap")
 
