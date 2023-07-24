@@ -119,7 +119,7 @@ The fits for males and females was nearly identical so we fit the model again wi
 The updated length-weight parameters are `r paste0("$a = ", lwa, "$")` and `r paste0("$b = ", lwb, "$")`. 
 This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, "$")` used in the previous two assessments.
 
-TODO: run a version of the model with the new parameters.
+TODO: run a version of the model with the new parameters. Show mean weight fits and biomass and recruitment estimates
 
 \clearpage
 

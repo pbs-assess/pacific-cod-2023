@@ -95,9 +95,8 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Sensitivity models group 11 (3CD) - individual imputation iterations
 ## -----------------------------------------------------------------------------
+# Sensitivity of treatment of commercial mean weight index
 sens.models.dir.name.11 <- c(file.path(model.dir,
-                                       "1a_3CD_2023_interp_incl_2017"),
-                             file.path(model.dir,
                                        "1b_3CD_2023_no_interp"),
                              file.path(model.dir,
                                        "1c_3CD_2023_noGLM_extrap"),
@@ -105,10 +104,23 @@ sens.models.dir.name.11 <- c(file.path(model.dir,
                                        "1d_3CD_2023_noGLM_no_extrap")
                              )
 
-sens.models.name.11 <- c("Sc. 1b GLM Interpolation (incl. 2017)",
-                         "Sc. 2 GLM No interpolation",
+sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
                          "Sc. 3 No GLM, with extrap",
                          "Sc. 4 No GLM, no extrap")
+
+# New comparisons
+# Include the 2017 mean weight index point
+sens.models.dir.name.22 <- file.path(model.dir,
+                                       "1a_3CD_2023_interp_incl_2017")
+
+sens.models.name.22 <- "Sc. 1b GLM Interpolation (incl. 2017)"
+
+# Update the length-weight parameters
+sens.models.dir.name.33 <- file.path(model.dir,
+                                     "1a_3CD_2023_interp_new_lw")
+
+sens.models.name.33 <- "Sc. 1c GLM Interpolation (new lw pars)"
+
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)
@@ -218,6 +230,8 @@ build <- function(ovwrt.base = FALSE,
   ## Sensitivity models need to be unlisted from their groups
   ##  and placed into a single list for the for loop below to work right
   sens.models.names.list <- c(unlist(sens.models.dir.name.11),
+                              unlist(sens.models.dir.name.22),
+                              unlist(sens.models.dir.name.33),
                               unlist(desc.models.3cd.dir.name))
 
   ## Sensitivity models
