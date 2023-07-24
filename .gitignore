@@ -17,6 +17,7 @@ data/pcod-cache/*
 *.bat
 *.bbl
 *.blg
+*.tmp
 *~
 ~$*
 *.dvi
