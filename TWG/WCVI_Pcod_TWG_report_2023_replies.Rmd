@@ -96,7 +96,6 @@ In 2017, only 300 fish were measured across all four samples.
 Given the obvious problems with basing index points on such limited samples, we don't think it is justified to further explore changing model parameters to fit the 2017 data point.
 Unpublished trials with smaller values of $\sigma_W$, the observation error term that influences the fit to the mean weight index, have resulted in much closer fits to the data in the early part of the time series, accompanied by a rescaling of the biomass, which we also feel is problematic due to the lack of small fish prior to 1996 [@forrest2015]. 
 
-\clearpage
 
 ```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
@@ -112,11 +111,9 @@ plot_grid(mw.plot(sens.models.22[[1]], cv = 0.2, every = 10, last.yr = 2022, fre
           ncol = 2)
 ```
 
-
 ```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
 include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
 ```
-
 
 \clearpage
 
@@ -131,18 +128,20 @@ The length-weight parameter parameters were estimates taken directly from the 20
 *“The models were fit as robust linear regressions: ln(Ws) = ln(a) + b · ln(Ls) with an M estimator (Venables and Ripley 2002). Robust linear models were chosen over linear models with normally distributed error to downweight the infuence of a small number of outlying specimens.”*
 
 We could re-estimate them using a Bayesian analysis with priors, but we are reluctant to do so.
-We have not done this before for conversion of commercial mean lengths to weight, which has been peer reviewed twice through CSAS.
-The length-weight relationship is one of the least uncertain parts of the assessment, compared to its many other uncertainties.
+We have not done this before for conversion of commercial mean lengths to weight, or for any of the data streams, which have been peer reviewed twice through CSAS.
+The length-weight relationship is one of the least uncertain parts of the assessment, compared to many other uncertainties.
 
 However, we should be updating the length-weight parameters to include more recent data.
 Therefore we have updated the length-weight model, as shown in Figure \@ref(fig:fig-LWfit-3cd).
 
-The fits for males and females was nearly identical so we fit the model again with data for both males and females (Figure \@ref(fig:fig-LWfit-3cd-both)).
+The fits for males and females were nearly identical so we fit the model again with data for both males and females combined (Figure \@ref(fig:fig-LWfit-3cd-both)).
 The updated length-weight parameters are `r paste0("$a = ", lwa, "$")` and `r paste0("$b = ", lwb, "$")`. 
 This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, "$")` used in the previous two assessments.
-
-TODO: run a version of the model with the new parameters. Show mean weight fits and biomass and recruitment estimates
-
+ 
+We ran a version of the model based on Sc. 1 in the TWG Report, except with the updated length-weight parameters. 
+The MPD fit to the mean weight index generated with updated length-weight parameters is shown in Figure \@ref(fig:fig-mean-weight-3cd-new-lw).
+There was very little sensitivity to posterior model estimates of both recruitment (Figure \@ref(fig:fig-sens-recr-3cd-new-lw)) and biomass (Figure \@ref(fig:fig-sens-biomass-3cd-new-lw)).
+However, the length-weight parameters will be updated for all scenarios in the  Science Response.
 
 ```{r fig-LWfit-3cd, fig.cap="Length-weight relationship for female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
 
@@ -157,8 +156,30 @@ knitr::include_graphics(here::here("data/generated/New_LW_fit_both_sex_3CD.png")
 ```
 
 
-\clearpage
+```{r fig-mean-weight-3cd-new-lw, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for scenario descriptions (attached))."}
+plot_grid(mw.plot(sens.models.33[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.33[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
 
+```{r fig-sens-recr-3cd-new-lw, fig.cap="Sensitivity of recruitment estimates to updating the length-weight parameters. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- r.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33))
+g2 <- r.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33)) +
+  coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
+```{r fig-sens-biomass-3cd-new-lw, fig.cap="Sensitivity of biomass estimates to updating the length-weight parameters. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- b.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33))
+g2 <- b.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33)) +
+    coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
+\clearpage
 
 **Comment 2a ii.** I don’t fully understand Figure 12, but it only makes sense to me if there is a wide spread of measured weights for each calculated weight. 
 The spread is quite large for weights in the 3-4 kg range which may lead to bias. Perhaps we should see a residual plot from Figure 12 to better understand the relationship between the observed and calculated mean weights. 
