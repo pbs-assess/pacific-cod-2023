@@ -83,9 +83,9 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Base model names and directories
 ## -----------------------------------------------------------------------------
-base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1a GLM Interpolation")
 base.model.3cd.dir.name <- file.path(model.dir,
                                      "1a_3CD_2023_interp")
+base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1a GLM Interpolation")
 
 if(verbose){
   cat0("Base model directory name for reference model 3cd:\n", base.model.3cd.dir.name)
@@ -193,10 +193,12 @@ retro.names <- c("- 1 year",
 ## This function must be called from within the first knitr code chunk
 ## in the document. It is defined here so that it is in the same place
 ## as the other model setup and should be changed if bridge models
-## and sensitivity models change in the model.dir.names above..
+## and sensitivity models change in the model.dir.names above.
 load.models.into.parent.env <- function(){
   base.model.3cd <<- load.models(base.model.3cd.dir.name)
   sens.models.11 <<- load.models(sens.models.dir.name.11)
+  sens.models.22 <<- load.models(sens.models.dir.name.22)
+  sens.models.33 <<- load.models(sens.models.dir.name.33)
   desc.models.3cd <<- load.models(desc.models.3cd.dir.name)
   avg.model.3cd <<- avg.models(desc.models.3cd)
 

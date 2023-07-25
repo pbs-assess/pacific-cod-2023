@@ -454,7 +454,27 @@ comparedata_allyrs  <-
 # Extra analyses for Paul Starr
 #============================================================================================
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 1b Update L-W parameters, using the same rlm model as in 2018
+# 1a. 2017 index point
+  # get the number of samples and number of vessels from 2017 to 2019
+ncomm_samples <- dat$commercial_samples %>%
+    select(year,major_stat_area_name,vessel_id,gear_desc,species_code,
+           fishing_event_id, sample_id, specimen_id) %>%
+    filter(year %in% c(2017,2019),
+           major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND")) %>%
+    group_by(year) %>%
+    summarize(nsamples=n_distinct(sample_id),
+              nvessels=n_distinct(vessel_id))
+
+ncomm_specimens <- dat$commercial_samples %>%
+  select(year,major_stat_area_name,vessel_id,gear_desc,species_code,
+         fishing_event_id, sample_id, specimen_id) %>%
+  filter(year %in% c(2017,2019),
+         major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND")) %>%
+  group_by(year,sample_id) %>%
+  summarize(nlengths=n_distinct(specimen_id))
+
+
+  # 1b Update L-W parameters, using the same rlm model as in 2018
 # Add usability code = 1 for fit_length_weight, and convert weight to grams (plot converts to kg)
 
 lwdat <- lengthwt_raw %>%
@@ -475,12 +495,8 @@ ggsave(file.path(generatedd,paste0("New_LW_fit_both_sex_",
                                    AREA,".png")), width = 7.5, height = 4)
 
 
-# Updated L-W parameters
-#3CD
-.ALPHA <- 7.65616e-06
-.BETA <- 3.08
-
-
+lwa <- signif(exp(LWM$model$coefficients[1]),6)
+lwb <- round(LWM$model$coefficients[2],2)
 
 # 2a Residual plot of calc weight vs obs weight
 M1 <- lm(weight_calc~weight,

@@ -56,6 +56,11 @@ load.models.into.parent.env()
 source(file.path(rootd.R, "custom-knitr-variables.R")) # Making catch data objects is in this file
 ```
 
+```{r setup-tables, cache=FALSE, echo=FALSE}
+if(!knitr:::is_latex_output())
+  options(knitr.table.format = "pandoc")
+```
+
 
 # Context
 
@@ -81,7 +86,39 @@ This was a typo that will be corrected in the Science Response.
 
 Since this Science Response will be an update, we made this choice to be consistent with the 2020 advice [@dfo2021].
 
-TODO: However, we have run a scenario based on Sc. 1 in the TWG Report that includes the 2017 value.
+However, we have run a scenario based on Sc. 1 in the TWG Report that includes the 2017 value.
+Comparisons of the model fit to the annual mean weight index in Sc. 1 (without 2017) and Sc. 2 (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
+The model does not fit the 2017 value, similarly missing it and other very high mean weight index values.
+As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially in the early part of the time series where smaller fish are underrepresented in the data, which includes mainly fish classified as "keepers" [@forrest2015].
+
+The four samples collected in 2017, and the two samples collected in 2019, were collected from a limited area (see Figure \@ref(fig:fig-sample-locations)). The 2019 samples were collected from a single vessel.
+In 2017, only 300 fish were measured across all four samples.
+Given the obvious problems with basing index points on such limited samples, we don't think it is justified to further explore changing model parameters to fit the 2017 data point.
+Unpublished trials with smaller values of $\sigma_W$, the observation error term that influences the fit to the mean weight index, have resulted in much closer fits to the data in the early part of the time series, accompanied by a rescaling of the biomass, which we also feel is problematic due to the lack of small fish prior to 1996 [@forrest2015]. 
+
+\clearpage
+
+```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(base.model.3cd[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-mean-weight-3cd-2017, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for scenario descriptions (attached))."}
+plot_grid(mw.plot(sens.models.22[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.22[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
+include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
+```
+
+
+\clearpage
 
 ## Section 2. Appendix B: Survey mean weight index
 
@@ -100,6 +137,13 @@ The length-weight relationship is one of the least uncertain parts of the assess
 However, we should be updating the length-weight parameters to include more recent data.
 Therefore we have updated the length-weight model, as shown in Figure \@ref(fig:fig-LWfit-3cd).
 
+The fits for males and females was nearly identical so we fit the model again with data for both males and females (Figure \@ref(fig:fig-LWfit-3cd-both)).
+The updated length-weight parameters are `r paste0("$a = ", lwa, "$")` and `r paste0("$b = ", lwb, "$")`. 
+This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, "$")` used in the previous two assessments.
+
+TODO: run a version of the model with the new parameters. Show mean weight fits and biomass and recruitment estimates
+
+
 ```{r fig-LWfit-3cd, fig.cap="Length-weight relationship for female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
 
 knitr::include_graphics(here::here("data/generated/New_LW_fit_3CD.png"))
@@ -110,16 +154,8 @@ knitr::include_graphics(here::here("data/generated/New_LW_fit_3CD.png"))
 
 knitr::include_graphics(here::here("data/generated/New_LW_fit_both_sex_3CD.png"))
 
-lwa <- signif(exp(LWM$model$coefficients[1]),6)
-lwb <- round(LWM$model$coefficients[2],2)
-
 ```
 
-The fits for males and females was nearly identical so we fit the model again with data for both males and females (Figure \@ref(fig:fig-LWfit-3cd-both)).
-The updated length-weight parameters are `r paste0("$a = ", lwa, "$")` and `r paste0("$b = ", lwb, "$")`. 
-This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, "$")` used in the previous two assessments.
-
-TODO: run a version of the model with the new parameters. Show mean weight fits and biomass and recruitment estimates
 
 \clearpage
 
