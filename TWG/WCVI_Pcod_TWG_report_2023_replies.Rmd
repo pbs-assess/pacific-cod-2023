@@ -227,7 +227,7 @@ knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_counts_3CD.
 ```
 
 
-```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here("data/generated/Survey_annual_mean_weight_compare_3CD.png"))
 ```
 
@@ -245,7 +245,7 @@ We checked the database and there were no cases where there was more than one sa
 
 We have updated the plot (Figure \@ref(fig:fig-meas-vs-calc-index-compare-2)).
 
-```{r fig-meas-vs-calc-index-compare-2, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-index-compare-2, fig.cap="Commercial mean weight index and survey mean weight index. Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
 ```
 

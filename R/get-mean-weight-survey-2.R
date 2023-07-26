@@ -230,7 +230,7 @@ pal <- unname(colorBlindness::availableColors()[-1])
    scale_size_area(name = "Comm. sampling events") +
    scale_color_manual(name="Type",values = c("Commercial" = pal[1], "Survey" = pal[2]),
                       breaks=c('Commercial', 'Survey')) +
-   scale_x_continuous(breaks=(seq(2000,2022,by=2)))+
+   scale_x_continuous(breaks=(seq(2000,2024,by=4)))+
    labs(colour = "Type")
  g
  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
