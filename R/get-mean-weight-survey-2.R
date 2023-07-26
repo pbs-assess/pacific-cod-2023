@@ -234,7 +234,7 @@ pal <- unname(colorBlindness::availableColors()[-1])
    labs(colour = "Type")
  g
  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
-                                    AREA,".png")), width = 7, height = 4)
+                                    AREA,"_2.png")), width = 7, height = 4)
 
 # 4. Plot the two indices against each other (log space)
 #    Note that the last pair of survey and commercial index values was in 2016

@@ -243,11 +243,10 @@ We checked the database and there were no cases where there was more than one sa
 
 **Response:**
 
-Thank you. We will update the plot in the Science Response (i.e., Figure \@ref(fig:XX)).
+We have updated the plot (Figure \@ref(fig:fig-meas-vs-calc-index-compare-2)).
 
-
-```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights", out.width="4in", echo = FALSE}
-knitr::include_graphics(here("data/generated/Survey_annual_mean_weight_compare_3CD.png"))
+```{r fig-meas-vs-calc-index-compare-2, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights", out.width="4in", echo = FALSE}
+knitr::include_graphics(here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
 ```
 
 
