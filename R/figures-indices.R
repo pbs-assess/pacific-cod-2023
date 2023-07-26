@@ -9,6 +9,8 @@ i.plot <- function(models,
   ## every is show every nth year on the x-axis
   ## leg.loc: topright, topleft, bottomright, bottomleft
 
+  pal <- unname(colorBlindness::availableColors()[-1])
+
   index.fit <- lapply(models,
                       function(x){
                         tmp <- x$mpd$it_hat[ind,]
@@ -69,7 +71,8 @@ i.plot <- function(models,
     p <- p + geom_line(data = i,
                        aes(color = Sensitivity),
                        y = i$fit,
-                       size = 1)
+                       size = 1)+
+      scale_color_manual(values=pal)
   }
 
   if(length(models) == 1){
