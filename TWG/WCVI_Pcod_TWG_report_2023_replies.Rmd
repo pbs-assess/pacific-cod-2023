@@ -331,19 +331,43 @@ Right now, it seems to me that we basically have a surplus production model, whi
 
 **Response:**
 
-The only mechanism we have to adjust the fit to the annual mean weight data in this model is via the standard deviation parameter $\sigma_W$, which controls the closeness of the fit.
+The last five data points in Scenario 1, which represent the only difference between this model and the previously peer-reviewed models, are consistent with other data sources, including fishery-dependent and independent surveys and the catch data, which indicate a period of low recruitment prior to 2018, when the survey index fell to one of the lowest points in its history and has remained low.
+Consequently, the model fits these points very well (Figure \@ref(fig:fig-base-mean-weight-3cd)).
+
+The only mechanism we have to adjust the fit to the annual mean weight data in this model is via the standard deviation parameter $\sigma_W$, which controls the closeness of the fit to the annual mean weight index.
 As noted above, the effect of this parameter was explored in the 2018 stock assessment [@forrest2020; their Figure 91].
-Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increase in estimated biomass, while doubling $\sigma_W$, or removing the pre-1996 annual mean weight index resulted in a notable downscaling of estimated biomass.
-Subsequent unpublished tests of further decreasing $\sigma_W$ resulted in much better fits to the pre-1996 annual mean weight index (which is known to be biased high) and scaling up of the biomass.
-Given the bias in the pre-1996 length data, we would be reluctant to decrease $\sigma_W$.
+Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increase in estimated biomass, while doubling $\sigma_W$, or removing the pre-1996 annual mean weight index althogether, resulted in a notable downscaling of estimated biomass.
+Subsequent unpublished tests of further decreasing $\sigma_W$ resulted in much better fits to the pre-1996 annual mean weight index (which is known to be biased high) and scaling up of the estimated biomass.
+Given the bias in the pre-1996 length data, we are reluctant to further decrease $\sigma_W$.
+
+# Conclusions and next steps
 
 We agree that the annual mean weight index is, and has always been, problematic for Pacific Cod assessments, and we agree that other models and methods for delivering advice should be explored.
 However, this is out of scope for the 2023 Science Response and, given that this model has been peer-reviewed twice for Area 3CD, it is currently the best available science for providing timely advice for this stock.
 Given the three very low survey index points in 2018, 2020 and 2021, a timely stock status update is needed.
 
+As noted in Comment 3a, there is probably not much more fruitful exploration that can be done with the annual mean weight index.
+We recommend proceeding with the 2023 Science Response based on Scenario 1, with the following updates:
 
+1. Update the length-weight parameters in all scenarios;
 
-# Conclusions and next steps
+2. Continue to use the calculated weights from lengths, given very little difference in the index to that build using the observed weights;
+
+3. Continue to exclude the 2017 annual mean weight index point;
+
+4. Use an MCMC chain length of 10 million in all models, as for previous assessments; and
+
+5. Update plots and correct typographical errors as suggested.
+
+Going forward, the loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
+Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished 2022 TWG Report), there is already no clear path forward for that stock.
+Therefore, in the absence of resuming a full commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
+This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
+Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
+In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
+
+Any future model-development work should be done in response to a Request for Science Information and Advice, either from the Groundfish Management Unit or from Science, and should be done via the CSAS process.
+We would recommend peer-reviewing any new model separately from the provision of advice (e.g., a "Benchmark" process similar to that followed by ICES; or a "Framework" process followed by DFO in the Maritimes region).
 
 \clearpage
 
