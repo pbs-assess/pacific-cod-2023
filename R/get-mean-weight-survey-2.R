@@ -22,6 +22,8 @@ AREA <- "3CD"
 print(AREA)
 Years <- 2004:2022
 
+pal <- unname(colorBlindness::availableColors()[-1])
+
 mytheme <- gfplot::theme_pbs() +
   theme(title = element_text(size=12, face="bold"))+
   theme(axis.text.x = element_text(size=12))+
@@ -191,8 +193,7 @@ if (TYPE == "weighted") {
 Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size")
 
 # pal <- RColorBrewer::brewer.pal(3, "Dark2")
-pal <- unname(colorBlindness::availableColors()[-1])
- g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
+g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
    mutate(name = gsub("survey_mean_weight", "Survey", name)) |>
    mutate(name = gsub("comm_mean_weight", "Commercial", name)) |>
     filter(!is.na(value)) %>%
@@ -474,7 +475,7 @@ comparedata_allyrs  <-
                                         AREA,".csv")))
 
 #============================================================================================
-# Extra analyses for Paul Starr
+# Extra analyses for Paul Starr July 2023 (WCVI_Pcod_TWG_report_2023_replies.Rmd)
 #============================================================================================
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 1a. 2017 index point
@@ -625,6 +626,7 @@ g <- compare %>%
   rename("Year"=year) %>%
   ggplot(aes(x=Year,y=Nspecimens,fill=Weight_measure)) +
   geom_bar(stat='identity', position='dodge')+
+  scale_fill_manual(values=pal)+
   scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
 ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_counts_",
                                    AREA,".png")), width = 7.5, height = 4)
@@ -673,6 +675,7 @@ survey_mw_compare <- survey_mw_weighted %>%
   ggplot() +
   geom_point(aes(x=year, y=Mean_weight_index_kg, colour=Method), pch=19,size=3)+
   ylim(0,3)+
+  scale_color_manual(values=pal)+
   scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
 ggsave(file.path(generatedd,paste0("Survey_annual_mean_weight_compare_",
                                    AREA,".png")), width = 7.5, height = 4)
