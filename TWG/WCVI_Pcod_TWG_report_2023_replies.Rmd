@@ -280,7 +280,28 @@ The role of the commercial annual mean weight index was explored in 2018 assessm
 
 **Response:**
 
-TODO
+Residuals are provided in Figures \@ref(fig:fig-base-mean-weight-resid-1) to  \@ref(fig:fig-base-mean-weight-resid-4).
+
+
+```{r fig-base-mean-weight-resid-1, fig.cap="Residuals from the Scenario 1 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+plot_grid(mw.plot.resid(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french))
+          
+```
+
+```{r fig-base-mean-weight-resid-2, fig.cap="Residuals from the Scenario 2 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+plot_grid(mw.plot.resid(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french))
+          
+```
+
+```{r fig-base-mean-weight-resid-3, fig.cap="Residuals from the Scenario 3 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+plot_grid(mw.plot.resid(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french))
+          
+```
+
+```{r fig-base-mean-weight-resid-4, fig.cap="Residuals from the Scenario 4 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+plot_grid(mw.plot.resid(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french))
+          
+```
 
 **Comment 3c.** The MCMC traces in Figure 21 are not very persuasive. nor are the autocorrelation plots. perhaps try longer chains and more burn-in?
 

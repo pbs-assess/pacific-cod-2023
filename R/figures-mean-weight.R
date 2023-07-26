@@ -69,7 +69,6 @@ mw.plot.resid <- function(model,
   fit <- mpd$annual_mean_weight
   resid <- obs-fit
 
-
   res <- cbind(yrs, resid) %>% as.tibble()
 
   names(res) <- c("Year", "Residual")
