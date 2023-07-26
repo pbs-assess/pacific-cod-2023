@@ -138,10 +138,10 @@ The fits for males and females were nearly identical so we fit the model again w
 The updated length-weight parameters are `r paste0("$a = ", lwa, "$")` and `r paste0("$b = ", lwb, "$")`. 
 This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, "$")` used in the previous two assessments.
  
-We ran a version of the model based on Sc. 1 in the TWG Report, except with the updated length-weight parameters. 
-The MPD fit to the mean weight index generated with updated length-weight parameters is shown in Figure \@ref(fig:fig-mean-weight-3cd-new-lw).
+We ran a version of the model based on Sc. 1 in the TWG Report, with the updated length-weight parameters. 
+The MPD fit to the mean weight index, generated with updated length-weight parameters, is shown in Figure \@ref(fig:fig-mean-weight-3cd-new-lw).
 There was very little sensitivity to posterior model estimates of both recruitment (Figure \@ref(fig:fig-sens-recr-3cd-new-lw)) and biomass (Figure \@ref(fig:fig-sens-biomass-3cd-new-lw)).
-However, the length-weight parameters will be updated for all scenarios in the  Science Response.
+However, as for other data streams, the length-weight parameters will be updated for all scenarios in the  Science Response.
 
 ```{r fig-LWfit-3cd, fig.cap="Length-weight relationship for female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
 
@@ -149,21 +149,21 @@ knitr::include_graphics(here::here("data/generated/New_LW_fit_3CD.png"))
 
 ```
 
-```{r fig-LWfit-3cd-both, fig.cap="Length-weight relationship for combined female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
+```{r fig-LWfit-3cd-both, fig.cap="Survey length-weight relationship for combined female and male Pacific Cod in Area 3CD.", out.width="4in", echo = FALSE}
 
 knitr::include_graphics(here::here("data/generated/New_LW_fit_both_sex_3CD.png"))
 
 ```
 
 
-```{r fig-mean-weight-3cd-new-lw, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for scenario descriptions (attached))."}
+```{r fig-mean-weight-3cd-new-lw, fig.cap="Scenario 1 model MPD fit to the annual mean weight index, calculated using updated length-weight parameters."}
 plot_grid(mw.plot(sens.models.33[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.33[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-sens-recr-3cd-new-lw, fig.cap="Sensitivity of recruitment estimates to updating the length-weight parameters. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-recr-3cd-new-lw, fig.cap="Sensitivity of recruitment estimates to updating the length-weight parameters. Points shows the posterior medians and the bars represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- r.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33))
 g2 <- r.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33)) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
@@ -171,7 +171,7 @@ g2 <- r.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.mode
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
-```{r fig-sens-biomass-3cd-new-lw, fig.cap="Sensitivity of biomass estimates to updating the length-weight parameters. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-biomass-3cd-new-lw, fig.cap="Sensitivity of biomass estimates to updating the length-weight parameters. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- b.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33))
 g2 <- b.plot(c(base.model.3cd, sens.models.33), c(base.model.3cd.name, sens.models.name.33)) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
@@ -194,16 +194,16 @@ Residuals are shown as histogram and points in Figures \@ref(fig:fig-meas-vs-cal
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
-```{r fig-meas-vs-calc-weights-log-lm, fig.cap="Ln Observed vs. Ln calculated weights from the WCVI survey, with simple regression line.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-log-lm, fig.cap="Ln observed vs. Ln calculated weights from the WCVI survey, with linear regression line.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_with_lmfit_LOG_3CD.png"))
 ```
 
-```{r fig-meas-vs-calc-weights-log-resid-hist, fig.cap="Histogram of standardized residuals resulting from linear fit: Ln calculated weights ~ Ln Observed weights.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-log-resid-hist, fig.cap="Histogram of standardized residuals resulting from linear fit: Ln calculated weights $\\sim$ Ln observed weights.", out.width="4in", echo = FALSE}
  knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_hist_LOG_3CD.png"))
 
 ```
 
-```{r fig-meas-vs-calc-weights-log-resid-point, fig.cap="Scatter plot of standardized residuals resulting from linear fit: Ln calculated weights ~ Ln Observed weights.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-log-resid-point, fig.cap="Scatter plot of standardized residuals resulting from linear fit: Ln calculated weights $\\sim$ Ln observed weights.", out.width="4in", echo = FALSE}
  knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_points_LOG_3CD.png"))
 
 ```
