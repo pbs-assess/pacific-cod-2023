@@ -143,7 +143,7 @@ This compares to `r paste0("$a = ", .ALPHA, "$")` and `r paste0("$b = ", .BETA, 
  
 We ran a version of the model based on Sc. 1 in the TWG Report, with the updated length-weight parameters. 
 The MPD fit to the mean weight index, generated with updated length-weight parameters, is shown in Figure \@ref(fig:fig-mean-weight-3cd-new-lw).
-There was very little sensitivity to posterior model estimates of both recruitment (Figure \@ref(fig:fig-sens-recr-3cd-new-lw)) and biomass (Figure \@ref(fig:fig-sens-biomass-3cd-new-lw)).
+There was very little sensitivity in posterior model estimates of both recruitment (Figure \@ref(fig:fig-sens-recr-3cd-new-lw)) and biomass (Figure \@ref(fig:fig-sens-biomass-3cd-new-lw)).
 However, as for other data streams, the length-weight parameters will be updated for all scenarios in the  Science Response.
 
 ```{r fig-LWfit-3cd, fig.cap="Length-weight relationship for female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey.", out.width="4in", echo = FALSE}
@@ -248,7 +248,7 @@ We checked the database and there were no cases where there was more than one sa
 
 We have updated the plot (Figure \@ref(fig:fig-meas-vs-calc-index-compare-2)).
 
-```{r fig-meas-vs-calc-index-compare-2, fig.cap="Commercial mean weight index and survey mean weight index. Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-index-compare-2, fig.cap="Commercial mean weight index and survey mean weight index. Area of the black open circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
 ```
 
@@ -273,7 +273,7 @@ The model appears to be responsive to the biomass indices but Figure 8 indicates
 The model has never provided a great fit to the mean weight index, especially prior to the introduction of at-sea monitoring in 1996 [@forrest2020].
 However, it does provide a good fit after 2012, especially the last five years (Figure \@ref(fig:fig-base-mean-weight-3cd)).
 As we noted in the TWG report, the pattern in the last five years is consistent with predicted recruitment for all four of the scenarios, which very consistently estimated low recruitment between 2016 and 2018 (Figure 8 of the TWG report).
-A population with fewer recruits is expected to have a higher than average mean weight of individuals.
+A population with fewer than average recruits is expected to have a higher than average mean weight of individuals.
 The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
 
 We agree that the model is fairly insensitive to the last five years of the mean weight index in relation to the other data sources (see the TWG report), due to the strong signal coming from the fishery-dependent and independent indices of abundance and the catch data.
@@ -284,6 +284,7 @@ The role of the commercial annual mean weight index was explored in 2018 assessm
 **Response:**
 
 Residuals (observed minus estimated values) are provided in Figures \@ref(fig:fig-base-mean-weight-resid-1) to  \@ref(fig:fig-base-mean-weight-resid-4).
+Scenario numbers refer to those in the TWG Report.
 
 
 ```{r fig-base-mean-weight-resid-1, fig.cap="Residuals from the Scenario 1 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
@@ -313,7 +314,7 @@ plot_grid(mw.plot.resid(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 202
 **Response:**
 
 We ran chains of length 5 million for the purposes of the TWG Report but we will use 10 million for the Science Response, as in the previous assessments.
-However, we note that the the potential scale reduction statistic ($\hat{R}$) [@gelman1992; @rstan2018] was consistent with convergence  (TWG Report, Table 9).
+However, we note that the the potential scale reduction statistics ($\hat{R}$ close to 1) [@gelman1992; @rstan2018] were consistent with convergence  (TWG Report, Table 9).
 
 **Comment 3d.** Figure 26: the years need to be alternated so we can read them.
 
@@ -343,6 +344,8 @@ Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increas
 Subsequent unpublished tests of further decreasing $\sigma_W$ resulted in much better fits to the pre-1996 annual mean weight index (which is known to be biased high) and scaling up of the estimated biomass.
 Given the bias in the pre-1996 length data, we are reluctant to further decrease $\sigma_W$.
 
+TODO: Update above text when new scenarios are ready.
+
 # Conclusions and next steps
 
 We agree that the annual mean weight index is, and has always been, problematic for Pacific Cod assessments, and we agree that other models and methods for delivering advice should be explored.
@@ -350,27 +353,32 @@ However, this is out of scope for the 2023 Science Response and, given that this
 Given the three very low survey index points in 2018, 2020 and 2021, a timely stock status update is needed.
 
 As noted in Comment 3a, there is probably not much more fruitful exploration that can be done with the annual mean weight index.
-We recommend proceeding with the 2023 Science Response based on Scenario 1, with the following updates:
+The GLM presented in the TWG Report showed a very strong relationship between the commercial and survey annual mean weight indices.
+The Scenario 1 values derived from the survey annual mean weight index are consistent with other data sources and the model fits them well.
+Given this, we recommend proceeding with the 2023 Science Response based on Scenario 1, with the following updates:
 
 1. Update the length-weight parameters in all scenarios;
 
-2. Continue to use the calculated weights from lengths, given very little difference in the index to that build using the observed weights;
+2. For consistency with the commercial index and to gain a larher sample size, continue to use the calculated weights from lengths in the survey annual mean weight index. 
+This is justified, given very little difference in the index to the index based on the observed weights;
 
 3. Continue to exclude the 2017 annual mean weight index point;
 
-4. Use an MCMC chain length of 10 million in all models, as for previous assessments; and
+4. Use an MCMC chain length of 10 million in all models, as for previous assessments; 
 
-5. Update plots and correct typographical errors as suggested.
+5. Include a short appendix describing development of the survey annual mean weight index, the GLM, and the sensitivity analyses; and
+
+6. Update plots and correct typographical errors as suggested.
 
 Going forward, the loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
-Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished 2022 TWG Report), there is already no clear path forward for that stock.
+Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD stock (unpublished 2022 TWG Report), there is already no clear path forward for that stock.
 Therefore, in the absence of resuming a full commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
 This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
 
 Any future model-development work should be done in response to a Request for Science Information and Advice, either from the Groundfish Management Unit or from Science, and should be done via the CSAS process.
-We would recommend peer-reviewing any new model separately from the provision of advice (e.g., a "Benchmark" process similar to that followed by ICES; or a "Framework" process followed by DFO in the Maritimes region).
+We recommend holding separate peer-review processes for the methodolgy and for the provision of advice (e.g., follow a "Benchmark" process similar to that followed by ICES; or a "Framework" process followed by DFO in the Maritimes region).
 
 \clearpage
 
