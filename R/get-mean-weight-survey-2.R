@@ -125,7 +125,7 @@ g <- lengthwt_raw %>%
   ggplot() +
   geom_point(aes(x=weight, y=weight_calc), colour="darkblue") +
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
-ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_survey",
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_",
                                AREA,".png")))
 # Plot annual mean weights
 g <- survey_mw_raw %>%
@@ -516,6 +516,8 @@ g <- lengthwt_raw %>%
   geom_point() +
   geom_smooth(method='lm', formula= y~x)+
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_with_lmfit_",
+                                   AREA,".png")), width = 7.5, height = 4)
 
 # plot basic diagnostics
 # par(mfrow = c(2,2))
@@ -528,6 +530,8 @@ g2 <- R1 %>%
   geom_histogram(binwidth=0.1,
                  colour="black", fill="lightgray")+
   xlab("Residuals: calc weight vs obs weight")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_hist_",
+                                   AREA,".png")), width = 7.5, height = 4)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -551,10 +555,12 @@ g <- lengthwt_raw %>%
   geom_point() +
   geom_smooth(method='lm', formula= y~x)+
   labs(title = paste(AREA), y = "Calculated log(weight from length)", x = "log(observed weight)")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_with_lmfit_LOG_",
+                                   AREA,".png")), width = 7.5, height = 4)
 
 
 # plot basic diagnostics
-# par(mfrow = c(2,2))
+# par(mfrow = c(1,1))
 # plot(M2)
 
 # histogram of residuals
@@ -564,7 +570,21 @@ g2 <- R2 %>%
   geom_histogram(binwidth=0.1,
                  colour="black", fill="lightgray")+
   xlab("Residuals: log calc weight vs log obs weight")
-
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_hist_LOG_",
+                                   AREA,".png")), width = 7.5, height = 4)
+# Scatter plot of residuals
+g3 <- R2 %>%
+  as.data.frame() %>%
+  rename(y='.') %>%
+  mutate(x=1:length(y)) %>%
+  ggplot()+
+    geom_point(aes(x=x,y=y))+
+    geom_hline(yintercept=0, colour=2)+
+    xlab("Index") + ylab("Residuals: log calc weight vs log obs weight")+
+    theme(axis.title.x = element_text(size=12, face="bold"),
+          axis.title.y = element_text(size=12, face="bold"))
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_points_LOG_",
+                                   AREA,".png")), width = 7.5, height = 4)
 
 # Compare number of calculated to observed samples
 compare <- lengthwt_raw %>%

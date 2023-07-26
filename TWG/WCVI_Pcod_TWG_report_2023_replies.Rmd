@@ -186,13 +186,27 @@ The spread is quite large for weights in the 3-4 kg range which may lead to bias
 
 **Response:**
 
-Figure 12 was the plot of individual fish weights calculated from the length-weight relationship vs the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights-3cd)).
+Figure 12 was the plot of individual fish weights calculated from the length-weight relationship vs the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights)).
+To illustrate residuals, we fit a simple linear model in natural log space (Figure \@ref(fig:fig-meas-vs-calc-weights-log-lm)).
+Residuals are shown as histogram and points in Figures \@ref(fig:fig-meas-vs-calc-weights-log-resid)).
 
-```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
+```{r fig-meas-vs-calc-weights-log-lm, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_with_lmfit_LOG_3CD.png"))
+```
 
+```{r fig-meas-vs-calc-weights-log-resid-hist, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+ knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_hist_LOG_3CD.png"))
+
+```
+
+```{r fig-meas-vs-calc-weights-log-resid-point, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+ knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_points_LOG_3CD.png"))
+
+```
 
 \clearpage
 
