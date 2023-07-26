@@ -194,16 +194,16 @@ Residuals are shown as histogram and points in Figures \@ref(fig:fig-meas-vs-cal
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
-```{r fig-meas-vs-calc-weights-log-lm, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-log-lm, fig.cap="Ln Observed vs. Ln calculated weights from the WCVI survey, with simple regression line.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_with_lmfit_LOG_3CD.png"))
 ```
 
-```{r fig-meas-vs-calc-weights-log-resid-hist, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-log-resid-hist, fig.cap="Histogram of standardized residuals resulting from linear fit: Ln calculated weights ~ Ln Observed weights.", out.width="4in", echo = FALSE}
  knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_hist_LOG_3CD.png"))
 
 ```
 
-```{r fig-meas-vs-calc-weights-log-resid-point, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-log-resid-point, fig.cap="Scatter plot of standardized residuals resulting from linear fit: Ln calculated weights ~ Ln Observed weights.", out.width="4in", echo = FALSE}
  knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_points_LOG_3CD.png"))
 
 ```
@@ -222,12 +222,12 @@ In total, across all survey years, there were `r nwobs` observed weights and `r 
 
 To investigate possible bias introduced by using the calculated weights, the survey annual mean weight index was re-calculated using the directly-measured (observed) weights, with very little effect on the index (Figure \@ref(fig:fig-meas-vs-calc-index-compare)).
 
-```{r fig-meas-vs-calc-weights-counts, fig.cap="Comparison of observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
-knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_counts_3CD.png"))
+```{r fig-meas-vs-calc-weights-counts, fig.cap="Annual comparison of the number of observed vs. calculated weights from the WCVI survey.", out.width="4in", echo = FALSE}
+knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_counts_3CD.png"))
 ```
 
 
-```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights and with calculated weights", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights", out.width="4in", echo = FALSE}
 knitr::include_graphics(here("data/generated/Survey_annual_mean_weight_compare_3CD.png"))
 ```
 

@@ -603,10 +603,8 @@ g <- compare %>%
   ggplot(aes(x=Year,y=Nspecimens,fill=Weight_measure)) +
   geom_bar(stat='identity', position='dodge')+
   scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
-ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_counts_",
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_counts_",
                                    AREA,".png")), width = 7.5, height = 4)
-
-#compare
 
 # There are 934 fewer observed weights than calculated weights
 
