@@ -19,8 +19,9 @@ b.rel.plot <- function(models,
   ## lrp usr are year ranges (2-element vectors) to take the mean of
   ## the biomass for the reference points
 
-  ## Biomass or Depletion
+  pal <- unname(colorBlindness::availableColors()[-1])
 
+  ## Biomass or Depletion
   if(depl){
     bt.quants <- lapply(models,
       function(x){
@@ -97,7 +98,9 @@ b.rel.plot <- function(models,
   if (is.null(proj_columns)) {
     p <- p + geom_ribbon(alpha = 0.2,
       aes(fill = Sensitivity)) +
-      geom_line(aes(color = Sensitivity), size = 1)
+      geom_line(aes(color = Sensitivity), size = 1)+
+      scale_color_manual(values=pal) +
+      scale_fill_manual(values=pal)
     if(!depl){
       p <- p + geom_pointrange(data = bo,
         size = 0.25,
@@ -255,6 +258,8 @@ b.plot <- function(models,
   ## lrp usr are year ranges (2-element vectors) to take the mean of
   ## the biomass for the reference points
 
+  pal <- unname(colorBlindness::availableColors()[-1])
+
   ## Biomass or Depletion
   if(depl){
     bt.quants <- lapply(models,
@@ -331,7 +336,9 @@ b.plot <- function(models,
   if (is.null(proj_columns)) {
     p <- p + geom_ribbon(alpha = 0.2,
                          aes(fill = Sensitivity)) +
-      geom_line(aes(color = Sensitivity), size = 1)
+      geom_line(aes(color = Sensitivity), size = 1)+
+      scale_color_manual(values=pal) +
+      scale_fill_manual(values=pal)
     if(!depl){
       p <- p + geom_pointrange(data = bo,
         size = 0.25,

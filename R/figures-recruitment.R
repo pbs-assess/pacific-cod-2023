@@ -44,6 +44,7 @@ r.plot <- function(models,
                     size = 0.25,
                     position = position_dodge(width = horiz.offset),
                     mapping = aes(color = Sensitivity)) +
+    scale_color_manual(values=pal) +
     theme(legend.position = c(1, 1),
           legend.justification = c(1, 1),
           legend.title = element_blank(),
@@ -77,6 +78,7 @@ r.devs.plot <- function(models,
                         x.axis.angle = 0,
                         french=FALSE){
 
+  pal <- unname(colorBlindness::availableColors()[-1])
   rt <- lapply(models,
                function(x){
                  j <- x$mcmccalcs$recr.devs.quants
@@ -106,6 +108,7 @@ r.devs.plot <- function(models,
   rt.mean <- mean(rt$`Log recruitment deviations`)
 
   horiz.offset <- 2
+
   p <- ggplot(rt, aes(x = Year,
                       y = `Log recruitment deviations`,
                       ymin = lowercv,
@@ -114,6 +117,7 @@ r.devs.plot <- function(models,
                     size = 0.25,
                     position = position_dodge(width = horiz.offset),
                     mapping = aes(color = Sensitivity)) +
+    scale_color_manual(values=pal) +
     theme(legend.position = c(1, 1),
           legend.justification = c(1, 1),
           legend.title = element_blank(),
