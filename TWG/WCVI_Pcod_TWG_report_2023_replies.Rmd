@@ -61,10 +61,9 @@ if(!knitr:::is_latex_output())
   options(knitr.table.format = "pandoc")
 ```
 
-
 # Context
 
-This document provides replies to comments received from the Pacific Cod technical working group on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
+This document provides replies to comments received from the Pacific Cod Technical Working Group (TWG) on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
 Replies are provided in response to each comment in turn.
 
 # Responses
@@ -86,15 +85,19 @@ This was a typo that will be corrected in the Science Response.
 
 Since this Science Response will be an update, we made this choice to be consistent with the 2020 advice [@dfo2021].
 
-However, we have run a scenario based on Sc. 1 in the TWG Report that includes the 2017 value.
-Comparisons of the model fit to the annual mean weight index in Sc. 1 (without 2017) and Sc. 2 (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
+However, we have run a scenario based on Scenario 1 in the TWG Report, which includes the 2017 value.
+Comparisons between the model fit to the annual mean weight index in Scenario 1 (without 2017) and Scenario 2 (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
 The model does not fit the 2017 value, similarly missing it and other very high mean weight index values.
-As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially in the early part of the time series where smaller fish are underrepresented in the data, which includes mainly fish classified as "keepers" [@forrest2015].
+As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially in the early part of the time series where smaller fish are underrepresented in the data [@forrest2020].
 
 The four samples collected in 2017, and the two samples collected in 2019, were collected from a limited area (see Figure \@ref(fig:fig-sample-locations)). The 2019 samples were collected from a single vessel.
 In 2017, only 300 fish were measured across all four samples.
 Given the obvious problems with basing index points on such limited samples, we don't think it is justified to further explore changing model parameters to fit the 2017 data point.
-Unpublished trials with smaller values of $\sigma_W$, the observation error term that influences the fit to the mean weight index, have resulted in much closer fits to the data in the early part of the time series, accompanied by a rescaling of the biomass, which we also feel is problematic due to the lack of small fish prior to 1996 [@forrest2015]. 
+
+TODO: RUNNING SCENARIOS WITH sigW=0.15 AND WITH sigW=0.1
+
+TODO: UPDATE THIS WITH RESULTS
+Unpublished trials with smaller values of $\sigma_W$, the observation error term that influences the fit to the annual mean weight index, have resulted in much closer fits to the data in the early part of the time series, accompanied by a rescaling of the biomass, which we also feel is problematic due to known bias in the length samples prior to 1996 [@forrest2015].
 
 
 ```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
