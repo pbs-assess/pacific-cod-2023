@@ -213,6 +213,29 @@ pal <- unname(colorBlindness::availableColors()[-1])
  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
                                  AREA,".png")), width = 7, height = 4)
 
+ #Make the plot again with points for the survey
+ pal <- unname(colorBlindness::availableColors()[-1])
+ cols <- c("Commercial" = pal[1], "Survey" = pal[2])
+ g <- dat1 %>%
+   ggplot(aes(year)) +
+   geom_vline(xintercept = 2000:2022, lty = 1, col = "grey90") +
+   # theme(panel.grid.major.x = element_line(colour = "grey90")) +
+   # theme(panel.grid.minor.x = element_line(colour = "grey90")) +
+   # geom_point(size=3.5) +
+   geom_line(aes(x=year, y=comm_mean_weight, colour="Commercial"),size=1.4) +
+   geom_point(data = dat1, mapping = aes(year, comm_mean_weight, size = n_samples), inherit.aes = FALSE, pch = 21, na.rm = TRUE) +
+   geom_point(data = dat1, mapping = aes(year, survey_mean_weight, colour="Survey"), size = 4, inherit.aes = FALSE, pch = 19, na.rm = TRUE) +
+   ylim(0,3)+
+   labs(title = Title, y = "Mean weight (kg)", x = "Year") +
+   scale_size_area(name = "Comm. sampling events") +
+   scale_color_manual(name="Type",values = c("Commercial" = pal[1], "Survey" = pal[2]),
+                      breaks=c('Commercial', 'Survey')) +
+   scale_x_continuous(breaks=(seq(2000,2022,by=2)))+
+   labs(colour = "Type")
+ g
+ ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
+                                    AREA,".png")), width = 7, height = 4)
+
 # 4. Plot the two indices against each other (log space)
 #    Note that the last pair of survey and commercial index values was in 2016
 #    No survey in 2017, 2019 or 2020. No commercial samples in 2018.

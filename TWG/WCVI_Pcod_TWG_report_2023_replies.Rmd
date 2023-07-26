@@ -186,9 +186,9 @@ The spread is quite large for weights in the 3-4 kg range which may lead to bias
 
 **Response:**
 
-Figure 12 was the plot of individual fish weights calculated from the length-weight relationship vs the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights)).
+Figure 12 was the plot of individual fish weights calculated from the length-weight relationship (Eq. 1 in the TWG Report) vs the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights)).
 To illustrate residuals, we fit a simple linear model in natural log space (Figure \@ref(fig:fig-meas-vs-calc-weights-log-lm)).
-Residuals are shown as histogram and points in Figures \@ref(fig:fig-meas-vs-calc-weights-log-resid)).
+Residuals are shown as histogram and points in Figures \@ref(fig:fig-meas-vs-calc-weights-log-resid-hist) and \@ref(fig:fig-meas-vs-calc-weights-log-resid-point), respectively.
 
 ```{r fig-meas-vs-calc-weights, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
@@ -217,7 +217,7 @@ Also, I think that the uncertainty in both sets of calculations of mean weight s
 
 We're not sure what is meant by "the uncertainty in both sets of calculations of mean weight should be included in the transformation".
 
-Regarding potential bias, we looked at the number of available fish weights that were measured directly (observed), compared to the number of fish weights calculated from length data using Eq. 1.
+Regarding potential bias, we looked at the number of available fish weights that were measured directly (observed), compared to the number of fish weights calculated from length data using Eq. 1 in the TWG Report.
 In total, across all survey years, there were `r nwobs` observed weights and `r nwcalc` calculated weights, i.e., a difference of `r nwdiff` specimens (Figure \@ref(fig:fig-meas-vs-calc-weights-counts)).
 
 To investigate possible bias introduced by using the calculated weights, the survey annual mean weight index was re-calculated using the directly-measured (observed) weights, with very little effect on the index (Figure \@ref(fig:fig-meas-vs-calc-index-compare)).
@@ -243,7 +243,13 @@ We checked the database and there were no cases where there was more than one sa
 
 **Response:**
 
-TODO
+Thank you. We will update the plot in the Science Response (i.e., Figure \@ref(fig:XX)).
+
+
+```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights vs calculated weights", out.width="4in", echo = FALSE}
+knitr::include_graphics(here("data/generated/Survey_annual_mean_weight_compare_3CD.png"))
+```
+
 
 **Comment 2e.** While I take your point that the GLM model performed adequately for most years, it failed quite badly in both 2012 and 2016, where both observed values lie well outside of the model credibility envelope.
 My understanding of this model is that it is basically a simple regression without attempting any additional explanatory power.
