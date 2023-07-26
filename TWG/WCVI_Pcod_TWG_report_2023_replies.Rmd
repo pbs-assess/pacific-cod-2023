@@ -267,7 +267,14 @@ The model appears to be responsive to the biomass indices but Figure 8 indicates
 
 **Response:**
 
-TODO
+The model has never provided a great fit to the mean weight index, especially prior to the introduction of at-sea monitoring in 1996 [@forrest2020].
+However, it does provide a good fit after 2012, especially the last five years (Figure \@ref(fig:fig-base-mean-weight-3cd)).
+As we noted in the TWG report, the pattern in the last five years is consistent with predicted recruitment for all four of the scenarios, which very consistently estimated low recruitment between 2016 and 2018 (Figure 8 of the TWG report).
+A population with fewer recruits is expected to have a higher than average mean weight of individuals.
+The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
+
+We agree that the model is fairly insensitive to the last five years of the mean weight index in relation to the other data sources (see the TWG report), due to the strong signal coming from the fishery-dependent and independent indices of abundance and the catch data.
+The role of the commercial annual mean weight index was explored in 2018 assessment [@forrest2020; their Figure 91], showing it played an important role in scaling the model, but that the trends were largely driven by the other data sources.
 
 **Comment 3b.** Figures 4, 5, 6 and 7: would it be possible to see a time series of residuals to the mean weight fits? 
 
