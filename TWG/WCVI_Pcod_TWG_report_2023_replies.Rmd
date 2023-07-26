@@ -215,15 +215,29 @@ Also, I think that the uncertainty in both sets of calculations of mean weight s
 
 **Response:**
 
-TODO
+We're not sure what is meant by "the uncertainty in both sets of calculations of mean weight should be included in the transformation".
+
+Regarding potential bias, we looked at the number of available fish weights that were measured directly (observed), compared to the number of fish weights calculated from length data using Eq. 1.
+In total, across all survey years, there were `r nwobs` observed weights and `r nwcalc` calculated weights, i.e., a difference of `r nwdiff` specimens (Figure \@ref(fig:fig-meas-vs-calc-weights-counts)).
+
+To investigate possible bias introduced by using the calculated weights, the survey annual mean weight index was re-calculated using the directly-measured (observed) weights, with very little effect on the index (Figure \@ref(fig:fig-meas-vs-calc-index-compare)).
+
+```{r fig-meas-vs-calc-weights-counts, fig.cap="Comparison of observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in", echo = FALSE}
+knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_residuals_counts_3CD.png"))
+```
+
+
+```{r fig-meas-vs-calc-index-compare, fig.cap="Comparison of the survey annual mean weight index calculated with observed weights and with calculated weights", out.width="4in", echo = FALSE}
+knitr::include_graphics(here("data/generated/Survey_annual_mean_weight_compare_3CD.png"))
+```
+
 
 **Comment 2c. Eq. 2.** I assume that the sample ID is a survey tow? can there be more than one sample taken from a single tow? If so, shouldn’t they be combined?
 
 **Response:**
 
-We have checked the database and there were no cases where there was more than one sample ID associated with a fishing event ID (tow).
+We checked the database and there were no cases where there was more than one sample ID associated with a fishing event ID (tow).
 
-TODO: possibly include the summary table.
 
 **Comment 2d. Figure 13.** It would be better if you indicated the survey years with a data point and avoided connecting the points between survey years. That way you avoid the problem with the 2007 commercial mean weight lying below an interpolated mean weight from the survey which never existed.
 

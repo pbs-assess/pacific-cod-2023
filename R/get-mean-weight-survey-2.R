@@ -590,11 +590,22 @@ ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_points_LOG
 compare <- lengthwt_raw %>%
   select(year, weight, weight_calc) %>%
   group_by(year) %>%
-  summarise(across(everything(), ~ sum(!is.na(.)))) %>%
+  summarise(across(everything(), ~ sum(!is.na(.))))
+
+nwobs <- sum(compare$weight)
+nwcalc <- sum(compare$weight_calc)
+nwdiff <- nwcalc-nwobs
+
+g <- compare %>%
+  rename(weight_obs=weight) %>%
   melt(id="year", variable.name="Weight_measure", value.name="Nspecimens") %>%
   rename("Year"=year) %>%
   ggplot(aes(x=Year,y=Nspecimens,fill=Weight_measure)) +
-  geom_bar(stat='identity', position='dodge')
+  geom_bar(stat='identity', position='dodge')+
+  scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_counts_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
 #compare
 
 # There are 934 fewer observed weights than calculated weights
@@ -637,11 +648,14 @@ survey_mw_compare <- survey_mw_weighted %>%
   full_join(survey_mw_weighted_obs) %>%
   rename("weight_calc"=survey_mw_weighted,
          "weight_obs"=survey_mw_weighted_obs) %>%
-  melt(id="year", variable.name = "Method", value.name="Index_value") %>%
+  melt(id="year", variable.name = "Method", value.name="Mean_weight_index_kg") %>%
   ggplot() +
-  geom_line(aes(x=year, y=Index_value, colour=Method), lwd=2)+
-  ylim(0,3)
-#survey_mw_compare
+  geom_point(aes(x=year, y=Mean_weight_index_kg, colour=Method), pch=19,size=3)+
+  ylim(0,3)+
+  scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
+ggsave(file.path(generatedd,paste0("Survey_annual_mean_weight_compare_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 2c Look at whether there are tows with multiple sample IDs
