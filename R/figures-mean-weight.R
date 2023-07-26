@@ -55,3 +55,36 @@ mw.compare.plot <- function(model,
 
   p
 }
+
+# RF added a residual plot July 26 2023
+mw.plot.resid <- function(model,
+                    cv = 0.2,
+                    every = 5,
+                    last.yr = 2015,
+                    french=FALSE){
+
+  mpd <- model$mpd
+  yrs <- model$dat$meanwtdata[,1]
+  obs <- mpd$obs_annual_mean_weight
+  fit <- mpd$annual_mean_weight
+  resid <- obs-fit
+
+
+  res <- cbind(yrs, resid) %>% as.tibble()
+
+  names(res) <- c("Year", "Residual")
+
+  p <- res %>%
+    ggplot() +
+    geom_point(aes(x = Year, y = Residual), colour="darkblue", size=3) +
+    geom_hline(yintercept=0, lty=2, lwd=0.5)+
+    geom_vline(xintercept=1997, lty=3, lwd=0.75)+
+    annotate("text",x=1997, y=-1, label="1996", size=5, col=2)+
+    scale_y_continuous(limits = c(NA, NA)) +
+    scale_x_continuous(breaks = seq(0, last.yr, every))+
+    labs(x = en2fr("Year",translate=french, allow_missing = TRUE),
+         y = en2fr("Residual",translate=french, allow_missing = TRUE))+
+    theme(axis.text.x = element_text(size=14),
+         axis.text.y = element_text(size=14))
+  p
+}
