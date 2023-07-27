@@ -44,7 +44,7 @@ source(file.path(here::here(), "R", "get-mean-weight-survey-2.R")) # file with a
 
 ```{r custom-vars, cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
 #NOTE. if adding sensitivity models need to modify load.models.into.parent.env()
-# in model-setup.R (as well as path names to sensitivity folders)
+# in model-setup.R. Also add to sens.models.names.list, (as well as path names to sensitivity folders)
 build(ovwrt.base = FALSE,
       ovwrt.sens = FALSE,
       ovwrt.retro = FALSE,
@@ -83,42 +83,86 @@ This was a typo that will be corrected in the Science Response.
 
 **Response:**
 
-Since this Science Response will be an update, we made this choice to be consistent with the 2020 advice [@dfo2021].
-
-However, we have run a scenario based on Scenario 1 in the TWG Report, which includes the 2017 value.
-Comparisons between the model fit to the annual mean weight index in Scenario 1 (without 2017) and Scenario 2 (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
-The model does not fit the 2017 value, similarly missing it and other very high mean weight index values.
-As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially in the early part of the time series where smaller fish are underrepresented in the data [@forrest2020].
-
-The four samples collected in 2017, and the two samples collected in 2019, were collected from a limited area (see Figure \@ref(fig:fig-sample-locations)). The 2019 samples were collected from a single vessel.
+Since this Science Response will be an update, we made this choice to be consistent with previous advice.
+The decision to exclude the 2017 index point was agreed in the 2018 CSAS meeting [@forrest2020] and carried through to the 2020 update [@dfo2021].
+The four samples collected in 2017, and the two samples collected in 2019, were collected from a limited area (see Figure \@ref(fig:fig-sample-locations)). 
+The 2019 samples were collected from a single vessel.
 In 2017, only 300 fish were measured across all four samples.
-Given the obvious problems with basing index points on such limited samples, we don't think it is justified to further explore changing model parameters to fit the 2017 data point.
+Given the obvious problems with basing index points on such limited samples, we don't think it is justified to include the 2017 data point or change model parameters just to fit to it.
 
-TODO: RUNNING SCENARIOS WITH sigW=0.15 AND WITH sigW=0.1
+However, we have run some scenarios to illustrate the effects of including the 2017 index point and changing model settings to fit to it.
+The first is a scenario based on Scenario 1 of the TWG Report, which includes the 2017 mean weight index value but makes no changes to model parameters.
+Comparisons between the model fit to the annual mean weight index in Scenario 1 (without 2017) and Scenario 1a (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
+The model does not fit the 2017 value, similarly missing it and other very high mean weight index values.
 
-TODO: UPDATE THIS WITH RESULTS
-Unpublished trials with smaller values of $\sigma_W$, the observation error term that influences the fit to the annual mean weight index, have resulted in much closer fits to the data in the early part of the time series, accompanied by a rescaling of the biomass, which we also feel is problematic due to known bias in the length samples prior to 1996 [@forrest2015].
+As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially prior to 1996, where smaller fish are underrepresented in the data due to the absence of at-sea observers when only "keepers" were represented in the database [@forrest2015; @forrest2020].
+The only available mechanism to directly adjust the fit to the annual mean weight data in this model is the standard deviation parameter $\sigma_W$, which controls the closeness of the fit to the annual mean weight index.
+The effects of this parameter were explored in @forrest2020 (their Figure 91).
+Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increase in estimated biomass, while doubling $\sigma_W$, or removing the pre-1996 annual mean weight index althogether, resulted in a notable downscaling of estimated biomass.
+
+For illustration, we present two model scenarios, based on Scenario 1a, where we reduced $\sigma_W$ from 0.2 to 0.15 and 0.1, respectively (Figures \@ref(fig:fig-mean-weight-3cd-sigw-015) and \@ref(fig:fig-mean-weight-3cd-sigw-01)).
+Reducing $\sigma_W$ had the effect of slightly improving the model fit to higher values of the annual mean weight index, including 2017, and some pre-1996 values, which are known to be biased. 
+This in turn led to a noticeable scaling up of the recruitment and biomass estimates, throughout the time series, including recent years, especially for the scenario with $\sigma_W = 0.1$ (Figures \@ref(fig:fig-sens-recr-3cd-sigw) and \@ref(fig:fig-sens-biomass-3cd-sigw)).
+
+Peer reviews of past Pacific Cod assessments have accepted underestimation of the mean weight index prior to 1996 because of known biases in the length data.
+The annual mean weight index has always been a problematic component of this data-limited assessment, which is why the authors have settled on $\sigma_W = 0.2$, to balance this trade-off between fitting recent points well while allowing some underestimation of the pre-1996 index.
+Estimating the scale of this model has also been problematic in the past, where the model is very sensitive to several parameters including $\sigma_W$, the index observation error term and priors for catchability and natural mortality.
+Sensitivity to assumptions about these parameters have been explored extensively in previous assessments and are accounted for in the model-averaging set used to provide advice [@forrest2020; @dfo2021].
+
+Given that this is an update, and the potential for a large rescaling of biomass if we adjust model settings, we do not think it is appropriate at this stage to change model settings to better fit the 2017 mean weight index point, which is, in itself, problematic.
+We underline that the 2023 Science Response will include six other scenarios in the model-averaged set, which includes a scenario with $\sigma_W = 0.15$.
 
 
-```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
+include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
+```
+
+```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for scenario descriptions (attached))."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-mean-weight-3cd-2017, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for scenario descriptions (attached))."}
+```{r fig-mean-weight-3cd-2017, fig.cap="Scenario 1 model MPD fit to the annual mean weight index, which includes a value for 2017."}
 plot_grid(mw.plot(sens.models.22[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.22[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
-include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
+```{r fig-mean-weight-3cd-sigw-015, fig.cap="Scenario 1 model MPD fit to the annual mean weight index, with $\\sigma_W = 0.15$."}
+plot_grid(mw.plot(sens.models.44[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.44[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-mean-weight-3cd-sigw-01, fig.cap="Scenario 1 model MPD fit to the annual mean weight index, with $\\sigma_W = 0.1$."}
+plot_grid(mw.plot(sens.models.44[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.44[[2]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-sens-recr-3cd-sigw, fig.cap="Sensitivity of recruitment estimates to the value of $\\sigma_W$. Points shows the posterior medians and the bars represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- r.plot(c(base.model.3cd, sens.models.44), c(base.model.3cd.name, sens.models.name.44))
+g2 <- r.plot(c(base.model.3cd, sens.models.44), c(base.model.3cd.name, sens.models.name.44)) +
+  coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
+```{r fig-sens-biomass-3cd-sigw, fig.cap="Sensitivity of biomass estimates to the value of $\\sigma_W$. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- b.plot(c(base.model.3cd, sens.models.44), c(base.model.3cd.name, sens.models.name.44))
+g2 <- b.plot(c(base.model.3cd, sens.models.44), c(base.model.3cd.name, sens.models.name.44)) +
+    coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
 \clearpage
+
 
 ## Section 2. Appendix B: Survey mean weight index
 
@@ -287,22 +331,22 @@ Residuals (observed minus estimated values) are provided in Figures \@ref(fig:fi
 Scenario numbers refer to those in the TWG Report.
 
 
-```{r fig-base-mean-weight-resid-1, fig.cap="Residuals from the Scenario 1 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+```{r fig-base-mean-weight-resid-1, fig.cap="Residuals from the Scenario 1 model MPD fit to the annual mean weight index. The vertical dotted line indicates 1996."}
 plot_grid(mw.plot.resid(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french))
           
 ```
 
-```{r fig-base-mean-weight-resid-2, fig.cap="Residuals from the Scenario 2 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+```{r fig-base-mean-weight-resid-2, fig.cap="Residuals from the Scenario 2 model MPD fit to the annual mean weight index. The vertical dotted line indicates 1996."}
 plot_grid(mw.plot.resid(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french))
           
 ```
 
-```{r fig-base-mean-weight-resid-3, fig.cap="Residuals from the Scenario 3 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+```{r fig-base-mean-weight-resid-3, fig.cap="Residuals from the Scenario 3 model MPD fit to the annual mean weight index. The vertical dotted line indicates 1996."}
 plot_grid(mw.plot.resid(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french))
           
 ```
 
-```{r fig-base-mean-weight-resid-4, fig.cap="Residuals from the Scenario 4 model MPD fit to the mean weight data. The vertical dotted line indicates 1996."}
+```{r fig-base-mean-weight-resid-4, fig.cap="Residuals from the Scenario 4 model MPD fit to the annual mean weight index. The vertical dotted line indicates 1996."}
 plot_grid(mw.plot.resid(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french))
           
 ```
@@ -335,32 +379,27 @@ Right now, it seems to me that we basically have a surplus production model, whi
 
 **Response:**
 
-The last five data points in Scenario 1, which represent the only difference between this model and the previously peer-reviewed models, are consistent with other data sources, including fishery-dependent and independent surveys and the catch data, which indicate a period of low recruitment prior to 2018, when the survey index fell to one of the lowest points in its history and has remained low.
-Consequently, the model fits these points very well (Figure \@ref(fig:fig-base-mean-weight-3cd)).
+As illustrated in Section 1, the model is actually very sensitive to the annual mean weight index.
+The effects of the mean weight index on model outcomes have been extensively explored in previous assessments, especially in @forrest2020.
+The model settings in the current model have been arrived at through two sets of peer review resulting from those explorations.
+However, of most relevance to this update, the GLM presented in the TWG Report showed a very strong relationship between the commercial and survey annual mean weight indices.
+The resulting last five data points in Scenario 1 are consistent with other data sources in the model, including fishery-dependent and independent surveys and the catch data, all of which indicate a period of low recruitment prior to 2018, when the survey index fell to one of the lowest points in its history and has remained low.
+Consequently, the model fits the last five years of the annual mean weight index very well, which justifies their inclusion in this update (Figure \@ref(fig:fig-base-mean-weight-3cd)).
+We note that the 2023 Science Response will include seven scenarios in the model-averaged set, which includes a scenario with $\sigma_W = 0.15$.
 
-The only mechanism we have to adjust the fit to the annual mean weight data in this model is via the standard deviation parameter $\sigma_W$, which controls the closeness of the fit to the annual mean weight index.
-As noted above, the effect of this parameter was explored in the 2018 stock assessment [@forrest2020; their Figure 91].
-Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increase in estimated biomass, while doubling $\sigma_W$, or removing the pre-1996 annual mean weight index althogether, resulted in a notable downscaling of estimated biomass.
-Subsequent unpublished tests of further decreasing $\sigma_W$ resulted in much better fits to the pre-1996 annual mean weight index (which is known to be biased high) and scaling up of the estimated biomass.
-Given the bias in the pre-1996 length data, we are reluctant to further decrease $\sigma_W$.
-
-TODO: Update above text when new scenarios are ready.
+We agree that the annual mean weight index is, and has always been, problematic for Pacific Cod assessments, and we agree that other models and methods for delivering advice should be explored in the future.
+However, this is out of scope for the 2023 Science Response, which is an update.
+Given that this model has been peer-reviewed twice for Area 3CD, it is currently the best available science for providing timely advice for this stock; and given the three very low survey index points in 2018, 2021 and 2022, a timely stock status update has been requested and is needed.
 
 # Conclusions and next steps
 
-We agree that the annual mean weight index is, and has always been, problematic for Pacific Cod assessments, and we agree that other models and methods for delivering advice should be explored.
-However, this is out of scope for the 2023 Science Response and, given that this model has been peer-reviewed twice for Area 3CD, it is currently the best available science for providing timely advice for this stock.
-Given the three very low survey index points in 2018, 2020 and 2021, a timely stock status update is needed.
-
 As noted in Comment 3a, there is probably not much more fruitful exploration that can be done with the annual mean weight index.
-The GLM presented in the TWG Report showed a very strong relationship between the commercial and survey annual mean weight indices.
 The Scenario 1 values derived from the survey annual mean weight index are consistent with other data sources and the model fits them well.
 Given this, we recommend proceeding with the 2023 Science Response based on Scenario 1, with the following updates:
 
-1. Update the length-weight parameters in all scenarios;
+1. Update the length-weight parameters in all scenarios in the model-averaged set;
 
-2. For consistency with the commercial index and to gain a larher sample size, continue to use the calculated weights from lengths in the survey annual mean weight index. 
-This is justified, given very little difference in the index to the index based on the observed weights;
+2. For consistency with the commercial index and to gain a larger sample size, continue to use the calculated weights from lengths in the survey annual mean weight index;
 
 3. Continue to exclude the 2017 annual mean weight index point;
 

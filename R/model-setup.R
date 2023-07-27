@@ -123,13 +123,13 @@ sens.models.name.33 <- "Sc. 1c GLM Interpolation (new lw pars)"
 
 # Reduce sig_w
 sens.models.dir.name.44 <- c(file.path(model.dir,
-                                     "1a_3CD_2023_interp_incl_2017_sigw015"),
+                                     "1a_3CD_2023_interp_2017_sigw015"),
                              file.path(model.dir,
-                                       "1a_3CD_2023_interp_incl_2017_sigw01"))
+                                       "1a_3CD_2023_interp_2017_sigw01"))
 
 
 sens.models.name.44 <- c("Sc. 1d GLM Interpolation (sigW=0.15)",
-                         "Sc. 1e GLM Interpolation (sigW=0.15)")
+                         "Sc. 1e GLM Interpolation (sigW=0.1)")
 
 
 ## -----------------------------------------------------------------------------
@@ -245,6 +245,7 @@ build <- function(ovwrt.base = FALSE,
   sens.models.names.list <- c(unlist(sens.models.dir.name.11),
                               unlist(sens.models.dir.name.22),
                               unlist(sens.models.dir.name.33),
+                              unlist(sens.models.dir.name.44),
                               unlist(desc.models.3cd.dir.name))
 
   ## Sensitivity models
