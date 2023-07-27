@@ -85,7 +85,7 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 base.model.3cd.dir.name <- file.path(model.dir,
                                      "1a_3CD_2023_interp")
-base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1a GLM Interpolation")
+base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 GLM Interpolation")
 
 if(verbose){
   cat0("Base model directory name for reference model 3cd:\n", base.model.3cd.dir.name)
@@ -113,13 +113,13 @@ sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
 sens.models.dir.name.22 <- file.path(model.dir,
                                        "1a_3CD_2023_interp_incl_2017")
 
-sens.models.name.22 <- "Sc. 1b GLM Interpolation (incl. 2017)"
+sens.models.name.22 <- "Sc. 1a GLM Interpolation (incl. 2017)"
 
 # Update the length-weight parameters
 sens.models.dir.name.33 <- file.path(model.dir,
                                      "1a_3CD_2023_interp_new_lw")
 
-sens.models.name.33 <- "Sc. 1c GLM Interpolation (new lw pars)"
+sens.models.name.33 <- "Sc. 1d GLM Interpolation (new lw pars)"
 
 # Reduce sig_w
 sens.models.dir.name.44 <- c(file.path(model.dir,
@@ -128,8 +128,8 @@ sens.models.dir.name.44 <- c(file.path(model.dir,
                                        "1a_3CD_2023_interp_2017_sigw01"))
 
 
-sens.models.name.44 <- c("Sc. 1d GLM Interpolation (sigW=0.15)",
-                         "Sc. 1e GLM Interpolation (sigW=0.1)")
+sens.models.name.44 <- c("Sc. 1b GLM Interpolation (sigW=0.15)",
+                         "Sc. 1c GLM Interpolation (sigW=0.1)")
 
 
 ## -----------------------------------------------------------------------------
