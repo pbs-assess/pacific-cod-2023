@@ -79,6 +79,8 @@ But according to Table 8, the 2017 sample was based on 4 samples, not 2.
 
 This was a typo that will be corrected in the Science Response.
 
+\clearpage
+
 **Comment 1b.** While I sympathise with excluding the 2017 estimate, dropping it simply because it was too high is potentially not a sound response. 
 
 **Response:**
@@ -86,22 +88,22 @@ This was a typo that will be corrected in the Science Response.
 Since this Science Response will be an update, we made this choice to be consistent with previous advice.
 The decision to exclude the 2017 index point was agreed in the 2018 CSAS meeting [@forrest2020] and carried through to the 2020 update [@dfo2021].
 The four samples collected in 2017, and the two samples collected in 2019, were collected from a limited area (see Figure \@ref(fig:fig-sample-locations)). 
+In 2017, only 300 fish were measured across all four samples (compared to samples of between 1076 and 3907 fish between 2008 and 2016; Appendix A of the TWG Report).
 The 2019 samples were collected from a single vessel.
-In 2017, only 300 fish were measured across all four samples.
-Given the obvious problems with basing index points on such limited samples, we don't think it is justified to include the 2017 data point or change model parameters just to fit to it.
+Given the obvious problems with basing index points on such limited samples, we don't think it is justified to include the 2017 data point or to change model parameters.
 
 However, we have run some scenarios to illustrate the effects of including the 2017 index point and changing model settings to fit to it.
 The first is a scenario based on Scenario 1 of the TWG Report, which includes the 2017 mean weight index value but makes no changes to model parameters.
 Comparisons between the model fit to the annual mean weight index in Scenario 1 (without 2017) and Scenario 1a (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
 The model does not fit the 2017 value, similarly missing it and other very high mean weight index values.
 
-As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially prior to 1996, where smaller fish are underrepresented in the data due to the absence of at-sea observers when only "keepers" were represented in the database [@forrest2015; @forrest2020].
+As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially prior to 1996, where smaller fish are underrepresented in the data due to the absence of at-sea observers, when only "keepers" were represented in the database [@forrest2015; @forrest2020].
 The only available mechanism to directly adjust the fit to the annual mean weight data in this model is the standard deviation parameter $\sigma_W$, which controls the closeness of the fit to the annual mean weight index.
 The effects of this parameter were explored in @forrest2020 (their Figure 91).
 Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increase in estimated biomass, while doubling $\sigma_W$, or removing the pre-1996 annual mean weight index althogether, resulted in a notable downscaling of estimated biomass.
 
-For illustration, we present two model scenarios, based on Scenario 1a, where we reduced $\sigma_W$ from 0.2 to 0.15 and 0.1, respectively (Figures \@ref(fig:fig-mean-weight-3cd-sigw-015) and \@ref(fig:fig-mean-weight-3cd-sigw-01)).
-Reducing $\sigma_W$ had the effect of slightly improving the model fit to higher values of the annual mean weight index, including 2017, and some pre-1996 values, which are known to be biased. 
+For illustration, we present two model scenarios based on Scenario 1a, where we reduced $\sigma_W$ from 0.2 to 0.15 and 0.1, respectively (Figures \@ref(fig:fig-mean-weight-3cd-sigw-015) and \@ref(fig:fig-mean-weight-3cd-sigw-01)).
+Reducing $\sigma_W$ had the effect of slightly improving the model fit to higher values of the annual mean weight index, including 2017, (and some pre-1996 values, which are known to be biased). 
 This in turn led to a noticeable scaling up of the recruitment and biomass estimates, throughout the time series, including recent years, especially for the scenario with $\sigma_W = 0.1$ (Figures \@ref(fig:fig-sens-recr-3cd-sigw) and \@ref(fig:fig-sens-biomass-3cd-sigw)).
 
 Peer reviews of past Pacific Cod assessments have accepted underestimation of the mean weight index prior to 1996 because of known biases in the length data.
@@ -110,7 +112,7 @@ Estimating the scale of this model has also been problematic in the past, where 
 Sensitivity to assumptions about these parameters have been explored extensively in previous assessments and are accounted for in the model-averaging set used to provide advice [@forrest2020; @dfo2021].
 
 Given that this is an update, and the potential for a large rescaling of biomass if we adjust model settings, we do not think it is appropriate at this stage to change model settings to better fit the 2017 mean weight index point, which is, in itself, problematic.
-We underline that the 2023 Science Response will include six other scenarios in the model-averaged set, which includes a scenario with $\sigma_W = 0.15$.
+We note that the 2023 Science Response will include six other scenarios in the model-averaged set, which includes a scenario with $\sigma_W = 0.15$.
 
 
 ```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
