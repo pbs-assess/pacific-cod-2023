@@ -92,24 +92,24 @@ In 2017, only 300 fish were measured across all four samples (compared to sample
 The 2019 samples were collected from a single vessel.
 Given the obvious problems with basing index points on such limited samples, we do not think it is justified to include the 2017 data point or to change model parameters.
 
-However, we have run some scenarios to illustrate the effects of including the 2017 index point and changing model settings to fit to it.
+However, we have run some scenarios to illustrate the effects of including the 2017 index point and changing model settings to try to fit to it.
 Scenario 1a is based on Scenario 1 of the TWG Report.
 It includes the 2017 mean weight index value but makes no changes to model parameters.
 Comparisons between the model fit to the annual mean weight index between Scenario 1 (without 2017) and Scenario 1a (with 2017) are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-mean-weight-3cd-2017).
 The model does not fit the 2017 value, similarly missing it and other very high mean weight index values.
 
-As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially prior to 1996, where smaller fish are underrepresented in the data due to the absence of at-sea observers, when only "keepers" were represented in the database [@forrest2015; @forrest2020].
-The only available mechanism to directly adjust the fit to the annual mean weight data in this model is the standard deviation parameter $\sigma_W$, which controls the closeness of the fit to the annual mean weight index.
+As noted in previous Pacific Cod assessments, the model in general does not fit the mean weight index very well, especially prior to 1996, where smaller fish are underrepresented in the data due to the absence of at-sea observers, when many of the samples in the database were classified as "keepers" [@forrest2015; @forrest2020].
+The only available mechanism to directly adjust the fit to the annual mean weight index in this model is the standard deviation parameter $\sigma_W$, which controls the closeness of the fit to the annual mean weight index.
 The effects of this parameter were explored in @forrest2020 (their Figure 91).
 Decreasing the value of $\sigma_W$ from 0.2 to 0.15 resulted in a slight increase in estimated biomass, while doubling $\sigma_W$, or removing the pre-1996 annual mean weight index altogether, resulted in a notable downscaling of estimated biomass.
 
 For illustration, we present two model scenarios based on Scenario 1a, where we reduced $\sigma_W$ from 0.2 to 0.15 (Scenario 1b) and 0.1 (Scenario 1c), respectively (Figures \@ref(fig:fig-mean-weight-3cd-sigw-015) and \@ref(fig:fig-mean-weight-3cd-sigw-01)).
-Reducing $\sigma_W$ had the effect of slightly improving the model fit to higher values of the annual mean weight index, including 2017, (and some pre-1996 values, which are known to be biased).
+Reducing $\sigma_W$ had the effect of slightly improving the model fit to larger values of the annual mean weight index, including 2017, (and some pre-1996 values, which are known to be biased).
 However, even with $\sigma_W = 0.1$ the model was not able to reach the 2017 index point. 
 Decreasing $\sigma_W$ led to a noticeable scaling up of the recruitment and biomass estimates throughout the time series, including recent years, especially for Scenario 1c with $\sigma_W = 0.1$ (Figures \@ref(fig:fig-sens-recr-3cd-sigw) and \@ref(fig:fig-sens-biomass-3cd-sigw)).
 
 Peer reviews of past Pacific Cod assessments have accepted underestimation of the mean weight index prior to 1996 because of known biases in the length data.
-The annual mean weight index has always been a problematic component of this data-limited assessment, which is why the authors have settled on $\sigma_W = 0.2$, to balance this trade-off between fitting recent points well while allowing some underestimation of the pre-1996 index.
+The annual mean weight index has always been a problematic component of this data-limited assessment, which is why the authors settled on $\sigma_W = 0.2$, to balance this trade-off between fitting recent points well while tolerating some underestimation of the pre-1996 index.
 Estimating the scale of this model has also been problematic in the past, where the model is sensitive to several parameters including $\sigma_W$, the index observation error term, and priors for catchability and natural mortality.
 Sensitivity to assumptions about these parameters have been explored extensively in previous assessments and are accounted for in the model-averaging set used to provide advice [@forrest2020; @dfo2021].
 
@@ -199,7 +199,7 @@ knitr::include_graphics(here::here("data/generated/New_LW_fit_3CD.png"))
 
 ```
 
-```{r fig-LWfit-3cd-both, fig.cap="Survey length-weight relationship for combined female and male Pacific Cod in Area 3CD.", out.width="4in", echo = FALSE}
+```{r fig-LWfit-3cd-both, fig.cap="Survey length-weight relationship for combined female and male Pacific Cod in Area 3CD, based on data from the WCVI Synoptic Survey..", out.width="4in", echo = FALSE}
 
 knitr::include_graphics(here::here("data/generated/New_LW_fit_both_sex_3CD.png"))
 
@@ -236,7 +236,7 @@ The spread is quite large for weights in the 3-4 kg range which may lead to bias
 
 **Response:**
 
-Figure 12 was the plot of individual fish weights calculated from the length-weight relationship (Eq. 1 in the TWG Report) vs. the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights)).
+Figure 12 was the plot of individual fish weights calculated from the length-weight relationship (Eq. 1 in the TWG Report) vs the directly measured observed weights (reproduced here as Figure \@ref(fig:fig-meas-vs-calc-weights)).
 To illustrate residuals, we fit a simple linear model in natural log space (Figure \@ref(fig:fig-meas-vs-calc-weights-log-lm)).
 Residuals are shown as a histogram and points in Figures \@ref(fig:fig-meas-vs-calc-weights-log-resid-hist) and \@ref(fig:fig-meas-vs-calc-weights-log-resid-point), respectively.
 
@@ -265,25 +265,16 @@ Also, I think that the uncertainty in both sets of calculations of mean weight s
 
 **Response:**
 
-We are not sure what is meant by "the uncertainty in both sets of calculations
-of mean weight should be included in the transformation". If we are talking
-about propagating uncertainty from the length-weight relationships to the
-assessment model: (1) the length-weight relationship is one of the tightest
-relationships in fisheries science and so propagating its uncertainty is
-unlikely to make a meaningful difference (or at least is not the first place we
-would consider propagating uncertainty), (2) for the commercial samples, the
-established model does not propagate this uncertainty (nor do any other BC
-groundfish assessment models to our knowledge) and this update is the not
-appropriate time to add this to the model, and (3) for the survey prediction of
-commercial mean weights, we note in response 2e that we did check this and it
-made no meaningful difference to the assessment outputs.
+We are not sure what is meant by "the uncertainty in both sets of calculations of mean weight should be included in the transformation".
+If we are talking about propagating uncertainty from the length-weight relationships to the assessment model: (1) the length-weight relationship is one of the tightest relationships in fisheries science and so propagating its uncertainty is unlikely to make a meaningful difference (or at least is not the first place we
+would consider propagating uncertainty); (2) for the commercial samples, the established model does not propagate this uncertainty (nor do any other BC groundfish assessment models to our knowledge) and this update is the not appropriate time to add this to the model; and (3) for the survey prediction of commercial mean weights, we note in response 2e that we did check this and it made no meaningful difference to the assessment outputs.
 
 Regarding potential bias, we looked at the number of available fish weights that were measured directly (observed), compared to the number of fish weights calculated from length data using Eq. 1 in the TWG Report.
 In total, across all survey years, there were `r nwobs` observed weights and `r nwcalc` calculated weights, i.e., a difference of `r nwdiff` specimens (Figure \@ref(fig:fig-meas-vs-calc-weights-counts)).
 
 To investigate possible bias introduced by using the calculated weights, the survey annual mean weight index was re-calculated using the directly-measured (observed) weights, with very little effect on the index (Figure \@ref(fig:fig-meas-vs-calc-index-compare)).
 
-```{r fig-meas-vs-calc-weights-counts, fig.cap="Annual comparison of the number of observed vs. calculated weights from the WCVI survey.", out.width="4in", echo = FALSE}
+```{r fig-meas-vs-calc-weights-counts, fig.cap="Annual comparison of the number of observed vs calculated weights from the WCVI survey.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here("data/generated/Measured_v_Calc_weights_counts_3CD.png"))
 ```
 
@@ -304,7 +295,7 @@ We checked the database and there were no cases where there was more than one sa
 
 **Response:**
 
-We have updated the plot (Figure \@ref(fig:fig-meas-vs-calc-index-compare-2)).
+Yes, we agree and have updated the plot (Figure \@ref(fig:fig-meas-vs-calc-index-compare-2)).
 
 ```{r fig-meas-vs-calc-index-compare-2, fig.cap="Commercial mean weight index and survey mean weight index. Area of the black open circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in", echo = FALSE}
 knitr::include_graphics(here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
@@ -317,29 +308,18 @@ Would it be possible to include in the model some spatial information, such as t
 
 **Response:**
 
-The model is a generalized linear model fit with maximum likelihood with
-a Gamma observation distribution and a log link. We do not think it is
-reasonable to include additional covariates in an attempt to increase
-explanatory power given the limited number of data points---there are seven
-data points and two estimated fixed effects, resulting in five residual degrees
-of freedom. We could certainly improve the fit to these data, but that would be
-highly unlikely to improve out-of-sample prediction, which is the purpose of
-the model.
+The model is a generalized linear model fit with maximum likelihood with a Gamma observation distribution and a log link.
+We do not think it is reasonable to include additional covariates in an attempt to increase explanatory power given the limited number of data points---there are seven data points and two estimated fixed effects, resulting in five residual degrees of freedom.
+We could certainly improve the fit to these data, but that would be
+highly unlikely to improve out-of-sample prediction, which is the purpose of the model.
 
-We disagree that the model "failed quite badly in both 2012 and 2016". The
-statement that the "observed values lie well outside of the model credibility
-envelope" reflects a misunderstanding of these confidence intervals. These
-confidence intervals (and most reported confidence intervals) represent
-uncertainty around the mean expectation---not around new observations. In R's
-`predict.glm()`, a confidence interval around new observations would be called
-a prediction interval or in Bayesian statistics it would be called a posterior
-predictive interval. The QQ plot indicates that the observations are in fact
-consistent with the model given the observation likelihood and we may include
-a predictive interval within the Science Response to emphasize this.  Although
-not shown in the last TWG Report, we did explore a Bayesian version of the GLM
-where we simulated new observations repeatedly and fit the base assessment
-model to them. Even with extreme draws from the joint posterior, the base
-assessment model was not meaningfully changed.
+We disagree that the model failed quite badly in both 2012 and 2016.
+The statement that the "observed values lie well outside of the model credibility envelope" reflects a misunderstanding of these confidence intervals.
+These confidence intervals (and most reported confidence intervals) represent uncertainty around the mean expectation---not around new observations.
+In R's `predict.glm()`, a confidence interval around new observations would be called a prediction interval or in Bayesian statistics it would be called a posterior predictive interval.
+The QQ plot indicates that the observations are in fact consistent with the model given the observation likelihood and we may include
+a predictive interval within the Science Response to emphasize this. Although not shown in the last TWG Report, we did explore a Bayesian version of the GLM where we simulated new observations repeatedly and fit the base assessment model to them.
+Even with extreme draws from the joint posterior, the base assessment model was not meaningfully changed.
 
 ## Section 3. Model results
 
@@ -352,7 +332,7 @@ The model appears to be responsive to the biomass indices but Figure 8 indicates
 
 The model has never provided a great fit to the mean weight index, especially prior to the introduction of at-sea monitoring in 1996 [@forrest2020].
 However, it does provide a good fit after 2012, especially the last five years (Figure \@ref(fig:fig-base-mean-weight-3cd)).
-As we noted in the TWG report, the pattern in the last five years is consistent with predicted recruitment for all four of the scenarios, which very consistently estimated low recruitment between 2016 and 2018 (Figure 8 of the TWG report).
+As we noted in the TWG report, the pattern in the last five years is consistent with predicted recruitment for all four of the scenarios, which consistently estimated low recruitment between 2016 and 2018 (Figure 8 of the TWG report).
 A population with fewer than average recruits is expected to have a higher than average mean weight of individuals.
 The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
 
@@ -394,7 +374,7 @@ plot_grid(mw.plot.resid(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 202
 **Response:**
 
 We ran chains of length 5 million for the purposes of the TWG Report but we will use 10 million for the Science Response, as in the previous assessments.
-However, we note that the potential scale reduction statistics ($\hat{R} \le 101$ and $n_\mathrm{eff} > 190$) [@gelman1992; @rstan2018] were consistent with convergence (TWG Report, Table 9).
+However, we note that the potential scale reduction statistics ($\hat{R} \le 1.01$ and $n_\mathrm{eff} > 190$) [@gelman1992; @rstan2018] were consistent with convergence (TWG Report, Table 9).
 
 **Comment 3d.** Figure 26: the years need to be alternated so we can read them.
 
@@ -415,7 +395,7 @@ Right now, it seems to me that we basically have a surplus production model, whi
 
 **Response:**
 
-As illustrated in Section 1, the model is actually very sensitive to the annual mean weight index.
+As illustrated in Section 1, the model is actually sensitive to the annual mean weight index.
 The effects of the mean weight index on model outcomes have been extensively explored in previous assessments, especially in @forrest2020.
 The model settings in the current model have been arrived at through two sets of peer review resulting from those explorations.
 However, of most relevance to this update, the GLM presented in the TWG Report showed a strong relationship between the commercial and survey annual mean weight indices.
