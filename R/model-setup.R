@@ -139,9 +139,9 @@ sens.models.dir.name.55 <- c(file.path(model.dir,
                              file.path(model.dir,
                                        "1a_3CD_2023_interp_old2019"))
 
-sens.models.name.55 <- c("Sc. 1e GLM Interpolation (no 2019)",
-                         "Sc. 1f GLM Interpolation (no 2018-2019)",
-                         "Sc. 1g GLM Interpolation (no 2018, old 2019)")
+sens.models.name.55 <- c("Sc. 1e GLM (no 2019)",
+                         "Sc. 1f GLM (no 2018-2019)",
+                         "Sc. 1g GLM (no 2018, old 2019)")
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)

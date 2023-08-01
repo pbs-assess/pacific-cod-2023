@@ -9,7 +9,7 @@ documentclass: article
 geometry: margin=2.3cm
 output:
   bookdown::pdf_document2:
-    toc: yes
+    toc: no
     fig_caption: yes
     number_sections: yes
 urlcolor: blue
@@ -61,12 +61,10 @@ if(!knitr:::is_latex_output())
   options(knitr.table.format = "pandoc")
 ```
 
-# Context
-
 This document provides replies to a second set of minor comments received from the Pacific Cod Technical Working Group (TWG) on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
 
 We received one final comment recommending we look at model sensitivity to the 2019 commercial annual mean weight index point, which had been included in the 2020 stock assessment update.
-This index point was based on only two samples (n = 360 fish; see Appendix A of the TWG Report), collected by the same vessel in almost exactly the same location (Figure \@ref(fig:fig-sample-locations)).
+This index point was based on only two samples (n = 360 fish; see Appendix A of the TWG Report), collected by the same vessel in almost the same location (Figure \@ref(fig:fig-sample-locations)).
 Therefore, we recommended replacing this index point with an interpolated value from the GLM (see the TWG Report).
 Here, we present three other scenarios to evaluate model sensitivity to treatment of the 2019 index point:
 
@@ -78,8 +76,18 @@ Here, we present three other scenarios to evaluate model sensitivity to treatmen
 
 Values used in Scenario 1 and the three scenarios above are summarized in Table \@ref(tab: tab-mean-weight-recent-3cd).
 
-Fits to the 
+Fits to the annual mean weight index are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-mean-weight-3cd-1g).
 
+The fit to the annual mean weight index in Scenario 1e, which excluded 2019, was nearly identical to Scenario 1 (this was also illustrated in Scenario 2 of the TWG Report, which excluded 2019 and 2020 from the annual mean weight index).
+Scenarios 1f and 1g also exclude 2018.
+The difference between these scenarios is the treatment of 2019, where it is excluded in Scenario 1f, while the value used in the 2020 update is used in Scenario 1g.
+Figures \@ref(fig:fig-mean-weight-3cd-1f) and \@ref(fig:fig-mean-weight-3cd-1g) show that the model is more sensitive to the 2018 index point than 2019, noting that Scenario 1f has no index values between 2016 and 2020.
+
+Sensitivity of posterior recruitment and biomass estimates is shown in Figures \@ref(fig:fig-sens-recr-3cd-2019) and \@ref(fig:fig-sens-biomass-3cd-2019), indicating a slight sensitivity of recruitment estimates in Scenario 1g, but very little sensitivity of biomass estimates to any scenario.
+We would not recommend using Scenario 1g, since it depends on the 2019 index value, which is based on only two samples from the same vessel and area.
+Therefore, we continue to recommend proceeding with Scenario 1 in the Science Response.
+
+\clearpage
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd,
@@ -92,7 +100,6 @@ mw.table(c(base.model.3cd,
 
 ```
 
-\clearpage
 
 ```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2019 was 360."}
 include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
@@ -126,7 +133,7 @@ plot_grid(mw.plot(sens.models.55[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
           ncol = 2)
 ```
 
-```{r fig-sens-recr-3cd-sigw, fig.cap="Sensitivity of recruitment estimates to the 2019 annual mean weight index point (see Table 1). Points shows the posterior medians and the bars represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-recr-3cd-2019, fig.cap="Sensitivity of recruitment estimates to the 2019 annual mean weight index point (see Table 1). Points shows the posterior medians and the bars represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- r.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.22))
 g2 <- r.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.55)) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
@@ -134,7 +141,7 @@ g2 <- r.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.mode
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
-```{r fig-sens-biomass-3cd-sigw, fig.cap="Sensitivity of biomass estimates to the 2019 annual mean weight index point (see Table 1). Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-biomass-3cd-2019, fig.cap="Sensitivity of biomass estimates to the 2019 annual mean weight index point (see Table 1). Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- b.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.55))
 g2 <- b.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.55)) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
