@@ -61,7 +61,7 @@ if(!knitr:::is_latex_output())
   options(knitr.table.format = "pandoc")
 ```
 
-This document provides replies to a second set of minor comments received from the Pacific Cod Technical Working Group (TWG) on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
+This document provides replies to a follow-up comment received from the Pacific Cod Technical Working Group (TWG) on the report *"Alternative treatments of the commercial annual mean weight index for the West Coast Vancouver Island stock of Pacific Cod. Report for the Technical Working Group"* (hereafter, the "TWG Report"; attached).
 
 We received one final comment recommending we look at model sensitivity to the 2019 commercial annual mean weight index point, which had been included in the 2020 stock assessment update.
 This index point was based on only two samples (n = 360 fish; see Appendix A of the TWG Report), collected by the same vessel in almost the same location (Figure \@ref(fig:fig-sample-locations)).
@@ -70,21 +70,22 @@ Here, we present three other scenarios to evaluate model sensitivity to treatmen
 
 * Scenario 1e: Same as Scenario 1 from the TWG Report (i.e., use GLM values from 2018--2022), but exclude the interpolated value from 2019.
 
-* Scenario 1f: Same as Scenario 1e but also exclude the GLM value from 2018.
+* Scenario 1f: Same as Scenario 1e but also exclude the GLM value from 2018 so that the model only uses GLM values for 2020--2022 (although we note that the 2020 value is interpolated from the 2018 and 2021 values). 
 
-* Scenario 1g: Exclude the 2018 and 2019 GLM values, and replace with the original value used in the 2020 stock assessment update.
+* Scenario 1g: Exclude the 2018 and 2019 GLM values, and replace 2019 with the original value used in the 2020 stock assessment update.
 
-Values used in Scenario 1 and the three scenarios above are summarized in Table \@ref(tab: tab-mean-weight-recent-3cd).
+We included scenarios that excluded 2018, not because this was asked for, but because we wanted to more fully explore sensitivities to GLM values at the end of the time series.
+Values used in Scenario 1 and the three scenarios above are summarized in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 Fits to the annual mean weight index are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-mean-weight-3cd-1g).
-
 The fit to the annual mean weight index in Scenario 1e, which excluded 2019, was nearly identical to Scenario 1 (this was also illustrated in Scenario 2 of the TWG Report, which excluded 2019 and 2020 from the annual mean weight index).
-Scenarios 1f and 1g also exclude 2018.
-The difference between these scenarios is the treatment of 2019, where it is excluded in Scenario 1f, while the value used in the 2020 update is used in Scenario 1g.
-Figures \@ref(fig:fig-mean-weight-3cd-1f) and \@ref(fig:fig-mean-weight-3cd-1g) show that the model is more sensitive to the 2018 index point than 2019, noting that Scenario 1f has no index values between 2016 and 2020.
+Scenarios 1f and 1g also excluded 2018.
+The difference between these two scenarios is the treatment of 2019, where it is excluded in Scenario 1f, while the value used in the 2020 update is used in Scenario 1g.
 
-Sensitivity of posterior recruitment and biomass estimates is shown in Figures \@ref(fig:fig-sens-recr-3cd-2019) and \@ref(fig:fig-sens-biomass-3cd-2019), indicating a slight sensitivity of recruitment estimates in Scenario 1g, but very little sensitivity of biomass estimates to any scenario.
+Sensitivities of posterior recruitment and biomass estimates are shown in Figures \@ref(fig:fig-sens-recr-3cd-2019) and \@ref(fig:fig-sens-biomass-3cd-2019), indicating a slight sensitivity of recruitment estimates to the index in Scenario 1g, but very little sensitivity of biomass estimates to any scenario.
 We would not recommend using Scenario 1g, since it depends on the 2019 index value, which is based on only two samples from the same vessel and area.
+Given the lack of sensitivity in biomass estimates to these three scenarios, we see little point in excluding the 2018 value, which is derived directly from the GLM (as are 2021 and 2022) and provides an index point in a year when there was no commercial sampling.
+
 Therefore, we continue to recommend proceeding with Scenario 1 in the Science Response.
 
 \clearpage
