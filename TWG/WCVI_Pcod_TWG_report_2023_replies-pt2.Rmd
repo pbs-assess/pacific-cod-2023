@@ -78,6 +78,8 @@ Here, we present three other scenarios to evaluate model sensitivity to treatmen
 
 Values used in Scenario 1 and the three scenarios above are summarized in Table \@ref(tab: tab-mean-weight-recent-3cd).
 
+Fits to the 
+
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd,
@@ -96,35 +98,35 @@ mw.table(c(base.model.3cd,
 include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
 ```
 
-```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for scenario descriptions (attached))."}
+```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the annual mean weight index (see the TWG Report for Scenario 1 description)."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-mean-weight-3cd-2017, fig.cap="Scenario 1e model MPD fit to the annual mean weight index, which includes a value for 2017."}
+```{r fig-mean-weight-3cd-1e, fig.cap="Scenario 1e model MPD fit to the annual mean weight index (see Table 1)."}
 plot_grid(mw.plot(sens.models.55[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.55[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-mean-weight-3cd-sigw-015, fig.cap="Scenario 1f model MPD fit to the annual mean weight index, with $\\sigma_W = 0.15$."}
+```{r fig-mean-weight-3cd-1f, fig.cap="Scenario 1f model MPD fit to the annual mean weight index (see Table 1)."}
 plot_grid(mw.plot(sens.models.55[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.55[[2]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-mean-weight-3cd-sigw-01, fig.cap="Scenario 1g model MPD fit to the annual mean weight index, with $\\sigma_W = 0.1$."}
+```{r fig-mean-weight-3cd-1g, fig.cap="Scenario 1g model MPD fit to the annual mean weight index (see Table 1)."}
 plot_grid(mw.plot(sens.models.55[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.55[[3]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-sens-recr-3cd-sigw, fig.cap="Sensitivity of recruitment estimates to the 2019 annual mean weight index point (see text). Points shows the posterior medians and the bars represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-recr-3cd-sigw, fig.cap="Sensitivity of recruitment estimates to the 2019 annual mean weight index point (see Table 1). Points shows the posterior medians and the bars represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- r.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.22))
 g2 <- r.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.55)) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
@@ -132,7 +134,7 @@ g2 <- r.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.mode
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
-```{r fig-sens-biomass-3cd-sigw, fig.cap="Sensitivity of biomass estimates to the 2019 annual mean weight index point (see text). Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-biomass-3cd-sigw, fig.cap="Sensitivity of biomass estimates to the 2019 annual mean weight index point (see Table 1). Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- b.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.55))
 g2 <- b.plot(c(base.model.3cd, sens.models.55), c(base.model.3cd.name, sens.models.name.55)) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
