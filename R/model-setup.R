@@ -131,6 +131,17 @@ sens.models.dir.name.44 <- c(file.path(model.dir,
 sens.models.name.44 <- c("Sc. 1b GLM Interpolation (sigW=0.15)",
                          "Sc. 1c GLM Interpolation (sigW=0.1)")
 
+# Sensitivity to 2019 index point
+sens.models.dir.name.55 <- c(file.path(model.dir,
+                                       "1a_3CD_2023_interp_no2019"),
+                             file.path(model.dir,
+                                       "1a_3CD_2023_interp_no2019b"),
+                             file.path(model.dir,
+                                       "1a_3CD_2023_interp_old2019"))
+
+sens.models.name.55 <- c("Sc. 1e GLM Interpolation (no 2019)",
+                         "Sc. 1f GLM Interpolation (no 2018-2019)",
+                         "Sc. 1g GLM Interpolation (no 2018, old 2019)")
 
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)
@@ -210,6 +221,7 @@ load.models.into.parent.env <- function(){
   sens.models.22 <<- load.models(sens.models.dir.name.22)
   sens.models.33 <<- load.models(sens.models.dir.name.33)
   sens.models.44 <<- load.models(sens.models.dir.name.44)
+  sens.models.55 <<- load.models(sens.models.dir.name.55)
   desc.models.3cd <<- load.models(desc.models.3cd.dir.name)
   avg.model.3cd <<- avg.models(desc.models.3cd)
 
@@ -246,6 +258,7 @@ build <- function(ovwrt.base = FALSE,
                               unlist(sens.models.dir.name.22),
                               unlist(sens.models.dir.name.33),
                               unlist(sens.models.dir.name.44),
+                              unlist(sens.models.dir.name.55),
                               unlist(desc.models.3cd.dir.name))
 
   ## Sensitivity models
