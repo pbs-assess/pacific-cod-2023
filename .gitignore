@@ -53,6 +53,7 @@ report/sr.Rmd
 cpue-comp-*
 index/resdoc.tex
 /models
+/TWG/Versions_sent
 csas-style
 report/resdoc.knit.md
 report/resdoc.utf8.md
