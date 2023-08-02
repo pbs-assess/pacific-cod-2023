@@ -37,31 +37,27 @@ For the purpose of triggering a rebuilding plan, the guidance provides the follo
 
 This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023.
 This stock status update uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
-However, due to the ongoing absence of commercial length samples, this update uses the GLM developed in 2022, which predicts commercial mean weight index values from a survey mean weight index, to update the last five years of the annual commercial mean weight index.
+Due to the ongoing absence of commercial length samples, this update uses the GLM developed in 2022, which predicts commercial mean weight index values from a survey mean weight index, to update the last five years of the annual commercial mean weight index.
 The survey mean weight index and the GLM are described in Appendices B and C.
-
-Prior to estimating model-averaged stock status, the impacts of different treatments of the commercial annual mean weight index are evaluated, including two scenarios that use recent index values derived from the GLM presented to the TWG in 2022. 
-The commercial annual mean weight index from one of these scenarios is selected and used in the seven models used for model-averaging. 
 
 # Background
 
 Pacific Cod (or Grey Cod) is a relatively short-lived (~10--13 *y*), fast-growing member of the family Gadidae.
 It is distributed throughout the North Pacific Ocean, and throughout the waters of BC, typically in depth ranges up to 200 m. 
 Four stocks of Pacific Cod are defined for management purposes on the BC coast: Strait of Georgia (4B), West Coast Vancouver Island (3CD), Queen Charlotte Sound (5AB), and Hecate Strait (5CD).
-
-This assessment provides science advice for the stocks in Queen Charlotte Sound combined with Hecate Strait (5ABCD) and West Coast Vancouver Island (3CD) (Figure \@ref(fig:fig-map)). The choice to combine Areas 5AB and 5CD was made during the 2018 assessment [@dfo2019], mainly due to poor model diagnostics and the lack of historical fishery-independent indices of abundance for the Area 5AB model in the 2013 assessment [@forrest2015].
-There is also no evidence for genetic distinction between these two stocks [@forrest2015].
+This assessment provides science advice for the stock of the West Coast Vancouver Island (3CD) (Figure \@ref(fig:fig-map)). 
 
 ## Description of the fishery
 
 Pacific Cod in BC are caught almost entirely in the groundfish bottom trawl fishery, which is part of BC's integrated groundfish fishery [@dfo2017].
-They are caught in small quantities in the groundfish longline fishery (around 0.5% of the total annual catch on average), which is also part of the integrated fishery.
+They are caught in small quantities in the groundfish longline fishery (around 0.5% of the total annual catch on average), which is also part of the integrated groundfish fishery.
 The depth range of capture in 5ABCD ranges from around 60--200 m, with data showing a shift to deeper depths since 1996 [@forrest2020].
 Currently, the majority of the BC Pacific Cod catch is taken in Area 5CD.
 Commercial catches also come from Area 5AB and Area 3CD. 
 Near negligible catch is taken from the west coast of Haida Gwaii, Area 5E (< 0.5% of total average annual catch since 1985).
 The BC integrated fishery is subject to 100% at-sea and dockside monitoring.
-Since 1996, all bottom trawl vessels have carried observers who record the catch of each species and estimate quantities of released (discarded) fish.
+Between 1996 and 2020, all bottom trawl vessels carried observers who record the catch of each species and estimate quantities of released (discarded) fish.
+Since the COVID-19 pandemic, the fishery has shifted towards electronic monitoring on trawl vessels, which has impacted the availability of commercial biological samples (see Context).
 
 # Analysis and Response
 
@@ -74,7 +70,7 @@ For each area, models were fit to the following data: commercial catch, fishery-
 
 ### Commercial catch
 
-Commercial catch data (Tables \@ref(tab:tab-catch-3cd) and \@ref(tab:tab-catch-5abcd), Figures \@ref(fig:fig-catch-3cd) and \@ref(fig:fig-catch-5abcd) ) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to 2020).
+Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to 2020).
 Catch data prior to 1981 include catch by US vessels [@forrest2015; @forrest2020].
 Fishing years are defined as beginning on April 1 for all years, and are referenced by starting year, e.g., fishing year 1957 runs from April 1, 1957 to March 31, 1958 [see @forrest2020].
 

@@ -13,8 +13,8 @@ knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
 params <- list()
 params$species_proper <- "Pacific Cod"
 params$april1_year <- TRUE
-params$area <- c("5[ABCD]+", "3[CD]+")
-params$area_name <- c("5ABCD", "3CD")
+params$area <- c("3[CD]+")
+params$area_name <- c("3CD")
 params$skip_single_variable_models <- FALSE
 
 params$era <- "modern"
@@ -28,7 +28,7 @@ arith_cpue_modern <- arith_cpue
 surv.file <- here::here("data/generated/all_surveys.csv")
 
 if(!file.exists(surv.file)){
-  message("Error: Survey indices file has not been made! Please run 04-survey-indices-app.Rmd first.")
+  message("Error: Survey indices file has not been made! Please run R/surveys.R first.")
 } else {
   surv_index <- readr::read_csv(here::here("data/generated/all_surveys.csv"))
 }
@@ -105,15 +105,9 @@ make.catches.plot(catch.3, french=french) +
                        limits = c(0, NA))
 ```
 
-```{r fig-catch-5abcd, fig.cap="Catch for Area 5ABCD. Canadian catch includes at-sea releases."}
-make.catches.plot(catch.5, french=french)+
-  scale_y_continuous(labels = comma,
-                       limits = c(0, NA))
-```
-
 ```{r surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys. Shown is relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey; SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN HS = Hecate Strait synoptic bottom trawl survey; OTHER HS MSA = Hecate Strait Multispecies Assemblage survey."}
 gfplot::tidy_survey_index(dat$survey_index,
-  survey = c("SYN QCS", "SYN WCVI", "SYN HS", "OTHER HS MSA")) %>%
+  survey = c("SYN WCVI")) %>%
   plot_survey_index(french=french)
 ```
 
@@ -129,8 +123,8 @@ source(here::here('R/cpue-functions.R'))
 params <- list()
 params$species_proper <- "Pacific Cod"
 params$april1_year <- TRUE
-params$area <- c("5[ABCD]+", "3[CD]+")
-params$area_name <- c("5ABCD", "3CD")
+params$area <- c("3[CD]+")
+params$area_name <- c("3CD")
 params$skip_single_variable_models <- FALSE
 ```
 
@@ -177,7 +171,6 @@ make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
 
 
 ```{r}
-mw5ABCD <- read_csv(here::here("data/results/AnnualMeanWeight_5ABCD.csv"))
 mw3CD <- read_csv(here::here("data/results/AnnualMeanWeight_3CD.csv"))
 ```
 
@@ -203,33 +196,6 @@ plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5, french=frenc
 ```{r fig-base-mean-weight-3cd, fig.cap="Reference model MPD fit to the mean weight data for Area 3CD. For clarity, only MPD results are shown."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
-          nrow = 1,
-          ncol = 2)
-```
-
-```{r fig-base-index-fits-5abcd, fig.cap="Reference model MPD fits to observed indices of abundance (points) for Area 5ABCD from: (a) the HS Assemblage survey, (b) the QCS Synoptic Survey, (c) the HS Synoptic Survey, (d) Commercial CPUE pre-1996, and (e) Commercial CPUE post-1995. For clarity, only MPD results are shown."}
-plot_grid(i.plot(base.model.5abcd, base.model.5abcd.name, 1, every = 5, french=french)
-            + scale_y_continuous(labels = comma, limits = c(0, NA)),
-          i.plot(base.model.5abcd, base.model.5abcd.name, 2, every = 5, french=french)
-            + scale_y_continuous(labels = comma, limits = c(0, NA)),
-          i.plot(base.model.5abcd, base.model.5abcd.name, 3, every = 5, french=french)
-            + scale_y_continuous(labels = comma, limits = c(0, NA)),
-          i.plot(base.model.5abcd, base.model.5abcd.name, 4, every = 10, french=french)
-            + scale_y_continuous(labels = comma, limits = c(0, NA))
-            + ylab("Commercial CPUE (kg/h)"),
-          i.plot(base.model.5abcd, base.model.5abcd.name, 5, every = 5, french=french)
-            + scale_y_continuous(labels = comma, limits = c(0, NA))
-            + ylab("Commercial CPUE (kg/h)"),
-          nrow = 2,
-          ncol = 3,
-          labels = c("(a)", "(b)", "(c)", "(d)", "(e)"),
-          label_x = 0.2)
-```
-
-
-```{r fig-base-mean-weight-5abcd, fig.cap="Reference model MPD fit to the mean weight data for Area 5ABCD. For clarity, only MPD results are shown"}
-plot_grid(mw.plot(base.model.5abcd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
-          mw.compare.plot(base.model.5abcd[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
@@ -266,15 +232,6 @@ f.plot(avg.model.3cd,
 
 ```
 
-```{r fig-model-average-biomass-5abcd, fig.cap="Combined posterior biomass for the averaged models, Area 5ABCD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
-b.plot(avg.model.5abcd,
-       base.model.5abcd.name,
-       depl = FALSE,
-       add.hist.ref = TRUE,
-       lrp = c(2000, 2000),
-       usr = c(1956, 2004), french=french)
-```
-
 <!-- Ref model, not used here but needed for FSERP OM
 ```{r fig-model-ref-biomass-5abcd, fig.cap="Combined posterior biomass for the model-averaged set for Area 5ABCD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(base.model.5abcd,
@@ -286,17 +243,6 @@ b.plot(base.model.5abcd,
 ```
 
 -->
-
-
-```{r fig-model-average-f-5abcd, fig.cap="Combined posterior fishing mortality for the model-averaged set for Area 5ABCD. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval. "}
-f.plot(avg.model.5abcd,
-       base.model.5abcd.name,
-       add.hist.ref = TRUE,
-       lrr = c(1956, 2004), 
-       french=french)
-
-#REPLACE WITH AVERAGED PLOT
-```
 
 ```{r fig-model-average-biomass-3cd-proj, fig.cap="Combined posterior estimates of biomass for the model-averaged set for Area 3CD with projections (to the beginning of 2022). Thick black line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively. The coloured regions to the right of the vertical dashed line represent projections based on various 2021 catch levels. For clarity, years before 2010 are removed."}
 b.plot(avg.model.3cd,
@@ -310,22 +256,6 @@ b.plot(avg.model.3cd,
        year_range = c(2010, 2022),
        ylim = c(0, 50000),
        x.every = 2, french=french)  
-```
-
-(ref:fig-model-average-biomass-5abcd-proj) Same as Figure \@ref(fig:fig-model-average-biomass-3cd-proj) but for Area 5ABCD.
-
-```{r fig-model-average-biomass-5abcd-proj, fig.cap="(ref:fig-model-average-biomass-5abcd-proj)"}
-b.plot(avg.model.5abcd,
-       base.model.5abcd.name,
-       depl = FALSE,
-       add.hist.ref = TRUE,
-       lrp = c(2000, 2000),
-       usr = c(1956, 2004),
-       proj_columns = c("B2021", "B2022"),
-       tac_vector = c(0, 900, 2000, 3000),
-       year_range = c(2010, 2022),
-       ylim = c(0, 50000),
-       x.every = 2, french=french)
 ```
 
 \clearpage
