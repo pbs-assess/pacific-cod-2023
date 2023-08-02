@@ -106,53 +106,53 @@ if(verbose){
 ##  SCRIPT ABOUT LOCATION OF THESE FOLDERS. THEY SHOULD BE MOVED BACK INTO MODELS IF NEEDED.
 ## --------------------------------------------------------------------------------------------
 # Sensitivity of treatment of commercial mean weight index
-sens.models.dir.name.11 <- c(file.path(model.dir,
-                                       "1b_3CD_2023_no_interp"),
-                             file.path(model.dir,
-                                       "1c_3CD_2023_noGLM_extrap"),
-                             file.path(model.dir,
-                                       "1d_3CD_2023_noGLM_no_extrap")
-                             )
-
-sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
-                         "Sc. 3 No GLM, with extrap",
-                         "Sc. 4 No GLM, no extrap")
-
-# New comparisons
-# Include the 2017 mean weight index point
-sens.models.dir.name.22 <- file.path(model.dir,
-                                       "1a_3CD_2023_interp_incl_2017")
-
-sens.models.name.22 <- "Sc. 1a GLM Interpolation (incl. 2017)"
-
-# Update the length-weight parameters
-sens.models.dir.name.33 <- file.path(model.dir,
-                                     "1a_3CD_2023_interp_new_lw")
-
-sens.models.name.33 <- "Sc. 1d GLM Interpolation (new lw pars)"
-
-# Reduce sig_w
-sens.models.dir.name.44 <- c(file.path(model.dir,
-                                     "1a_3CD_2023_interp_2017_sigw015"),
-                             file.path(model.dir,
-                                       "1a_3CD_2023_interp_2017_sigw01"))
-
-
-sens.models.name.44 <- c("Sc. 1b GLM Interpolation (sigW=0.15)",
-                         "Sc. 1c GLM Interpolation (sigW=0.1)")
-
-# Sensitivity to 2019 index point
-sens.models.dir.name.55 <- c(file.path(model.dir,
-                                       "1a_3CD_2023_interp_no2019"),
-                             file.path(model.dir,
-                                       "1a_3CD_2023_interp_no2019b"),
-                             file.path(model.dir,
-                                       "1a_3CD_2023_interp_old2019"))
-
-sens.models.name.55 <- c("Sc. 1e GLM (no 2019)",
-                         "Sc. 1f GLM (no 2018-2019)",
-                         "Sc. 1g GLM (no 2018, old 2019)")
-
+# sens.models.dir.name.11 <- c(file.path(model.dir,
+#                                        "1b_3CD_2023_no_interp"),
+#                              file.path(model.dir,
+#                                        "1c_3CD_2023_noGLM_extrap"),
+#                              file.path(model.dir,
+#                                        "1d_3CD_2023_noGLM_no_extrap")
+#                              )
+#
+# sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
+#                          "Sc. 3 No GLM, with extrap",
+#                          "Sc. 4 No GLM, no extrap")
+#
+# # New comparisons
+# # Include the 2017 mean weight index point
+# sens.models.dir.name.22 <- file.path(model.dir,
+#                                        "1a_3CD_2023_interp_incl_2017")
+#
+# sens.models.name.22 <- "Sc. 1a GLM Interpolation (incl. 2017)"
+#
+# # Update the length-weight parameters
+# sens.models.dir.name.33 <- file.path(model.dir,
+#                                      "1a_3CD_2023_interp_new_lw")
+#
+# sens.models.name.33 <- "Sc. 1d GLM Interpolation (new lw pars)"
+#
+# # Reduce sig_w
+# sens.models.dir.name.44 <- c(file.path(model.dir,
+#                                      "1a_3CD_2023_interp_2017_sigw015"),
+#                              file.path(model.dir,
+#                                        "1a_3CD_2023_interp_2017_sigw01"))
+#
+#
+# sens.models.name.44 <- c("Sc. 1b GLM Interpolation (sigW=0.15)",
+#                          "Sc. 1c GLM Interpolation (sigW=0.1)")
+#
+# # Sensitivity to 2019 index point
+# sens.models.dir.name.55 <- c(file.path(model.dir,
+#                                        "1a_3CD_2023_interp_no2019"),
+#                              file.path(model.dir,
+#                                        "1a_3CD_2023_interp_no2019b"),
+#                              file.path(model.dir,
+#                                        "1a_3CD_2023_interp_old2019"))
+#
+# sens.models.name.55 <- c("Sc. 1e GLM (no 2019)",
+#                          "Sc. 1f GLM (no 2018-2019)",
+#                          "Sc. 1g GLM (no 2018, old 2019)")
+#
 ## -----------------------------------------------------------------------------
 ## Decision table models to average (3CD)
 ## -----------------------------------------------------------------------------
@@ -227,11 +227,11 @@ retro.names <- c("- 1 year",
 ## and sensitivity models change in the model.dir.names above.
 load.models.into.parent.env <- function(){
   base.model.3cd <<- load.models(base.model.3cd.dir.name)
-  sens.models.11 <<- load.models(sens.models.dir.name.11)
-  sens.models.22 <<- load.models(sens.models.dir.name.22)
-  sens.models.33 <<- load.models(sens.models.dir.name.33)
-  sens.models.44 <<- load.models(sens.models.dir.name.44)
-  sens.models.55 <<- load.models(sens.models.dir.name.55)
+  #sens.models.11 <<- load.models(sens.models.dir.name.11)
+  #sens.models.22 <<- load.models(sens.models.dir.name.22)
+  #sens.models.33 <<- load.models(sens.models.dir.name.33)
+  #sens.models.44 <<- load.models(sens.models.dir.name.44)
+  #sens.models.55 <<- load.models(sens.models.dir.name.55)
   desc.models.3cd <<- load.models(desc.models.3cd.dir.name)
   avg.model.3cd <<- avg.models(desc.models.3cd)
 
@@ -264,11 +264,11 @@ build <- function(ovwrt.base = FALSE,
 
   ## Sensitivity models need to be unlisted from their groups
   ##  and placed into a single list for the for loop below to work right
-  sens.models.names.list <- c(unlist(sens.models.dir.name.11),
-                              unlist(sens.models.dir.name.22),
-                              unlist(sens.models.dir.name.33),
-                              unlist(sens.models.dir.name.44),
-                              unlist(sens.models.dir.name.55),
+  sens.models.names.list <- c( #unlist(sens.models.dir.name.11),
+  #                             unlist(sens.models.dir.name.22),
+  #                             unlist(sens.models.dir.name.33),
+  #                             unlist(sens.models.dir.name.44),
+  #                             unlist(sens.models.dir.name.55),
                               unlist(desc.models.3cd.dir.name))
 
   ## Sensitivity models
