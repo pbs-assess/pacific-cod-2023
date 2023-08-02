@@ -21,6 +21,11 @@ output:
   # csasdown::sr_word:
    french: false
    prepub: false
+   copy_sty: true
+   # copy_sty is a toggle to copy the style file from the csasdown package every time 
+   # you compile the document. 
+   # If false, any changes you have made to the style file in your project
+   # will remain between compilations. If true, your changes will be lost when you compile
 type:
   sr
 # ------------

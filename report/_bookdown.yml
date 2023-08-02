@@ -4,7 +4,7 @@ rmd_files: ["index.Rmd",
             "01-main.Rmd",
             "02-tables.Rmd",
             "03-figures.Rmd",
-            "04-appendices.Rmd",
+            #"04-appendices.Rmd",
             "99-references.Rmd"#,
             #"04-diagnostics.Rmd"
             ]
