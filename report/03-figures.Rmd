@@ -214,19 +214,6 @@ b.plot(avg.model.3cd,
        
 ```
 
-<!-- Ref model, not used here but needed for FSERP OM
-```{r fig-model-ref-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
-b.plot(base.model.3cd,
-       base.model.3cd.name,
-       depl = FALSE,
-       add.hist.ref = TRUE,
-       lrp = c(1986, 1986),
-       usr = c(1956, 2004), french=french)
-```
-
--->
-
-
 ```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
 f.plot(avg.model.3cd,
        base.model.3cd.name,
@@ -235,18 +222,6 @@ f.plot(avg.model.3cd,
        french=french)
 
 ```
-
-<!-- Ref model, not used here but needed for FSERP OM
-```{r fig-model-ref-biomass-5abcd, fig.cap="Combined posterior biomass for the model-averaged set for Area 5ABCD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
-b.plot(base.model.5abcd,
-       base.model.5abcd.name,
-       depl = FALSE,
-       add.hist.ref = TRUE,
-       lrp = c(2000, 2000),
-       usr = c(1956, 2004), french=french)
-```
-
--->
 
 ```{r fig-model-average-biomass-3cd-proj, fig.cap="Combined posterior estimates of biomass for the model-averaged set for Area 3CD with projections (to the beginning of 2022). Thick black line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively. The coloured regions to the right of the vertical dashed line represent projections based on various 2021 catch levels. For clarity, years before 2010 are removed."}
 b.plot(avg.model.3cd,
