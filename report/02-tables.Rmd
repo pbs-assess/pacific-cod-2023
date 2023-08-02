@@ -19,27 +19,9 @@ catch.table(catch.3,
 
 \clearpage
 
-```{r tab-catch-5abcd}
-catch.table(catch.5,
-            catch.5.discards,
-            pre.1996.discards.5abcd,
-            area = "5ABCD",
- cap = paste0("Reported catch (mt) of Pacific Cod in Area 5ABCD ",
-              "by Canada and the USA, ",
-              min(catch.5$year)+3, "--", max(catch.5$year),
-              ". The reported releases at sea (discards) for the period ", min(catch.5$year)+3,
-              "--1995 are ",
-              "likely unrepresentative of true discarding because the estimates were taken ",
-              "from logbooks in the absence of observers. Discard estimates since 1996 are based on at-sea ",
-              "observations and are considered to be more representative of true discarding. The 2020 total catch estimate is extrapolated from the combined landings plus discards taken up to September 30, 2020 (see text). Therefore 2020 nominal landings and discards are not shown individually. Numbers are rounded for presentation."),      french=french)
-
-```
-
-\clearpage
-
 ```{r surv-canadian-table, results='asis'}
 dplyr::filter(dat$survey_index, survey_abbrev %in%
-  c("SYN QCS", "SYN WCVI", "SYN HS", "OTHER HS MSA")) %>%
+  c("SYN QCS", "SYN WCVI", "SYN HS")) %>%
   dplyr::select(survey_abbrev, year, biomass, re, lowerci, upperci, num_sets, num_pos_sets) %>%
   dplyr::mutate(lowerci = round(lowerci/1000, 1), upperci = round(upperci/1000, 1),
     biomass = round(biomass/1000, 1), re = round(re, 2)) %>%
@@ -61,16 +43,6 @@ make.parameters.table(base.model.3cd,
   omit_selectivity_pars = TRUE, french=french)
 ```
 
-
-```{r tab-param-table-5abcd, results='asis'}
-make.parameters.table(base.model.5abcd,
-  caption = paste0("Estimated and fixed parameters and prior probability distributions used ",
-    "in the Reference Case, Area 5ABCD. The survey catchability parameters for QCS and HS ($q_2$ and $q_3$) were estimated with the prior probability distributions $\\textrm{Normal}(ln(0.408),0.3)$ and $\\textrm{Normal}(ln(0.0654,),0.3)$, respectively. The other survey catchability parameters were estimated without priors."),
-  omit_pars = c("Log initial recruitment ($\\ln(\\overline{R}_{init})$)",
-    "Log mean recruitment ($\\ln(\\overline{R})$)"),
-  omit_selectivity_pars = TRUE, french=french)
-```
-
 \clearpage
 
 ```{r tab-param-est-table-3cd, results='asis'}
@@ -80,16 +52,6 @@ make.parameters.est.table(base.model.3cd,
     "97.5\\textsuperscript{th} percentile) and MPD ",
     "estimates of key parameters from the Reference Case, Area 3CD. $R_0$ is in thousands of fish. $\\hat{R}$ is the potential scale reduction statistic and $n_\\mathrm{eff}$ is the effective number of simulation draws (see text). ",
     q.3cd.desc),
-  omit_pars = pars_est_omit, french=french)
-```
-
-```{r tab-param-est-table-5abcd, results='asis'}
-pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$", "$B_0$")
-make.parameters.est.table(base.model.5abcd,
-  caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
-    "97.5\\textsuperscript{th} percentile) and MPD ",
-    "estimates of key parameters from the Reference Case, Area 5ABCD. $R_0$ is in thousands of fish. $\\hat{R}$ is the potential scale reduction statistic and $n_\\mathrm{eff}$ is the effective number of simulation draws (see text). ",
-    q.5abcd.desc),
   omit_pars = pars_est_omit, french=french)
 ```
 
@@ -107,21 +69,6 @@ make.ref.points.table(c(base.model.3cd,
                                          "model-averaged Area 3CD. ",
                                          "Biomass is in tonnes. All values are rounded. Ratios were calculated using full posterior distributions and cannot be calculated directly from the table."), french=french)
 ```
-
-
-```{r tab-ref-points-table-avg-5abcd, results='asis'}
-make.ref.points.table(c(base.model.5abcd,
-                        sens.models.6.sub),
-                        lrr_range = 1956:2004,
-                        lrp_range = 2000,
-                        usr_range = 1956:2004,
-                        digits = 2,
-                        caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
-                                         "97.5\\textsuperscript{th} percentile) of reference points for ",
-                                         "model-averaged Area 5ABCD. ",
-                                         "Biomass is in tonnes. All values are rounded. Ratios were calculated using full posterior distributions and cannot be calculated directly from the table."), french=french)
-```
-
 \clearpage
 
 ```{r summary-tab-decision-avg-3cd, results='asis'}
@@ -131,14 +78,5 @@ make.ref.points.table(c(base.model.5abcd,
                                  "."), french=french) #
 ```
 
-
-\clearpage
-
-```{r summary-tab-decision-avg-5abcd, results='asis'}
- decision.table(avg.model.5abcd,
-                caption = paste0("Decision table with model averaging for Area 5ABCD. Models averaged are: ",
-                                 and.string(c(base.model.5abcd.name, sens.models.name.6.sub)),
-                                 "."), french=french) #
-```
 
 \clearpage
