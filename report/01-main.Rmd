@@ -133,15 +133,14 @@ The model was largely insensitive to these alternative treatments, mainly becaus
 ## Stock assessment model
 
 The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial annual mean weights [@forrest2015; @forrest2020].
-A full stock assessment history for both stocks is provided in @forrest2020.
-The current model is fully described in Appendix D of @forrest2020.
-All fixed parameters and prior probability distributions for model parameters in the current assessment were the same as those reported in @forrest2020 (see also Tables \@ref(tab:tab-param-table-3cd) and \@ref(tab:tab-param-table-5abcd), this document).
+The model is fully described in Appendix D of @forrest2020.
+All fixed parameters and prior probability distributions for model parameters in the current assessment were the same as those reported in @forrest2020 (see also Table \@ref(tab:tab-param-table-3cd), this document).
 
-@forrest2015 and @forrest2020 used a model-averaging approach to construct decision tables based on combined posterior samples from several sensitivity cases.
+@forrest2015 (for Pacific Cod stocks in Areas 5A and 5B) and @forrest2020 used a model-averaging approach to estimate stock status and construct decision tables based on combined posterior samples from several sensitivity cases.
 This was to address some of the key irresolvable uncertainties associated with the stock assessment.
 Major axes of uncertainty were catchability ($q$) in the indices of abundance, the magnitude of natural mortality ($M$), age at recruitment to the fishery, and the magnitude of observation errors in the surveys and mean weight [@forrest2020].
 Details are provided in the model scenarios section.
-Other stock assessments that have used a model-averaging approach are Pacific Hake [@stewart2011], Pacific Halibut [@stewart2016], BC Shortspine Thornyhead [@starr2017], BC Walleye Pollock [@starr2018] and three assessments of BC *Sebastes* stocks [@dfo2019b; @dfo2020a; @dfo2020b].
+Other stock assessments that have used a model-averaging approach are Pacific Hake [@stewart2011], Pacific Halibut [@stewart2016], BC Shortspine Thornyhead [@starr2017], BC Walleye Pollock [@starr2018] and several assessments of BC *Sebastes* stocks [e.g., @dfo2019b; @dfo2020a; @dfo2020b].
 
 ## Reference points
 
@@ -166,18 +165,17 @@ See also @forrest2018 for simulation-testing of historical reference points for 
 
 ## Model scenarios
 
-Reference case models were established for Areas 3CD and 5ABCD to represent what were considered the most plausible choices across a range of assumptions for each stock.
-The Reference models for Areas 3CD and 5ABCD shared similar characteristics to each other in terms of data choices, prior probability distributions and fixed parameter settings.
-Key characteristics of the models are provided in Tables \@ref(tab:tab-param-table-3cd) and \@ref(tab:tab-param-table-5abcd).
+A reference model was established to represent what were considered the most plausible model choices across a range of assumptions.
+Key characteristics of the model are provided in Table \@ref(tab:tab-param-table-3cd).
 For further details, see @forrest2020.
-These models served as the basis from which sensitivity scenarios were developed, altering alternative model assumptions one at a time.
-A set of model scenarios for each stock was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for model averaging in the 2018 assessment [@dfo2019].
-The same sets were used here (updated with catch data to 2020 and index data to 2019 where available).
+This model served as the basis from which sensitivity scenarios were developed, altering alternative model assumptions one at a time.
+A set of model scenarios was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for model averaging in the 2018 assessment [@dfo2019].
+The same sets were used again in the 2020 stock assessment update [@dfo2021] and here (updated with catch and index data to 2022, with updates to the annual mean weight index described above).
 Full details on the model configurations and assumptions for each scenario are provided in @forrest2020.
 
-### Area 3CD
+### Scenarios for model-averaging
 
-For Area 3CD, the scenarios (Sc) included in the model-averaging set were:
+The scenarios (Sc) included in the model-averaging set were:
 
 1.	Sc 1a Reference model;
 2.	Sc 2d Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$;
