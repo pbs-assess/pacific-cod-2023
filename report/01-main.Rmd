@@ -106,11 +106,29 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 
 ### Annual mean weight in commercial catch
 
-Annual mean weight in the commercial catch was calculated using the methodology decribed in Appendix C of @forrest2020.
-Commercial biological samples were available for calculating mean weight from 1956 to 2019.
+The commercial annual mean weight index between 1956 and 2016 was calculated using commercial length samples, with the methodology described in Appendix C of @forrest2020.
+Commercial biological samples were available for calculating mean weight from 1956 to 2019 (excluding 2018).
 
+There has been no biological sampling on commercial trawl vessels since 2019.
+However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific Cod, starting in 2016 (Appendix A).
+In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish).
+The samples in 2017 and 2019 were taken from a limited area (Figure \@ref(fig:fig-sample-locations)), especially the 2019 samples, which were also collected on the same vessel.
+The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on four samples, it was not used in the 2020 stock assessment update [@dfo2021].
+Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal, as the 2019 index point was also based on only two samples.
 
+In the absence of representative biological samples for the last years of the time series, a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from WCVI Synoptic Survey length samples (Appendices B and C).
+The methodology was presented to the TWG in 2022 and again in 2023, who found it provided a reasonable fit to the commercial mean weight index derived from commercial data for Area 3CD (see also Appendix C).
 
+The GLM predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
+A decision therefore had to be made about how to include the GLM-derived index values in the commercial mean weight index, since there were no GLM-derived values for 2017, 2019 or 2020.
+
+For consistency with previous assessments [@forrest2020; @dfo2021], the model uses the commercial annual mean weight index derived directly from commercial length samples for the years 1956--2016.
+Since neither of the previous assessments have used the 2017 index point, it was also omitted from this assessment update.
+For 2018--2022, the model uses the 2018, 2021 and 2022 annual mean weight index values derived from the GLM (Figure \@ref(fig:all-mean-weight-series-3cd)).
+Values for 2019 and 2020 were interpolated between 2018 and 2021.
+
+The TWG explored a number of sensitivity analyses, which tested model sensitivity to alternative approaches to updating the commercial annual mean weight index, including indices that excluded the interpolated values, did not include the GLM values, or variously included or excluded the 2017 and 2019 index points from the commercial data.
+The model was largely insensitive to these alternative treatments, mainly because the GLM-derived index values were consistent with the other data sources in the model (see Reference model results section), resulting in poor fits to alternative versions of the index and, therefore, little impact on recruitment and biomass estimates.
 
 ## Stock assessment model
 
@@ -163,18 +181,6 @@ For Area 3CD, the scenarios (Sc) included in the model-averaging set were:
 
 1.	Sc 1a Reference model;
 2.	Sc 2d Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$;
-3.	Sc 2e Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6;
-4.	Sc 3a Set the parameters of the prior probability distribution for $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$;
-5.	Sc 5a Set knife-edged age at recruitment = 3 years;
-6.	Sc 6b Reduce the overall observation error term $\sigma_O = 0.15$; and
-7.	Sc 7b Reduce the SD in the likelihood for the fit to average annual mean weight $\sigma_W = 0.15$.
-
-### Area 5ABCD
-
-For Area 5ABCD, the scenarios included in the model-averaging set were:
-
-1.	Sc 1a Reference model;
-2.	Sc 2d Set the mean of the prior probability distribution for synoptic surveys $\ln(q)$ = $\ln(1.0)$ (pro-rated by depth-stratum areas of Area 5AB and 5CD);
 3.	Sc 2e Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6;
 4.	Sc 3a Set the parameters of the prior probability distribution for $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$;
 5.	Sc 5a Set knife-edged age at recruitment = 3 years;
