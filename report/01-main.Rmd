@@ -11,19 +11,19 @@ Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 
 Catches from 2018--2020 were also lower than in previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
 The commercial CPUE index decreased substantially in 2018 but has increased slightly since then, with increases in commercial catch (Figure \@ref(fig:fig-modern-cpue-3cd), Table \@ref(tab:tab-catch-3cd)).
 
-The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch, and an index of commercial annual mean weight [@forrest2020]. The commercial mean weight index is derived from commercial length samples [see Appendix C of @forrest2020 for methodology], and provides information about recruitment strength to the model.
+The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch, and an index of commercial annual mean weight [@forrest2020]. The commercial mean weight index is derived from commercial length samples [see Appendix C of @forrest2020 for methodology], and provides information about scale and recruitment strength to the model.
 Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019.
+However, even before the pandemic, there has been a notable reduction in biological sampling of Pacific cod on commercial vessels since 2016 (Appendix A).
 
 A Request for Science Information and Advice (RSIA) for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks.
 The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
 The request advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
-The TWG evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from an annual mean weight index derived from WCVI survey samples.
-The TWG found that the GLM provided a reasonable prediction of the commercial annual mean weight index for the Area 3CD stock.
+The TWG evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a survey annual mean weight index derived from WCVI survey samples.
+The TWG found that the GLM provided acceptable predictions of the commercial annual mean weight index for the Area 3CD stock.
 The GLM did not have acceptable predictive power for the 5ABCD stock.
-Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA.
-
-Presumably due to the ongoing low catches of Area 3CD Pacific Cod and model estimates of low fishing mortality [@dfo2021], the Pacific Groundfish Management Unit did not request updated catch advice for 2023.
+Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA in 2022.
+The Pacific Groundfish Management Unit did not request updated catch advice for 2023.
 However, given the three low index points in 2018, 2021 and 2022, Science issued a RSIA requesting a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
 
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
@@ -37,6 +37,8 @@ For the purpose of triggering a rebuilding plan, the guidance provides the follo
 
 This Science Response reports results from the Science Response Process of December 2022 on the Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023.
 This stock status update uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
+However, due to the ongoing absence of commercial length samples, this update uses the GLM developed in 2022, which predicts commercial mean weight index values from a survey mean weight index, to update the last five years of the annual commercial mean weight index.
+The survey mean weight index and the GLM are described in Appendices B and C.
 
 Prior to estimating model-averaged stock status, the impacts of different treatments of the commercial annual mean weight index are evaluated, including two scenarios that use recent index values derived from the GLM presented to the TWG in 2022. 
 The commercial annual mean weight index from one of these scenarios is selected and used in the seven models used for model-averaging. 
