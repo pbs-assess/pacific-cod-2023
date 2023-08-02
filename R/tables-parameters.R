@@ -499,8 +499,8 @@ make.ref.points.table <- function(models,
                    latex.subscr.ital("B", yr_b_end),
                    latex.subscr.ital("F", yr_f_end))
   # -----
-  # Remove B0 and B20201/B0 (https://github.com/robynforrest/pacific-cod-2020/issues/8)
-  tab <- tab %>% filter(refpt_names != "bo" & refpt_names != "b2021/bo")
+  # Remove B0 and B2023/B0 (https://github.com/robynforrest/pacific-cod-2020/issues/8)
+  tab <- tab %>% filter(refpt_names != "bo" & refpt_names != "b2023/bo")
   latex_names <- c(latex.subscr.ital("B", yr_b_end),
                    latex.subscr.ital("F", yr_f_end))
   tab[c(1, 3, 4), -1] <- map_dfc(tab[c(1, 3, 4), -1], ~{round(as.numeric(.x), 0)})
@@ -529,7 +529,7 @@ make.ref.points.table <- function(models,
     latex_names <- c(latex_names, paste0(en2fr("LRR", translate=french)," (", lrr_range_text ,")"))
   }
   # -----
-  # Remove B0 and B20201/B0 (https://github.com/robynforrest/pacific-cod-2020/issues/8)
+  # Remove B0 and B2023/B0 (https://github.com/robynforrest/pacific-cod-2020/issues/8)
   #latex_names <- c(latex_names, paste0(latex.subscr.ital("B", yr_b_end),
   #                                     "/",
   #                                     latex.subscr.ital("B", "0")))
