@@ -70,7 +70,7 @@ For each area, models were fit to the following data: commercial catch, fishery-
 
 ### Commercial catch
 
-Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to 2020).
+Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to March 31, 2022).
 Catch data prior to 1981 include catch by US vessels [@forrest2015; @forrest2020].
 Fishing years are defined as beginning on April 1 for all years, and are referenced by starting year, e.g., fishing year 1957 runs from April 1, 1957 to March 31, 1958 [see @forrest2020].
 
@@ -78,28 +78,18 @@ Prior to the introduction of at-sea observer coverage in 1996, estimates of disc
 Pre-1996 discards are, therefore, a major source of uncertainty in this assessment.
 Estimates in years following the introduction of 100% at-sea observer coverage in 1996 are considered to be  accurate.
 Pacific Cod can be legally discarded by trawlers in BC.
-However, on-board observers first estimate the quantity being discarded, which is counted against the quota.
-Therefore, in addition to greater accuracy in reporting of discards since 1996, incentives to avoid discarding have also been greater.
-
-At the time of the assessment, the 2020 fishing year was incomplete.
-In order to provide projections for the 2021 fishing season, the 2020 catch (landings + discards) was extrapolated in each area, using the three-year average proportion of catch taken by September 30 (representing the end of the second quarter of the 2020 fishing year).
-This proportion was used to extrapolate from the catch at September 30, 2020 to a total estimated catch for the 2020 fishing year (Tables \@ref(tab:tab-catch-3cd) and \@ref(tab:tab-catch-5abcd)). In Area 3CD, the average proportion was 67.4% (average of 85.6%. 46.2% and 70.5% for the 2017, 2018, and 2019 fishing years, respectively).
-In area 5ABCD, the average proportion was 87.8% (average of 88.6%. 82.7% and 92.1% for the 2017, 2018, and 2019 fishing years, respectively).
-In Area 3CD, the average proportion of catch taken by September 30 has been inconsistent in recent years and therefore the 2020 extrapolation should be considered uncertain.
-However, the magnitude of the catch in the past three years has been low, and the 2020 catch is expected to have a minor impact on 2021 catch advice.
-In addition, 2020 catch patterns in both areas may be atypical due to the COVID-19 pandemic.
+However, between 1996 and 2019, on-board observers first estimated the quantity being discarded, which was counted against the vessel's quota.
+Discard estimates are still counted against the vessel's quota, but the estimates are now made via the electronic monitoring system and fisher logbooks.
+In addition to providing greater accuracy in reporting of discards since 1996, counting discards against the vessel's quota provides greater incentives to avoid discarding.
 
 ### Canadian bottom trawl surveys
 
 Survey indices (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:surv-canadian)) were calculated using a swept area analysis, documented in Appendix A of @forrest2020.
 Abundance in Area 3CD (Figure \@ref(fig:fig-map)) is indexed by the WCVI Synoptic Survey.
 The survey was first conducted in 2004 and is conducted in alternating (even-numbered) years.
-Due to the COVID-19 pandemic there was no survey in 2020.
-Abundance in Area 5AB (Figure \@ref(fig:fig-map)) is indexed by the QCS Synoptic Survey.
-The survey was first conducted in 2003 and 2004, and then in odd years since 2005.
-Abundance in Area 5CD (Figure \@ref(fig:fig-map)) was indexed by the HS Multispecies Assemblage Survey in 1984, 1987, 1989, 1991, 1993, 1995, 1996, 1998, 2000, 2002, and 2003.
-Since 2005, it has been indexed in odd-numbered years by the HS Synoptic Survey.
-Details on spatial extent and depth strata of all surveys are provided in Appendix A of @forrest2020.
+Due to the COVID-19 pandemic the 2020 survey was postponed to 2021, before resuming its even-numbered years schedule in 2022.
+
+For comparison, survey indices in Areas 5AB and 5CD are also shown in (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:surv-canadian)).
 
 ### NMFS Triennial Survey (in Canadian waters)
 
@@ -118,7 +108,9 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 
 Annual mean weight in the commercial catch was calculated using the methodology decribed in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019.
-In the absence of available commercial biological samples for 2020, the annual mean weight for 2020 was assumed the same as 2019.
+
+
+
 
 ## Stock assessment model
 
