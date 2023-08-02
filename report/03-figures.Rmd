@@ -170,7 +170,7 @@ make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
 ```
 
 ```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
-include_graphics(here("TWG/commercial_sample_locations_byyear_3CD.png"))
+include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"))
 ```
 
 

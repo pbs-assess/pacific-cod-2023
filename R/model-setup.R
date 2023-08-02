@@ -192,8 +192,7 @@ sens.models.dir.name.13.sub <- c(file.path(model.dir,
                                  file.path(model.dir,
                                            "6b_3CD_sig015"),
                                  file.path(model.dir,
-                                           "7b_3CD_sigW015")
-                                 )
+                                           "7b_3CD_sigW015"))
 
 sens.models.name.13.sub <- c("2d) WCVISS ln(q) prior mean = ln(1.0)",
                              "2e) WCVISS ln(q) prior SD = 0.6",
@@ -265,13 +264,14 @@ build <- function(ovwrt.base = FALSE,
 
   ## Sensitivity models need to be unlisted from their groups
   ##  and placed into a single list for the for loop below to work right
-  sens.models.names.list <-   c(unlist(sens.models.13.sub),
+  sens.models.names.list <-   c(unlist(sens.models.dir.name.13.sub),
+                                unlist(desc.models.3cd.dir.name))
   #                             unlist(sens.models.dir.name.11),
   #                             unlist(sens.models.dir.name.22),
   #                             unlist(sens.models.dir.name.33),
   #                             unlist(sens.models.dir.name.44),
-  #                             unlist(sens.models.dir.name.55),
-                              unlist(desc.models.3cd.dir.name))
+  #                             unlist(sens.models.dir.name.55))
+
 
   ## Sensitivity models
   for(model.nm in sens.models.names.list){
