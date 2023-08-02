@@ -182,17 +182,17 @@ desc.models.3cd.name <- c(base.model.3cd.name,
 # ## Sensitivity models group 13 sub (3CD) Decision table figure
 # ## -----------------------------------------------------------------------------
 sens.models.dir.name.13.sub <- c(file.path(model.dir,
-                                           "1_2d_3CD_q_1"),
+                                           "2d_3CD_q_1"),
                                  file.path(model.dir,
-                                           "1_2e_3CD_q_cv06"),
+                                           "2e_3CD_q_cv06"),
                                  file.path(model.dir,
-                                           "1_3a_3CD_Mprior_mean04_sd01"),
+                                           "3a_3CD_Mprior_mean04_sd01"),
                                  file.path(model.dir,
-                                           "1_5a_3CD_kage3"),
+                                           "5a_3CD_kage3"),
                                  file.path(model.dir,
-                                           "1_6b_3CD_sig015"),
+                                           "6b_3CD_sig015"),
                                  file.path(model.dir,
-                                           "1_7b_3CD_sigW015")
+                                           "7b_3CD_sigW015")
                                  )
 
 sens.models.name.13.sub <- c("2d) WCVISS ln(q) prior mean = ln(1.0)",
@@ -226,14 +226,15 @@ retro.names <- c("- 1 year",
 ## as the other model setup and should be changed if bridge models
 ## and sensitivity models change in the model.dir.names above.
 load.models.into.parent.env <- function(){
-  base.model.3cd <<- load.models(base.model.3cd.dir.name)
-  #sens.models.11 <<- load.models(sens.models.dir.name.11)
-  #sens.models.22 <<- load.models(sens.models.dir.name.22)
-  #sens.models.33 <<- load.models(sens.models.dir.name.33)
-  #sens.models.44 <<- load.models(sens.models.dir.name.44)
-  #sens.models.55 <<- load.models(sens.models.dir.name.55)
-  desc.models.3cd <<- load.models(desc.models.3cd.dir.name)
-  avg.model.3cd <<- avg.models(desc.models.3cd)
+  base.model.3cd     <<- load.models(base.model.3cd.dir.name)
+  sens.models.13.sub <<- load.models(sens.models.dir.name.13.sub)
+  #sens.models.11    <<- load.models(sens.models.dir.name.11)
+  #sens.models.22    <<- load.models(sens.models.dir.name.22)
+  #sens.models.33    <<- load.models(sens.models.dir.name.33)
+  #sens.models.44    <<- load.models(sens.models.dir.name.44)
+  #sens.models.55    <<- load.models(sens.models.dir.name.55)
+  desc.models.3cd    <<- load.models(desc.models.3cd.dir.name)
+  avg.model.3cd      <<- avg.models(desc.models.3cd)
 
   # base.retro.models.3cd <<- load.models(retro.dir.names.3cd)
 }
@@ -264,7 +265,8 @@ build <- function(ovwrt.base = FALSE,
 
   ## Sensitivity models need to be unlisted from their groups
   ##  and placed into a single list for the for loop below to work right
-  sens.models.names.list <- c( #unlist(sens.models.dir.name.11),
+  sens.models.names.list <-   c(unlist(sens.models.13.sub),
+  #                             unlist(sens.models.dir.name.11),
   #                             unlist(sens.models.dir.name.22),
   #                             unlist(sens.models.dir.name.33),
   #                             unlist(sens.models.dir.name.44),

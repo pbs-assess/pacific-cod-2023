@@ -20,7 +20,9 @@ knitr::opts_chunk$set(
 )
 french <- FALSE
 # this runs all the r code, including loading the data and models
-source(file.path(here::here(), "R", "all.R")) 
+source(file.path(here::here(), "R", "all.R"))
+source(file.path(here::here(), "R", "get-mean-weight-survey-2.R")) # file with analyses just for the TWG report. Eventually consolidate with "get-mean-weight-survey.R in the SR"
+
 
 ```
 
