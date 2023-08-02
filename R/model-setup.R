@@ -1,5 +1,8 @@
 ## -----------------------------------------------------------------------------
 ## Set verbosity for this project (R code)
+## NOTE THAT ALL THE TWG FOLDERS HAVE BEEN MOVED INTO MODELS/TWG
+## TO BUILD ANY OF THE TWG REPORTS, THEY NEED TO BE MOVED BACK INTO MODELS
+## AND THE BASE MODEL NEEDS TO BE CHANGED BELOW
 ## -----------------------------------------------------------------------------
 verbose <- TRUE
 
@@ -83,18 +86,25 @@ if(verbose){
 ## -----------------------------------------------------------------------------
 ## Base model names and directories
 ## -----------------------------------------------------------------------------
+# THIS ONE IS FOR THE TWG REPORTS
+# base.model.3cd.dir.name <- file.path(model.dir,
+#                                      "1a_3CD_2023_interp")
+# base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 GLM Interpolation")
+
+# THIS ONE IS FOR THE SCIENCE RESPONSE
 base.model.3cd.dir.name <- file.path(model.dir,
-                                     "1a_3CD_2023_interp")
-base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1 GLM Interpolation")
+                                     "1a_3CD_2023_reference")
+base.model.3cd.name <- ifelse(french, "Sc 1a. Ref", "Sc. 1a Reference")
 
 if(verbose){
   cat0("Base model directory name for reference model 3cd:\n", base.model.3cd.dir.name)
   cat0("Base model pretty name for reference model 3cd:\n", base.model.3cd.name)
 }
 
-## -----------------------------------------------------------------------------
-## Sensitivity models group 11 (3CD) - individual imputation iterations
-## -----------------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------
+## Sensitivity models for the TWG REPORTS 2023. SEE NOTE AT THE TOP OF THIS
+##  SCRIPT ABOUT LOCATION OF THESE FOLDERS. THEY SHOULD BE MOVED BACK INTO MODELS IF NEEDED.
+## --------------------------------------------------------------------------------------------
 # Sensitivity of treatment of commercial mean weight index
 sens.models.dir.name.11 <- c(file.path(model.dir,
                                        "1b_3CD_2023_no_interp"),
