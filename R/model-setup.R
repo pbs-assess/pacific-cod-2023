@@ -5,7 +5,7 @@
 ## AND THE BASE MODEL NEEDS TO BE CHANGED BELOW
 ## -----------------------------------------------------------------------------
 verbose <- TRUE
-french <- FALSE
+#french <- FALSE
 
 ## Custom class types
 model.class <- "model"

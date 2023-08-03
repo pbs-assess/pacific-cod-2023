@@ -18,8 +18,13 @@ Then:
 
 5. Make the draft SR
 
-- knit index.Rmd
+For now type this into the command line:
 
-6. Convene the TWG
+setwd("report")
+bookdown::render_book("index.Rmd")
+
+knitting index.Rmd is currently not working.
+
+
 
 

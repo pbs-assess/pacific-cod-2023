@@ -52,7 +52,7 @@ knitr::opts_chunk$set(
   out.width = "5in",
   echo = FALSE,
   autodep = TRUE,
-  cache = TRUE,
+  cache = FALSE,
   cache.comments = FALSE,
   dev = if (knitr:::is_latex_output()) "pdf" else "png",
   dpi = 200,
