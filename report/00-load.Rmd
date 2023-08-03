@@ -1,31 +1,3 @@
-```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  warning = FALSE,
-  message = FALSE,
-  comment = "#>",
-  fig.path = "knitr-figs/",
-  cache.path = if (knitr:::is_latex_output()) "knitr-cache-tex/" else "knitr-cache-docx/",
-  fig.asp = 0.618,
-  fig.width = 6.5,
-  out.width = "5in",
-  echo = FALSE,
-  autodep = TRUE,
-  cache = TRUE,
-  cache.comments = FALSE,
-  dev = if (knitr:::is_latex_output()) "pdf" else "png",
-  dpi = 200,
-  fig.align = "center",
-  fig.pos = "htb"
-)
-french <- FALSE
-# this runs all the r code, including loading the data and models
-source(file.path(here::here(), "R", "all.R"))
-source(file.path(here::here(), "R", "get-mean-weight-survey-2.R")) # file with analyses just for the TWG report. Eventually consolidate with "get-mean-weight-survey.R in the SR"
-
-
-```
-
 ```{r load-models, cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
 #NOTE. if adding sensitivity models need to modify load.models.into.parent.env()
 # in model-setup.R (as well as path names to sensitivity folders)
