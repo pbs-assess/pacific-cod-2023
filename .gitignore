@@ -73,4 +73,6 @@ report-french/_book
 report/_book
 data/
 *knitr-cache-tex*
-
+lw_gfplot.cpp
+lw_gfplot.o
+lw_gfplot.so
