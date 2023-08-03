@@ -152,11 +152,11 @@ The DFO Fishery Decision-making Framework Incorporating the Precautionary Approa
 
 The USR and LRP define the threshold of three biomass-based stock status zones defined under the PA Policy [@dfo2009]: Critical Zone (below the LRP); Cautious Zone (above the LRP and below the USR); and Healthy Zone (above the USR).
 
-As in the 2018 assessment [@dfo2019], historical reference points were used to assess stock status, where
+As in previous assessments [@dfo2019; @dfo2021], historical reference points were used to assess stock status, where
 
 1. The USR is the historical mean of the biomass estimates from 1956--2004.
 
-2. The LRP is the lowest estimated biomass agreed upon as an undesirable state to be avoided. For Area 5ABCD this is the estimated biomass in 2000. For Area 3CD it is the estimated biomass in 1986.
+2. The LRP is the lowest estimated biomass agreed upon as an undesirable state to be avoided. For Area 3CD it is the estimated biomass in 1986.
 
 3. The LRR is the average fishing mortality rate from 1956--2004.
 
@@ -170,7 +170,7 @@ Key characteristics of the model are provided in Table \@ref(tab:tab-param-table
 For further details, see @forrest2020.
 This model served as the basis from which sensitivity scenarios were developed, altering alternative model assumptions one at a time.
 A set of model scenarios was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for model averaging in the 2018 assessment [@dfo2019].
-The same sets were used again in the 2020 stock assessment update [@dfo2021] and here (updated with catch and index data to 2022, with updates to the annual mean weight index described above).
+The same sets were used again in the 2020 stock assessment update [@dfo2021] and here (updated with catch and index data to the end of the 2022 fishing year, with updates to the annual mean weight index described above).
 Full details on the model configurations and assumptions for each scenario are provided in @forrest2020.
 
 ### Scenarios for model-averaging
@@ -195,9 +195,7 @@ Posterior samples were drawn every 5,000 iterations from a chain of length 10 mi
 
 Model convergence was informed by visual inspection of trace and autocorrelation plots (not shown), and the statistics $\hat{R}$, the potential scale reduction statistic, which should approach 1.0 as the chains are consistent with convergence, and $n_\mathrm{eff}$, which measures the effective number of MCMC independent samples after accounting for autocorrelation [@gelman1992; @gelman2014; see descriptions in @forrest2020].
 
-### Area 3CD
-
-Reference case model fits to the data were generally typical of all sensitivity cases.
+Reference model fits to the data were generally typical of all sensitivity cases.
 The model diagnostics were consistent with convergence, and posterior sample autocorrelation was relatively minor for most parameters (Table \@ref(tab:tab-param-est-table-3cd)).
 Model fits to the catch were near perfect by design (standard deviation in log likelihood was set to 0.05) and are not shown.
 Model fits to the four indices of abundance are shown in Figure \@ref(fig:fig-base-index-fits-3cd).
@@ -219,26 +217,10 @@ Notably, the median estimated value of natural mortality, $M$, was 0.45 *y*^-1^ 
 Values in parentheses here and elsewhere refer to lower and upper bounds of the 95% credible interval. 
 The larger 2020 estimates of $M$ suggest that the model is partially explaining the decreased biomass through greater natural mortality, although there was considerable overlap between the current and 2018 credible intervals.
 
-### Area 5ABCD
-
-As for Area 3CD, reference case model fits to the data were typical of all sensitivity cases.
-The model diagnostics were consistent with convergence, and posterior sample autocorrelation was relatively minor for most parameters (Table \@ref(tab:tab-param-est-table-5abcd)).
-
-The MPD (mode of the posterior distribution) model fits to the five indices of abundance are shown in Figure \@ref(fig:fig-base-index-fits-5abcd).
-The model followed the general trends of the three fishery-independent indices, but could not fit some of the larger peaks (for example 2004 and 2005 peaks in the Queen Charlotte Sound Synoptic Survey, and the 2009 and 2013 peaks in the Hecate Strait Synoptic Survey, Figure \@ref(fig:fig-base-index-fits-5abcd)b and c).
-Similarly, the model followed the major patterns in the two CPUE indices but did not capture all the peaks (Figure \@ref(fig:fig-base-index-fits-5abcd)d and e).
-As in previous assessments, the model tended to underestimate annual mean weight, especially between 1970 and 2000 (Figure \@ref(fig:fig-base-mean-weight-5abcd)), likely for similar reasons described for Area 3CD.
-
-Reference model parameter estimates are shown in Table \@ref(tab:tab-param-est-table-5abcd).
-The range of the posterior estimate of $M$ was was nearly identical in the current assessment, at 0.31 *y*^-1^ (0.28--0.34 *y*^-1^), compared to 0.31 *y*^-1^ (0.28--0.35 *y*^-1^) in the 2018 assessment [@forrest2020].
-
 ## Indicators of current stock status 
 
-Management advice for both stocks is based on the results of the combined models described above in the model scenarios section. 
 The RPR meeting held in October 2018 reviewed the Reference Case model and the suite of sensitivity runs described above, and concluded that no one model adequately represented the uncertainty associated with these stock assessments.
 Consequently, RPR participants agreed to adopt an approach that combined model runs to include a greater range of plausible uncertainties associated with these stocks.
-
-### Area 3CD
 
 Posterior estimates of reference points and stock status from the combined model-averaged set are provided in Table \@ref(tab:tab-ref-points-table-avg-3cd).
 At the beginning of the 2021 fishing year, under the assumed 2020 catch level, median biomass is projected to be 14,099 t (6,008--47,920 t).
@@ -255,93 +237,6 @@ This is a notable decrease in estimated stock status (median $B_{2021}/\textrm{L
 The estimated fishing mortality range was also broad (Figure \@ref(fig:fig-model-average-f-3cd)), reflecting the range of biomass estimates.
 However, recent estimates of fishing mortality were well below the median LRR (Figure \@ref(fig:fig-model-average-f-3cd)).  
 
-### Area 5ABCD
-
-Posterior estimates of reference points and stock status from the combined model-averaged set are provided in Table \@ref(tab:tab-ref-points-table-avg-5abcd).
-At the beginning of the 2021 fishing year, under the assumed 2020 catch level, median biomass is projected to be 19,634 t (11,318--40,603 t).
-Median fishing mortality for the 2020 fishing year is projected to be 0.027 *y*^-1^ (0.013--0.049 *y*^-1^).
-The median estimated LRP and USR are estimated to be 9,814 t (5,662--20,881 t) and 33,409 t (21,630--59,004 t), respectively.
-The median estimated LRR is estimated to be 0.15 *y*^-1^ (0.09--0.28 *y*^-1^).
-Median biomass in 2021 relative to the LRP and USR is estimated to be 1.96 (1.40--3.11) and 0.59 (0.39--0.89), respectively.
-Median fishing mortality relative to the LRR is estimated to be 0.17 (0.11--0.27) (Table \@ref(tab:tab-ref-points-table-avg-5abcd)).
-
-The average posterior biomass and fishing mortality from the combined model-averaged set are shown in Figures \@ref(fig:fig-model-average-biomass-5abcd) and \@ref(fig:fig-model-average-f-5abcd).
-As for Area 3CD, the estimated biomass range was very broad.
-Combined average posterior results from all models indicate that the stock in 2020 was above the LRP, within the Cautious Zone.
-The estimated fishing mortality range was also broad (Figure \@ref(fig:fig-model-average-f-5abcd)), reflecting the range of biomass estimates.
-Recent estimates of fishing mortality were well below the median LRR.
-
-## 2021 harvest advice
-
-Performance measures were calculated over a sequence of alternative 2021 projected catch levels and are based on posterior samples for a one-year projection to the beginning of 2022.
-Uncertainty enters the projections through parameter uncertainty propagated through the modeled time series and recruitment anomalies for the projection year.
-The following performance measures were evaluated:
-
-1. $P(B_{2022} < B_{2021})$
-1. $P(F_{2021} > F_{2020})$
-1. $P(B_{2022} < LRP)$
-1. $P(B_{2022} < USR)$
-1. $P(F_{2021} > LRR)$
-
-Decision tables were constructed for each area using the equally weighted combined posterior samples [see @forrest2020].
-
-### Area 3CD
-
-For illustration, recent combined average posterior biomass with a one year projection under four alternative catch levels is shown in Figure \@ref(fig:fig-model-average-biomass-3cd-proj).
-
-The model-averaged decision table probabilities are presented in Table \@ref(tab:summary-tab-decision-avg-3cd). In summary:
-
--	$P(B_{2022} < B_{2021})$ ranged from 55% to 83% over the range of 2021 catch levels.
-
-- $P(F_{2021} > F_{2020})$ ranged from < 1% to > 99%.
-The 2020 catch was extrapolated to be approximately 59 t, hence the probability increase between 50 t and 60 t.
-
-- $P(B_{2022} < LRP)$ ranged from < 2% to 10%.
-
-- $P(B_{2022} < USR)$ ranged from 97% to 98%.
-
-- $P(F_{2021} > LRR)$  ranged from < 1% to 98%.
-
-Under a 2021 catch of 500 tonnes (the 2019/20 TAC), there is a 4% probability that biomass in 2021 will be below the LRP (Table \@ref(tab:summary-tab-decision-avg-3cd)).
-However, assuming the 2021 catch is of a similar magnitude to the 2020 catch (approximately 59 t), the probability of the 2021 biomass being below the LRP is 2% (Table \@ref(tab:summary-tab-decision-avg-3cd)).
-The 2022 biomass is projected to be in the Cautious Zone
-(below the USR) with 97--98% probability under all 2021 catch scenarios tested,
-including zero catch.
-
-The probability of the fishing mortality exceeding the LRR is less than 1% for all levels of catch up to 400 t.
-This probability is based on the maximum LRR (i.e., average estimated fishing mortality rate from 1956--2004).
-DFO's precautionary approach policy [@dfo2009] describes the removal reference (i.e., the LRR) as the maximum acceptable removal rate for the stock.
-The policy illustrates a harvest control rule with a linear decline in the LRR for stocks in the Cautious Zone.
-Such a harvest control rule has not been formally agreed upon for Pacific Cod and, therefore, the probabilities in Table \@ref(tab:summary-tab-decision-avg-3cd) and in previous Pacific Cod advice [@dfo2015; @dfo2019] do not reflect any adjustment to the LRR when the stock is in the Cautious Zone.
-If such a harvest control rule were applied, as illustrated in @dfo2009, then probabilities of exceeding the LRR would be higher.
-It is recommended that a harvest control rule, which describes any adjustments to the LRR for stocks below the USR, should be agreed upon before the next assessment update.
-
-### Area 5ABCD
-
-Recent combined average biomass with a one year projection under four alternative catch levels is shown in Figure \@ref(fig:fig-model-average-biomass-5abcd-proj).
-
-The model-averaged decision table probabilities are presented in Table \@ref(tab:summary-tab-decision-avg-5abcd).
-In summary:
-
--	$P(B_{2022} < B_{2021})$ ranged from 22% to 91% over the range of 2021 catch levels.
-
-- $P(F_{2021} > F_{2020})$ ranged from < 1% to > 99%.
-The 2020 catch was extrapolated to be approximately 425 t, hence the probability increase between 400 t and 500 t.
-
-- $P(B_{2022} < LRP)$ ranged from < 1% to 1%.
-
-- $P(B_{2022} < USR)$ ranged from 98% to 99%.
-
-- $P(F_{2020} > LRR)$  ranged from < 1% to 85%.
-
-Under a 2021 catch of 950 tonnes (the 2018/19 TAC), there is less than 1% probability that biomass in 2021 will be below the LRP (Table \@ref(tab:summary-tab-decision-avg-5abcd)).
-Assuming the 2021 catch is of a similar magnitude to the 2020 catch (approximately 425 t), the probability of the 2022 biomass being below the LRP is also
-less than 1% (Table \@ref(tab:summary-tab-decision-avg-3cd)).
-The 2022 biomass is projected to be in the Cautious Zone
-(below the USR) with 98%--99% probability under all 2021 catch scenarios tested, including zero catch.
-
-The probability of the stock exceeding the LRR is less than 1% for all levels of catch up to 1400 t.
-As for Area 3CD, if the LRR were adjusted downward because the stock is in the Cautious Zone [@dfo2009], the probabilities of exceeding the LRR would be higher.
 
 ## Sources of uncertainty
 
