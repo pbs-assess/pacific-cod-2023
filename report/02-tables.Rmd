@@ -11,7 +11,7 @@ dplyr::filter(dat$survey_index, survey_abbrev %in%
   dplyr::rename(`Survey abbrev.` = survey_abbrev, Year = year, Biomass = biomass,
     CV = re, `Lower CI` = lowerci, `Upper CI` = upperci, Sets = num_sets, `Positive sets` = num_pos_sets) %>%
   dplyr::arrange(`Survey abbrev.`, Year) %>%
-  knitr::kable(caption = "Pacific Cod survey data for Canadian trawl surveys in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN HS = Hecate Strait synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey; SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey .", booktabs = TRUE, linesep = "", 
+  knitr::kable(caption = "Pacific Cod survey data for Canadian trawl surveys in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN HS = Hecate Strait synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey; SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not part of this assessment but are shown for comparison.", booktabs = TRUE, linesep = "", 
     format = "pandoc")
 ```
 

@@ -3,30 +3,32 @@
 
 The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021].
 The assessment found the Area 3CD stock (West Coast of Vancouver Island: WCVI; Figure \@ref(fig:fig-map)) to be in the Cautious Zone with > 99% probability [@dfo2021].
-This followed a notable reduction in the 2018 WCVI survey index (approximately 26--27% of the 2014 and 2016 observations (Figure \@ref(fig:surv-canadian); Table \@ref(tab:surv-canadian-table)).
-Given the low index point in 2018, the 2020 Science Response recommended updating the assessment when 2020 survey information became available [@dfo2021].
-However, due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021, returning to its regular biennial schedule in 2022.
-Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:surv-canadian)).
+This followed a notable reduction in the 2018 WCVI synoptic bottom trawl survey index (approximately 26--27% of the 2014 and 2016 observations (Table \@ref(tab:surv-canadian-table); Figure \@ref(fig:fig-surv-canadian)).
+Given the low index point in 2018, the 2020 Science Response recommended updating the assessment following the 2020 WCVI survey [@dfo2021].
+However, due to the COVID-19 pandemic, the scheduled 2020 WCVI Synoptic Bottom Trawl Survey was postponed to 2021 (and returned to its regular biennial schedule in 2022).
+Both the 2021 and 2022 index points were of a similar low magnitude to the 2018 observation (Figure \@ref(fig:fig-surv-canadian)).
 Catches from 2018--2020 were also lower than in previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
-The commercial CPUE index decreased substantially in 2018 but has increased slightly since then, with increases in commercial catch (Figure \@ref(fig:fig-summary-cpue-indices-3cd), Table \@ref(tab:tab-catch-3cd)).
+The commercial CPUE index decreased substantially in 2018 but has increased slightly since then, with increases in commercial catch (Figure \@ref(fig:fig-summary-cpue-indices-3cd)).
 
-The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch, and an index of commercial annual mean weight [@forrest2020]. The commercial mean weight index is derived from commercial length samples [see Appendix C of @forrest2020 for methodology], and provides information about scale and recruitment strength to the model.
-Due to COVID-19 and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019.
-However, even before the pandemic, there has been a notable reduction in biological sampling of Pacific cod on commercial vessels since 2016 (Appendix A).
+The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch, and an index of commercial mean weight [@forrest2020]. The commercial mean weight index is derived from commercial length samples, and provides information about scale and recruitment strength to the model.
+Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019.
+However, even before the pandemic, there was a notable reduction in biological sampling of Pacific Cod on commercial vessels, starting around 2014 (Appendix A).
 
 A Request for Science Information and Advice (RSIA) for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks.
 The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) update the status of both stocks.
 The request advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
-Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to show the potential effects of the loss of commercial length samples on predicted stock status.
-The TWG evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a survey annual mean weight index derived from WCVI survey samples.
-The TWG found that the GLM provided acceptable predictions of the commercial annual mean weight index for the Area 3CD stock.
+Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to evaluate alternative methods for updating the commercial mean weight index.
+The TWG evaluated a generalized linear model (GLM) for predicting the commercial mean weight index from a survey mean weight index derived from WCVI survey samples.
+The TWG found that the GLM provided acceptable predictions of the commercial mean weight index for the Area 3CD stock.
 The GLM did not have acceptable predictive power for the 5ABCD stock.
 Because of this and limited staff resources, the TWG did not proceed with Step 2 of the RSIA in 2022.
+
 The Pacific Groundfish Management Unit did not request updated catch advice for 2023.
 However, given the three low index points in 2018, 2021 and 2022, Science issued a RSIA requesting a stock status update to ensure all three of these index points are considered in a timely evaluation of stock status.
+While the last assessment found that there was low probability (2%--10%) of the stock being below its limit reference point (LRP) in 2022 under all catch scenarios [@dfo2021], the stock has failed to rebound under low catch rates, and catches have increased since 2020 (Table \@ref(tab:tab-catch-3cd)).
 
-The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their limit reference point (LRP).
-While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP, DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
+The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their LRP.
+While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided, which states that, for stocks not subject to the FSP (such as Pacific Cod), DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
 
 *"[...] under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."*
 
@@ -105,7 +107,7 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 
 ### Annual mean weight in commercial catch
 
-The commercial annual mean weight index between 1956 and 2016 was calculated using commercial length samples, with the methodology described in Appendix C of @forrest2020.
+The commercial mean weight index between 1956 and 2016 was calculated using commercial length samples, with the methodology described in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019 (excluding 2018).
 
 There has been no biological sampling on commercial trawl vessels since 2019.
@@ -121,17 +123,17 @@ The methodology was presented to the TWG in 2022 and again in 2023, who found it
 The GLM predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
 A decision therefore had to be made about how to include the GLM-derived index values in the commercial mean weight index, since there were no GLM-derived values for 2017, 2019 or 2020.
 
-For consistency with previous assessments [@forrest2020; @dfo2021], the model uses the commercial annual mean weight index derived directly from commercial length samples for the years 1956--2016.
+For consistency with previous assessments [@forrest2020; @dfo2021], the model uses the commercial mean weight index derived directly from commercial length samples for the years 1956--2016.
 Since neither of the previous assessments have used the 2017 index point, it was also omitted from this assessment update.
 For 2018--2022, the model uses the 2018, 2021 and 2022 annual mean weight index values derived from the GLM (Figure \@ref(fig:all-mean-weight-series-3cd)).
 Values for 2019 and 2020 were interpolated between 2018 and 2021.
 
-The TWG explored a number of sensitivity analyses, which tested model sensitivity to alternative approaches to updating the commercial annual mean weight index, including indices that excluded the interpolated values, did not include the GLM values, or variously included or excluded the 2017 and 2019 index points from the commercial data.
+The TWG explored a number of sensitivity analyses, which tested model sensitivity to alternative approaches to updating the commercial mean weight index, including indices that excluded the interpolated values, did not include the GLM values, or variously included or excluded the 2017 and 2019 index points from the commercial data.
 The model was largely insensitive to these alternative treatments, mainly because the GLM-derived index values were consistent with the other data sources in the model (see Reference model results section), resulting in poor fits to alternative versions of the index and, therefore, little impact on recruitment and biomass estimates.
 
 ## Stock assessment model
 
-The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial annual mean weights [@forrest2015; @forrest2020].
+The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial mean weights [@forrest2015; @forrest2020].
 The model is fully described in Appendix D of @forrest2020.
 All fixed parameters and prior probability distributions for model parameters in the current assessment were the same as those reported in @forrest2020 (see also Table \@ref(tab:tab-param-table-3cd), this document).
 
