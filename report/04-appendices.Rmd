@@ -119,7 +119,7 @@ knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_surve
 ```
 
 ```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD.png"))
+knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
 ```
 
 \clearpage

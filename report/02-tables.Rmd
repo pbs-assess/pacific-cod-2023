@@ -70,13 +70,3 @@ make.ref.points.table(c(base.model.3cd,
                                          "Biomass is in tonnes. All values are rounded. Ratios were calculated using full posterior distributions and cannot be calculated directly from the table."), french=french)
 ```
 \clearpage
-
-```{r summary-tab-decision-avg-3cd, results='asis'}
- decision.table(avg.model.3cd,
-                caption = paste0("Decision table with model averaging for Area 3CD. Models averaged are: ",
-                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
-                                 "."), french=french) #
-```
-
-
-\clearpage
