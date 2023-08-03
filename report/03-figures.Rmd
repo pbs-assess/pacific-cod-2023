@@ -7,7 +7,7 @@ knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
 
 ```
 
-```{r surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys. Shown is relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey."}
+```{r fig-surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys. Shown is relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = c("SYN WCVI", "SYN QCS", "SYN HS")) %>%
   plot_survey_index(french=french)
