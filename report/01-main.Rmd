@@ -52,12 +52,11 @@ This assessment provides a stock status update for the 3CD stock only.
 
 Pacific Cod in BC are caught almost entirely in the groundfish bottom trawl fishery, which is part of BC's integrated groundfish fishery [@dfo2023].
 They are caught in small quantities in the groundfish longline fishery (around 0.5% of the total annual catch on average), which is also part of the integrated groundfish fishery.
-The depth range of capture in 5ABCD ranges from around 60--200 m, with data showing a shift to deeper depths since 1996 [@forrest2020].
 Currently, the majority of the BC Pacific Cod catch is taken in Area 5CD.
 Commercial catches also come from Area 5AB and Area 3CD. 
 Near negligible catch is taken from the west coast of Haida Gwaii, Area 5E (< 0.5% of total average annual catch since 1985).
 The BC integrated fishery is subject to 100% at-sea and dockside monitoring.
-Between 1996 and 2020, all bottom trawl vessels carried observers who record the catch of each species and estimate quantities of released (discarded) fish.
+Between 1996 and 2019, all bottom trawl vessels carried observers who recorded the catch of each species and estimated quantities of released (discarded) fish.
 Since the COVID-19 pandemic, the fishery has shifted towards electronic monitoring on trawl vessels, which has impacted the availability of commercial biological samples (see Context).
 
 # Analysis and Response
