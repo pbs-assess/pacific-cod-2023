@@ -21,14 +21,14 @@ catch.table(catch.3,
 
 ```{r surv-canadian-table, results='asis'}
 dplyr::filter(dat$survey_index, survey_abbrev %in%
-  c("SYN QCS", "SYN WCVI", "SYN HS")) %>%
+  c("SYN HS", "SYN QCS", "SYN WCVI")) %>%
   dplyr::select(survey_abbrev, year, biomass, re, lowerci, upperci, num_sets, num_pos_sets) %>%
   dplyr::mutate(lowerci = round(lowerci/1000, 1), upperci = round(upperci/1000, 1),
     biomass = round(biomass/1000, 1), re = round(re, 2)) %>%
   dplyr::rename(`Survey abbrev.` = survey_abbrev, Year = year, Biomass = biomass,
     CV = re, `Lower CI` = lowerci, `Upper CI` = upperci, Sets = num_sets, `Positive sets` = num_pos_sets) %>%
   dplyr::arrange(`Survey abbrev.`, Year) %>%
-  knitr::kable(caption = "Pacific Cod survey data for Canadian trawl surveys in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod. OTHER HS MSA = Hecate Strait Multispecies Assemblage survey; SYN HS = Hecate Strait synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey; SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey.", booktabs = TRUE, linesep = "", 
+  knitr::kable(caption = "Pacific Cod survey data for Canadian trawl surveys in metric tons (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN HS = Hecate Strait synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey; SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey .", booktabs = TRUE, linesep = "", 
     format = "pandoc")
 ```
 

@@ -250,7 +250,7 @@ b.plot <- function(models,
                    thin = 1,
                    year_range = NULL,
                    probs = c(0.025, 0.975),
-                   ylim = c(0, NA),
+                   ylim = c(0,NA),
                    col = c("red", "green"),
                    x.every = 5, # Show x-axis label every n years
                    french=FALSE
@@ -460,7 +460,7 @@ b.plot <- function(models,
 
   if (!is.null(year_range)) {
     p <- p + coord_cartesian(xlim = year_range)
-  }
+    }
  #comma
   if(french){
     p <- p + scale_y_continuous(labels = scales::number,
@@ -559,5 +559,3 @@ b.plot.mpd <- function(models,
 
   p
 }
-
-
