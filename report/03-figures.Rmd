@@ -7,112 +7,16 @@ knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
 
 ```
 
-```{r get-recent-3CD-index-data}
-
-#CPUE
-params <- list()
-params$species_proper <- "Pacific Cod"
-params$april1_year <- TRUE
-params$area <- c("3[CD]+")
-params$area_name <- c("3CD")
-params$skip_single_variable_models <- FALSE
-
-params$era <- "modern"
-source(here::here("R/cpue.R"))
-dfleet_modern <- dfleet
-gg_cpue_modern <- gg_cpue
-cpue_pred_modern <- predictions
-arith_cpue_modern <- arith_cpue
-
-#Survey
-surv.file <- here::here("data/generated/all_surveys.csv")
-
-if(!file.exists(surv.file)){
-  message("Error: Survey indices file has not been made! Please run R/surveys.R first.")
-} else {
-  surv_index <- readr::read_csv(here::here("data/generated/all_surveys.csv"))
-}
-
-```
-
-```{r fig-wcvi-index-3cd, fig.cap="West Coast Vancouver Island Synoptic Survey estimates, centred by geometric mean", echo=FALSE}
-
-g1 <- surv_index %>%  
-  rename("Survey"= "Survey abbrev.", "Lower" = "Lower CI", "Upper"="Upper CI") %>%   dplyr::filter(Survey=="SYN WCVI") %>% 
-  select(Survey, Year,Biomass, CV) %>%
-  mutate("GeometricMean"= Biomass/exp(mean(log(Biomass)))) %>%
-  mutate("LowerG" = exp(log(GeometricMean))-2*CV, "UpperG"=exp(log(GeometricMean))+2*CV) %>%   ggplot(aes(Year, GeometricMean)) + 
-  geom_pointrange(aes(ymin=LowerG, ymax=UpperG))+
-  theme_pbs() +
-  theme(axis.title = element_blank())
-#g1
-
-
-```
-
-```{r fig-cpue-index-3cd, fig.cap="Commercial CPUE estimates, centred by geometric mean", echo=FALSE}
-
-g2 <- cpue_pred_modern %>%
-  dplyr::filter(formula_version=="Full standardization", area=="3CD") %>%
-  select(year, est,se_link) %>%
-  mutate("GeometricMean"= est/exp(mean(log(est)))) %>%
-  mutate("LowerG" = exp(log(GeometricMean))-2*se_link, "UpperG"=exp(log(GeometricMean))+2*se_link) %>% 
-  ggplot(aes(year, GeometricMean)) + 
-  geom_pointrange(aes(ymin=LowerG, ymax=UpperG))+
-  theme_pbs() +
-  theme(axis.title = element_blank())
-#g2
-
-```
-
-```{r fig-summary-indices-3cd, fig.cap="Top: Relative index of abundance from the West Coast Vancouver Island Synoptic Survey, centred by its geometric mean. Bottom: Commercial CPUE, centred by its geometric mean", echo=FALSE}
-
-cowplot::plot_grid(g1,g2, ncol=1,labels = c("","")) +
-  draw_label(en2fr("Index",translate=french), x=  -0.1, y=0.5, vjust= 1.5, angle=90)+
-  draw_label(en2fr("Year",translate=french), x=  0.5, y=0, vjust= 0, angle=0)
-
-```
-
-```{r fig-iphc-index-3cd}
-#this is not very useful but keep the code so we know how to get iphc data in future
-
-# # Need to check which areas are included. May need to filter data first to be only 3CD,
-# # then plot either series C or D (which are coastwide)
-# iphc.3CD <- iphc.dat %>% 
-#   filter(lat <50.7) #the border of 3D is actually 50.5 but not enough obs if that is used 
-# 
-# # iphc.3CD$ser_longest is series C (does not filter for > 50.6 degrees)
-# glist <- gfiphc::calc_iphc_full_res(iphc.3CD) 
-# 
-# g <- glist$ser_longest %>% 
-#   select(year, I_tBootMean, I_tBootCV) %>%
-#   mutate("GeometricMean"= I_tBootMean/exp(mean(log(I_tBootMean)))) %>%
-#   mutate("LowerG" = exp(log(GeometricMean))-2*I_tBootCV, "UpperG"=exp(log(GeometricMean))+2*I_tBootCV) %>% 
-#   ggplot(aes(year, GeometricMean)) + 
-#   geom_pointrange(aes(ymin=LowerG, ymax=UpperG))+
-#   theme_pbs() +
-#   ylab("IPHC FISS (centred by its geometric mean)")+
-#   xlab("Year") 
-# g 
-#   
-
-```
-
-
-```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea releases."}
-make.catches.plot(catch.3, french=french) +
-  scale_y_continuous(labels = comma,
-                       limits = c(0, NA))
-```
-
 ```{r surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys. Shown is relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = c("SYN WCVI", "SYN QCS", "SYN HS")) %>%
   plot_survey_index(french=french)
 ```
 
-```{r tri-fig9, fig.cap="Biomass estimates for Pacific Cod in the International North Pacific Fisheries Commission Vancouver region (Canadian waters only) with 95\\% error bars estimated from 1000 bootstraps."}
-knitr::include_graphics(here::here("report/paul-figs/fig9.png"))
+```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea releases."}
+make.catches.plot(catch.3, french=french) +
+  scale_y_continuous(labels = comma,
+                       limits = c(0, NA))
 ```
 
 ```{r cpue-funcs}
@@ -153,21 +57,35 @@ readr::write_csv(cpue_pred_modern, here::here("data/generated/cpue-predictions-m
 readr::write_csv(cpue_pred_hist, here::here("data/generated/cpue-predictions-historical.csv"))
 ```
 
-```{r cpue-index-ts-hist, fig.asp=1.15, fig.cap="Commercial trawl CPUE standardization models for Area 3CD (top) and 5ABCD (bottom). The black line and shaded region indicate a CPUE index with only a year predictor. The coloured line and shaded ribbons shows a standardization model that includes all the predictors plus locality-by-year (space-time) random effects. Locality and locality-year interactions are fit as random effects and all other variables are fit as fixed effects."}
-make_cpue_ts_dat(cpue_pred_hist) %>% make_cpue_ts_plot() +
-  ggtitle("1956-1995 CPUE") +
+```{r cpue-index-ts-hist}
+g1 <- make_cpue_ts_dat(cpue_pred_hist) %>% make_cpue_ts_plot() +
+  #ggtitle("1956-1995 CPUE") +
+  ylab("")+
   scale_colour_brewer(palette = "Dark2") +
   scale_fill_brewer(palette = "Dark2")
 ```
 
-(ref:caption-cpue-index-ts-modern) Same as Figure \@ref(fig:cpue-index-ts-hist) but for the 1996 to 2019 data for Area 3CD (top) and 5ABCD (bottom). Locality, vessel, and locality-year interactions are fit as random effects and all other variables are fit as fixed effects.
-
-```{r cpue-index-ts-modern, fig.asp=1.55, fig.cap="(ref:caption-cpue-index-ts-modern)", out.width="5.2in", fig.width=6.5}
-make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
-  ggtitle("1996+ CPUE") +
+```{r cpue-index-ts-modern}
+g2 <- make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
+  #ggtitle("1996+ CPUE") +
+  ylab("")+
   scale_colour_brewer(palette = "Dark2") +
   scale_fill_brewer(palette = "Dark2")
 ```
+
+```{r fig-summary-cpue-indices-3cd, fig.cap="Commercial trawl CPUE standardization models for the historical period, 1956--1995 (top) and the modern period, 1996--2022 (bottom). The black line and shaded region indicate a CPUE index with only a year predictor. The coloured line and shaded ribbons shows a standardization model that includes all the predictors plus locality-by-year (space-time) random effects. Locality and locality-year interactions are fit as random effects and all other variables are fit as fixed effects.", echo=FALSE}
+
+P <- cowplot::plot_grid(g1,g2, ncol=1,labels = c("",""), greedy=TRUE)
+  # draw__label(en2fr("CPUE (kg/hour)",translate=french), x=  -0.01, y=3, vjust= 1.5, angle=90)+
+  # draw_label(en2fr("Year",translate=french), x=  0.5, y=0, vjust= 0, angle=0)
+y.grob <- textGrob(en2fr("CPUE (kg/hour)",translate=french), 
+                   gp=gpar(fontface="bold", fontsize=15), rot=90)
+x.grob <- textGrob(en2fr("Year",translate=french), 
+                   gp=gpar(fontface="bold", fontsize=15))
+grid.arrange(arrangeGrob(P, left = y.grob, bottom = x.grob))
+
+```
+
 
 ```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
 include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"))
@@ -177,6 +95,11 @@ include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"
 ```{r}
 mw3CD <- read_csv(here::here("data/results/AnnualMeanWeight_3CD.csv"))
 ```
+
+```{r tri-fig9, fig.cap="Biomass estimates for Pacific Cod in the International North Pacific Fisheries Commission Vancouver region (Canadian waters only) with 95\\% error bars estimated from 1000 bootstraps."}
+knitr::include_graphics(here::here("report/paul-figs/fig9.png"))
+```
+
 
 
 ```{r fig-base-index-fits-3cd, fig.cap="Reference model MPD fits to observed indices of abundance (points) for Area 3CD from: (a) the WCVI Synoptic Survey, (b) Commercial CPUE pre-1996, (c) Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion). For clarity, only MPD results are shown."}
