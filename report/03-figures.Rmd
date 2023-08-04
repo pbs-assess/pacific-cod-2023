@@ -103,16 +103,18 @@ knitr::include_graphics(here::here("report/paul-figs/fig9.png"))
 
 
 ```{r fig-base-index-fits-3cd, fig.cap="Reference model MPD fits to observed indices of abundance (points) for Area 3CD from: (a) the WCVI Synoptic Survey, (b) Commercial CPUE pre-1996, (c) Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion). For clarity, only MPD results are shown."}
-plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 5, french=french) 
-            + scale_y_continuous(labels = comma, limits = c(0, NA)),
+plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=french) 
+            + scale_y_continuous(labels = comma, limits = c(0, NA))
+            + ylab("Rel. biomass (t)"),
           i.plot(base.model.3cd, base.model.3cd.name, 2, every = 5, french=french)  
             + scale_y_continuous(labels = comma, limits = c(0, NA))
-            + ylab("Commercial CPUE (kg/h)"),
+            + ylab("Comm. CPUE (kg/h)"),
           i.plot(base.model.3cd, base.model.3cd.name, 3, every = 5, french=french)
             + scale_y_continuous(labels = comma, limits = c(0, NA))
-            + ylab("Commercial CPUE (kg/h)"),
+            + ylab("Comm. CPUE (kg/h)"),
           i.plot(base.model.3cd, base.model.3cd.name, 4, every = 5, french=french)
-            + scale_y_continuous(labels = comma, limits = c(0, NA)),
+            + scale_y_continuous(labels = comma, limits = c(0, NA))
+           + ylab("Rel. biomass (t)"),
           nrow = 2,
           ncol = 2,
           labels = c("(a)", "(b)", "(c)", "(d)"),

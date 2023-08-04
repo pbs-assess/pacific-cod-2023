@@ -1,5 +1,5 @@
 
-# Context {#sec:context}
+# Context
 
 The last assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) was completed in 2020 [@dfo2021].
 The assessment found the Area 3CD stock (West Coast of Vancouver Island: WCVI; Figure \@ref(fig:fig-map)) to be in the Cautious Zone with > 99% probability [@dfo2021].
@@ -41,14 +41,14 @@ Since there has been no request for catch advice, this is a stock status update 
 However, due to the ongoing absence of commercial length samples, this update uses the GLM developed in 2022 to update the last five years of the annual commercial mean weight index, based on values from the survey mean weight index.
 The survey mean weight index and the GLM are described in Appendices B and C.
 
-# Background {#sec:background}
+# Background {#background}
 
 Pacific Cod (or Grey Cod) is a relatively short-lived (~10--13 *y*), fast-growing member of the family Gadidae.
 It is distributed throughout the North Pacific Ocean, and throughout the waters of BC, typically in depth ranges up to 200 m. 
 Four stocks of Pacific Cod are defined for management purposes on the BC coast: Strait of Georgia (4B), West Coast Vancouver Island (3CD), Queen Charlotte Sound (5AB), and Hecate Strait (5CD) (Figure \@ref(fig:fig-map)).
 This assessment provides a stock status update for the 3CD stock only. 
 
-## Description of the fishery {#sec:fishery}
+## Description of the fishery {#fishery}
 
 Pacific Cod in BC are caught almost entirely in the groundfish bottom trawl fishery, which is part of BC's integrated groundfish fishery [@dfo2023], mainly in 50–200 m depth zones [@forrest2020].
 Most catch taken in Area 5CD [@forrest2020; Figure\@ref(fig:fig-map)], with smaller catches from Areas 5AB and 3CD, with near negligible catch taken from the west coast of Haida Gwaii, Area 5E (< 0.5% of total average annual catch since 1985).
@@ -58,9 +58,9 @@ The BC integrated fishery is subject to 100% at-sea and dockside monitoring.
 Between 1996 and 2019, all bottom trawl vessels carried observers who recorded the catch of each species and estimated quantities of released (discarded) fish.
 Since the COVID-19 pandemic, the fishery has shifted towards electronic monitoring on trawl vessels, which has impacted the availability of commercial biological samples (see Context).
 
-# Analysis and Response {#sec:analysis-and-response}
+# Analysis and Response {#analysis-and-response}
 
-## Data {#sec:data}
+## Data {#data}
 
 Data were extracted from DFO databases using methods described in @forrest2020.
 Data from fishery-independent and commercial fishery sources were available up until March 31, 2023.
@@ -68,7 +68,7 @@ All time series were calculated using currently available data.
 Minor differences in the time series compared to those presented in previous assessments are due to routine updates and corrections in the databases.
 For each area, models were fit to the following data: commercial catch, fishery-independent indices of abundance, commercial catch per unit effort (CPUE), and annual mean weight of fish in the commercial catch.
 
-### Commercial catch {#sec:comm-catch}
+### Commercial catch {#comm-catch}
 
 Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to March 31, 2022).
 Catch data prior to 1981 include catch by US vessels [@forrest2015; @forrest2020].
@@ -82,7 +82,7 @@ However, between 1996 and 2019, on-board observers first estimated the quantity 
 Discard estimates are still counted against the vessel's quota, but the estimates are now made via the electronic monitoring system and fisher logbooks.
 In addition to providing greater accuracy in reporting of discards since 1996, counting discards against the vessel's quota provides greater incentives to avoid discarding.
 
-### Canadian bottom trawl surveys {#sec:surveys}
+### Canadian bottom trawl surveys {#surveys}
 
 Survey indices (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:fig-surv-canadian)) were calculated using a swept area analysis, documented in Appendix A of @forrest2020.
 Abundance in Area 3CD (Figure \@ref(fig:fig-map)) is indexed by the WCVI Synoptic Survey.
@@ -91,20 +91,20 @@ Due to the COVID-19 pandemic the 2020 survey was postponed to 2021, before resum
 
 For comparison, survey indices in Areas 5AB and 5CD are also shown in (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:fig-surv-canadian)).
 
-### NMFS Triennial Survey (in Canadian waters) {#sec:nmfs-survey}
+### NMFS Triennial Survey (in Canadian waters) {#nmfs-survey}
 
 An additional relative abundance index for Area 3CD was developed using data from the
 National Marine Fisheries Service (NMFS) Triennial survey, which operated off the lower half of WCVI between 1980 and 2001 (Figure \@ref(fig:tri-fig9)).
 See Appendix A of @forrest2020 for details.
 
-### Commercial CPUE {#sec:cpue}
+### Commercial CPUE {#cpue}
 
 Standardized commercial CPUE indices were developed for the historical (1956--1995) and modern (1996--2019) periods (Figures  \@ref(fig:fig-summary-cpue-indices-3cd) and \@ref(fig:fig-summary-cpue-indices-3cd)).
 The indices were developed using a Tweedie generalized linear mixed model (GLMM) described in detail in Appendix B of @forrest2020.
 The historical-period GLMMs included predictors for depth, locality, month, and a locality-year interaction (Figure \@ref(fig:fig-summary-cpue-indices-3cd)).
 The modern-period GLMMs included predictors for depth, latitude, locality, month, vessel, and a locality-year interaction (Figure \@ref(fig:fig-summary-cpue-indices-3cd)).
 
-### Annual mean weight in commercial catch {#sec:mean-weight-index}
+### Annual mean weight in commercial catch {#mean-weight-index}
 
 The commercial mean weight index between 1956 and 2016 was calculated using commercial length samples, with the methodology described in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019 (excluding 2018).
@@ -129,9 +129,9 @@ See Appendix D for a brief discussion of model sensitivities to these choices.
 **TODO: MOVE next para to an appendix**
 
 The TWG explored a number of sensitivity analyses, which tested model sensitivity to alternative approaches to updating the commercial mean weight index, including indices that excluded the interpolated values, did not include the GLM values, or variously included or excluded the 2017 and 2019 index points from the commercial data.
-The model was largely insensitive to these alternative treatments, mainly because the GLM-derived index values were consistent with the other data sources in the model (see Section \@ref{sec:ref-results}), resulting in poor fits to alternative versions of the index and, therefore, little impact on recruitment and biomass estimates.
+The model was largely insensitive to these alternative treatments, mainly because the GLM-derived index values were consistent with the other data sources in the model (see Reference Model Results), resulting in poor fits to alternative versions of the index and, therefore, little impact on recruitment and biomass estimates.
 
-## Stock assessment model {#sec:assessment}
+## Stock assessment model {#assessment}
 
 The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial mean weights.
 The model is fully described in Appendix D of @forrest2020.
@@ -140,10 +140,10 @@ All fixed parameters and prior probability distributions for model parameters in
 A model-averaging approach is used to estimate stock status based on combined posterior samples from several sensitivity cases, as for the previous assessments [@forrest2020; @dfo2021]. 
 This is to address some of the key irresolvable uncertainties associated with the stock assessment.
 Major axes of uncertainty are catchability ($q$) in the indices of abundance, the magnitude of natural mortality ($M$), age at recruitment to the fishery, and the magnitude of observation errors in the surveys and mean weight [@forrest2020].
-See Section \@ref(sec:scenarios) for details.
+See Scenarios section for details.
 Other stock assessments that have used a model-averaging approach are Pacific Cod in Areas 5AB and 5CD [@forrest2015], Pacific Hake [@stewart2011], Pacific Halibut [@stewart2016], BC Shortspine Thornyhead [@starr2017], BC Walleye Pollock [@starr2018] and several assessments of BC *Sebastes* stocks [e.g., @dfo2019b; @dfo2020a; @dfo2020b].
 
-## Reference points {#sec:ref-pts}
+## Reference points {#ref-pts}
 
 The DFO Fishery Decision-making Framework Incorporating the Precautionary Approach (PA) Policy [@dfo2009] requires stock status to be characterized using three reference points:
 
@@ -164,7 +164,7 @@ As in previous assessments [@dfo2019; @dfo2021], historical reference points wer
 See @forrest2020 for the history of the choice to use historical reference points for Pacific Cod.
 See also @forrest2018 for simulation-testing of historical reference points for the 5CD stock of Pacific Cod.
 
-## Model scenarios {#sec:scenarios}
+## Model scenarios {#scenarios}
 
 A reference model was established to represent what were considered the most plausible model choices across a range of assumptions.
 Key characteristics of the model are provided in Table \@ref(tab:tab-param-table-3cd) [see @forrest2020 for details].
@@ -183,7 +183,7 @@ The scenarios (Sc) included in the model-averaging set were:
 6.	Sc 6b Reduce the overall observation error term $\sigma_O = 0.15$; and
 7.	Sc 7b Reduce the SD in the likelihood for the fit to average annual mean weight $\sigma_W = 0.15$.
 
-## Reference model results {#sec:ref-results}
+## Reference model results {#ref-results}
 
 Results are presented from the reference model, to demonstrate model performance and to provide comparison with the 2020 stock assessment update.
 Stock status, presented in the next section, is based on combined, averaged posterior model results.
@@ -193,8 +193,6 @@ Posterior samples were drawn every 5,000 iterations from a chain of length 10 mi
 
 Model convergence was informed by visual inspection of trace and autocorrelation plots (not shown), and the statistics $\hat{R}$, the potential scale reduction statistic, which should approach 1.0 as the chains are consistent with convergence, and $n_\mathrm{eff}$, which measures the effective number of MCMC independent samples after accounting for autocorrelation [@gelman1992; @gelman2014; see descriptions in @forrest2020].
 
-**TODO: Update results**
-
 Reference model fits to the data were generally typical of all sensitivity cases.
 The model diagnostics were consistent with convergence, and posterior sample autocorrelation was relatively minor for most parameters (Table \@ref(tab:tab-param-est-table-3cd)).
 Model fits to the catch were near perfect by design (standard deviation in log likelihood was set to 0.05) and are not shown.
@@ -203,7 +201,6 @@ The reference model followed the trends of the two fishery-independent indices (
 This is likely because of large differences between low points (2012 and 2018) and high points (2014 and 2016) in the survey observations.
 Similarly, while the model closely followed the major patterns in the historical CPUE index (Figure \@ref(fig:fig-base-index-fits-3cd)b), it did not capture all the peaks in the modern series (Figure \@ref(fig:fig-base-index-fits-3cd)c).
 Fits such as this tend to occur when there is no other information (such as age composition data or contrasting mean weight data) to help resolve large fluctuations in observed indices.
-
 @forrest2015 and @forrest2020 considered goodness of fit to the indices of abundance to be a primary driver of uncertainty in their assessments, as estimates of productivity parameters were sensitive to how well the model fit observed peaks in the indices.
 They presented a number of sensitivity analyses to treatment of the observation error parameter $\sigma_O$, one of which is included in the model-averaging set in each area (Sc 6b).
 
@@ -213,56 +210,58 @@ Smaller, released fish are therefore likely underrepresented in the annual mean 
 A scenario with a smaller value of $\sigma_W$, which controls the fit to the mean weight in the likelihood function, is included in the model-averaging set in each area (Sc 7b).
 
 Reference model parameter estimates are shown in Table \@ref(tab:tab-param-est-table-3cd).
-Notably, the median estimated value of natural mortality, $M$, was 0.45 *y*^-1^ (0.41--0.49 *y*^-1^) in the current assessment (Table \@ref(tab:tab-param-est-table-3cd)), compared to 0.42 *y*^-1^ (0.39--0.46 *y*^-1^) in 2018 [@forrest2020].
+Notably, the median estimated value of natural mortality, $M$, was 0.437 *y*^-1^ (0.402--0.475 *y*^-1^) in the current assessment (Table \@ref(tab:tab-param-est-table-3cd)), compared to 0.42 *y*^-1^ (0.39--0.46 *y*^-1^) in 2018 [@forrest2020] and 0.45 in 2020 [@dfo2021].
 Values in parentheses here and elsewhere refer to lower and upper bounds of the 95% credible interval. 
-The larger 2020 estimates of $M$ suggest that the model is partially explaining the decreased biomass through greater natural mortality, although there was considerable overlap between the current and 2018 credible intervals.
 
-## Indicators of current stock status {#sec:status}
+## Indicators of current stock status {#status}
 
 Sensitivity of posterior biomass estimates to the settings in the seven scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd-all-avg).
 Sensitivity of posterior recruitment estimates are shown in Figure \@ref(fig:fig-sens-recr-3cd-all-avg).
-As in previous assessments, of the seven scenarios, the model was most sensitive to the assumed standard deviation in the prior for survey catchability ($q$).
+As in previous assessments, of the seven scenarios, the model was most sensitive to the assumed standard deviation in the prior for survey catchability ($q$) (Sc 2d).
+The model was also sensitive to the assumed knife-edged age at recruitment (Sc 5a), which estimated the biomass to be much lower than the other scenarios.
 
 Model-averaged posterior estimates for biomass and fishing mortality are shown in Figures \@ref(fig:fig-model-average-biomass-3cd) and \@ref(fig:fig-model-average-f-3cd), respectively.
 While the fishing mortality is estimated to be well-below the limit removal reference, which is defined as the average fishing mortality between 1956 and 2004 [@forrest2020], there is a non-zero probability that the stock is below the limit reference point (LRP), which is defined as the estimated biomass in 1985 [@forrest2020].
 
-As stated in Section \@ref(sec:context), a stock is considered to be below its LRP, thereby triggering requirements for a rebuilding plan, if the terminal year biomass is estimated to be below the LRP with greater than 50% probability or if there is a greater than 50% probability of being below the LRP in a one year projection with zero catch.
+As stated in the Context of this document, a stock is considered to be below its LRP, thereby triggering requirements for a rebuilding plan, if the terminal year biomass is estimated to be below the LRP with greater than 50% probability or if there is a greater than 50% probability of being below the LRP in a one year projection with zero catch.
 
 Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 24% probability (i.e., about 1 out of 4 chance) that the biomass at the beginning of 2023 is below the LRP and >99% probability that the stock is below the USR. See also Figures \@ref(fig:fig-model-average-biomass-3cd-rel) and \@ref(fig:fig-model-average-p-lrp), noting that Figure \@ref(fig:fig-model-average-p-lrp) indicates that the models estimated just over 50% probability of the stock being below the LRP in 2021.
 Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.
 
-
-## Sources of uncertainty {#sec:uncertainty}
+## Sources of uncertainty {#uncertainty}
 
 Uncertainty due to estimated parameters and the weights assigned to various data components was explicitly addressed using a Bayesian approach.
 For provision of advice, posterior results from seven alternative model configurations were combined to generate decision tables.
 However, this approach only captures uncertainty associated with the set of model configurations included within the assessment and may underestimate greater structural uncertainties.
 Additional uncertainties in this assessment stem from:
 
-1. The lack of reliable age composition data for this species, which would provide additional information about recruitment strength and gear selectivity;
-1. Relatively short time series of fishery-independent abundance indices, which show no clear trend;
+1. The lack of reliable age composition data for this species, which would provide additional information about recruitment strength, $M$, and gear selectivity. Reliable age composition data would allow for better estimates of age at recruitment to the fishery, to which the biomass estimates are sensitive;
+1. Relatively short time series of fishery-independent abundance indices;
 1. Uncertainty in the magnitude of pre-1996 discarding and foreign catches. Underestimation of historical discards could lead to an underestimation of stock productivity;
 1. Bias in the length frequency data prior to 1996, due to likely under-representation of lengths of fish that were caught but released at sea;
 1. A poor understanding of Pacific Cod stock structure in Pacific waters. For example, connectivity between stocks of Pacific Cod in BC and Alaska is not well understood. Pacific Cod stocks in the Gulf of Alaska have undergone decline since 2017, likely due to warming north Pacific waters [@barbeaux2020], and it is unknown whether there is any relationship between drivers of abundance of these stocks and stocks in BC; and
 1. A poor understanding of the relationship between commercial CPUE data and abundance, and how this relationship has been affected over the course of management changes in the fishery.
 
-# Conclusions {#sec:conclusions}
+# Conclusions {#conclusions}
 
 Model-averaged estimates of biomass indicated a 24% probability that the stock is below the LRP at the beginning of 2023, and a 16% probability that the stock would be below the LRP at the beginning of 2024 under zero catches.
 Therefore, the stock does not currently meet the threshold of 50% probability of being below the LRP required under the rebuilding guidance to trigger a rebuilding plan (see Context).
 However, these findings may invoke the requirement that "management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."
-Current fishing mortality is estimated to be low (< 0.05 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
+Current fishing mortality is estimated to be low (< 0.02 $y^{-1}$) but increasing slightly, with an approximate 70% increase in commercial catch between 2021 and 2022.
+We also note uncertainties in the scale of the model-estimated biomass, given uncertainties in $M$ and age at recruitment.
 
 Other Pacific Cod populations (notably in Alaska) have undergone large declines since the "marine heatwave" of 2015 and 2016 [e.g., @barbeaux2020; @laurel2020].
-However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines.
+However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines (Figure \@ref:(fig:fig-surv-canadian).
 There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to climate change, poor egg hatching survival, declines in body condition, movement, fishing, or other factors.
 We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
 
 The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
 Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
 Therefore, in the absence of resuming a full commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
-This may include length-based [e.g., @haist1995; @haist1998] or production model [e.g., @mildenberger2019] methods or an even more data-limited approach, such as adjusting annual TACs based on changes in the survey indices.
+This may also be advantageous, given the uncertainties inherent in this model, particularly uncertainty in $M$, catchability, and age at recruitment.
+Alternative approaches may include length-based methods [e.g., @haist1995; @haist1998], or even more data-limited approaches, such as adjusting annual TACs based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
+Exploration of models that allow for time-varying productivity [e.g., @mildenberger2019] may also be informative.
 
 \clearpage
