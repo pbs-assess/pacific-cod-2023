@@ -12,7 +12,7 @@ The commercial CPUE index also decreased substantially in 2018 but has increased
 
 The stock assessment is a Bayesian delay-difference model [@deriso1980], fit to commercial and survey indices of abundance, commercial catch, and an index of commercial mean weight [@forrest2020]. The commercial mean weight index is derived from commercial length samples, and provides information about scale and recruitment strength to the model.
 Due to the COVID-19 pandemic and a subsequent shift towards at-sea electronic monitoring, there has been no at-sea biological sampling on commercial trawl vessels since 2019.
-However, even before the pandemic, there was a notable reduction in biological sampling of Pacific Cod on commercial vessels, starting around 2014 (Appendix A).
+However, even before the pandemic, there was a notable reduction in biological sampling of Pacific Cod on commercial vessels, starting around 2015 (Appendix A).
 
 A Request for Science Information and Advice (RSIA) for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks.
 The request had two steps: 1) an evaluation to assess the potential sensitivity of the stock assessment to missing length data from the commercial fishery; and 2) an update to the status of both stocks.
@@ -50,11 +50,10 @@ This assessment provides a stock status update for the 3CD stock only.
 
 ## Description of the fishery
 
-Pacific Cod in BC are caught almost entirely in the groundfish bottom trawl fishery, which is part of BC's integrated groundfish fishery [@dfo2023].
-They are caught in small quantities in the groundfish longline fishery (around 0.5% of the total annual catch on average), which is also part of the integrated groundfish fishery.
-Currently, the majority of the BC Pacific Cod catch is taken in Area 5CD.
-Commercial catches also come from Area 5AB and Area 3CD. 
-Near negligible catch is taken from the west coast of Haida Gwaii, Area 5E (< 0.5% of total average annual catch since 1985).
+Pacific Cod in BC are caught almost entirely in the groundfish bottom trawl fishery, which is part of BC's integrated groundfish fishery [@dfo2023], mainly in 50–200 m depth zones [@forrest2020].
+Most catch taken in Area 5CD [@forrest2020; Figure\@ref(fig:fig-map)], with smaller catches from Areas 5AB and 3CD, with near negligible catch taken from the west coast of Haida Gwaii, Area 5E (< 0.5% of total average annual catch since 1985).
+Pacific Cod are also caught in small quantities in the groundfish longline fishery (around 0.5% of the total annual catch on average).
+
 The BC integrated fishery is subject to 100% at-sea and dockside monitoring.
 Between 1996 and 2019, all bottom trawl vessels carried observers who recorded the catch of each species and estimated quantities of released (discarded) fish.
 Since the COVID-19 pandemic, the fishery has shifted towards electronic monitoring on trawl vessels, which has impacted the availability of commercial biological samples (see Context).
@@ -64,8 +63,9 @@ Since the COVID-19 pandemic, the fishery has shifted towards electronic monitori
 ## Data
 
 Data were extracted from DFO databases using methods described in @forrest2020.
-Biological data from fishery-independent and commercial fishery sources were available up until 2019.
-Catch data were updated to 2020, with data extrapolated from October 1, 2020 to the end of the fishing year (see below).
+Data from fishery-independent and commercial fishery sources were available up until March 31, 2023.
+All time series were calculated using currently available data.
+Minor differences in the time series compared to those presented in previous assessments are due to routine updates and corrections in the databases.
 For each area, models were fit to the following data: commercial catch, fishery-independent indices of abundance, commercial catch per unit effort (CPUE), and annual mean weight of fish in the commercial catch.
 
 ### Commercial catch
@@ -109,38 +109,39 @@ The modern-period GLMMs included predictors for depth, latitude, locality, month
 The commercial mean weight index between 1956 and 2016 was calculated using commercial length samples, with the methodology described in Appendix C of @forrest2020.
 Commercial biological samples were available for calculating mean weight from 1956 to 2019 (excluding 2018).
 
-There has been no biological sampling on commercial trawl vessels since 2019.
-However, even before the COVID-19 pandemic, there had been a decline in commercial sampling of Pacific Cod, starting in 2016 (Appendix A).
-In Area 3CD, only four samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish).
-The samples in 2017 and 2019 were taken from a limited area (Figure \@ref(fig:fig-sample-locations)), especially the 2019 samples, which were also collected on the same vessel.
+There has been no biological sampling on commercial trawl vessels since 2019, and a decline in commercial sampling of Pacific Cod, starting around 2015 (Appendix A).
+In Area 3CD, only four biological samples were taken in 2017 (total 300 fish), no samples were taken in 2018, and only two samples were taken in 2019 (total 360 fish).
+The samples in 2017 and 2019 were taken from a limited area, especially in 2019 (Figure \@ref(fig:fig-sample-locations)).
 The 2017 mean weight value was anomalously high (3.024 kg) and, given that it was only based on four samples, it was not used in the 2020 stock assessment update [@dfo2021].
 Due to lack of data, the 2020 assessment used the 2019 mean weight value for both 2019 and 2020, although this was not ideal, as the 2019 index point was also based on only two samples.
 
-In the absence of representative biological samples for the last years of the time series, a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from WCVI Synoptic Survey length samples (Appendices B and C).
-The methodology was presented to the TWG in 2022 and again in 2023, who found it provided a reasonable fit to the commercial mean weight index derived from commercial data for Area 3CD (see also Appendix C).
+In the absence of representative biological samples for the last years of the time series, a methodology was developed for predicting the commercial mean weight index from a mean weight index derived from length samples from WCVI synoptic survey  (Appendices B and C).
 
-The GLM predicted values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
-A decision therefore had to be made about how to include the GLM-derived index values in the commercial mean weight index, since there were no GLM-derived values for 2017, 2019 or 2020.
+The GLM predicts values for the commercial mean weight index only for years when there was a survey (i.e., predicted index values were generated for even-numbered years from 2004 to 2018, then 2021 and 2022; Figure \@ref(fig:all-mean-weight-series-3cd)).
+A decision had to be made, therefore, about how to include the GLM-derived index values in the commercial mean weight index, since there were no GLM-derived values for 2017, 2019 or 2020.
 
 For consistency with previous assessments [@forrest2020; @dfo2021], the model uses the commercial mean weight index derived directly from commercial length samples for the years 1956--2016.
 Since neither of the previous assessments have used the 2017 index point, it was also omitted from this assessment update.
 For 2018--2022, the model uses the 2018, 2021 and 2022 annual mean weight index values derived from the GLM (Figure \@ref(fig:all-mean-weight-series-3cd)).
 Values for 2019 and 2020 were interpolated between 2018 and 2021.
+See Appendix D for a brief discussion of model sensitivities to these choices.
+
+<!--TODO: MOVE to an appendix-->
 
 The TWG explored a number of sensitivity analyses, which tested model sensitivity to alternative approaches to updating the commercial mean weight index, including indices that excluded the interpolated values, did not include the GLM values, or variously included or excluded the 2017 and 2019 index points from the commercial data.
 The model was largely insensitive to these alternative treatments, mainly because the GLM-derived index values were consistent with the other data sources in the model (see Reference model results section), resulting in poor fits to alternative versions of the index and, therefore, little impact on recruitment and biomass estimates.
 
 ## Stock assessment model
 
-The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial mean weights [@forrest2015; @forrest2020].
+The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial mean weights.
 The model is fully described in Appendix D of @forrest2020.
 All fixed parameters and prior probability distributions for model parameters in the current assessment were the same as those reported in @forrest2020 (see also Table \@ref(tab:tab-param-table-3cd), this document).
 
-@forrest2015 (for Pacific Cod stocks in Areas 5A and 5B) and @forrest2020 used a model-averaging approach to estimate stock status and construct decision tables based on combined posterior samples from several sensitivity cases.
-This was to address some of the key irresolvable uncertainties associated with the stock assessment.
-Major axes of uncertainty were catchability ($q$) in the indices of abundance, the magnitude of natural mortality ($M$), age at recruitment to the fishery, and the magnitude of observation errors in the surveys and mean weight [@forrest2020].
-Details are provided in the model scenarios section.
-Other stock assessments that have used a model-averaging approach are Pacific Hake [@stewart2011], Pacific Halibut [@stewart2016], BC Shortspine Thornyhead [@starr2017], BC Walleye Pollock [@starr2018] and several assessments of BC *Sebastes* stocks [e.g., @dfo2019b; @dfo2020a; @dfo2020b].
+A model-averaging approach is used to estimate stock status based on combined posterior samples from several sensitivity cases, as for the previous assessments [@forrest2020; @dfo2021]. 
+This is to address some of the key irresolvable uncertainties associated with the stock assessment.
+Major axes of uncertainty are catchability ($q$) in the indices of abundance, the magnitude of natural mortality ($M$), age at recruitment to the fishery, and the magnitude of observation errors in the surveys and mean weight [@forrest2020].
+Details are provided in the Model scenarios section.
+Other stock assessments that have used a model-averaging approach are Pacific Cod in Areas 5AB and 5CD [@forrest2015], Pacific Hake [@stewart2011], Pacific Halibut [@stewart2016], BC Shortspine Thornyhead [@starr2017], BC Walleye Pollock [@starr2018] and several assessments of BC *Sebastes* stocks [e.g., @dfo2019b; @dfo2020a; @dfo2020b].
 
 ## Reference points
 
@@ -166,11 +167,10 @@ See also @forrest2018 for simulation-testing of historical reference points for 
 ## Model scenarios
 
 A reference model was established to represent what were considered the most plausible model choices across a range of assumptions.
-Key characteristics of the model are provided in Table \@ref(tab:tab-param-table-3cd).
-For further details, see @forrest2020.
+Key characteristics of the model are provided in Table \@ref(tab:tab-param-table-3cd) [see @forrest2020 for details].
 This model served as the basis from which sensitivity scenarios were developed, altering alternative model assumptions one at a time.
-A set of model scenarios was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for model averaging in the 2018 assessment [@dfo2019].
-The same sets were used again in the 2020 stock assessment update [@dfo2021] and here (updated with catch and index data to the end of the 2022 fishing year, with updates to the annual mean weight index described above).
+The set of model scenarios was agreed upon at the Canadian Science Advisory Secretariat (CSAS) Regional Peer Review (RPR) meeting for model averaging in the 2018 assessment [@dfo2019].
+The same set was used again in the 2020 stock assessment update [@dfo2021] and is used again here (updated with catch and index data to the end of the 2022 fishing year, with updates to the annual mean weight index described above).
 Full details on the model configurations and assumptions for each scenario are provided in @forrest2020.
 
 ### Scenarios for model-averaging
