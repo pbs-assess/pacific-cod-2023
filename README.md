@@ -23,7 +23,7 @@ For now type this into the command line:
 setwd("report")
 bookdown::render_book("index.Rmd")
 
-knitting index.Rmd is currently not working.
+knitting index.Rmd is currently not working due to csasdown changes.
 
 
 

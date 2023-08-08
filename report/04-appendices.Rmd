@@ -1,6 +1,10 @@
 \clearpage
 
-# (APPENDIX) Appendix {-}
+\clearpage
+
+`r if(knitr:::is_latex_output()) '\\Appendices'`
+
+`r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'`
 
 <!--TODO: add some text about the sensitivity analyses. Probably remove the last sensitivity figs for the model-averaged scenarios-->
 
