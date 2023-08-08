@@ -217,6 +217,7 @@ The model was also sensitive to the assumed knife-edged age at recruitment (Sc 5
 
 ## Indicators of current stock status {#status}
 
+Model-averaged posterior reference point estimates are provided in Table \@ref(tab:tab-ref-points-table-avg-3cd)).
 Model-averaged posterior estimates for biomass and fishing mortality are shown in Figures \@ref(fig:fig-model-average-biomass-3cd) and \@ref(fig:fig-model-average-f-3cd), respectively.
 While the fishing mortality is estimated to be well-below the limit removal reference, Table \@ref(tab:summary-tab-stock-status-avg-3cd) indicates a 23% probability (i.e., about 1 out of 4 chance) that the biomass at the beginning of 2023 is below the LRP and >99% probability that the stock is below the USR. See also Figures \@ref(fig:fig-model-average-biomass-3cd-rel) and \@ref(fig:fig-model-average-p-lrp), noting that Figure \@ref(fig:fig-model-average-p-lrp) indicates that the models estimated just over 50% probability of the stock being below the LRP in 2021.
 Table \@ref(tab:summary-tab-projection-zero-avg-3cd) indicates a 16% probability that the stock would be below the limit reference point at the beginning of 2024 under a zero catch policy.

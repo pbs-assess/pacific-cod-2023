@@ -39,8 +39,7 @@ knitr::include_graphics(here::here("report/paul-figs/fig9.png"))
 ```
 
 
-
-```{r fig-base-index-fits-3cd, fig.cap="Reference model MPD fits to observed indices of abundance (points) for Area 3CD from: (a) the WCVI Synoptic Survey, (b) Commercial CPUE pre-1996, (c) Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion). For clarity, only MPD results are shown."}
+```{r fig-base-index-fits-3cd, fig.cap="Reference model MPD fits to observed indices of abundance (points) from: (a) the WCVI Synoptic Survey, (b) Commercial CPUE pre-1996, (c) Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion). For clarity, only MPD results are shown."}
 plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=french) 
             + scale_y_continuous(labels = comma, limits = c(0, NA))
             + ylab("Rel. biomass (t)"),
@@ -60,7 +59,7 @@ plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=frenc
 ```
 
 
-```{r fig-base-mean-weight-3cd, fig.cap="Reference model MPD fit to the mean weight data for Area 3CD. For clarity, only MPD results are shown."}
+```{r fig-base-mean-weight-3cd, fig.cap="Reference model MPD fit to the mean weight data. For clarity, only MPD results are shown."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
@@ -79,7 +78,7 @@ b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3c
 
 \clearpage
 
-```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
+```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line shows the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible interval of the LRP and USR, respectively."}
 b.plot(avg.model.3cd,
        base.model.3cd.name,
        depl = FALSE,
@@ -89,7 +88,7 @@ b.plot(avg.model.3cd,
        
 ```
 
-```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set for Area 3CD. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
+```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
 f.plot(avg.model.3cd,
        base.model.3cd.name,
        add.hist.ref = TRUE,
