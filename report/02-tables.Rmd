@@ -37,13 +37,12 @@ catch.table(catch.3,
 ```{r tab-param-table-3cd, results='asis'}
 make.parameters.table(base.model.3cd,
   caption = paste0("Estimated and fixed parameters and prior probability distributions used ",
-    "in the Reference Case, Area 3CD. The survey catchability parameter for WCVI ($q_1$) was estimated with the prior probability distribution $\\textrm{Normal}(ln(0.228),0.3)$. The other survey catchability parameters were estimated without priors."),
+    "in the Reference model. The survey catchability parameter for WCVI ($q_1$) was estimated with the prior probability distribution $\\textrm{Normal}(ln(0.228),0.3)$. The other survey catchability parameters were estimated without priors."),
   omit_pars = c("Log initial recruitment ($\\ln(\\overline{R}_{init})$)",
     "Log mean recruitment ($\\ln(\\overline{R})$)"),
   omit_selectivity_pars = TRUE, french=french)
 ```
 
-\clearpage
 
 ```{r tab-param-est-table-3cd, results='asis'}
 pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$","$B_0$")

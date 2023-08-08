@@ -69,12 +69,12 @@ plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
 
 \clearpage
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
-b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
-```
-
 ```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
+```
+
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
+b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
 \clearpage
@@ -100,7 +100,7 @@ f.plot(avg.model.3cd,
 
 \clearpage
 
-```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass over biomass at the USR and biomass at the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represent the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
+```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass relative to biomass at the USR and biomass at the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represent the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
 x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
 x <- as.data.frame(x)
 x$iter <- seq_len(nrow(x))
