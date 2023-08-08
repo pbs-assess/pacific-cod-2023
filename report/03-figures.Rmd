@@ -100,3 +100,57 @@ f.plot(avg.model.3cd,
 
 \clearpage
 
+
+```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass over biomass at the USR and biomass at the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represent the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
+x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
+x <- as.data.frame(x)
+x$iter <- seq_len(nrow(x))
+x <- tidyr::pivot_longer(x, cols = -iter, names_to = "year", values_to = "b") %>%
+  mutate(year = as.integer(year))
+lrp <- filter(x, year == 1986L) %>% rename(lrp = b) %>% select(-year)
+x <- left_join(x, lrp)
+usr <- filter(x, year %in% seq(1956, 2004)) %>%
+  group_by(iter) %>%
+  summarise(usr = mean(b))
+x <- left_join(x, usr) |> 
+  mutate(b_lrp = b / lrp, b_usr = b / usr) |> 
+  filter(year <= 2023)
+
+g <- x |> 
+  group_by(year) |> 
+  summarise(lwr = quantile(b_lrp, probs = 0.025), upr = quantile(b_lrp, probs = 0.975), lwr2 = quantile(b_lrp, probs = 0.25), upr2 = quantile(b_lrp, probs = 0.75), med = median(b_lrp)) |> 
+  ggplot(aes(year, med, ymin = lwr, ymax = upr)) +
+  geom_ribbon(fill = "grey90") +
+  geom_ribbon(aes(ymin = lwr2, ymax = upr2), fill = "grey75") +
+  geom_line() +
+  geom_hline(yintercept = 1, lty = 2, col = "grey50") +
+  coord_cartesian(xlim = range(x$year), ylim = c(0, NA), expand = FALSE) +
+  ylab("B / LRP") + xlab("Year")
+
+g1 <- x |> 
+  group_by(year) |> 
+  summarise(lwr = quantile(b_usr, probs = 0.025), upr = quantile(b_usr, probs = 0.975), lwr2 = quantile(b_usr, probs = 0.25), upr2 = quantile(b_usr, probs = 0.75), med = median(b_usr)) |> 
+  ggplot(aes(year, med, ymin = lwr, ymax = upr)) +
+  geom_ribbon(fill = "grey90") +
+  geom_ribbon(aes(ymin = lwr2, ymax = upr2), fill = "grey75") +
+  geom_line() +
+  geom_hline(yintercept = 1, lty = 2, col = "grey50") +
+  coord_cartesian(xlim = range(x$year), ylim = c(0, NA), expand = FALSE) +
+  ylab("B / USR") + xlab("Year")
+
+cowplot::plot_grid(g1, g, ncol = 1, align = "v")
+```
+
+```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows a threshold of 0.5 probability."}
+x |> 
+  group_by(year) |> 
+  summarise(prob_lrp = mean(b_lrp < 1)) |> 
+  ggplot(aes(year, prob_lrp)) +
+  geom_line() +
+  geom_hline(yintercept = .5, lty = 2, col = "grey50") +
+  coord_cartesian(xlim = c(2014, 2023), ylim = c(0, 0.55), expand = FALSE) +
+  ylab("P(B < LRP)") + xlab("Year") +
+  scale_x_continuous(breaks = seq(2012, 2022, 2))
+```
+
+\clearpage

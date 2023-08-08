@@ -218,13 +218,6 @@ Given the consistency of the GLM-derived commercial mean weight index with other
 
 \clearpage
 
-```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
-plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
-          mw.compare.plot(base.model.3cd[[1]], french=french),
-          nrow = 1,
-          ncol = 2)
-```
-
 ```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[1]], french=french),
