@@ -107,11 +107,11 @@ if(verbose){
 ##  SCRIPT ABOUT LOCATION OF THESE FOLDERS. THEY SHOULD BE MOVED BACK INTO MODELS IF NEEDED.
 ## --------------------------------------------------------------------------------------------
 # Sensitivity of treatment of commercial mean weight index
-sens.models.dir.name.11 <- c(file.path(model.dir,TWG,
+sens.models.dir.name.11 <- c(file.path(model.dir,"TWG",
                                        "1b_3CD_2023_no_interp"),
-                             file.path(model.dir,TWG,
+                             file.path(model.dir,"TWG",
                                        "1c_3CD_2023_noGLM_extrap"),
-                             file.path(model.dir,TWG,
+                             file.path(model.dir,"TWG",
                                        "1d_3CD_2023_noGLM_no_extrap")
                              )
 
