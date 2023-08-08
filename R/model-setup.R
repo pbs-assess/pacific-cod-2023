@@ -115,9 +115,9 @@ sens.models.dir.name.11 <- c(file.path(model.dir,"TWG",
                                        "1d_3CD_2023_noGLM_no_extrap")
                              )
 
-sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
-                         "Sc. 3 No GLM, with extrap",
-                         "Sc. 4 No GLM, no extrap")
+sens.models.name.11 <- c("Sc. 2",
+                         "Sc. 3",
+                         "Sc. 4")
 
 # # New comparisons
 # # Include the 2017 mean weight index point

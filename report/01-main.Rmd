@@ -126,11 +126,6 @@ For 2018--2022, the model uses the 2018, 2021 and 2022 annual mean weight index 
 Values for 2019 and 2020 were interpolated between 2018 and 2021.
 See Appendix D for a brief discussion of model sensitivities to these choices.
 
-**TODO: MOVE next para to an appendix**
-
-The TWG explored a number of sensitivity analyses, which tested model sensitivity to alternative approaches to updating the commercial mean weight index, including indices that excluded the interpolated values, did not include the GLM values, or variously included or excluded the 2017 and 2019 index points from the commercial data.
-The model was largely insensitive to these alternative treatments, mainly because the GLM-derived index values were consistent with the other data sources in the model (see Reference Model Results), resulting in poor fits to alternative versions of the index and, therefore, little impact on recruitment and biomass estimates.
-
 ## Stock assessment model {#assessment}
 
 The current stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE, commercial catch data and commercial mean weights.

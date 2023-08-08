@@ -199,4 +199,69 @@ mw.table(c(base.model.3cd,
 
 ```
 
+Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
+As in previous assessments [@forrest2020; @dfo2021], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight (see Reference model results).
+
+The models that used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)).
+The fit was similar for  scenarios both with and without interpolation in 2019--2020.
+The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
+In these scenarios, the model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
+
+This pattern is consistent with predicted recruitment from all four models (Figure \@ref(fig:fig-sens-recr-3cd)), which estimated low recruitment between 2016 and 2018.
+A population with fewer recruits is expected to have a higher than average mean weight of individuals.
+The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
+All four models showed a similar recruitment pattern, indicating that the other indices had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:surv-canadian) to \@ref(fig:fig-summary-cpue-indices-3cd)).
+This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from 2019, as in Sc. 3 and 4.
+
+Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd), indicating that all four models estimated a similar pattern in biomass.
+Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, Sc. 1 was used as the reference model, and as the basis for the other six models in the model-averaged set, for estimating stock status.
+
+\clearpage
+
+```{r fig-base-mean-weight-3cd, fig.cap="Scenario 1 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(base.model.3cd[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[2]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[3]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+\clearpage
+
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+  coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+    coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
 
