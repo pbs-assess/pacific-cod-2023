@@ -78,7 +78,7 @@ r.devs.plot <- function(models,
                         x.axis.angle = 0,
                         french=FALSE){
 
-  pal <- unname(colorBlindness::availableColors()[-1])
+  pal <- unname(colorBlindness::availableColors())
   rt <- lapply(models,
                function(x){
                  j <- x$mcmccalcs$recr.devs.quants

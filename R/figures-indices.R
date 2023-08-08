@@ -9,7 +9,7 @@ i.plot <- function(models,
   ## every is show every nth year on the x-axis
   ## leg.loc: topright, topleft, bottomright, bottomleft
 
-  pal <- unname(colorBlindness::availableColors()[-1])
+  pal <- unname(colorBlindness::availableColors())
 
   index.fit <- lapply(models,
                       function(x){

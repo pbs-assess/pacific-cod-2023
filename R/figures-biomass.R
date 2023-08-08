@@ -19,7 +19,7 @@ b.rel.plot <- function(models,
   ## lrp usr are year ranges (2-element vectors) to take the mean of
   ## the biomass for the reference points
 
-  pal <- unname(colorBlindness::availableColors()[-1])
+  pal <- unname(colorBlindness::availableColors())
 
   ## Biomass or Depletion
   if(depl){
@@ -258,7 +258,7 @@ b.plot <- function(models,
   ## lrp usr are year ranges (2-element vectors) to take the mean of
   ## the biomass for the reference points
 
-  pal <- unname(colorBlindness::availableColors()[-1])
+  pal <- unname(colorBlindness::availableColors())
 
   ## Biomass or Depletion
   if(depl){
