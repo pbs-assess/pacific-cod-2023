@@ -1,14 +1,8 @@
 \clearpage
 
-\clearpage
-
-`r if(knitr:::is_latex_output()) '\\Appendices'`
-
-`r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'`
-
 <!--TODO: add some text about the sensitivity analyses. Probably remove the last sensitivity figs for the model-averaged scenarios-->
 
-# Changes in commercial length sampling {#sec:AppendixA}
+# Appendix A. Changes in commercial length sampling
 
 ```{r get-length-samples-3cd}
 
@@ -58,7 +52,7 @@ g
 
 \clearpage
 
-# Developing a survey mean weight index {#sec:AppendixB}
+# Appendix B. Developing a survey mean weight index
 
 ## Methods
 
@@ -130,7 +124,7 @@ knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2.p
 
 \clearpage
 
-# Generalized Linear Model to predict commercial mean length index {#sec:AppendixC}
+# Appendix C. Generalized Linear Model to predict commercial mean length index 
 
 ## Methods
 
@@ -171,4 +165,7 @@ knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weigh
 ```
 
 \clearpage
+
+# Appendix D. Model sensitivity to treatment of the mean weight index
+
 
