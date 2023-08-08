@@ -6,7 +6,6 @@
 contributors <- tibble::tribble(
   ~Name,          ~Affiliation,
   "Robyn Forrest",   "DFO Science, Pacific Region",
-  "Chris Grandin",   "DFO Science, Pacific Region",
   "Sean Anderson",   "DFO Science, Pacific Region",
   "Paul Starr", "Canadian Groundfish Research and Conservation Society"
 )
