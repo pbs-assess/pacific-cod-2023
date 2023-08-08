@@ -168,4 +168,35 @@ knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weigh
 
 # Appendix D. Model sensitivity to treatment of the mean weight index
 
+Four scenarios were evaluated to investigate the sensitivity of the model to different treatments of the commercial annual mean weight index.
+All models were based on the Area 3CD Reference Case model from the 2020 assessment [@dfo2021].
+All scenarios used the commercial annual mean weight index derived from commercial length samples for the years 1956--2016.
+There was no 2017 index point in any scenario, as in the 2020 assessment.
+
+The four different scenarios are provided in the next section.
+
+## Summary of the scenarios
+
+Sc. 1: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
+This scenario was used as the basis for all models for evaluation of stock status in 2023 (see main body of this document).
+
+Sc. 2: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Do not include interpolated values for 2019 and 2020.
+
+Sc. 3: For the last seven years of the time series, use the same approach as in the 2020 assessment [@dfo2021], i.e, use the commercial mean weight index values for 2016, 2019 and 2020, where the 2020 value was set the same as the 2019 value. Continue to use the 2019 value for 2021 and 2022.
+
+Sc. 4: Same as Sc. 3 but do not include any values for 2021 and 2022.
+
+Values of the index since 2010 are provided in Table \@ref(tab:tab-mean-weight-recent-3cd)
+
+```{r tab-mean-weight-recent-3cd, results='asis'}
+mw.table(c(base.model.3cd,
+           sens.models.11),
+         c(base.model.3cd.name,
+           sens.models.name.11),
+         years=2010:2022,
+         area="3CD",
+         caption="Comparison of mean weight values used in the four commercial mean weight scenarios. Methods for scenario descriptions.")
+
+```
+
 

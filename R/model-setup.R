@@ -107,18 +107,18 @@ if(verbose){
 ##  SCRIPT ABOUT LOCATION OF THESE FOLDERS. THEY SHOULD BE MOVED BACK INTO MODELS IF NEEDED.
 ## --------------------------------------------------------------------------------------------
 # Sensitivity of treatment of commercial mean weight index
-# sens.models.dir.name.11 <- c(file.path(model.dir,
-#                                        "1b_3CD_2023_no_interp"),
-#                              file.path(model.dir,
-#                                        "1c_3CD_2023_noGLM_extrap"),
-#                              file.path(model.dir,
-#                                        "1d_3CD_2023_noGLM_no_extrap")
-#                              )
-#
-# sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
-#                          "Sc. 3 No GLM, with extrap",
-#                          "Sc. 4 No GLM, no extrap")
-#
+sens.models.dir.name.11 <- c(file.path(model.dir,TWG,
+                                       "1b_3CD_2023_no_interp"),
+                             file.path(model.dir,TWG,
+                                       "1c_3CD_2023_noGLM_extrap"),
+                             file.path(model.dir,TWG,
+                                       "1d_3CD_2023_noGLM_no_extrap")
+                             )
+
+sens.models.name.11 <- c("Sc. 2 GLM No interpolation",
+                         "Sc. 3 No GLM, with extrap",
+                         "Sc. 4 No GLM, no extrap")
+
 # # New comparisons
 # # Include the 2017 mean weight index point
 # sens.models.dir.name.22 <- file.path(model.dir,
@@ -228,7 +228,7 @@ retro.names <- c("- 1 year",
 load.models.into.parent.env <- function(){
   base.model.3cd     <<- load.models(base.model.3cd.dir.name)
   sens.models.13.sub <<- load.models(sens.models.dir.name.13.sub)
-  #sens.models.11    <<- load.models(sens.models.dir.name.11)
+  sens.models.11    <<- load.models(sens.models.dir.name.11)
   #sens.models.22    <<- load.models(sens.models.dir.name.22)
   #sens.models.33    <<- load.models(sens.models.dir.name.33)
   #sens.models.44    <<- load.models(sens.models.dir.name.44)
@@ -266,8 +266,8 @@ build <- function(ovwrt.base = FALSE,
   ## Sensitivity models need to be unlisted from their groups
   ##  and placed into a single list for the for loop below to work right
   sens.models.names.list <-   c(unlist(sens.models.dir.name.13.sub),
-                                unlist(desc.models.3cd.dir.name))
-  #                             unlist(sens.models.dir.name.11),
+                                unlist(desc.models.3cd.dir.name),
+                                unlist(sens.models.dir.name.11))
   #                             unlist(sens.models.dir.name.22),
   #                             unlist(sens.models.dir.name.33),
   #                             unlist(sens.models.dir.name.44),
