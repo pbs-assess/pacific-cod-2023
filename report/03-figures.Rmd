@@ -19,73 +19,11 @@ make.catches.plot(catch.3, french=french) +
                        limits = c(0, NA))
 ```
 
-```{r cpue-funcs}
-source(here::here('R/cpue-functions.R'))
-```
-
-```{r cpue-params}
-params <- list()
-params$species_proper <- "Pacific Cod"
-params$april1_year <- TRUE
-params$area <- c("3[CD]+")
-params$area_name <- c("3CD")
-params$skip_single_variable_models <- FALSE
-```
-
-```{r cpue-run-historic, message=FALSE, warning=FALSE, results='hide'}
-params$era <- "historic"
-source(here::here("R/cpue.R"))
-dfleet_hist <- dfleet
-gg_cpue_hist <- gg_cpue
-cpue_pred_hist <- predictions
-arith_cpue_hist <- arith_cpue
-m_historic <- readRDS(here::here("data/generated/cpue-models-pcod-historic.rds"))
-```
-
-```{r cpue-run-modern, message=FALSE, warning=FALSE, results='hide'}
-params$era <- "modern"
-source(here::here("R/cpue.R"))
-dfleet_modern <- dfleet
-gg_cpue_modern <- gg_cpue
-cpue_pred_modern <- predictions
-arith_cpue_modern <- arith_cpue
-m_modern <- readRDS(here::here("data/generated/cpue-models-pcod-modern.rds"))
-```
-
-```{r cpue-save}
-readr::write_csv(cpue_pred_modern, here::here("data/generated/cpue-predictions-modern.csv"))
-readr::write_csv(cpue_pred_hist, here::here("data/generated/cpue-predictions-historical.csv"))
-```
-
-```{r cpue-index-ts-hist}
-g1 <- make_cpue_ts_dat(cpue_pred_hist) %>% make_cpue_ts_plot() +
-  #ggtitle("1956-1995 CPUE") +
-  ylab("")+
-  scale_colour_brewer(palette = "Dark2") +
-  scale_fill_brewer(palette = "Dark2")
-```
-
-```{r cpue-index-ts-modern}
-g2 <- make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
-  #ggtitle("1996+ CPUE") +
-  ylab("")+
-  scale_colour_brewer(palette = "Dark2") +
-  scale_fill_brewer(palette = "Dark2")
-```
-
 ```{r fig-summary-cpue-indices-3cd, fig.cap="Commercial trawl CPUE standardization models for the historical period, 1956--1995 (top) and the modern period, 1996--2022 (bottom). The black line and shaded region indicate a CPUE index with only a year predictor. The coloured line and shaded ribbons shows a standardization model that includes all the predictors plus locality-by-year (space-time) random effects. Locality and locality-year interactions are fit as random effects and all other variables are fit as fixed effects.", echo=FALSE}
 
-P <- cowplot::plot_grid(g1,g2, ncol=1,labels = c("",""), greedy=TRUE)
-  # draw__label(en2fr("CPUE (kg/hour)",translate=french), x=  -0.01, y=3, vjust= 1.5, angle=90)+
-  # draw_label(en2fr("Year",translate=french), x=  0.5, y=0, vjust= 0, angle=0)
-y.grob <- textGrob(en2fr("CPUE (kg/hour)",translate=french), 
-                   gp=gpar(fontface="bold", fontsize=15), rot=90)
-x.grob <- textGrob(en2fr("Year",translate=french), 
-                   gp=gpar(fontface="bold", fontsize=15))
-grid.arrange(arrangeGrob(P, left = y.grob, bottom = x.grob))
+knitr::include_graphics(here(generatedd,"CPUE_All_Fully_Standardized_3CD.png"))
 
 ```
-
 
 ```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360."}
 include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"))

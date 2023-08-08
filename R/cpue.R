@@ -21,6 +21,7 @@ if (params$era == "modern") {
   }
 }
 
+
 if (params$era == "modern") {
   define_fleet <- function(area, area_name) {
     # d1996$catch_kg <- d1996$landed_kg + d1996$discarded_kg
@@ -178,4 +179,5 @@ gg_cpue$pred
 
 # write to file
 ggsave(file.path(generatedd,paste0("CPUE_Modern_Fully_Standardized_",AREA,".png")))
+
 
