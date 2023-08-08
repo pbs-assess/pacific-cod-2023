@@ -68,11 +68,11 @@ plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
+```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the commercial mean weight index used in the Reference model."}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. All models use the commercial mean weight index used in Sc. 1 (see Methods)."}
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. All models use the commercial mean weight index used in the Reference model."}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
@@ -94,7 +94,6 @@ f.plot(avg.model.3cd,
        add.hist.ref = TRUE,
         lrr = c(1956, 2004), 
        french=french)
-
 ```
 
 \clearpage

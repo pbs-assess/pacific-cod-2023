@@ -173,11 +173,9 @@ All models were based on the Area 3CD Reference Case model from the 2020 assessm
 All scenarios used the commercial annual mean weight index derived from commercial length samples for the years 1956--2016.
 There was no 2017 index point in any scenario, as in the 2020 assessment.
 
-The four different scenarios are provided in the next section.
+The four different scenarios are:
 
-## Summary of the scenarios
-
-Sc. 1: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
+Sc. 1a Reference: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
 This scenario was used as the basis for all models for evaluation of stock status in 2023 (see main body of this document).
 
 Sc. 2: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Do not include interpolated values for 2019 and 2020.
@@ -199,10 +197,10 @@ mw.table(c(base.model.3cd,
 
 ```
 
-Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figures \@ref(fig:fig-base-mean-weight-3cd) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
-As in previous assessments [@forrest2020; @dfo2021], model fits to the mean weight index in all scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight (see Reference model results).
+Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figure \@ref(fig:fig-base-mean-weight-3cd) and Figures \@ref(fig:fig-base-mean-weight-3cd-sc2) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
+As in the Reference model (Figure \@ref(fig:fig-base-mean-weight-3cd)), fits to the mean weight index in the alternative scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight.
 
-The models that used values from the GLM from 2018 onwards (Sc. 1 and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)).
+The models that used values from the GLM from 2018 onwards (Sc. 1a Reference and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)).
 The fit was similar for  scenarios both with and without interpolation in 2019--2020.
 The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
 In these scenarios, the model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
@@ -210,11 +208,11 @@ In these scenarios, the model-predicted commercial mean weights followed a simil
 This pattern is consistent with predicted recruitment from all four models (Figure \@ref(fig:fig-sens-recr-3cd)), which estimated low recruitment between 2016 and 2018.
 A population with fewer recruits is expected to have a higher than average mean weight of individuals.
 The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
-All four models showed a similar recruitment pattern, indicating that the other indices had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:surv-canadian) to \@ref(fig:fig-summary-cpue-indices-3cd)).
+All four models showed a similar recruitment pattern, indicating that the other indices had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:fig-surv-canadian) to \@ref(fig:fig-summary-cpue-indices-3cd)).
 This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from 2019, as in Sc. 3 and 4.
 
 Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd), indicating that all four models estimated a similar pattern in biomass.
-Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, Sc. 1 was used as the reference model, and as the basis for the other six models in the model-averaged set, for estimating stock status.
+Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, the first scenario (Sc. 1a Reference) was used as the reference model, and as the basis for the other six models in the model-averaged set, for estimating stock status.
 
 \clearpage
 
