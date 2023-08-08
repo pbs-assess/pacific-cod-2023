@@ -1,6 +1,8 @@
 # Code to get the annual mean weight in the survey. Try to mimic the commercial mean
 #  weight code as much as possible
 
+# Copy of get-mean-weight-survey.R to address questions from Paul Starr: July 20, 2023
+
 # This script is called by get-iscam-inputs.R
 
 # This was for the 2022 technical working group meeting to look at whether we can
@@ -10,6 +12,7 @@
 
 # June 2 2022. Robyn Forrest (RF)
 # Updated April 28 2023. RF
+# Updated July 20 2023. RF
 
 # TODO: Check that the catch weighting makes sense
 # Well, none of it really makes sense because length sampling has been
@@ -18,6 +21,8 @@
 AREA <- "3CD"
 print(AREA)
 Years <- 2004:2022
+
+pal <- unname(colorBlindness::availableColors()[-1])
 
 mytheme <- gfplot::theme_pbs() +
   theme(title = element_text(size=12, face="bold"))+
@@ -48,7 +53,7 @@ lengthwt_raw <- dat$survey_samples %>%
   filter(survey_abbrev %in% SURVEY,
          usability_code %in% c(0, 1, 2, 6),
          !is.na(length)) %>%
-  select(year,fishing_event_id, sample_id,grouping_code,length,weight) %>%
+  select(year,fishing_event_id, sample_id,specimen_id, sex,grouping_code,length,weight) %>%
   mutate(weight_calc=.ALPHA*length^.BETA, weight=weight/1000) %>%
   left_join(catch_weight_summary)
 
@@ -122,9 +127,8 @@ g <- lengthwt_raw %>%
   ggplot() +
   geom_point(aes(x=weight, y=weight_calc), colour="darkblue") +
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
-ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_survey",
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_",
                                AREA,".png")))
-
 # Plot annual mean weights
 g <- survey_mw_raw %>%
   rename(raw=survey_mw_raw) %>%
@@ -189,8 +193,7 @@ if (TYPE == "weighted") {
 Title <- paste(AREA, TYPE, ": 2017 and 2019 comm. removed due to low sample size")
 
 # pal <- RColorBrewer::brewer.pal(3, "Dark2")
-pal <- unname(colorBlindness::availableColors()[-1])
- g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
+g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
    mutate(name = gsub("survey_mean_weight", "Survey", name)) |>
    mutate(name = gsub("comm_mean_weight", "Commercial", name)) |>
     filter(!is.na(value)) %>%
@@ -210,6 +213,29 @@ pal <- unname(colorBlindness::availableColors()[-1])
  g
  ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
                                  AREA,".png")), width = 7, height = 4)
+
+ #Make the plot again with points for the survey
+ pal <- unname(colorBlindness::availableColors()[-1])
+ cols <- c("Commercial" = pal[1], "Survey" = pal[2])
+ g <- dat1 %>%
+   ggplot(aes(year)) +
+   geom_vline(xintercept = 2000:2022, lty = 1, col = "grey90") +
+   # theme(panel.grid.major.x = element_line(colour = "grey90")) +
+   # theme(panel.grid.minor.x = element_line(colour = "grey90")) +
+   # geom_point(size=3.5) +
+   geom_line(aes(x=year, y=comm_mean_weight, colour="Commercial"),size=1.4) +
+   geom_point(data = dat1, mapping = aes(year, comm_mean_weight, size = n_samples), inherit.aes = FALSE, pch = 21, na.rm = TRUE) +
+   geom_point(data = dat1, mapping = aes(year, survey_mean_weight, colour="Survey"), size = 4, inherit.aes = FALSE, pch = 19, na.rm = TRUE) +
+   ylim(0,3)+
+   labs(title = Title, y = "Mean weight (kg)", x = "Year") +
+   scale_size_area(name = "Comm. sampling events") +
+   scale_color_manual(name="Type",values = c("Commercial" = pal[1], "Survey" = pal[2]),
+                      breaks=c('Commercial', 'Survey')) +
+   scale_x_continuous(breaks=(seq(2000,2024,by=4)))+
+   labs(colour = "Type")
+ g
+ ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
+                                    AREA,"_2.png")), width = 7, height = 4)
 
 # 4. Plot the two indices against each other (log space)
 #    Note that the last pair of survey and commercial index values was in 2016
@@ -417,10 +443,7 @@ comparedata_allyrs  <-
 
     brms::pp_check(fit, ndraws = 200)
     brms::pp_check(fit, ndraws = 200, type = "ecdf_overlay")
-
-
   }
-
 
 # Now need to interpolate for years with no survey data
   # Only need to do this for years without comm samples
@@ -450,5 +473,229 @@ comparedata_allyrs  <-
   write_csv(pred_mean_weight_no_interpolate,
             file.path(generatedd,paste0("Pred_comm_weight_without_interpolation_",
                                         AREA,".csv")))
+
+#============================================================================================
+# Extra analyses for Paul Starr July 2023 (WCVI_Pcod_TWG_report_2023_replies.Rmd)
+#============================================================================================
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 1a. 2017 index point
+  # get the number of samples and number of vessels from 2017 to 2019
+ncomm_samples <- dat$commercial_samples %>%
+    select(year,major_stat_area_name,vessel_id,gear_desc,species_code,
+           fishing_event_id, sample_id, specimen_id) %>%
+    filter(year %in% c(2017,2019),
+           major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND")) %>%
+    group_by(year) %>%
+    summarize(nsamples=n_distinct(sample_id),
+              nvessels=n_distinct(vessel_id))
+
+ncomm_specimens <- dat$commercial_samples %>%
+  select(year,major_stat_area_name,vessel_id,gear_desc,species_code,
+         fishing_event_id, sample_id, specimen_id) %>%
+  filter(year %in% c(2017,2019),
+         major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND")) %>%
+  group_by(year,sample_id) %>%
+  summarize(nlengths=n_distinct(specimen_id))
+
+
+  # 1b Update L-W parameters, using the same rlm model as in 2018
+# Add usability code = 1 for fit_length_weight, and convert weight to grams (plot converts to kg)
+
+lwdat <- lengthwt_raw %>%
+    mutate(usability_code=1,
+           weight=weight*1000)
+
+# males and females
+LWMf <- gfplot::fit_length_weight(lwdat, sex="female", method = "rlm")
+LWMm <- gfplot::fit_length_weight(lwdat, sex="male", method = "rlm")
+plot_length_weight(object_female=LWMf, object_male=LWMm, pt_alpha=1)
+ggsave(file.path(generatedd,paste0("New_LW_fit_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+# both sexes
+LWM <- gfplot::fit_length_weight(lwdat, sex="all", method = "rlm")
+plot_length_weight(object_all=LWM, pt_alpha=1)
+ggsave(file.path(generatedd,paste0("New_LW_fit_both_sex_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+
+lwa <- signif(exp(LWM$model$coefficients[1]),6)
+lwb <- round(LWM$model$coefficients[2],2)
+
+# 2a Residual plot of calc weight vs obs weight
+M1 <- lm(weight_calc~weight,
+         data = lengthwt_raw)
+R1 <- rstandard(M1)
+
+# plot model fit
+# base R
+# par(mfrow = c(1,1))
+# plot(lengthwt_raw$weight_calc, lengthwt_raw$weight)
+# abline(M1, col=2, lwd=2)
+
+# ggplot
+g <- lengthwt_raw %>%
+  filter(!is.na(weight)) %>%
+  ggplot(aes(x=weight, y=weight_calc)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)+
+  labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_with_lmfit_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+# plot basic diagnostics
+# par(mfrow = c(2,2))
+# plot(M1)
+
+# histogram of residuals
+g2 <- R1 %>%
+  as.data.frame() %>%
+  ggplot(aes(x=R1)) +
+  geom_histogram(binwidth=0.1,
+                 colour="black", fill="lightgray")+
+  xlab("Residuals: calc weight vs obs weight")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_hist_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# In log space
+M2 <- lm(log(weight_calc)~log(weight),
+         data = lengthwt_raw)
+R2 <- rstandard(M2)
+
+# plot model fit
+# base R
+# par(mfrow = c(1,1))
+# plot(log(lengthwt_raw$weight_calc), log(lengthwt_raw$weight))
+# abline(M2, col=2, lwd=2)
+
+# ggplot
+g <- lengthwt_raw %>%
+  filter(!is.na(weight)) %>%
+  mutate(log_weight_calc=log(weight_calc),
+         log_weight=log(weight)) %>%
+  ggplot(aes(x=log_weight, y=log_weight_calc)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)+
+  labs(title = paste(AREA), y = "Calculated log(weight from length)", x = "log(observed weight)")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_with_lmfit_LOG_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+
+# plot basic diagnostics
+# par(mfrow = c(1,1))
+# plot(M2)
+
+# histogram of residuals
+g2 <- R2 %>%
+  as.data.frame() %>%
+  ggplot(aes(x=R2)) +
+  geom_histogram(binwidth=0.1,
+                 colour="black", fill="lightgray")+
+  xlab("Residuals: log calc weight vs log obs weight")
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_hist_LOG_",
+                                   AREA,".png")), width = 7.5, height = 4)
+# Scatter plot of residuals
+g3 <- R2 %>%
+  as.data.frame() %>%
+  rename(y='.') %>%
+  mutate(x=1:length(y)) %>%
+  ggplot()+
+    geom_point(aes(x=x,y=y))+
+    geom_hline(yintercept=0, colour=2)+
+    xlab("Index") + ylab("Residuals: log calc weight vs log obs weight")+
+    theme(axis.title.x = element_text(size=12, face="bold"),
+          axis.title.y = element_text(size=12, face="bold"))
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_residuals_points_LOG_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+# Compare number of calculated to observed samples
+compare <- lengthwt_raw %>%
+  select(year, weight, weight_calc) %>%
+  group_by(year) %>%
+  summarise(across(everything(), ~ sum(!is.na(.))))
+
+nwobs <- sum(compare$weight)
+nwcalc <- sum(compare$weight_calc)
+nwdiff <- nwcalc-nwobs
+
+g <- compare %>%
+  rename(weight_obs=weight) %>%
+  melt(id="year", variable.name="Weight_measure", value.name="Nspecimens") %>%
+  rename("Year"=year) %>%
+  ggplot(aes(x=Year,y=Nspecimens,fill=Weight_measure)) +
+  geom_bar(stat='identity', position='dodge')+
+  scale_fill_manual(values=pal)+
+  scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_weights_counts_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+# There are 934 fewer observed weights than calculated weights
+
+# Re-calculate the survey mean weight index using observed weights
+# 1. get the mean weight in the samples, with the catch weight from the fishing event
+# Equivalent to Eq C.6 in the 2018 assessment
+Mean_wt_samples_obs <- lengthwt_raw %>%
+  group_by(year, sample_id, grouping_code) %>%
+  filter(!is.na(weight)) %>%
+  summarize(mean_weight=mean(weight),
+            sum_weight=sum(weight),
+            catch_weight=catch_weight[1])
+
+# now weight by depth stratum. Sort of the equivalent of Eq C.7 in the 2018 assessment,
+# which weighted by sequential quarter
+# only do calculated mean weight ... not enough weight obs per strata
+
+# From Appendix C of 2018 assessment
+# The mean weight (Ws) for each stratum [sequential quarter] was then calculated,
+# weighted by the sample weight of Pacifc Cod (Sj ) in each SampleID (j).
+# If the sample weight was recorded as data, it is used.
+# Otherwise, the sum of the calculated weights from the sample is used
+# Ws = Sum(Wjs*Sjs)/Sum(Sjs)
+# Each Sum is over Ks, which is the number of sample ids in each stratum
+# for sampleid j and stratum s
+
+Mean_weight_stratum_obs <- Mean_wt_samples_obs %>%
+  group_by(year, grouping_code) %>%
+  summarize(stratum_mean_wt=sum(mean_weight*sum_weight)/sum(sum_weight),
+            stratum_catch_wt=sum(catch_weight))
+
+#Equivalent to Eq C.8 in the 2018 assessment
+survey_mw_weighted_obs <- Mean_weight_stratum_obs %>%
+  group_by(year) %>%
+  summarize(survey_mw_weighted_obs=sum(stratum_mean_wt*stratum_catch_wt)/sum(stratum_catch_wt))
+
+# Now bind these with the index from the calculated weights
+survey_mw_compare <- survey_mw_weighted %>%
+  full_join(survey_mw_weighted_obs) %>%
+  rename("weight_calc"=survey_mw_weighted,
+         "weight_obs"=survey_mw_weighted_obs) %>%
+  melt(id="year", variable.name = "Method", value.name="Mean_weight_index_kg") %>%
+  ggplot() +
+  geom_point(aes(x=year, y=Mean_weight_index_kg, colour=Method), pch=19,size=3)+
+  ylim(0,3)+
+  scale_color_manual(values=pal)+
+  scale_x_continuous(breaks=c(2004,2006,2008,2010,2012,2014,2016,2018,2020,2022))
+ggsave(file.path(generatedd,paste0("Survey_annual_mean_weight_compare_",
+                                   AREA,".png")), width = 7.5, height = 4)
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 2c Look at whether there are tows with multiple sample IDs
+sample_ids <- lengthwt_raw %>%
+  select(year, fishing_event_id,sample_id) %>%
+  group_by(year, fishing_event_id) %>%
+  summarize(unique_sample_id=n_distinct(sample_id)) %>%
+  arrange(desc(unique_sample_id))
+
+#cat("The maximum number of samples per tow is", max(sample_ids$unique_sample_id))
+
+# NO, no tows with more than one sample
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 2d
+
+#============================================================================================
 
 
