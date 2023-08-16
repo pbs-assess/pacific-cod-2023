@@ -2,11 +2,13 @@
 
 # Contributors
 
+Contributors to the Science Response; an asterisk indicates the primary authors.
+
 ```{r, echo=FALSE, include=FALSE}
 contributors <- tibble::tribble(
   ~Name,          ~Affiliation,
-  "Robyn Forrest",   "DFO Science, Pacific Region",
-  "Sean Anderson",   "DFO Science, Pacific Region",
+  "Robyn Forrest*",   "DFO Science, Pacific Region",
+  "Sean Anderson*",   "DFO Science, Pacific Region",
   "Paul Starr", "Canadian Groundfish Research and Conservation Society"
 )
 ```
