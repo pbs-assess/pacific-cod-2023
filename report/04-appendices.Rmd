@@ -22,7 +22,7 @@ summary_by_year <- comm_samp %>%
  colnames(summary_by_year) <- c("Year", "Num samples", "Num lengths","Raw mean length", "SD length", "SE length")
 
 knitr::kable(summary_by_year,
-               caption = "Summary of commercial length samples since 1996 for Area 3CD. Mean lengths are unweighted by catch and are presented to visualise changes in sampling effort since 2015.",
+               caption = "Summary of commercial length samples since 1996 for Area 3CD. Mean lengths are not weighted by catch and are presented to visualise changes in sampling effort since 2015.",
                longtable = TRUE, format = "pandoc",
                align = get.align(ncol(summary_by_year))[-1],
                booktabs = TRUE, linesep = "", escape = FALSE, row.names = FALSE) %>%
@@ -30,21 +30,16 @@ knitr::kable(summary_by_year,
 
 ```
 
-```{r plot-length-samples-3cd, fig.cap="Summary of raw commercial length samples since 2000 for Area 3CD, showing the anomalously high value in 2017. Mean lengths are unweighted by catch."}
+```{r plot-length-samples-3cd, fig.cap="Summary of raw commercial length samples since 2000 for Area 3CD, showing the anomalously high value in 2017. Mean lengths are unweighted by catch. Dots represent means and vertical line segments represent plus/minus one standard error (often hidden behind dots)."}
 
 g <- summary_by_year %>%
   dplyr::filter(Year>1999) %>%
   ggplot(aes(x=Year, y=`Raw mean length`))+
-  geom_point(size=3)+
-  geom_errorbar(aes(ymin=`Raw mean length`-`SE length`, ymax=`Raw mean length`+ `SE length`),  width=0.1)+
+  geom_point(size=2)+
+  geom_errorbar(aes(ymin=`Raw mean length`-`SE length`, ymax=`Raw mean length`+ `SE length`),  width=0.2)+
   labs(x = "Year", y = "Raw mean length (cm)")+
   gfplot::theme_pbs()+
-  scale_color_viridis_d() +
-  theme(plot.title = element_text(face="bold", size=14),
-        axis.title.x = element_text(size=12),
-        axis.title.y = element_text(size=12),
-        axis.text.y = element_text(size=12),
-        axis.text.x = element_text(size=10))
+  scale_color_viridis_d()
 
 g
 
@@ -110,7 +105,7 @@ Figure \@ref(fig:fig-comm-vs-survey-weights-3cd) shows the commercial mean weigh
 The number of sampling events is indicated by the sizes of the circles in Figures \@ref(fig:fig-comm-mean-weights-3cd) and \@ref(fig:fig-comm-vs-survey-weights-3cd).
 
 
-```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. 2020. Area of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="4in"}
+```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. 2020. Area of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="6in"}
 knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.png"))
 ```
 
@@ -118,7 +113,7 @@ knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.pn
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="4in"}
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Commercial mean weight index and survey mean weight index. Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="5in"}
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
 ```
 
@@ -239,7 +234,7 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
@@ -247,7 +242,7 @@ g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.mode
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows the posterior medians and the grey shaded regions represent the 95\\% credible interval. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows posterior medians and the grey shaded regions represent 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
