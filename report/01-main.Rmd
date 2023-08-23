@@ -34,6 +34,7 @@ For the purpose of triggering a rebuilding plan, the guidance provides the follo
 
 *"[A stock] is considered to be at or below its LRP if the terminal year stock status indicator is estimated to be at or below the LRP with a greater than 50% probability or if the projected stock status indicator falls below the LRP with a greater than 50% probability under a zero catch scenario in a 1-year projection, unless an alternative method or probability is defined in a stock-specific precautionary approach framework."*
 
+<!-- TODO: is this date right!? -->
 This Science Response reports results from the Science Response Process of December 2022 on the "Stock Status Update of British Columbia Pacific Cod (*Gadus macrocephalus*) in Area 3CD in 2023".
 Since there has been no request for catch advice, this is a stock status update only. The update uses the same model configurations as the 2018 and 2020 assessments [@forrest2020; @dfo2021], including model-averaged stock status based on the same seven sensitivity scenarios as in 2018 and 2020.
 However, due to the ongoing absence of commercial length samples, this update uses the GLM developed in 2022 to update the last five years of the annual commercial mean weight index, based on values from the survey mean weight index.
