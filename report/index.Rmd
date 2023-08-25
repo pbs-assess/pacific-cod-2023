@@ -4,7 +4,7 @@ title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gad
 title_short: "WCVI Pacific Cod status update in 2023"
 year: 2023
 month: October
-french_month: TODO
+french_month: octobre
 report_number: 01 #This *must* be numeric!
 approver: |
   Andrew Thomson\

@@ -6,6 +6,8 @@ r.plot <- function(models,
   ## add.meds: Add median and mean line
   ## x.axis.angle: Angle of x-axis labels
 
+  pal <- unname(colorBlindness::availableColors())
+
   rt <- lapply(models,
                function(x){
                  j <- x$mcmccalcs$recr.quants

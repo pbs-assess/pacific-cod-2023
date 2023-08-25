@@ -175,7 +175,7 @@ desc.models.3cd.name <- c(base.model.3cd.name,
                           ifelse(french, "Sc 2d.", "2d) WCVISS ln(q) prior mean = ln(1.0)"),
                           ifelse(french, "Sc 2e.", "2e) WCVISS ln(q) prior SD = 0.6"),
                           ifelse(french, "Sc 3a.", "3a) M prior mean = 0.4, SD = 0.1"),
-                          ifelse(french, "Sc 5a.", "5a) kage = 3y and update FW parameters"),
+                          ifelse(french, "Sc 5a.", "5a) kage = 3y"),
                           ifelse(french, "Sc 6b.", "6b) Fix sigma O = 0.15"),
                           ifelse(french, "Sc 7b.", "7b) Fix sigma W = 0.15"))
 

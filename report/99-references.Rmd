@@ -2,7 +2,7 @@
 
 # Contributors
 
-Contributors to the Science Response; an asterisk indicates the primary authors.
+Contributors to the Science Response; an asterisk indicates the authors.
 
 ```{r, echo=FALSE, include=FALSE}
 contributors <- tibble::tribble(
