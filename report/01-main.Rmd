@@ -23,7 +23,7 @@ Because of this issue with the 5ABCD stock commercial mean weight index and limi
 
 The Pacific Groundfish Management Unit has not requested updated catch advice for 2023.
 However, given the three low index points in 2018, 2021, and 2022, DFO Science Branch has issued a RSIA requesting a stock status update for the Area 3CD stock to ensure all three of these index points are considered in a timely evaluation of stock status.
-While the last assessment found that there was low probability (2%--10%) of the stock being below its limit reference point (LRP) in 2022 under all catch scenarios [@dfo2021], the stock has failed to rebound under low catches, and catches have increased (Table \@ref(tab:tab-catch-3cd)).
+While the last assessment found that there was low probability (2%--10%) of the stock being below its limit reference point (LRP) in 2022 under all catch scenarios [@dfo2021], the stock has failed to rebound under low catch rates, and catches have increased (Table \@ref(tab:tab-catch-3cd)).
 
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their LRP.
 While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided that states that, for stocks not subject to the FSP (such as Pacific Cod), DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
