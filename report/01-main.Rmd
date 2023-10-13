@@ -1,7 +1,7 @@
 
 # Context
 
-The 2020 assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) found the Area 3CD stock (West Coast Vancouver Island: WCVI; Figure \@ref(fig:fig-map)) to be in the Cautious Zone with > 99% probability [@dfo2021].
+The 2020 assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) found the Area 3CD stock (West Coast Vancouver Island: WCVI; Figure \@ref(fig:fig-map)) to be in the Cautious Zone with > 99% probability [@dfo2021] with < 1% probability of being in the Critical Zone.
 This followed a notable reduction in the 2018 WCVI synoptic bottom trawl survey index (approximately 26--27% of the 2014 and 2016 observations (Table \@ref(tab:surv-canadian-table); Figure \@ref(fig:fig-surv-canadian)).
 Given the low index point in 2018, the 2020 Science Response recommended updating the assessment following the 2020 WCVI synoptic bottom trawl survey.
 However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey was postponed to 2021, returning to its regular biennial schedule in 2022.
@@ -18,12 +18,12 @@ The 2022 RSIA therefore had two steps: 1) an assessment of the potential sensiti
 The RSIA advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to evaluate alternative methods for updating the commercial mean weight index.
 This included a generalized linear model (GLM) for predicting the commercial mean weight index from a survey mean weight index derived from WCVI survey samples.
-The TWG found that the GLM provided acceptable predictions of the commercial mean weight index for the Area 3CD stock but decided that the GLM did not have acceptable predictive power for the 5ABCD stock.
+The TWG found that the GLM provided acceptable predictions of the commercial mean weight index for the Area 3CD stock. However, the TWG decided that a similar GLM applied to the 5ABCD stock did not produce predictions consistent enough with the commercial mean weight index in overlapping years to be used in an assessment.
 Because of this issue with the 5ABCD stock commercial mean weight index and limited staff resources, Step 2 did not proceed.
 
 The Pacific Groundfish Management Unit has not requested updated catch advice for 2023.
 However, given the three low index points in 2018, 2021, and 2022, DFO Science Branch has issued a RSIA requesting a stock status update for the Area 3CD stock to ensure all three of these index points are considered in a timely evaluation of stock status.
-While the last assessment found that there was low probability (2%--10%) of the stock being below its limit reference point (LRP) in 2022 under all catch scenarios [@dfo2021], the stock has failed to rebound under low catch rates, and catches have increased (Table \@ref(tab:tab-catch-3cd)).
+While the last assessment found that there was low probability (2%--10%) of the stock being below its limit reference point (LRP) in 2022 under all catch scenarios [@dfo2021], the stock has failed to rebound under low catches, and catches have increased (Table \@ref(tab:tab-catch-3cd)).
 
 The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their LRP.
 While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided that states that, for stocks not subject to the FSP (such as Pacific Cod), DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
@@ -172,8 +172,8 @@ Full details on the model configurations and assumptions for each scenario are p
 The scenarios (Sc) included in the model-averaging set were:
 
 1.	Sc 1a: Reference model;
-2.	Sc 2d: Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$;
-3.	Sc 2e: Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6;
+2.	Sc 2d: Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$, i.e. $\ln(q) \sim \mathcal{N}(0, 0.3)$;
+3.	Sc 2e: Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6, i.e. $\ln(q) \sim \mathcal{N}(0, 0.6)$;
 4.	Sc 3a: Set the parameters of the prior probability distribution for $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$;
 5.	Sc 5a: Set knife-edged age at recruitment = 3 years;
 6.	Sc 6b: Reduce the overall observation error term $\sigma_O = 0.15$; and
