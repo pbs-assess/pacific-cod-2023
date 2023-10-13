@@ -78,7 +78,7 @@ b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3c
 
 \clearpage
 
-```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line represents the posterior median and the grey shaded region represents the 95\\% credible interval. Green dashed line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible intervals of the LRP and USR, respectively."}
+```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line represents the posterior median and the grey shaded region represents the 95\\% credible interval. Green dotted line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible intervals of the LRP and USR, respectively."}
 b.plot(avg.model.3cd,
        base.model.3cd.name,
        depl = FALSE,

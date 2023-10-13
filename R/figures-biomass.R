@@ -410,16 +410,18 @@ b.plot <- function(models,
       cal <- bt %>%
         filter(Year >= lrp[1] & Year <= lrp[2])
       lrp.val <- mean(cal$median)
+
       cau <- bt %>%
         filter(Year >= usr[1] & Year <= usr[2])
       usr.val <- mean(cau$median)
+
       j <- data.frame("Intercept" = c(lrp.val, usr.val),
                       "Color" =  col)
       p <- p +
         geom_hline(data = j,
                    aes(yintercept = Intercept),
                    color = j$Color,
-                   linetype = "dashed",
+                   linetype = 2:3,
                    size = 1)
     }
   }

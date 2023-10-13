@@ -18,12 +18,7 @@ Then:
 
 5. Make the draft SR
 
-For now type this into the command line:
 
-setwd("report")
-bookdown::render_book("index.Rmd")
-
-knitting index.Rmd is currently not working due to csasdown changes.
 
 
 
