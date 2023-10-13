@@ -126,7 +126,7 @@ See Appendix D for a brief presentation of model sensitivity to these choices.
 
 ## Stock assessment model
 
-The stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE indices, commercial catch data, and and the commercial mean weight index.
+The stock assessment model is a Bayesian delay-difference model [@deriso1980], fit to survey indices, commercial CPUE indices, commercial catch data, and the commercial mean weight index.
 The model is fully described in Appendix D of @forrest2020.
 All fixed parameters and prior probability distributions for model parameters in the current assessment were the same as those reported in @forrest2020.
 
