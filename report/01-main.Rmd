@@ -1,7 +1,7 @@
 
 # Context
 
-The 2020 assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) found the Area 3CD stock (West Coast Vancouver Island: WCVI; Figure \@ref(fig:fig-map)) to be in the Cautious Zone with > 99% probability [@dfo2021] with < 1% probability of being in the Critical Zone.
+The 2020 assessment for Pacific Cod (*Gadus macrocephalus*) in British Columbia (BC) found the Area 3CD stock (West Coast Vancouver Island: WCVI; Figure \@ref(fig:fig-map)) to be in the Cautious Zone with 97--98% probability, with 2--10% probability of being in the Critical Zone, over all catch scenarios considered [@dfo2021].
 This followed a notable reduction in the 2018 WCVI synoptic bottom trawl survey index (approximately 26--27% of the 2014 and 2016 observations (Table \@ref(tab:surv-canadian-table); Figure \@ref(fig:fig-surv-canadian)).
 Given the low index point in 2018, the 2020 Science Response recommended updating the assessment following the 2020 WCVI synoptic bottom trawl survey.
 However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey was postponed to 2021, returning to its regular biennial schedule in 2022.
