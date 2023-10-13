@@ -257,9 +257,9 @@ We recommend that resources be allocated to investigate alternative hypotheses f
 
 The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
 Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
-**We acknowledge that a new dockside biosampling program is currently in the pilot stage, with the intention of expanding to a full coastwide program following the pilot program.**
+**We acknowledge that a new dockside biosampling program is currently in the pilot stage, with the intention of its expansion to a full coastwide program following successful implementation of the pilot program.**
 **While this is a welcome development, further analysis will be required to explore potential biases occurring due to continuing lack of samples from fish discarded at sea.**
-Therefore, in the absence of resuming **an at-sea** commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
+Therefore, in the absence of **an at-sea** commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
 This may also be advantageous, given the uncertainties inherent in this model.
 Alternative approaches may include length-based methods [e.g., @haist1995; @haist1998], or more data-limited approaches, such as adjusting annual TACs based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
