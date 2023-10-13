@@ -2,6 +2,10 @@
 
 # Appendix A. Changes in commercial length sampling
 
+The commercial groundfish bottom trawl fishery is subject to industry-funded comprehensive 100% at-sea and dockside monitoring programs. Since 2020, there have been no independent at-sea observers deployed on vessels, and therefore the required 100% at-sea monitoring is now achieved through the use of an Electronic Monitoring (EM) system, where multiple cameras are deployed on trawl vessels to capture all activities related to the catching, sorting and discarding of fish.
+While this has resulted in a fairly seamless continuation of catch data streams, it has resulted in complete cessation of at-sea commercial biosampling.
+However, even before the switch to EM, there had been a reduction in samping for Pacific Cod, summarized below.
+
 ```{r get-length-samples-3cd}
 
 comm_samp <- dat$commercial_samples %>%
