@@ -144,7 +144,7 @@ Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three indi
 The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
 The predictions underestimated the observed commercial index in 2012 and overestimated the commercial index in 2016.
 
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year.", out.width="4.2in"}
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year. The diagonal line indicates a one-to-one relationship.", out.width="4.2in"}
 knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
 ```
 
