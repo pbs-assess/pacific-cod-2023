@@ -3,16 +3,16 @@ title: "Status Update of Pacific Cod (*Gadus macrocephalus*) off the West Coast 
 title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2023"
 title_short: "WCVI Pacific Cod status update in 2023"
 year: 2024
-month: January
-french_month: janvier
+month: Month #TODO: Update when available
+french_month: mois #TODO: Update when available
 report_number: 01 #This *must* be numeric! TODO: Update when available
 approver: |
   Andrew Thomson\
   Regional Director
 approval_year: 2023
-approval_month: November
-approval_day: 15
-work_done_year: 2023
+approval_month: Month #TODO: Update when available
+approval_day: Day #TODO: Update when available
+work_done_year: 2024
 work_done_month: August
 branch: Science Branch # French: Direction des sciences
 region: Pacific Region

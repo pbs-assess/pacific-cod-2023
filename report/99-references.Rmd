@@ -2,8 +2,6 @@
 
 # Contributors
 
-Contributors to the Science Response.
-
 ```{r, echo=FALSE, include=FALSE}
 contributors <- tibble::tribble(
   ~Name,          ~Affiliation, ~Role,
