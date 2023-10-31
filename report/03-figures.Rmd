@@ -7,7 +7,7 @@ knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
 
 ```
 
-```{r fig-surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys Showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not part of this assessment but are shown for comparison"}
+```{r fig-surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not part of this assessment but are shown for comparison."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = c("SYN WCVI", "SYN QCS", "SYN HS")) %>%
   plot_survey_index(french=french)
@@ -76,8 +76,6 @@ r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3c
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-\clearpage
-
 ```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line represents the posterior median and the grey shaded region represents the 95\\% credible interval. Green dotted line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible intervals of the LRP and USR, respectively."}
 b.plot(avg.model.3cd,
        base.model.3cd.name,
@@ -96,7 +94,6 @@ f.plot(avg.model.3cd,
        french=french)
 ```
 
-\clearpage
 
 ```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass relative to the USR and the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represent the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
 x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
