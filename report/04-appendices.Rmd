@@ -106,7 +106,7 @@ Figure \@ref(fig:fig-meas-vs-calc-weights-3cd) shows the relationship between di
 Figure \@ref(fig:fig-comm-vs-survey-weights-3cd) compares the commercial mean weight index (Figure \@ref(fig:fig-comm-mean-weights-3cd)) with the survey mean weight index obtained from Equations 1--4.
 
 
-```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. 2020. Area of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="6in"}
+```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. (2020). Area of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="6in"}
 knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.png"))
 ```
 
@@ -180,7 +180,7 @@ Sc. 3: For the last seven years of the time series, use the same approach as in 
 
 Sc. 4: Same as Sc. 3 but do not include any values for 2021 and 2022.
 
-Values of the index since 2010 are provided in Table \@ref(tab:tab-mean-weight-recent-3cd)
+Values of the index since 2010 are provided in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd,
@@ -210,7 +210,6 @@ This suggests that the survey mean weight index, used to derive the commercial i
 Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd), indicating that all four models estimated a similar pattern in biomass.
 Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, the first scenario (Sc. 1a Reference) was used as the Reference model, and as the basis for the other six models in the model-averaged set.
 
-\clearpage
 
 ```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
 plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
@@ -233,7 +232,6 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
           ncol = 2)
 ```
 
-\clearpage
 
 ```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
 g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
