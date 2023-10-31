@@ -6,8 +6,8 @@ This followed a notable reduction in the 2018 WCVI synoptic bottom trawl survey 
 Given the low index point in 2018, the 2020 Science Response recommended updating the assessment following the 2020 WCVI synoptic bottom trawl survey.
 However, due to the COVID-19 pandemic, the scheduled 2020 WCVI survey was postponed to 2021, returning to its regular biennial schedule in 2022.
 Both the 2021 and 2022 index points were lower than the 2018 observation (Table \@ref(tab:surv-canadian-table)).
-Catches since 2018 have also been lower than in previous years (Table \@ref(tab:tab-catch-3cd), Figure \@ref(fig:fig-catch-3cd)).
-The commercial CPUE index decreased substantially in 2018 but has since increased, following increases in commercial catch (Figure \@ref(fig:fig-summary-cpue-indices-3cd)).
+Catches since 2018 have also been lower than in previous years (Table \@ref(tab:tab-catch-3cd); Figure \@ref(fig:fig-catch-3cd)).
+The commercial catch-per-unit-effort (CPUE) index decreased substantially in 2018 but has since increased, following increases in commercial catch (Figure \@ref(fig:fig-summary-cpue-indices-3cd)).
 
 A Request for Science Information and Advice (RSIA) for Pacific Cod was issued in 2022 for both the 3CD and 5ABCD (Hecate Strait and Queen Charlotte Sound) stocks.
 The stock assessment model (see Analysis and Response) is fit to commercial and survey indices of abundance, commercial catch, and an index of mean weight, derived from commercial length samples [@forrest2020].
@@ -22,10 +22,10 @@ The TWG found that the GLM provided acceptable predictions of the commercial mea
 Because of this issue with the 5ABCD stock commercial mean weight index and limited staff resources, Step 2 did not proceed.
 
 The Pacific Groundfish Management Unit has not requested updated catch advice for 2023.
-However, given the three low index points in 2018, 2021, and 2022, DFO Science Branch has issued a RSIA requesting a stock status update for the Area 3CD stock to ensure all three of these index points are considered in a timely evaluation of stock status.
+However, given the three low index points in 2018, 2021, and 2022, Fisheries and Oceans Canada (DFO) Science Branch has issued a RSIA requesting a stock status update for the Area 3CD stock to ensure all three of these index points are considered in a timely evaluation of stock status.
 While the last assessment found that there was low probability (2%--10%) of the stock being below its limit reference point (LRP) in 2022 under all catch scenarios [@dfo2021], the stock has failed to rebound under low fishing mortality rates, and catches have increased (Table \@ref(tab:tab-catch-3cd)).
 
-The Fish Stocks provisions (FSP) of Canada's [Fisheries Act](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their LRP.
+The Fish Stocks provisions (FSP) of Canada's [*Fisheries Act*](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-2.html#h-1175547) require that a rebuilding plan be developed for major fish stocks that have declined to or below their LRP.
 While the FSP only apply to major stocks prescribed in the *Fishery (General) Regulations*, [guidance](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm#toc_2.1) has been provided that states that, for stocks not subject to the FSP (such as Pacific Cod), DFO's Precautionary Approach (PA) Policy [@dfo2009] still applies:
 
 *"[...] under the [PA] policy, the requirement to develop a rebuilding plan is triggered once the stock declines to, or below, its LRP. However, in keeping with the 2009 PA Policy, if a fish stock is decreasing and approaching the LRP, management measures must encourage stock growth and arrest preventable declines, and the development of a rebuilding plan should be initiated sufficiently in advance to ensure that the plan is ready to be implemented if a stock declines to its LRP."*
@@ -138,12 +138,12 @@ Posterior samples were drawn every 5,000 iterations from a chain of length 10 mi
 The DFO Fishery Decision-making Framework Incorporating the Precautionary Approach (PA) Policy [@dfo2009] requires stock status to be characterized using three reference points:
 
 1. An Upper Stock Reference point, USR;
-2. A Limit Reference Point, LRP;
+2. A Limit Reference Point, LRP; and
 3. A Limit Removal Rate, LRR.
 
 The USR and LRP define the threshold of three biomass-based stock status zones defined under the PA Policy [@dfo2009]: Critical Zone (below the LRP); Cautious Zone (above the LRP and below the USR); and Healthy Zone (above the USR).
 
-As in previous assessments [@dfo2019; @dfo2021], historical reference points were used to assess stock status, where
+As in previous assessments [@dfo2019; @dfo2021], historical reference points were used to assess stock status, where:
 
 1. The USR is the mean of the biomass estimates from 1956--2004.
 
@@ -172,8 +172,8 @@ Full details on the model configurations and assumptions for each scenario are p
 The scenarios (Sc) included in the model-averaging set were:
 
 1.	Sc 1a: Reference model;
-2.	Sc 2d: Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$, i.e. $\ln(q) \sim \mathcal{N}(0, 0.3)$;
-3.	Sc 2e: Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6, i.e. $\ln(q) \sim \mathcal{N}(0, 0.6)$;
+2.	Sc 2d: Set the mean of the prior probability distribution for synoptic survey $\ln(q)$ = $\ln(1.0)$, i.e., $\ln(q) \sim \mathcal{N}(0, 0.3)$;
+3.	Sc 2e: Increase the standard deviation (SD) for synoptic survey $\ln(q)$ to 0.6, i.e., $\ln(q) \sim \mathcal{N}(0, 0.6)$;
 4.	Sc 3a: Set the parameters of the prior probability distribution for $\ln(M) \sim \mathcal{N}(\ln(0.4),0.1)$;
 5.	Sc 5a: Set knife-edged age at recruitment = 3 years;
 6.	Sc 6b: Reduce the overall observation error term $\sigma_O = 0.15$; and
@@ -254,14 +254,18 @@ There has not been a thorough analysis of potential causes for the current decli
 We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
 
 The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
-Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (unpublished), there is already no clear path forward for that stock.
+Given the poor predictive power of the GLM for predicting a commercial mean weight index for the Area 5ABCD population (DFO unpublished report), there is already no clear path forward for that stock.
 We acknowledge that a new dockside biosampling program is currently in the pilot stage, with the intention of its expansion to a full coastwide program following successful implementation of the pilot program.
 While this is a welcome development, further analysis will be required to explore potential biases occurring due to continuing lack of samples from fish discarded at sea.
 Therefore, in the ongoing absence of an at-sea commercial biological sampling program, we recommend resources be allocated to investigating and comparing other approaches for providing catch advice for Pacific Cod stocks.
 This may also be advantageous, given the uncertainties inherent in this model.
-Alternative approaches may include length-based methods [e.g., @haist1995; @haist1998], or more data-limited approaches, such as adjusting annual TACs based on changes in the survey indices.
+Alternative approaches may include length-based methods [e.g., @haist1995; @haist1998], or more data-limited approaches, such as adjusting annual total allowable catches (TACs) based on changes in the survey indices.
 Versions of the latter approach are used by the International Council for the Exploration of the Sea (ICES) for data-limited (Category 3) stocks [@ices2022].
 In Canada, survey-based data-limited methods have been simulation-tested in the Groundfish Management Procedure Framework [@anderson2021] and in @huynh2020.
 Exploration of non-age structured models that allow for time-varying productivity [e.g., @mildenberger2019] may also be informative.
+
+# Acknowledgments
+
+The authors are grateful to Paul Starr (Canadian Groundfish Research and Conservation Society) and the Pacific Cod Technical Working Group for technical assistance with development of the Generalized Linear Model used to derive the mean weight index.
 
 \clearpage

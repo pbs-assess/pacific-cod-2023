@@ -9,7 +9,6 @@ contributors <- tibble::tribble(
   ~Name,          ~Affiliation, ~Role,
   "Robyn Forrest",   "DFO Science, Pacific Region", "Author",
   "Sean Anderson",   "DFO Science, Pacific Region", "Author",
-  "Paul Starr", "Canadian Groundfish Research and Conservation Society", "Technical Working Group",
    "Ian Stewart", "International Pacific Halibut Commission", "Reviewer",
    "Daniel Ricard", "DFO Science, Gulf Region", "Reviewer",
    "Dana Haggarty", "DFO Science, Pacific Region", "Steering Committee",
