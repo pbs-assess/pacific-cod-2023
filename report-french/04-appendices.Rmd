@@ -1,0 +1,252 @@
+\clearpage
+
+# Appendix A. Changes in commercial length sampling
+
+The commercial groundfish bottom trawl fishery is subject to industry-funded, comprehensive 100% at-sea and dockside monitoring programs. Since 2020, there have been no independent at-sea observers deployed on vessels, and therefore the required 100% at-sea monitoring is now achieved through the use of an Electronic Monitoring (EM) system, where multiple cameras are deployed on trawl vessels to capture all activities related to the catching, sorting and discarding of fish.
+While this has resulted in a fairly seamless continuation of catch data streams, it has resulted in complete cessation of at-sea commercial biosampling.
+However, even before the switch to EM, there had been a reduction in samping for Pacific Cod, summarized below.
+
+```{r get-length-samples-3cd}
+
+comm_samp <- dat$commercial_samples %>%
+  dplyr::filter(major_stat_area_name %in% c("3C: S.W. VANCOUVER ISLAND","3D: N.W. VANCOUVER ISLAND"),
+                year>1995)
+
+summary_by_year <- comm_samp %>%
+  select(year,sample_id,length) %>%
+  group_by(year) %>%
+  summarize(nsamples=n_distinct(sample_id),
+            nlengths=sum(!is.na(length)),
+            meanlength=round(mean(length),2),
+            sdlength=round(sd(length),2),
+            selength=round(sdlength/sqrt(nlengths),2))
+
+ colnames(summary_by_year) <- c("Year", "Num samples", "Num lengths","Raw mean length", "SD length", "SE length")
+
+knitr::kable(summary_by_year,
+               caption = "Summary of commercial length samples since 1996 for Area 3CD. Mean lengths are not weighted by catch and are presented to visualise declines in sampling effort since 2015.",
+               longtable = TRUE, format = "pandoc",
+               align = get.align(ncol(summary_by_year))[-1],
+               booktabs = TRUE, linesep = "", escape = FALSE, row.names = FALSE) %>%
+    kableExtra::kable_styling(latex_options = c("hold_position", "repeat_header"))
+
+```
+
+```{r plot-length-samples-3cd, fig.cap="Summary of raw mean length in commercial catch since 2000 for Area 3CD, showing the anomalously high value in 2017. Mean lengths are unweighted by catch. Dots represent means and vertical line segments represent plus/minus one standard error (some hidden behind dots)."}
+
+g <- summary_by_year %>%
+  dplyr::filter(Year>1999) %>%
+  ggplot(aes(x=Year, y=`Raw mean length`))+
+  geom_point(size=2)+
+  geom_errorbar(aes(ymin=`Raw mean length`-`SE length`, ymax=`Raw mean length`+ `SE length`),  width=0.2)+
+  labs(x = "Year", y = "Raw mean length (cm)")+
+  gfplot::theme_pbs()+
+  scale_color_viridis_d()
+
+g
+
+```
+
+\clearpage
+
+# Appendix B. Developing a survey mean weight index
+
+## Methods
+
+For the commercial mean weight index, we followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight.
+
+We adapted the approach for the West Coast Vancouver Island Synoptic Survey by replacing weighting by sequential quarter, which was done for the commercial samples, with weighting by depth stratum (Equations 3 and 4).
+This was done because the survey is depth-stratified.
+
+Note that for the survey mean weight index, we derived weights of individual fish from the measured lengths, using published length-weight parameters (@forrest2020) rather than using weights that were directly measured (Equation 1).
+This was because far more fish were measured than were weighed.
+This also follows the approach used for the commercial mean weight index.
+
+The calculation of the survey mean weight index was done in the following steps. For simplicity, we have dropped year subscripts.
+
+1. For each specimen $i$, in each Sample ID $j$, in each depth stratum $s$, convert individual length ($L_{i,j,s}$)  to weight ($W_{i,j,s}$):
+
+\begin{equation}
+{W_{i,j,s}} = \alpha{L_{i,j,s}}^{\beta}
+\end{equation}
+
+where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")`.
+
+2. Calculate the mean weight ($W_j$) in each sample ID $j$, in each depth stratum $s$:
+
+\begin{equation}
+  {W_{j,s}} =  \frac{\sum\limits_{i=1}^{N_{j,s}}{{w_{i,j,s}}}}{{N_{j,s}}}
+\end{equation}
+
+where $N_{j,s}$ is the number of weights $W_{i,j,s}$ in sample ID $j$ and depth stratum $s$.
+
+3. Calculate the mean weight ($W_s$) for each depth stratum $s$, weighted by the sample weights $S_{j,s}$:
+
+\begin{equation}
+{W_s} = \frac{{\sum\limits_{j=1}^{{N_s}} {{W_{j,s}S_{j,s}}}}}{{\sum\limits_{j=1}^{{N_s}} {{S_{j,s}}}}}
+\end{equation}
+
+where $N_s$ is the number of samples in depth stratum $s$.
+
+4. Calculate the annual survey mean weight ($W$), weighted by the catch $C_s$ in each stratum $s$:
+
+\begin{equation}
+{W} = \frac{{\sum\limits_{s=1}^{{K}} {{W_sC_s}}}}{{\sum\limits_{s=1}^{{K}} {{C_s}}}}
+\end{equation}
+
+where $K$ is the number of depth strata surveyed in that year.
+
+\clearpage
+
+## Results
+
+The commercial mean weight index, calculated using the methods in Appendix C of @forrest2020 is shown in Figure \@ref(fig:fig-comm-mean-weights-3cd), which also indicates the two index values that were removed due to low sampling effort (2017 and 2019, see Appendix A).
+
+Figure \@ref(fig:fig-meas-vs-calc-weights-3cd) shows the relationship between directly observed weights (from weighing individual fish) vs weights calculated (obtained from Equation 1).
+Figure \@ref(fig:fig-comm-vs-survey-weights-3cd) compares the commercial mean weight index (Figure \@ref(fig:fig-comm-mean-weights-3cd)) with the survey mean weight index obtained from Equations 1--4.
+
+
+```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. (2020). Area of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="6in"}
+knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.png"))
+```
+
+```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
+```
+
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Comparison of commercial mean weight index (line) and survey mean weight index (points). Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="5in"}
+knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
+```
+
+\clearpage
+
+# Appendix C. Generalized Linear Model to predict commercial mean weight index 
+
+## Methods
+
+We used a GLM with gamma-distributed observations and a log link [@mccullagh1989, p. 292], to estimate commercial mean weights ($y_t$) in year $t$ from the survey mean weights ($W_t$) calculated in Appendix B. Our model was fit as
+\begin{align}
+{y_t} \sim \mathrm{Gamma}(\phi, \mu_t / \phi), \\
+\log(\mu_t) = \beta_0 + \beta_1 \log(W_t),
+\end{align}
+
+where $\mu_t$ represents the expected value at time $t$,
+$\beta_0$ and $\beta_1$ represent an intercept and slope,
+$\phi$ represents the gamma shape parameter,
+and the term $\mu_t / \phi$ represents the gamma scale.
+The shape parameter can be reparameterized into the coefficient of variation (CV) as $\phi = 1 / \mathrm{CV}^2$ or $\mathrm{CV} = 1 / \sqrt{\phi}$.
+
+## Results
+
+Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2) shows the commercial mean weight index plotted against the survey mean weight index, with the linear regression line.
+The GLM estimated an intercept ($\beta_0$) of 0.34 (95% CI: 0.13--0.57), or 1.41 kg (95% CI: 1.14--1.76 kg) in natural space (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
+The model estimated $\beta_1$ as 0.75 (95% CI: 0.25--1.17), meaning a 1% increase in survey mean weight was associated with a 0.75% (95% CI: 0.25%--1.17%) increase in commercial mean weight (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
+The CV was estimated as 0.12.
+A quantile-quantile plot of residuals transformed to have a Normal(0, 1) distribution if the model were consistent with the data did not reveal any substantial deviations from the expectation (Figure \@ref(fig:qqnorm-glm)).
+
+Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three indices: the survey mean weight index, the observed commercial mean weight index, and the predicted commercial mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
+The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
+The predictions underestimated the observed commercial index in 2012 and overestimated the commercial index in 2016.
+
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year. The diagonal line indicates a one-to-one relationship.", out.width="4.2in"}
+knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
+```
+
+```{r qqnorm-glm, fig.cap="Quantile-quantile plot of the GLM predicting commercial mean weight from survey mean weight. The residuals have been transformed to be Normal(0, 1) if the model were consistent with the data. The line indicates the one-to-one line.", out.width="2.6in"}
+knitr::include_graphics(here::here("data/generated/qq-resids3CD.png"))
+```
+
+```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index, observed commercial mean weight index, and predicted commercial mean weight index from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="5in"}
+knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
+```
+
+\clearpage
+
+# Appendix D. Model sensitivity to treatment of the mean weight index
+
+Four scenarios were evaluated to investigate the sensitivity of the stock assessment model to different treatments of the commercial annual mean weight index.
+All models were based on the Reference model.
+All scenarios used the commercial annual mean weight index derived from commercial length samples for the years 1956--2016.
+There was no 2017 index point in any scenario, as in previous assessments.
+
+The four different scenarios are:
+
+Sc. 1a Reference: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
+This scenario was used as the basis for all models for evaluation of stock status in 2023 (see main body of this document).
+
+Sc. 2: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Do not include interpolated values for 2019 and 2020.
+
+Sc. 3: For the last seven years of the time series, use the same approach as in the 2020 assessment [@dfo2021], i.e, use the commercial mean weight index values for 2016, 2019 and 2020, where the 2020 value was set the same as the 2019 value. Continue to use the 2019 value for 2021 and 2022.
+
+Sc. 4: Same as Sc. 3 but do not include any values for 2021 and 2022.
+
+Values of the index since 2010 are provided in Table \@ref(tab:tab-mean-weight-recent-3cd).
+
+```{r tab-mean-weight-recent-3cd, results='asis'}
+mw.table(c(base.model.3cd,
+           sens.models.11),
+         c(base.model.3cd.name,
+           sens.models.name.11),
+         years=2010:2022,
+         area="3CD",
+         caption="Comparison of mean weight values used in the four commercial mean weight index scenarios. For clarity, the series is truncated to start in 2010.")
+
+```
+
+Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figure \@ref(fig:fig-base-mean-weight-3cd) and Figures \@ref(fig:fig-base-mean-weight-3cd-sc2) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
+As in the Reference model (Figure \@ref(fig:fig-base-mean-weight-3cd)), fits to the mean weight index in the alternative scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight for years prior to at-sea monitoring.
+
+The models that used the GLM index values from 2018 onwards (Sc. 1a Reference and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)).
+The fit was similar for  scenarios both with and without interpolation in 2019--2020.
+The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
+In these scenarios, the model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
+
+This pattern is consistent with predicted recruitment from all four models (Figure \@ref(fig:fig-sens-recr-3cd)), which estimated low recruitment between 2016 and 2018.
+A population with fewer recruits is expected to have a higher than average mean weight of individuals.
+The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
+All four models showed a similar recruitment pattern, indicating that the other data sources in the model had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:fig-surv-canadian) to \@ref(fig:fig-summary-cpue-indices-3cd)).
+This suggests that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from 2019, as in Sc. 3 and 4.
+
+Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd), indicating that all four models estimated a similar pattern in biomass.
+Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, the first scenario (Sc. 1a Reference) was used as the Reference model, and as the basis for the other six models in the model-averaged set.
+
+
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[1]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[2]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
+          mw.compare.plot(sens.models.11[[3]], french=french),
+          nrow = 1,
+          ncol = 2)
+```
+
+
+```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+  coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
+```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows posterior medians and the grey shaded regions represent 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
+g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+    coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
+  scale_x_continuous(breaks = 2015:2022)
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+```
+
+

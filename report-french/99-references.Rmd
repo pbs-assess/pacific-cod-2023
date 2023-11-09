@@ -1,14 +1,16 @@
 \clearpage
 
-# Collaborateurs
+# Contributors
 
 ```{r, echo=FALSE, include=FALSE}
 contributors <- tibble::tribble(
-  ~"Collaborateur",          ~"Organisme d’appartenance",
-  "Robyn Forrest",   "Secteur des sciences du MPO, région du Pacifique",
-  "Chris Grandin",   "Secteur des sciences du MPO, région du Pacifique",
-  "Sean Anderson",   "Secteur des sciences du MPO, région du Pacifique",
-  "Paul Starr", "Canadian Groundfish Research and Conservation Society"
+  ~Name,          ~Affiliation, ~Role,
+  "Robyn Forrest",   "DFO Science, Pacific Region", "Author",
+  "Sean Anderson",   "DFO Science, Pacific Region", "Author",
+   "Ian Stewart", "International Pacific Halibut Commission", "Reviewer",
+   "Daniel Ricard", "DFO Science, Gulf Region", "Reviewer",
+   "Dana Haggarty", "DFO Science, Pacific Region", "Steering Committee",
+   "Steven Schut", "DFO Science, Pacific Region", "Steering Committee"
 )
 ```
 
@@ -21,7 +23,7 @@ csasdown::csas_table(contributors)
 
 \MakeApproval
 
-# Sources de renseignements {-}
+# Sources of Information {-}
 <!--
 This manually sets the header for this unnumbered chapter.
 -->

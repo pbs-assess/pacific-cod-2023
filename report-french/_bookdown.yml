@@ -1,10 +1,10 @@
-book_filename: "sr"
+book_filename: "Pacific_Cod_Update_2023_French"
 rmd_files: ["index.Rmd",
             "00-load.Rmd",
             "01-main.Rmd",
             "02-tables.Rmd",
             "03-figures.Rmd",
-            "99-references.Rmd"#,
-            #"04-diagnostics.Rmd"
+            "04-appendices.Rmd",
+            "99-references.Rmd"
             ]
 delete_merged_file: true

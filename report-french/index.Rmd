@@ -1,37 +1,62 @@
 ---
-title: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) ainsi que dans le détroit d’Hécate et le bassin de la Reine-Charlotte (zone 5ABCD) en 2020"
-title_short: "Mise à jour sur l’état des stocks de morues du Pacifique en 2020" 
-title_other: "Status Update of Pacific Cod (*Gadus macrocephalus*) for West Coast Vancouver Island (Area 3CD), and Hecate Strait and Queen Charlotte Sound (Area 5ABCD) in 2020"
-year: 2021
-month: Janvier
-report_number: 002
+title: "Status Update of Pacific Cod (*Gadus macrocephalus*) off the West Coast of Vancouver Island in 2023"
+title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2023"
+title_short: "WCVI Pacific Cod status update in 2023"
+year: 2024
+month: Month #TODO: Update when available
+french_month: mois #TODO: Update when available
+report_number: 01 #This *must* be numeric! TODO: Update when available
 approver: |
-  Carmel Lowe\
-  Directrice régionale
-approval_year: 2020
-approval_month: Novembre
-approval_day: 26
-work_done_year: 2021
-work_done_month: Janvier
+  Andrew Thomson\
+  Regional Director
+approval_year: 2023
+approval_month: Month #TODO: Update when available
+approval_day: Day #TODO: Update when available
+work_done_year: 2024
+work_done_month: August
 branch: Direction des sciences
-region: Région du Pacifique
-header: "" # or "" to omit
+french_region: Région du Pacifique
+isbn: "ISBN-Here"
+cat_no: "Cat-Number-Here"
 output:
- csasdown::sr_pdf:
-  # csasdown::sr_word:
+ csasdown::sr_word:
    french: true
    prepub: false
+   copy_sty: true
 type:
   sr
-# ------------
-# End of options to set
 knit: bookdown::render_book
+site: bookdown::bookdown_site      
 link-citations: true
 bibliography: bib/refs.bib
-csl: csl/csas.csl # or csl/csas-french.csl for French
+csl: csl/csas-french.csl # or csl/csas-french.csl for French
 lot: true
 lof: true
 header-includes:
 - \setcounter{section}{1}
 ---
 
+```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.path = "knitr-figs/",
+  cache.path = if (knitr:::is_latex_output()) "knitr-cache-tex/" else "knitr-cache-docx/",
+  fig.asp = 0.618,
+  fig.width = 6.5,
+  out.width = "5in",
+  echo = FALSE,
+  autodep = TRUE,
+  cache = FALSE,
+  cache.comments = FALSE,
+  dev = if (knitr:::is_latex_output()) "pdf" else "png",
+  dpi = 200,
+  fig.align = "center",
+  fig.pos = "htb"
+)
+french <- TRUE
+# this runs all the r code, including loading the data and models
+source(file.path(here::here(), "R", "all.R"))
+```
