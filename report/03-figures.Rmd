@@ -68,15 +68,15 @@ plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the same commercial mean weight index used in the Reference model."}
+```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the same commercial mean weight index used in the Reference model.", out.width="4.5in"}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines represent posterior medians and shaded regions represent 95\\% credible intervals. All models use the same commercial mean weight index used in the Reference model."}
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines represent posterior medians and shaded regions represent 95\\% credible intervals. All models use the same commercial mean weight index used in the Reference model.", out.width="4.5in"}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line represents the posterior median and the grey shaded region represents the 95\\% credible interval. Green dotted line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible intervals of the LRP and USR, respectively."}
+```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line represents the posterior median and the grey shaded region represents the 95\\% credible interval. Green dotted line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible intervals of the LRP and USR, respectively.", out.width="4.5in"}
 b.plot(avg.model.3cd,
        base.model.3cd.name,
        depl = FALSE,
@@ -86,14 +86,14 @@ b.plot(avg.model.3cd,
        
 ```
 
-```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval."}
+
+```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval.", out.width="4.5in"}
 f.plot(avg.model.3cd,
        base.model.3cd.name,
        add.hist.ref = TRUE,
         lrr = c(1956, 2004), 
        french=french)
 ```
-
 
 ```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass relative to the USR and the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represent the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
 x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
@@ -139,7 +139,7 @@ g1 <- x |>
 cowplot::plot_grid(g1, g, ncol = 1, align = "v")
 ```
 
-```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows a threshold of 0.5 probability."}
+```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows a threshold of 0.5 probability.", fig.width = 5, out.width="4in"}
 x |> 
   group_by(year) |> 
   summarise(prob_lrp = mean(b_lrp < 1)) |> 
