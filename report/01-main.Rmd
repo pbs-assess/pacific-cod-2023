@@ -252,7 +252,7 @@ However, estimates of fishing mortality would increase with lower estimates of b
 
 Other Pacific Cod populations (notably in Alaska) have undergone large declines since the marine heatwave of 2015 and 2016 [e.g., @barbeaux2020; @laurel2020].
 However, survey indices of abundance in other areas of BC (Hecate Strait, Queen Charlotte Sound and West Coast Haida Gwaii) have not shown similar declines (Figure \@ref(fig:fig-surv-canadian)).
-There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to climate change-related effects on egg/larval/juvenile [@abookire2022; @laurel2023] or adult life stages [@barbeaux2020], fish movement, fishing, or other factors.
+There has not been a thorough analysis of potential causes for the current decline in the Area 3CD Pacific Cod stock, which may be related to climate change-mediated effects on egg/larval/juvenile [@abookire2022; @laurel2023] or adult life stages [@barbeaux2020], fish movement, fishing, or other factors.
 We recommend that resources be allocated to investigate alternative hypotheses for changes in abundance of Pacific Cod in BC waters.
 
 The loss of commercial biological samples from the commercial trawl fishery threatens the long-term viability of the current delay-difference model as a primary tool for assessing BC Pacific Cod populations.
