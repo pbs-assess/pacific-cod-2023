@@ -20,8 +20,8 @@ french_region: Région du Pacifique
 isbn: "ISBN-Here"
 cat_no: "Cat-Number-Here"
 output:
- csasdown::sr_pdf:
- #csasdown::sr_word:
+ #csasdown::sr_pdf:
+ csasdown::sr_word:
    french: false
    prepub: false
    copy_sty: true
