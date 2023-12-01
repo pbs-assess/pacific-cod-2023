@@ -66,6 +66,7 @@ data/generated/cpue-predictions-modern.csv
 index
 report-french/sr.Rmd
 report/knitr-cache-tex
+report/knitr-cache-docx
 report/knitr-figs
 report-french/knitr-cache-tex
 report-french/knitr-figs
