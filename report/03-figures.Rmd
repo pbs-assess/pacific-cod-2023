@@ -7,7 +7,7 @@ knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
 
 ```
 
-```{r fig-surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not part of this assessment but are shown for comparison."}
+```{r fig-surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not included in this assessment but are shown for comparison."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = c("SYN WCVI", "SYN QCS", "SYN HS")) %>%
   plot_survey_index(french=french)
@@ -68,11 +68,11 @@ plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the same commercial mean weight index used in the Reference model.", out.width="4.5in"}
+```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the same commercial mean weight index used in the Reference model (see Table 9 for values since 2010).", out.width="4.5in"}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines represent posterior medians and shaded regions represent 95\\% credible intervals. All models use the same commercial mean weight index used in the Reference model.", out.width="4.5in"}
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines represent posterior medians and shaded regions represent 95\\% credible intervals. All models use the same commercial mean weight index used in the Reference model (see Table 9 for values since 2010).", out.width="4.5in"}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
