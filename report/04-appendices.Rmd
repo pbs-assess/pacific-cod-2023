@@ -32,7 +32,7 @@ knitr::kable(summary_by_year,
 
 ```
 
-```{r plot-length-samples-3cd, fig.cap="Summary of raw mean length in commercial catch since 2000 for Area 3CD, showing the anomalously high value in 2017. Mean lengths are unweighted by catch. Dots represent means and vertical line segments represent plus/minus one standard error (some hidden behind dots)."}
+```{r plot-length-samples-3cd, fig.cap="Summary of raw mean lengths in commercial catches since 2000 for Area 3CD, showing the anomalously high value in 2017. Mean lengths are unweighted by catch. Dots represent means and vertical line segments represent plus/minus one standard error (some hidden behind dots)."}
 
 g <- summary_by_year %>%
   dplyr::filter(Year>1999) %>%
@@ -58,7 +58,7 @@ For the commercial mean weight index, we followed the steps in Appendix C of @fo
 We adapted the approach for the West Coast Vancouver Island Synoptic Survey by replacing weighting by sequential quarter, which was done for the commercial samples, with weighting by depth stratum (Equations 3 and 4).
 This was done because the survey is depth-stratified.
 
-Note that for the survey mean weight index, we derived weights of individual fish from the measured lengths, using published length-weight parameters (@forrest2020) rather than using weights that were directly measured (Equation 1).
+Note that for the survey mean weight index, we derived weights of individual fish from the measured lengths, using published length-weight parameters [@forrest2020] rather than using weights that were directly measured (Equation 1).
 We decided to use weights derived from measured lengths because far more fish were measured than were weighed.
 This also follows the approach used for the commercial mean weight index.
 
@@ -114,7 +114,7 @@ knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.pn
 knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Comparison of commercial mean weight index (line) and survey mean weight index (points). Area of the circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="5in"}
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Comparison of the commercial mean weight index (line) and survey mean weight index (points). Area of the commercial circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="5in"}
 knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
 ```
 
