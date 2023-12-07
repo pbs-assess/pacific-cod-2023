@@ -3,25 +3,25 @@ title: "Status Update of Pacific Cod (*Gadus macrocephalus*) off the West Coast 
 title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2023"
 title_short: "WCVI Pacific Cod status update in 2023"
 year: 2024
-month: January #TODO: Update when available
-french_month: janvier #TODO: Update when available
-report_number: 01 #This *must* be numeric! TODO: Update when available
+month: January 
+french_month: janvier 
+report_number: 003 #This *must* be numeric! TODO: Update when available
 approver: |
   Andrew Thomson\
   Regional Director
 approval_year: 2023
-approval_month: November #TODO: Update when available
-approval_day: 30 #TODO: Update when available
+approval_month: November 
+approval_day: 30 
 work_done_year: 2024 #work was done in 2023, but this is the field that determines the report number
 work_done_month: August
 branch: Science Branch # French: Direction des sciences
 region: Pacific Region
 french_region: Région du Pacifique
-isbn: "ISBN-Here"
-cat_no: "Cat-Number-Here"
+isbn: "978-0-660-69206-7"
+cat_no: "Fs70-7/2024-003E-PDF"
 output:
- #csasdown::sr_pdf:
- csasdown::sr_word:
+ csasdown::sr_pdf:
+ #csasdown::sr_word:
    french: false
    prepub: false
    copy_sty: true
