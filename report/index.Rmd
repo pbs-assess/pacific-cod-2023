@@ -1,6 +1,6 @@
 ---
 title: "Status Update of Pacific Cod (*Gadus macrocephalus*) off the West Coast of Vancouver Island in 2023"
-title_other: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2023"
+french_title: "Mise à jour sur l’état des stocks de morues du Pacifique (*Gadus macrocephalus*) au large de la côte ouest de l’île de Vancouver (zone 3CD) en 2023"
 title_short: "WCVI Pacific Cod status update in 2023"
 year: 2024
 month: January 
@@ -27,7 +27,7 @@ output:
    copy_sty: true
 type:
   sr
-knit: bookdown::render_book
+knit: csasdown::render
 site: bookdown::bookdown_site      
 link-citations: true
 bibliography: bib/refs.bib

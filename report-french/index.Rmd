@@ -31,7 +31,7 @@ knit: bookdown::render_book
 site: bookdown::bookdown_site      
 link-citations: true
 bibliography: bib/refs.bib
-csl: csl/csas.csl # or csl/csas-french.csl for French
+csl: csl/csas-french.csl # or csl/csas-french.csl for French
 lot: true
 lof: true
 header-includes:

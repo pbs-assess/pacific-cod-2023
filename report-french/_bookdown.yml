@@ -8,3 +8,4 @@ rmd_files: ["index.Rmd",
             "99-references.Rmd"
             ]
 delete_merged_file: true
+
