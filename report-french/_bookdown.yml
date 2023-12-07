@@ -1,4 +1,4 @@
-book_filename: "Pacific_Cod_Update_2023_DRAFT"
+book_filename: "sr"
 rmd_files: ["index.Rmd",
             "00-load.Rmd",
             "01-main.Rmd",
