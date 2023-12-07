@@ -27,7 +27,7 @@ output:
    copy_sty: true
 type:
   sr
-knit: (function(input, ...) csasdown::render())
+knit: csasdown::render
 site: bookdown::bookdown_site      
 link-citations: true
 bibliography: bib/refs.bib
