@@ -116,7 +116,7 @@ Il a donc fallu décider de la façon d’inclure les valeurs de l’indice dér
 
 Par souci de cohérence avec les évaluations précédentes, on a décidé d’utiliser l’indice de poids moyen des prises commerciales dérivé directement des échantillons de longueur des prises commerciales pour la période de 1956 à 2016.
 Étant donné qu’aucune des évaluations précédentes n’a utilisé le point d’indice de 2017, celui-ci a également été omis dans la présente mise à jour de l’évaluation.
-Pour 2018-2022, le modèle utilise les valeurs de l’indice de poids moyen de 2018, 2021 et 2022 dérivées du MLG (annexe C : figure **xx**).
+Pour 2018-2022, le modèle utilise les valeurs de l’indice de poids moyen de 2018, 2021 et 2022 dérivées du MLG (annexe C : figure \@ref(fig:all-mean-weight-series-3cd)).
 Les valeurs pour 2019 et 2020 ont été interpolées entre 2018 et 2021 (annexe D : tableau \@ref(tab:tab-mean-weight-recent-3cd), Sc. 1 Référence).
 L’annexe D présente un aperçu de la sensibilité du modèle à ces choix.
 
@@ -136,7 +136,7 @@ Selon la politique du cadre décisionnel pour les pêches intégrant l’approch
 
 1. point de référence supérieur du stock (PRS);
 
-2. point de référence limite (PRL);
+2. point de référence limite (PRL); et
 
 3. taux d’exploitation limite (TEL).
 
@@ -144,9 +144,9 @@ Le PRS et le PRL représentent les seuils des trois zones décrivant l’état d
 
 Comme ce fut le cas pour des évaluations précédentes [@dfo2019; @dfo2021], on a utilisé des points de référence historiques pour évaluer l’état des stocks où :
 
-1.	Le PRS correspond à la moyenne des estimations de la biomasse pour la période 1956-2004.
+1.	Le PRS correspond à la moyenne des estimations de la biomasse pour la période 1956-2004;
 
-2.	Le PRL représente la biomasse estimée la plus faible reconnue comme étant un état indésirable à éviter. Pour la zone 3CD, il s’agit de la biomasse estimée en 1986.
+2.	Le PRL représente la biomasse estimée la plus faible reconnue comme étant un état indésirable à éviter. Pour la zone 3CD, il s’agit de la biomasse estimée en 1986; et
 
 3.	Le TEL correspond au taux de mortalité par pêche moyen pour la période 1956-2004.
 
@@ -159,7 +159,7 @@ On a utilisé une approche fondée sur la moyenne des modèles pour estimer l’
 Dans une approche de calcul de la moyenne des modèles, on a élaboré plusieurs modèles représentant chacun un état de la nature différent mais plausible, et on a combiné les échantillons a posteriori pour tous les scénarios afin de fournir les probabilités de l’état des stocks.
 Cette approche permet de représenter les effets des principales incertitudes et de les intégrer dans les résultats, contrairement à l’utilisation d’un seul modèle optimal avec des analyses de sensibilité distinctes permettant d’explorer l’incidence des incertitudes sur les résultats.
 
-On a utilisé une approche représentant la moyenne des modèles dans les évaluations des stocks de morue du Pacifique dans les zones 5AB et 5 CD [@forrest2015], de merlus du Pacifique [@stewart2011], de flétans du Pacifique [@stewart2016], de sébastolobes à courtes épines en Colombie-Britannique [@starr2017], de goberges de l’Alaska dans les eaux de la Colombie-Britannique [@starr2018] ainsi que dans plusieurs évaluations des stocks d’espèces du genre Sebastes en Colombie-Britannique (p.ex., @dfo2019b; @dfo2020a; @dfo2020b).
+On a utilisé une approche représentant la moyenne des modèles dans les évaluations des stocks de morue du Pacifique dans les zones 5AB et 5 CD [@forrest2015], de merlus du Pacifique [@stewart2011], de flétans du Pacifique [@stewart2016], de sébastolobes à courtes épines en Colombie-Britannique [@starr2017], de goberges de l’Alaska dans les eaux de la Colombie-Britannique [@starr2021] ainsi que dans plusieurs évaluations des stocks d’espèces du genre Sebastes en Colombie-Britannique (p.ex., @dfo2019b; @dfo2020a; @dfo2020b).
 
 Les principaux axes d’incertitude pour la morue du Pacifique sont la capturabilité ($q$) associée aux indices d’abondance, l’ampleur de la mortalité naturelle ($M$), l’âge du recrutement à la pêche et l’ampleur des erreurs d’observation associées aux relevés et aux poids moyens [@forrest2020].
 On a d’abord établi un modèle de référence pour représenter ce qui était considéré comme les choix de modèles plus plausibles parmi une série d’hypothèses.
@@ -183,7 +183,7 @@ Voici les scénarios (Sc) compris dans l’ensemble représentant la moyenne des
 	
 5.	Sc 5a : Établissement de l’âge du recrutement à la pêche associé à une sélectivité en lame de couteau à trois ans;
 	
-6.	Sc 6b : Réduction du paramètre de l’erreur d’observation globale $\sigma_O = 0.15$;
+6.	Sc 6b : Réduction du paramètre de l’erreur d’observation globale $\sigma_O = 0.15$; et
 	
 7.	Sc 7b : Réduction de l’écart-type associé à la probabilité pour l’ajustement à la valeur moyenne du poids moyen annuel $\sigma_W = 0.15$,
 
@@ -245,7 +245,7 @@ Les incertitudes supplémentaires liées à la présente évaluation découlent 
 	
 5.	une mauvaise compréhension de la structure des stocks de morues du Pacifique dans les eaux du Pacifique (par exemple, on ne comprend pas bien la connectivité entre les stocks de morues du Pacifique de la Colombie-Britannique et de l’Alaska); Les stocks de morues du Pacifique présents dans le golfe de l’Alaska sont en déclin depuis 2017, probablement en raison du réchauffement des eaux du Pacifique Nord (Barbeaux et al. 2020; Laurel et al. 2023), et on ne sait pas s’il existe une relation entre les facteurs déterminant l’abondance de ces stocks et des stocks de la Colombie-Britannique; et
 
-6.	Une mauvaise compréhension de la relation entre les données des CPUE commerciales et l’abondance, et de la façon dont cette relation a été touchée par les changements en matière de gestion apportés à la pêche.
+6.	une mauvaise compréhension de la relation entre les données des CPUE commerciales et l’abondance, et de la façon dont cette relation a été touchée par les changements en matière de gestion apportés à la pêche.
 
 # Conclusions
 
@@ -259,9 +259,10 @@ La réduction de l’échelle estimée de la biomasse n’influencerait pas néc
 Toutefois, les estimations de la mortalité par pêche augmenteraient avec des estimations plus faibles de la biomasse.
 
 D’autres populations de morue du Pacifique (notamment en Alaska), ont subi d’importants déclins depuis la vague de chaleur marine de 2015 et 2016 [e.g., @barbeaux2020; @laurel2020].
-Cependant, les indices de l’abondance des relevés dans d’autres régions de la Colombie-Britannique (détroit d’Hécate, bassin de la Reine-Charlotte et côte ouest de Haida Gwaii) n’ont pas révélé des déclins similaires (figure **XX**).
+Cependant, les indices de l’abondance des relevés dans d’autres régions de la Colombie-Britannique (détroit d’Hécate, bassin de la Reine-Charlotte et côte ouest de Haida Gwaii) n’ont pas révélé des déclins similaires (figure \@ref(fig:fig-surv-canadian)).
 Aucune analyse approfondie n’a été réalisée des causes potentielles du déclin actuel du stock de morue du Pacifique de la zone 3CD, qui pourrait être lié aux effets du changement climatique sur les stades de vie des œufs, des larves et des juvéniles [@abookire2022; @laurel2023] ou des adultes [@barbeaux2020] aux stades biologiques, aux mouvements des poissons, à la pêche ou à d’autres facteurs.
 Nous recommandons que des ressources soient accordées aux fins de l’étude d’autres hypothèses expliquant les changements dans l’abondance de la morue du Pacifique dans les eaux de la Colombie-Britannique.
+
 La perte d’échantillons biologiques commerciaux issus de la pêche commerciale au chalut menace la viabilité à long terme du modèle actuel de type différence-délai comme outil principal de l’évaluation des populations de morue du Pacifique en Colombie-Britannique.
 Compte tenu du faible rendement du MLG pour prédire un indice de poids moyen des prises commerciales pour le pour la population de la zone 5ABCD (rapport non publié du MPO), il n’y a déjà pas de voie claire à suivre dans l’avenir pour ce stock.
 Nous reconnaissons qu’un nouveau programme d’échantillonnage biologique à quai est actuellement dans sa phase d’essai, et que l’intention est de l’étendre à l’ensemble de la côte après la mise en œuvre réussie du programme pilote. Bien qu’il s’agisse là de progrès positifs, on devra procéder à une analyse plus approfondie pour explorer les biais potentiels découlant de l’absence continue d’échantillons de poissons rejetés à la mer.
