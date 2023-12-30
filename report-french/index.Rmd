@@ -30,7 +30,7 @@ type:
 knit: (function(input, ...) csasdown::render())
 site: bookdown::bookdown_site      
 link-citations: true
-bibliography: bib/refs.bib
+bibliography: bib/refsfra.bib
 csl: csl/csas-french.csl # or csl/csas-french.csl for French
 lot: true
 lof: true

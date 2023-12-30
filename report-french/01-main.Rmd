@@ -58,7 +58,7 @@ Depuis la pandémie de COVID-19, la pêche a eu recours à la surveillance élec
 
 ## Données
 
-Les données ont été extraites de bases de données du MPO au moyen des méthodes décrites dans le document de Forrest et ses collaborateurs (2020).
+Les données ont été extraites de bases de données du MPO au moyen des méthodes décrites dans le document de @forrest2020.
 Des données provenant de sources indépendantes de la pêche et des pêches commerciales étaient disponibles jusqu’au 31 mars 2023, et toutes les séries chronologiques ont été mises à jour à l’aide des données actuellement disponibles.
 Les différences mineures dans les séries chronologiques par rapport à celles présentées dans les évaluations précédentes découlent de mises à jour et de corrections de routine dans les bases de données.
 Pour chaque zone, les modèles choisis ont été ajustés aux données suivantes : prises commerciales, indices d’abondance provenant de relevés indépendants de la pêche, CPUE commerciales et indice de poids moyen des prises commerciales.
