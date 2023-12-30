@@ -50,7 +50,7 @@ La présente évaluation fournit un avis scientifique pour le stock de la zone 3
 Les prises de morues du Pacifique en Colombie-Britannique proviennent presque exclusivement de la pêche du poisson de fond au chalut de fond, principalement à des profondeurs de 50 à 200 m [@forrest2020].
 La majorité des prises sont effectuées dans la zone 5CD [@forrest2020], avec des prises en plus faible quantité dans les zones 5AB et 3 CD et un nombre de prises négligeable provenant des eaux au large de la côte ouest de Haida Gwaii, soit la zone 5E (< 0,5 % du total des prises annuelles depuis 1985). Une faible quantité de prises de morues du Pacifique provient de la pêche du poisson de fond à la palangre (environ 0,5 % du total des prises annuelles, en moyenne).
 
-La pêche intégrée de la Colombie-Britannique, qui comprend la pêche au chalut de fond, fait l’objet d’une surveillance en mer et de vérifications à quai à 100 % (MPO 2023).
+La pêche intégrée de la Colombie-Britannique, qui comprend la pêche au chalut de fond, fait l’objet d’une surveillance en mer et de vérifications à quai à 100 % [@dfo2023].
 Entre 1996 et 2019, tous les navires de pêche au chalut de fond ont accueilli des observateurs, qui ont consigné les prises de chaque espèce et estimé les quantités de poissons remis à l’eau (rejets).
 Depuis la pandémie de COVID-19, la pêche a eu recours à la surveillance électronique en mer sur des chalutiers, ce qui a eu des répercussions sur la disponibilité d’échantillons biologiques commerciaux (annexe A).
 
@@ -74,12 +74,12 @@ Par conséquent, les rejets antérieurs à 1996 représentent une source d’inc
 On considère que les estimations pour les années suivant l’introduction d’une surveillance en mer à 100 % en 1996 sont exactes.
 En Colombie-Britannique, il est légal pour les chalutiers de rejeter des morues du Pacifique.
 Cependant, entre 1996 et 2019, les observateurs à bord des navires ont d’abord estimé la quantité de prises rejetées, et on a comptabilisé cette quantité comme faisant partie du quota.
-Les estimations des rejets sont toujours comptabilisées comme faisant partie du quota d’un navire, mais elles sont désormais réalisées au moyen du système de surveillance électronique et des journaux de bord des pêcheurs (MPO 2023).
+Les estimations des rejets sont toujours comptabilisées comme faisant partie du quota d’un navire, mais elles sont désormais réalisées au moyen du système de surveillance électronique et des journaux de bord des pêcheurs [@dfo2023].
 En plus d’assurer une meilleure exactitude dans la déclaration des rejets depuis 1996, le fait de comptabiliser les rejets dans le quota d’un navire offre de meilleurs incitatifs pour diminuer les rejets de prises.
 
 ### Relevés canadiens au chalut de fond
 
-On a calculé les indices des relevés (tableau **XX** et figure **XX**) au moyen d’une analyse de la superficie balayée (analyse aléatoire stratifiée), présentée dans l’annexe A du document de Forrest et al. (2020).
+On a calculé les indices des relevés (tableau **XX** et figure **XX**) au moyen d’une analyse de la superficie balayée (analyse aléatoire stratifiée), présentée dans l’annexe A du document de @forrest2020.
 L’abondance dans la zone 3CD (figure **XX**) est répertoriée dans le cadre du relevé synoptique au chalut de fond mené au large de la côte ouest de l’île de Vancouver.
 
 Ce relevé a été mené pour la première fois en 2004 et a lieu lors des années paires. En raison de la pandémie de COVID-19, le relevé de 2020 a été reporté en 2021, et a repris selon son calendrier d’années paires en 2022.
@@ -88,45 +88,49 @@ Par comparaison, les indices des relevés dans le bassin de la Reine-Charlotte e
 ### Relevé triennal du NMFS (en eaux canadiennes)
 
 Un autre indice de l’abondance relative pour la zone 3CD a été calculé au moyen des données provenant du relevé triennal du National Marine Fisheries Service (NMFS), qui a été mené au large de la moitié inférieure de la côte ouest de l’île de Vancouver entre 1980 et 2001 (figure **XX**).
-Voir l’annexe A de Forrest et al. (2020) pour plus de détails.
+Voir l’annexe A de @forrest2020 pour plus de détails.
 
 ### CPUE de la pêche commerciale
 
 On a calculé des indices normalisés de la CPUE des pêches commerciales pour les périodes historique (1956-1995) et moderne (1996-2019) (figure **XX**).
-Pour y arriver, on a utilisé un modèle linéaire généralisé à effets mixtes de Tweedie, qui est décrit de façon détaillée dans l’annexe B du document de Forrest et al. (2020).
+Pour y arriver, on a utilisé un modèle linéaire généralisé à effets mixtes de Tweedie, qui est décrit de façon détaillée dans l’annexe B du document de @forrest2020.
 Les modèles utilisés pour la période historique comprenaient des prédicteurs relatifs à la profondeur, au lieu, au mois et à l’interaction lieu-année. Les modèles utilisés pour la période moderne comprenaient des prédicteurs relatifs à la profondeur, à la latitude, au lieu, au mois, au navire et à l’interaction lieu-année.
 
 ### Indice de poids moyen des prises commerciales
 
-On a calculé l’indice de poids moyen des prises commerciales entre 1956 et 2016 à l’aide d’échantillons de longueur issus de la pêche commerciale, au moyen de la méthodologie décrite dans l’annexe C du document de Forrest et al. (2020).
+On a calculé l’indice de poids moyen des prises commerciales entre 1956 et 2016 à l’aide d’échantillons de longueur issus de la pêche commerciale, au moyen de la méthodologie décrite dans l’annexe C du document de @forrest2020.
 Pour calculer le poids moyen, on disposait d’échantillons biologiques issus de la pêche commerciale datant de 1956 à 2019 (à l’exception de 2018).
 
 Aucun échantillonnage biologique n’a été réalisé sur les chalutiers commerciaux depuis 2019, et on observe un déclin dans les échantillonnages commerciaux de la morue du Pacifique depuis 2015 environ (annexe A).
 Dans la zone 3CD, seulement quatre échantillons biologiques ont été prélevés en 2017 (300 poissons au total), aucun échantillon n’a été prélevé en 2018 et seulement deux échantillons ont été prélevés en 2019 (360 poissons au total).
-Les échantillons prélevés en 2017 et en 2019 provenaient d’une zone limitée, en particulier en 2019 (figure 7.5). La valeur du poids moyen de 2017 était anormalement élevée (3,024 kg) et, étant donné qu’elle n’était basée que sur quatre échantillons, on ne l’a pas utilisée dans les évaluations des stocks de 2018 et 2020 (Forrest et al. 2020; MPO 2021).
+Les échantillons prélevés en 2017 et en 2019 provenaient d’une zone limitée, en particulier en 2019 (figure **xx**).
+La valeur du poids moyen de 2017 était anormalement élevée (3,024 kg) et, étant donné qu’elle n’était basée que sur quatre échantillons, on ne l’a pas utilisée dans les évaluations des stocks de 2018 et 2020 [@forrest2020; @dfo2021].
 En raison du manque de données, l’évaluation de 2020 a utilisé la valeur du poids moyen de 2019 pour 2019 et 2020, bien que cette approche ne soit pas idéale, car le point d’indice de 2019 n’était basé que sur deux échantillons du même emplacement.
 
 En l’absence d’échantillons biologiques représentatifs pour les dernières années de l’indice, on a élaboré un MLG pour prédire l’indice de poids moyen des prises commerciales à l’aide d’un indice de poids moyen dérivé d’échantillons de longueur issus du relevé synoptique au large de la côte ouest de l’île de Vancouver (annexes B et C).
 
-Le MLG prédit les valeurs de l’indice de poids moyen des prises commerciales uniquement pour les années où des relevés ont été effectués (c.-à-d. qu’on a généré des valeurs prédites de l’indice de poids moyen des prises commerciales pour les années paires de 2004 à 2018, puis 2021 et 2022; Annexe C : figure 10.3).
+Le MLG prédit les valeurs de l’indice de poids moyen des prises commerciales uniquement pour les années où des relevés ont été effectués (c.-à-d. qu’on a généré des valeurs prédites de l’indice de poids moyen des prises commerciales pour les années paires de 2004 à 2018, puis 2021 et 2022; Annexe C : figure **xx**).
 Il a donc fallu décider de la façon d’inclure les valeurs de l’indice dérivé du MLG, étant donné l’absence de valeurs dérivées du MLG pour 2017, 2019 et 2020.
 
 Par souci de cohérence avec les évaluations précédentes, on a décidé d’utiliser l’indice de poids moyen des prises commerciales dérivé directement des échantillons de longueur des prises commerciales pour la période de 1956 à 2016.
-Étant donné qu’aucune des évaluations précédentes n’a utilisé le point d’indice de 2017, celui-ci a également été omis dans la présente mise à jour de l’évaluation. Pour 2018-2022, le modèle utilise les valeurs de l’indice de poids moyen de 2018, 2021 et 2022 dérivées du MLG (annexe C : figure 10.3). Les valeurs pour 2019 et 2020 ont été interpolées entre 2018 et 2021 (annexe D : tableau 11.1, Sc. 1 Référence) L’annexe D présente un aperçu de la sensibilité du modèle à ces choix.
+Étant donné qu’aucune des évaluations précédentes n’a utilisé le point d’indice de 2017, celui-ci a également été omis dans la présente mise à jour de l’évaluation.
+Pour 2018-2022, le modèle utilise les valeurs de l’indice de poids moyen de 2018, 2021 et 2022 dérivées du MLG (annexe C : figure **xx**).
+Les valeurs pour 2019 et 2020 ont été interpolées entre 2018 et 2021 (annexe D : tableau **xx**, Sc. 1 Référence).
+L’annexe D présente un aperçu de la sensibilité du modèle à ces choix.
 
 ## Le modèle d’évaluation des stocks
 
-Le modèle d’évaluation des stocks est un modèle bayésien de type différence-délai (Deriso 1980), ajusté aux indices des relevés, aux indices de CPUE des pêches commerciales et au poids moyen des prises commerciales.
-Le modèle est décrit en détail à l’annexe D du document de Forrest et al. (2020).
-Tous les paramètres fixes et les distributions de probabilité a priori pour les paramètres des modèles utilisés pour la présente évaluation étaient les mêmes que ceux figurant dans le document de Forrest et al. (2020).
+Le modèle d’évaluation des stocks est un modèle bayésien de type différence-délai [@deriso1980], ajusté aux indices des relevés, aux indices de CPUE des pêches commerciales et au poids moyen des prises commerciales.
+Le modèle est décrit en détail à l’annexe D du document de @forrest2020.
+Tous les paramètres fixes et les distributions de probabilité a priori pour les paramètres des modèles utilisés pour la présente évaluation étaient les mêmes que ceux figurant dans le document de @forrest2020.
 
-On a estimé la distribution a posteriori conjointe de chaque modèle de façon numérique, au moyen de routines de Monte Carlo par chaîne de Markov (MCMC) intégrées au logiciel AD Model Builder (algorithme de Metropolis-Hastings) (Fournier et al. 2012).
+On a estimé la distribution a posteriori conjointe de chaque modèle de façon numérique, au moyen de routines de Monte Carlo par chaîne de Markov (MCMC) intégrées au logiciel AD Model Builder (algorithme de Metropolis-Hastings) [@fournier2012].
 Des échantillons a posteriori ont été tirés à chaque 5 000e itération à partir d’une chaîne d’une longueur de 10 millions d’échantillons, ce qui a produit 2 000 échantillons a posteriori.
 Les 1 000 premiers échantillons ont été éliminés pour permettre un rodage suffisant.
 
 ## Points de référence
 
-Selon la politique du cadre décisionnel pour les pêches intégrant l’approche de précaution du MPO (MPO 2009), l’état d’un stock est caractérisé au moyen de trois points de référence :
+Selon la politique du cadre décisionnel pour les pêches intégrant l’approche de précaution du MPO [@dfo2009], l’état d’un stock est caractérisé au moyen de trois points de référence :
 
 1. point de référence supérieur du stock (PRS);
 
@@ -134,9 +138,9 @@ Selon la politique du cadre décisionnel pour les pêches intégrant l’approch
 
 3. taux d’exploitation limite (TEL).
 
-Le PRS et le PRL représentent les seuils des trois zones décrivant l’état des stocks d’après leur biomasse, qui sont définies par la politique sur l’approche de précaution (MPO 2009) : zone critique (biomasse inférieure au PRL); zone de prudence (biomasse supérieure au PRL, mais inférieure au PRS); zone saine (biomasse supérieure au PRS).
+Le PRS et le PRL représentent les seuils des trois zones décrivant l’état des stocks d’après leur biomasse, qui sont définies par la politique sur l’approche de précaution [@dfo2009] : zone critique (biomasse inférieure au PRL); zone de prudence (biomasse supérieure au PRL, mais inférieure au PRS); zone saine (biomasse supérieure au PRS).
 
-Comme ce fut le cas pour des évaluations précédentes (MPO 2019a, 2021), on a utilisé des points de référence historiques pour évaluer l’état des stocks où :
+Comme ce fut le cas pour des évaluations précédentes [@dfo2019; @dfo2021], on a utilisé des points de référence historiques pour évaluer l’état des stocks où :
 
 1.	Le PRS correspond à la moyenne des estimations de la biomasse pour la période 1956-2004.
 
@@ -144,25 +148,25 @@ Comme ce fut le cas pour des évaluations précédentes (MPO 2019a, 2021), on a 
 
 3.	Le TEL correspond au taux de mortalité par pêche moyen pour la période 1956-2004.
 
-Voir le document de Forrest et al. (2020) pour de plus amples renseignements sur l’historique concernant la décision d’utiliser des points de référence historiques pour la morue du Pacifique.
-Voir aussi le document de Forrest et al. (2018) pour plus de renseignements sur l’évaluation des points de référence historiques pour le stock de morues du Pacifique de la zone 5CD.
+Voir le document de @forrest2020 pour de plus amples renseignements sur l’historique concernant la décision d’utiliser des points de référence historiques pour la morue du Pacifique.
+Voir aussi le document de @forrest2018 pour plus de renseignements sur l’évaluation des points de référence historiques pour le stock de morues du Pacifique de la zone 5CD.
 
 ## Scénarios de modèles
 
-On a utilisé une approche fondée sur la moyenne des modèles pour estimer l’état des stocks sur la base d’échantillons a posteriori combinés provenant de plusieurs cas de sensibilité, comme dans les deux évaluations précédentes (MPO 2019a, 2021).
+On a utilisé une approche fondée sur la moyenne des modèles pour estimer l’état des stocks sur la base d’échantillons a posteriori combinés provenant de plusieurs cas de sensibilité, comme dans les deux évaluations précédentes [@dfo2019; @dfo2021].
 Dans une approche de calcul de la moyenne des modèles, on a élaboré plusieurs modèles représentant chacun un état de la nature différent mais plausible, et on a combiné les échantillons a posteriori pour tous les scénarios afin de fournir les probabilités de l’état des stocks.
 Cette approche permet de représenter les effets des principales incertitudes et de les intégrer dans les résultats, contrairement à l’utilisation d’un seul modèle optimal avec des analyses de sensibilité distinctes permettant d’explorer l’incidence des incertitudes sur les résultats.
 
-On a utilisé une approche représentant la moyenne des modèles dans les évaluations des stocks de morue du Pacifique dans les zones 5AB et 5 CD (Forrest et al. 2015), de merlus du Pacifique (Stewart et al. 2011), de flétans du Pacifique (Stewart et Hicks 2016), de sébastolobes à courtes épines en Colombie-Britannique (Starr et Haigh 2017), de goberges de l’Alaska dans les eaux de la Colombie-Britannique (Starr et Haigh 2021) ainsi que dans plusieurs évaluations des stocks d’espèces du genre Sebastes en Colombie-Britannique (p.ex., MPO 2019b, 2020a, 2020b).
+On a utilisé une approche représentant la moyenne des modèles dans les évaluations des stocks de morue du Pacifique dans les zones 5AB et 5 CD [@forrest2015], de merlus du Pacifique [@stewart2011], de flétans du Pacifique [@stewart2016], de sébastolobes à courtes épines en Colombie-Britannique [@starr2017], de goberges de l’Alaska dans les eaux de la Colombie-Britannique [@starr2018] ainsi que dans plusieurs évaluations des stocks d’espèces du genre Sebastes en Colombie-Britannique (p.ex., @dfo2019b; @dfo2020a; @dfo2020b).
 
-Les principaux axes d’incertitude pour la morue du Pacifique sont la capturabilité (q) associée aux indices d’abondance, l’ampleur de la mortalité naturelle (M), l’âge du recrutement à la pêche et l’ampleur des erreurs d’observation associées aux relevés et aux poids moyens [@forrest2020].
-On a d’abord établi un modèle de référence pour représenter ce qui était considéré comme les choix de modèles plus plausibles parmi une série d’hypothèses. Les principales caractéristiques du modèle de référence sont présentées dans le tableau 3.
+Les principaux axes d’incertitude pour la morue du Pacifique sont la capturabilité ($q$) associée aux indices d’abondance, l’ampleur de la mortalité naturelle ($M$), l’âge du recrutement à la pêche et l’ampleur des erreurs d’observation associées aux relevés et aux poids moyens [@forrest2020].
+On a d’abord établi un modèle de référence pour représenter ce qui était considéré comme les choix de modèles plus plausibles parmi une série d’hypothèses. Les principales caractéristiques du modèle de référence sont présentées dans le tableau \@ref(tab:tab-param-table-3cd).
 Le modèle de référence a servi de base à l’élaboration de scénarios de rechange, en modifiant une à une les principales hypothèses du modèle.
 
-On a convenu d’un ensemble de sept scénarios de modèles pour la moyenne des modèles lors de la réunion régionale d’examen par les pairs du Secrétariat canadien des avis scientifiques (SCAS) en 2018 (MPO 2019a).
+On a convenu d’un ensemble de sept scénarios de modèles pour la moyenne des modèles lors de la réunion régionale d’examen par les pairs du Secrétariat canadien des avis scientifiques (SCAS) en 2018 (@dfo2019).
 Le même ensemble a été utilisé dans la mise à jour de l’évaluation des stocks de 2020 [@dfo2021] et est de nouveau utilisé pour la présente évaluation.
 On a mis à jour tous les modèles avec les données sur les prises et les indices jusqu’à la fin de la saison de pêche de 2022, avec des mises à jour de l’indice de poids moyen annuel décrit ci-dessous.
-Des renseignements détaillés sur les configurations et les hypothèses des modèles pour chaque scénario sont présentés dans le document de Forrest et al. (2020).
+Des renseignements détaillés sur les configurations et les hypothèses des modèles pour chaque scénario sont présentés dans le document de @forrest2020.
 
 Voici les scénarios (Sc) compris dans l’ensemble représentant la moyenne des modèles :
 
@@ -182,7 +186,7 @@ Voici les scénarios (Sc) compris dans l’ensemble représentant la moyenne des
 
 où les données des scénarios reflètent les données des scénarios initiaux de l’évaluation de 2018 [@forrest2020].
 
-Résultats des modèles de référence
+## Résultats des modèles de référence
 
 On présente les résultats des deux modèles de référence afin de démontrer le rendement des modèles et de permettre une comparaison avec la mise à jour de l’évaluation des stocks de 2020.
 L’état des stocks, présenté dans la section suivante, est basé sur la moyenne des résultats a posteriori combinés des modèles.
@@ -210,7 +214,8 @@ Un scénario présentant une valeur plus faible de $\sigma_W$, qui contrôle l�
 
 La sensibilité des estimations a posteriori du recrutement aux paramètres des sept scénarios est présentée à la figure **XX**. 
 La sensibilité des estimations a posteriori de la biomasse est présentée à la figure **XX**.
-Comme dans les évaluations précédentes, le modèle a été le plus sensible à l’écart type supposé pour la valeur a priori de la capturabilité dans la pêche ($q$) (Sc 2d). Le modèle était également sensible à l’âge supposé du recrutement à la pêche associé à une sélectivité en lame de couteau (Sc 5a), dans lequel le recrutement était censé se produire à l’âge 3 plutôt qu’à l’âge 2.
+Comme dans les évaluations précédentes, le modèle a été le plus sensible à l’écart type supposé pour la valeur a priori de la capturabilité dans la pêche ($q$) (Sc 2d).
+Le modèle était également sensible à l’âge supposé du recrutement à la pêche associé à une sélectivité en lame de couteau (Sc 5a), dans lequel le recrutement était censé se produire à l’âge 3 plutôt qu’à l’âge 2.
 Ce scénario a estimé que la biomasse était plus faible que les autres scénarios (figure **XX**).
 
 ## Indicateurs de l'état actuel des stocks
@@ -225,7 +230,9 @@ Le tableau **XX** montre une probabilité de 16 % (c.-à-d. environ 3 chances su
 ## Sources d’incertitude
 
 On a expressément traité l’incertitude découlant des paramètres estimés et des poids associés à diverses composantes de données au moyen d’une approche bayésienne.
-Pour la formulation de l’avis, on a combiné les résultats a posteriori découlant des sept configurations de modèles de rechange afin de produire les tableaux de décision. Toutefois, cette approche représente seulement l’incertitude associée cet ensemble de configurations de modèles et elle pourrait sous-estimer certaines incertitudes plus vastes sur le plan structurel. Les incertitudes supplémentaires liées à la présente évaluation découlent des éléments suivants :
+Pour la formulation de l’avis, on a combiné les résultats a posteriori découlant des sept configurations de modèles de rechange afin de produire les tableaux de décision.
+Toutefois, cette approche représente seulement l’incertitude associée cet ensemble de configurations de modèles et elle pourrait sous-estimer certaines incertitudes plus vastes sur le plan structurel.
+Les incertitudes supplémentaires liées à la présente évaluation découlent des éléments suivants :
 
 1.	le manque de données fiables sur la composition selon l’âge pour l’espèce, qui fourniraient des renseignements supplémentaires sur l’ampleur du recrutement, $M$, et la sélectivité des engins de pêche; des données sur la composition selon l’âge permettraient de mieux estimer l’âge au moment du recrutement à la pêche;
 	
@@ -250,18 +257,18 @@ Il existe des incertitudes quant aux estimations du modèle de l’échelle de l
 La réduction de l’échelle estimée de la biomasse n’influencerait pas nécessairement l’estimation de l’état du stock, qui est basée sur des points de référence historiques qui se rééchelonnent en fonction de la biomasse.
 Toutefois, les estimations de la mortalité par pêche augmenteraient avec des estimations plus faibles de la biomasse.
 
-D’autres populations de morue du Pacifique (notamment en Alaska), ont subi d’importants déclins depuis la vague de chaleur marine de 2015 et 2016 (p. ex. Barbeaux et al. 2020; Laurel et Rogers 2020).
+D’autres populations de morue du Pacifique (notamment en Alaska), ont subi d’importants déclins depuis la vague de chaleur marine de 2015 et 2016 [e.g., @barbeaux2020; @laurel2020].
 Cependant, les indices de l’abondance des relevés dans d’autres régions de la Colombie-Britannique (détroit d’Hécate, bassin de la Reine-Charlotte et côte ouest de Haida Gwaii) n’ont pas révélé des déclins similaires (figure **XX**).
-Aucune analyse approfondie n’a été réalisée des causes potentielles du déclin actuel du stock de morue du Pacifique de la zone 3CD, qui pourrait être lié aux effets du changement climatique sur les stades de vie des œufs, des larves et des juvéniles (Abookire et al. 2022; Laurel et al. 2023) ou des adultes (Barbeaux et al. 2020) aux stades biologiques, aux mouvements des poissons, à la pêche ou à d’autres facteurs.
+Aucune analyse approfondie n’a été réalisée des causes potentielles du déclin actuel du stock de morue du Pacifique de la zone 3CD, qui pourrait être lié aux effets du changement climatique sur les stades de vie des œufs, des larves et des juvéniles [@abookire2022; @laurel2023] ou des adultes [@barbeaux2020] aux stades biologiques, aux mouvements des poissons, à la pêche ou à d’autres facteurs.
 Nous recommandons que des ressources soient accordées aux fins de l’étude d’autres hypothèses expliquant les changements dans l’abondance de la morue du Pacifique dans les eaux de la Colombie-Britannique.
 La perte d’échantillons biologiques commerciaux issus de la pêche commerciale au chalut menace la viabilité à long terme du modèle actuel de type différence-délai comme outil principal de l’évaluation des populations de morue du Pacifique en Colombie-Britannique.
 Compte tenu du faible rendement du MLG pour prédire un indice de poids moyen des prises commerciales pour le pour la population de la zone 5ABCD (rapport non publié du MPO), il n’y a déjà pas de voie claire à suivre dans l’avenir pour ce stock.
 Nous reconnaissons qu’un nouveau programme d’échantillonnage biologique à quai est actuellement dans sa phase d’essai, et que l’intention est de l’étendre à l’ensemble de la côte après la mise en œuvre réussie du programme pilote. Bien qu’il s’agisse là de progrès positifs, on devra procéder à une analyse plus approfondie pour explorer les biais potentiels découlant de l’absence continue d’échantillons de poissons rejetés à la mer.
 Par conséquent, en l’absence d’un programme d’échantillons biologiques commerciaux en mer, nous recommandons que l’on accorde des ressources aux fins de l’étude et de la comparaison d’autres approches visant à fournir des avis sur les prises de morues du Pacifique, ce qui pourrait s’avérer avantageux compte tenu des incertitudes inhérentes à ce modèle.
-Les approches de rechange peuvent comprendre des méthodes basées sur la longueur (p. ex. Haist et Fournier 1995, 1998), ou des approches plus limitées en données, comme en ajustant du total autorisé des captures (TAC) en fonction des changements dans les indices des relevés.
-Des versions de cette dernière approche sont utilisées par le Conseil international pour l’exploration de la mer (CIEM) pour les stocks à données limitées (catégorie 3) (CIEM 2022).
-Au Canada, les méthodes à données limitées fondées sur les relevés ont fait l’objet de simulations dans le cadre de la procédure de gestion des poissons de fond (Anderson et al. 2021) et dans Huynh et al. (2020).
-L’exploration de modèles non structurés selon l’âge qui permettraient une productivité variable dans le temps (p.ex. Mildenberger et al. 2019) pourrait également s’avérer instructive.
+Les approches de rechange peuvent comprendre des méthodes basées sur la longueur [p. ex. @haist1995; @haist1998], ou des approches plus limitées en données, comme en ajustant du total autorisé des captures (TAC) en fonction des changements dans les indices des relevés.
+Des versions de cette dernière approche sont utilisées par le Conseil international pour l’exploration de la mer (CIEM) pour les stocks à données limitées (catégorie 3) [@ices2022].
+Au Canada, les méthodes à données limitées fondées sur les relevés ont fait l’objet de simulations dans le cadre de la procédure de gestion des poissons de fond [@anderson2021] et dans @huynh2020.
+L’exploration de modèles non structurés selon l’âge qui permettraient une productivité variable dans le temps [p.ex. @mildenberger2019] pourrait également s’avérer instructive.
 
 # Remerciements
 
