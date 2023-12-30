@@ -69,7 +69,7 @@ For each area, models were fit to the following data: commercial catch, fishery-
 
 ### Commercial catch
 
-Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to March 31, 2022).
+Commercial catch data (Table \@ref(tab:tab-catch-3cd) and Figure \@ref(fig:fig-catch-3cd)) were extracted from three different databases held by DFO: *GFCatch* (Canadian trawl landings, 1954--1995); *PacHarvTrawl* (Canadian trawl landings, 1996 to March 31, 2007); and *GFFOS* (Canadian trawl landings, April 1, 2007 to March 31, 2022).
 Catch data prior to 1981 include catch by US vessels [@forrest2020].
 Fishing years are defined as beginning on April 1 for all years, and are referenced by starting year, e.g., the fishing year 1957 runs from April 1, 1957 to March 31, 1958.
 
@@ -88,7 +88,7 @@ Abundance in Area 3CD (Figure \@ref(fig:fig-map)) is indexed by the WCVI synopti
 The survey was first conducted in 2004 and is conducted in alternating (even-numbered) years.
 Due to the COVID-19 pandemic, the 2020 survey was postponed to 2021 then resumed its even-numbered years schedule in 2022.
 
-For comparison, survey indices in Queen Charlotte Sound and Hecate Strait are also shown in (Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:fig-surv-canadian)).
+For comparison, survey indices in Queen Charlotte Sound and Hecate Strait are also shown in Table \@ref(tab:surv-canadian-table) and Figure \@ref(fig:fig-surv-canadian).
 
 ### NMFS Triennial Survey (in Canadian waters) {#nmfs-survey}
 
@@ -212,9 +212,8 @@ A scenario with a smaller value of $\sigma_W$, which controls the fit to the mea
 
 Sensitivity of posterior recruitment estimates to the settings in the seven scenarios are shown in Figure \@ref(fig:fig-sens-recr-3cd-all-avg).
 Sensitivity of posterior biomass estimates are shown in Figure \@ref(fig:fig-sens-biomass-3cd-all-avg).
+As in previous assessments, the model was most sensitive to the assumed mean and standard deviation in the prior for survey catchability ($q$) (Sc 2d and 2e).
 
-As in previous assessments, the model was most sensitive to the assumed standard deviation in the prior for survey catchability ($q$) (Sc 2d).
-The model was also sensitive to the assumed knife-edged age at recruitment (Sc 5a), in which recruitment was assumed to occur at age 3 instead of age 2. This scenario estimated the biomass to be lower than the other scenarios (Figure  \@ref(fig:fig-sens-biomass-3cd-all-avg)).
 
 ## Indicators of current stock status {#status}
 
