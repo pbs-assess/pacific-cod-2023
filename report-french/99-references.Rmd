@@ -1,16 +1,16 @@
 \clearpage
 
-# Contributors
+# Collaborateurs
 
 ```{r, echo=FALSE, include=FALSE}
 contributors <- tibble::tribble(
   ~Name,          ~Affiliation, ~Role,
-  "Robyn Forrest",   "Secteur des sciences du MPO, région du Pacifique", "Auteur",
-  "Sean Anderson",   "Secteur des sciences du MPO, région du Pacifique", "Auteur",
+  "Robyn Forrest",   "Direction des sciences, MPO, région du Pacifique", "Auteur",
+  "Sean Anderson",   "Direction des sciences, MPO, région du Pacifique", "Auteur",
    "Ian Stewart", "International Pacific Halibut Commission", "Réviseur",
-   "Daniel Ricard", "Secteur des sciences du MPO, région du Golfe", "Réviseur",
-   "Dana Haggarty", "Secteur des sciences du MPO, région du Pacifique", "Comité directeur",
-   "Steven Schut", "Secteur des sciences du MPO, région du Pacifique", "Comité directeur"
+   "Daniel Ricard", "Direction des sciences, MPO, région du Golfe", "Réviseur",
+   "Dana Haggarty", "Direction des sciences, MPO, région du Pacifique", "Comité directeur",
+   "Steven Schut", "Direction des sciences, MPO, région du Pacifique", "Comité directeur"
 )
 ```
 
