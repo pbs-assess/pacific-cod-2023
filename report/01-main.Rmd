@@ -18,7 +18,8 @@ The 2022 RSIA therefore had two steps: 1) an assessment of the potential sensiti
 The RSIA advised to only proceed to Step 2 if the missing length data were "deemed to not be of significance to the quality and rigour of the scientific advice".
 Using the 2020 assessment model, the authors presented several sensitivity analyses to the Pacific Cod Technical Working Group (TWG) to evaluate alternative methods for updating the commercial mean weight index.
 This included a generalized linear model (GLM) for predicting the commercial mean weight index from a survey mean weight index derived from WCVI survey samples.
-The TWG found that the GLM provided acceptable predictions of the commercial mean weight index for the Area 3CD stock. However, the TWG decided that a similar GLM applied to the 5ABCD stock did not produce predictions consistent enough with the commercial mean weight index in overlapping years to be used in an assessment.
+The TWG found that the GLM provided acceptable predictions of the commercial mean weight index for the Area 3CD stock.
+However, the TWG decided that a similar GLM applied to the 5ABCD stock did not produce predictions consistent enough with the commercial mean weight index in overlapping years to be used in an assessment.
 Because of this issue with the 5ABCD commercial mean weight index and limited staff resources, Step 2 did not proceed.
 
 The Pacific Groundfish Management Unit has not requested updated catch advice for 2023.

@@ -58,7 +58,7 @@ knitr::opts_chunk$set(
   fig.align = "center",
   fig.pos = "htb"
 )
-french <- FALSE
+french <- TRUE
 # this runs all the r code, including loading the data and models
 source(file.path(here::here(), "R", "all.R"))
 ```
