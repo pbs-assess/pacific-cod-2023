@@ -61,12 +61,12 @@ catch.table <- function(dat,
 
   colnames(j) <- latex.bold(colnames(j))
 
-  if (french) {
-    for (i in seq_len(ncol(j))) {
-      j[,i] <- gsub(",", " ", j[,i,drop=TRUE])
-      j[,i] <- gsub("\\.", ",", j[,i,drop=TRUE])
-    }
-  }
+  # if (french) {
+  #   for (i in seq_len(ncol(j))) {
+  #     j[,i] <- gsub(",", " ", j[,i,drop=TRUE])
+  #     j[,i] <- gsub("\\.", ",", j[,i,drop=TRUE])
+  #   }
+  # }
 
   #cut off first three years
 

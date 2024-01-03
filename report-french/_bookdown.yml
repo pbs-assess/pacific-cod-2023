@@ -1,11 +1,11 @@
 book_filename: "sr"
 rmd_files: ["index.Rmd",
             "00-load.Rmd",
-            "01-main.Rmd",
-            "02-tables.Rmd",
-            "03-figures.Rmd",
-            "04-appendices.Rmd",
-            "99-references.Rmd"
+            #"01-main.Rmd",
+            "02-tables.Rmd"
+            #"03-figures.Rmd",
+            #"04-appendices.Rmd",
+            #"99-references.Rmd"
             ]
 delete_merged_file: true
 
