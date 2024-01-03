@@ -3,7 +3,7 @@
 
 # Copy of get-mean-weight-survey.R to address questions from Paul Starr: July 20, 2023
 
-# This script is called by get-iscam-inputs.R
+# This script is called by get-iscam-inputs.R and all.R
 
 # This was for the 2022 technical working group meeting to look at whether we can
 # calibrate the survey mean weight to the commercial mean weight, to possibly
@@ -129,6 +129,17 @@ g <- lengthwt_raw %>%
   labs(title = paste(AREA), y = "Calculated weight from length", x = "Measured weight")
 ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_",
                                AREA,".png")))
+
+# raw French
+g <- lengthwt_raw %>%
+  filter(!is.na(weight)) %>%
+  ggplot() +
+  geom_point(aes(x=weight, y=weight_calc), colour="darkblue") +
+  labs(title = paste(AREA), y = "Poids calculé à partir de la longueur", x = "Poids mesurés")+
+  theme(axis.text.y = element_text(size=10))
+ggsave(file.path(generatedd,paste0("Measured_v_Calc_Weights_",
+                                   AREA,"_french.png")))
+
 # Plot annual mean weights
 g <- survey_mw_raw %>%
   rename(raw=survey_mw_raw) %>%
@@ -220,22 +231,32 @@ g <- tidyr::pivot_longer(dat1, cols = 2:3) %>%
  g <- dat1 %>%
    ggplot(aes(year)) +
    geom_vline(xintercept = 2000:2022, lty = 1, col = "grey90") +
-   # theme(panel.grid.major.x = element_line(colour = "grey90")) +
-   # theme(panel.grid.minor.x = element_line(colour = "grey90")) +
-   # geom_point(size=3.5) +
    geom_line(aes(x=year, y=comm_mean_weight, colour="Commercial"),size=1.4) +
    geom_point(data = dat1, mapping = aes(year, comm_mean_weight, size = n_samples), inherit.aes = FALSE, pch = 21, na.rm = TRUE) +
    geom_point(data = dat1, mapping = aes(year, survey_mean_weight, colour="Survey"), size = 4, inherit.aes = FALSE, pch = 19, na.rm = TRUE) +
    ylim(0,3)+
-   labs(title = Title, y = "Mean weight (kg)", x = "Year") +
-   scale_size_area(name = "Comm. sampling events") +
-   scale_color_manual(name="Type",values = c("Commercial" = pal[1], "Survey" = pal[2]),
-                      breaks=c('Commercial', 'Survey')) +
    scale_x_continuous(breaks=(seq(2000,2024,by=4)))+
    labs(colour = "Type")
- g
- ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
+
+ if(french==FALSE){
+   g <- g + labs(title = "", y = "Mean weight (kg)", x = "Year") +
+       scale_size_area(name = "Comm. sampling events")+
+       scale_color_manual(name="Type",values = c("Commercial" = pal[1], "Survey" = pal[2]),
+                        breaks=c('Commercial', 'Survey'))
+   ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
                                     AREA,"_2.png")), width = 7, height = 4)
+ }else{
+   g <- g + labs(title = "", y = "Poids moyen (kg)", x = "Année") +
+        scale_size_area(name = "Évén. d'échantillonnage comm.")+
+        scale_color_manual(name="Type",
+                           values = c("Commercial" = pal[1], "Survey" = pal[2]),
+                           breaks=c('Commercial', 'Survey'),
+                           labels=c('Commercial', 'Relevé'))
+   ggsave(file.path(generatedd,paste0("Comm_v_Survey_weights_",
+                                      AREA,"_2_french.png")), width = 7, height = 4)
+ }
+
+
 
 # 4. Plot the two indices against each other (log space)
 #    Note that the last pair of survey and commercial index values was in 2016

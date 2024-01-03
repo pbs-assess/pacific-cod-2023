@@ -47,12 +47,12 @@ removed <- as.numeric(c(removed[1,1], removed[2,1]))
 ## 3CD
 df <- df3CD %>%
   filter(!year %in% c(2017, 2019))
-ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
+
+  g <- ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
   geom_line(lwd=1, colour=2) +
   geom_point(aes(size = n_samples), pch = 21) +
   geom_point(aes(x=2017 ,y=removed[1]), pch=4, col=1, size=3) +
   geom_point(aes(x=2019 ,y=removed[2]), pch=4, col=1, size=3) +
-  scale_size_area(name = "Sampling events") +
   ylim(0,1.1*max(df$mean_weight)) +
   theme(plot.title=element_text(size=14,face="bold",hjust=0.5),
         axis.text=element_text(size=12),
@@ -61,7 +61,15 @@ ggplot(data=df, aes(x=year,y=mean_weight, group=1)) +
   theme_pbs()+
   theme(panel.grid.major.x = element_line(color = 1,
                                           size = 0.5,
-                                          linetype = 2))+
-  labs(x= "Fishing Year", y = "Annual Mean Weight (Kg)", title="Area 3CD")
-ggsave(file.path(generatedd,"Commercial_mean_weight_3CD.png"), width=8, height=6)
+                                          linetype = 2))
+  if(french==FALSE){
+    g <- g + scale_size_area(name = "Sampling events") +
+      labs(x= "Fishing Year", y = "Annual Mean Weight (kg)", title="")
+    ggsave(file.path(generatedd,"Commercial_mean_weight_3CD.png"), width=8, height=6)
+  }else {
+    g <- g + scale_size_area(name = "Événements d'échantillonnage") +
+    labs(x= "Année de pêche", y = "Poids moyen annuel (kg)", title="")
+    ggsave(file.path(generatedd,"Commercial_mean_weight_3CD_french.png"), width=8, height=6)
+  }
+
 

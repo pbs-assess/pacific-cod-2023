@@ -1,10 +1,8 @@
 \clearpage
 
-# Appendix A. Changes in commercial length sampling
+# Annexe A. Changements dans l'échantillonnage des longueurs commerciales
 
-The commercial groundfish bottom trawl fishery is subject to industry-funded, comprehensive 100% at-sea and dockside monitoring programs. Since 2020, there have been no independent at-sea observers deployed on vessels, and therefore the required 100% at-sea monitoring is now achieved through the use of an Electronic Monitoring (EM) system, where multiple cameras are deployed on trawl vessels to capture all activities related to the catching, sorting and discarding of fish.
-While this has resulted in a fairly seamless continuation of catch data streams, it has resulted in complete cessation of at-sea commercial biosampling.
-However, even before the switch to EM, there had been a reduction in samping for Pacific Cod, summarized below.
+La pêche commerciale au chalut de fond du poisson de fond fait l’objet d’une surveillance en mer et de vérifications à quai complètes à 100 %. Depuis 2020, aucun observateur en mer indépendant n’a été déployé sur les navires, et par conséquent, la surveillance en mer à 100 % requise est désormais assurée au moyen d’un système de surveillance électronique (SE), dans lequel plusieurs caméras sont déployées sur les chalutiers afin de filmer toutes les activités de capture, de tri et de rejet des poissons. Même si ce système a permis de continuer de produire sans trop de problèmes des flux de données sur les prises, il a entraîné l’arrêt complet de l’échantillonnage biologique commercial en mer. Toutefois, même avant le passage au système de SE, l’échantillonnage de la morue du Pacifique avait été réduit, comme le présente le tableau ci-dessous.
 
 ```{r get-length-samples-3cd}
 
@@ -21,10 +19,10 @@ summary_by_year <- comm_samp %>%
             sdlength=round(sd(length),2),
             selength=round(sdlength/sqrt(nlengths),2))
 
- colnames(summary_by_year) <- c("Year", "Num samples", "Num lengths","Raw mean length", "SD length", "SE length")
+ colnames(summary_by_year) <- c("Année", "Nbre échantillons", "Nbre longueurs", "Longueur moyenne brute","Écart-type longueur", "Erreur-type longueur")
 
 knitr::kable(summary_by_year,
-               caption = "Summary of commercial length samples since 1996 for Area 3CD. Mean lengths are not weighted by catch and are presented to visualise declines in sampling effort since 2015.",
+               caption = ": Résumé des échantillons de longueur des prises commerciales depuis 1996 pour la zone 3CD. Les longueurs moyennes ne sont pas pondérées par les prises et sont présentées pour représenter les baisses de l’effort d’échantillonnage depuis 2015.",
                longtable = TRUE, format = "pandoc",
                align = get.align(ncol(summary_by_year))[-1],
                booktabs = TRUE, linesep = "", escape = FALSE, row.names = FALSE) %>%
@@ -32,14 +30,26 @@ knitr::kable(summary_by_year,
 
 ```
 
-```{r plot-length-samples-3cd, fig.cap="Summary of raw mean lengths in commercial catches since 2000 for Area 3CD, showing the anomalously high value in 2017. Mean lengths are unweighted by catch. Dots represent means and vertical line segments represent plus/minus one standard error (some hidden behind dots)."}
+```{r plot-length-samples-3cd, fig.cap="Somme des longueurs moyennes brutes dans les prises commerciales depuis 2000 pour la zone 3CD, montrant la valeur anormalement élevée en 2017. Les longueurs moyennes sont pondérées par les prises. Les points représentent les moyennes et les segments verticaux représentent une erreur type de plus ou moins un (certaines cachées derrière les points)."}
+
+# Need to run summary_by_year again in french so that Year filter works. Too hard to figure out the unicode for Année in dplyr!
+summary_by_year <- comm_samp %>%
+  select(year,sample_id,length) %>%
+  group_by(year) %>%
+  summarize(nsamples=n_distinct(sample_id),
+            nlengths=sum(!is.na(length)),
+            meanlength=round(mean(length),2),
+            sdlength=round(sd(length),2),
+            selength=round(sdlength/sqrt(nlengths),2))
+
+colnames(summary_by_year) <- c("Year", "Num samples", "Num lengths","Raw mean length", "SD length", "SE length")
 
 g <- summary_by_year %>%
   dplyr::filter(Year>1999) %>%
   ggplot(aes(x=Year, y=`Raw mean length`))+
   geom_point(size=2)+
   geom_errorbar(aes(ymin=`Raw mean length`-`SE length`, ymax=`Raw mean length`+ `SE length`),  width=0.2)+
-  labs(x = "Year", y = "Raw mean length (cm)")+
+  labs(x = 'Année', y = 'Longueur moyenne brute (cm)')+
   gfplot::theme_pbs()+
   scale_color_viridis_d()
 
@@ -49,73 +59,68 @@ g
 
 \clearpage
 
-# Appendix B. Developing a survey mean weight index
+# Appendix B. Développement d'indice de poids moyen
 
-## Methods
+## Méthodes
 
-For the commercial mean weight index, we followed the steps in Appendix C of @forrest2020, which described the methodology for weighting the commercial length samples to produce a commercial mean weight index, weighted by sequential quarter and catch weight.
+Pour l’indice de poids moyen des prises commerciales, nous avons suivi les étapes de l’annexe C du document de @forrest2020, qui décrit la méthodologie de la pondération pour les longueurs des prises commerciales afin de produire un indice de poids moyen des prises commerciales, pondéré par le trimestre séquentiel et le poids des prises.
+Nous avons adapté l’approche pour le relevé synoptique de la côte ouest de l’île de Vancouver en remplaçant la pondération par trimestre séquentiel, ce qui a été effectué pour les échantillons commerciaux, par une pondération par strate de profondeur (équations 3 et 4).
+Nous avons procédé ainsi, car le relevé est pondéré par strate de profondeur.
+Il convient de noter que pour l’indice de poids moyen des relevés, nous avons dérivé les poids des poissons individuels à partir des longueurs mesurées, en utilisant les paramètres longueur-poids publiés [@forrest2020] plutôt que d’utiliser les poids que l’on a directement mesurés (équation 1).
+Nous avons décidé d’utiliser les poids dérivés des longueurs mesurées, car beaucoup plus de poissons ont été mesurés que pesés. Cette façon de faire correspond également à l’approche utilisée pour l’indice de poids moyen des prises commerciales.
+Le calcul de l’indice de poids moyen des relevés a été effectué selon les étapes suivantes. Par souci de simplicité, nous avons supprimé les indices des années.
 
-We adapted the approach for the West Coast Vancouver Island Synoptic Survey by replacing weighting by sequential quarter, which was done for the commercial samples, with weighting by depth stratum (Equations 3 and 4).
-This was done because the survey is depth-stratified.
 
-Note that for the survey mean weight index, we derived weights of individual fish from the measured lengths, using published length-weight parameters [@forrest2020] rather than using weights that were directly measured (Equation 1).
-We decided to use weights derived from measured lengths because far more fish were measured than were weighed.
-This also follows the approach used for the commercial mean weight index.
-
-The calculation of the survey mean weight index was done in the following steps. For simplicity, we have dropped year subscripts.
-
-1. For each specimen $i$, in each Sample ID $j$, in each depth stratum $s$, convert individual length ($L_{i,j,s}$)  to weight ($W_{i,j,s}$):
+1. Pour chaque spécimen $i$, dans chaque identifiant $j$, dans chaque strate de profondeur $s$, convertir la longueur individuelle ($L_{i,j,s}$) en poids ($W_{i,j,s}$) :
 
 \begin{equation}
 {W_{i,j,s}} = \alpha{L_{i,j,s}}^{\beta}
 \end{equation}
 
-where $\alpha$ and $\beta$ are constant length-weight parameters, where the values of the length-weight parameters are `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")`.
+où $\alpha$ et $\beta$ sont des paramètres longueur-poids constants, où les valeurs des paramètres longueur-poids sont `r paste0("$\\alpha = ", .ALPHA3, "$")` and `r paste0("$\\beta = ", .BETA3, "$")`.
 
-2. Calculate the mean weight ($W_j$) in each sample ID $j$, in each depth stratum $s$:
+2. Calculer le poids moyen ($W_j$) pour chaque strate de profondeur $j$, dans chaque strate de profondeur $s$ :
 
 \begin{equation}
   {W_{j,s}} =  \frac{\sum\limits_{i=1}^{N_{j,s}}{{w_{i,j,s}}}}{{N_{j,s}}}
 \end{equation}
 
-where $N_{j,s}$ is the number of weights $W_{i,j,s}$ in sample ID $j$ and depth stratum $s$.
+où $N_{j,s}$ est le nombre de poids $W_{i,j,s}$ dans l’identification de l’échantillon $j$ et la strate de profondeur $s$.
 
-3. Calculate the mean weight ($W_s$) for each depth stratum $s$, weighted by the sample weights $S_{j,s}$:
+3. Calculer le poids moyen ($W_s$) pour chaque strate de profondeur $s$, pondéré par le poids des échantillons $S_{j,s}$:
 
 \begin{equation}
 {W_s} = \frac{{\sum\limits_{j=1}^{{N_s}} {{W_{j,s}S_{j,s}}}}}{{\sum\limits_{j=1}^{{N_s}} {{S_{j,s}}}}}
 \end{equation}
 
-where $N_s$ is the number of samples in depth stratum $s$.
+où $N_s$ est le nombre d’échantillons dans la strate de profondeur $s$.
 
-4. Calculate the annual survey mean weight ($W$), weighted by the catch $C_s$ in each stratum $s$:
+4. Calculer le poids moyen des relevés annuels ($W$), pondéré par les prises $C_s$ dans chaque strate $s$:
 
 \begin{equation}
 {W} = \frac{{\sum\limits_{s=1}^{{K}} {{W_sC_s}}}}{{\sum\limits_{s=1}^{{K}} {{C_s}}}}
 \end{equation}
 
-where $K$ is the number of depth strata surveyed in that year.
+où $K$ est le nombre de strates de profondeur ayant fait l’objet d’un relevé cette année-là.
 
 \clearpage
 
-## Results
+## Résultats
 
-The commercial mean weight index, calculated using the methods in Appendix C of @forrest2020 is shown in Figure \@ref(fig:fig-comm-mean-weights-3cd), which also shows the two index values that were removed due to low sampling effort (2017 and 2019, see Appendix A).
-
-Figure \@ref(fig:fig-meas-vs-calc-weights-3cd) shows the relationship between directly observed weights (from weighing individual fish) vs calculated weights (obtained from Equation 1).
-Figure \@ref(fig:fig-comm-vs-survey-weights-3cd) compares the commercial mean weight index (Figure \@ref(fig:fig-comm-mean-weights-3cd)) with the survey mean weight index obtained from Equations 1--4.
+L’indice de poids moyen des prises commerciales, calculé au moyen des méthodes de l’annexe C du document de @forrest2020 est présenté dans la figure \@ref(fig:fig-comm-mean-weights-3cd), qui montre également les deux valeurs d’indice que l’on a supprimées en raison d’un faible effort d’échantillonnage (2017 et 2019, voir annexe A).
+La figure \@ref(fig:fig-meas-vs-calc-weights-3cd) montre la relation entre les poids directement observés (à partir des poissons pesés individuellement) et les poids calculés (obtenus au moyen de l’équation 1). La figure \@ref(fig:fig-comm-vs-survey-weights-3cd) compare l’indice de poids moyen des prises commerciales (figure \@ref(fig:fig-comm-vs-survey-weights-3cd)) à l’indice de poids moyen des relevés obtenu au moyen des équations 1--4.
 
 
-```{r fig-comm-mean-weights-3cd, fig.cap="Time series of commercial mean weight series, calculated using methods shown in Forrest et al. (2020). Area of the circles indicates the number of sampling events. Black crosses indicate the 2017 and 2019 index values, which were removed from further analysis due to low sample sizes (see Appendix A). ", out.width="6in"}
-knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.png"))
+```{r fig-comm-mean-weights-3cd, fig.cap="Série chronologique de la série de poids moyen des prises commerciales, calculée au moyen des méthodes présentées dans le document de Forrest et al. (2020). La surface des cercles représente le nombre d’événements d’échantillonnage. Les croix noires représentent les valeurs de l’indice de 2017 et 2019, que l’on a retirées de l’analyse en raison de la faible taille des échantillons (voir annexe A). ", out.width="6in"}
+knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD_french.png"))
 ```
 
-```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
+```{r fig-meas-vs-calc-weights-3cd, fig.cap="Poids observés et poids calculés tirés du relevé réalisé sur la COIV; toutes les années, toutes les strates de profondeur.", out.width="4in"}
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_3CD_french.png"))
 ```
 
-```{r fig-comm-vs-survey-weights-3cd, fig.cap="Comparison of the commercial mean weight index (line) and survey mean weight index (points). Area of the commercial circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="5in"}
-knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2.png"))
+```{r fig-comm-vs-survey-weights-3cd, fig.cap="Comparaison de l’indice de poids moyen des prises commerciales (ligne) et de l’indice de poids moyen des relevés (points). La surface des cercles des prises commerciales indique le nombre d’événements d’échantillonnage. Pour faciliter la compréhension, l’indice de poids moyen des prises commerciales est tronqué pour commencer en 2000.", out.width="5in"}
+knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2_french.png"))
 ```
 
 \clearpage

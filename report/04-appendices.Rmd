@@ -111,7 +111,7 @@ knitr::include_graphics(here::here("data/generated/commercial_mean_weight_3CD.pn
 ```
 
 ```{r fig-meas-vs-calc-weights-3cd, fig.cap="Observed vs. calculated weights from the WCVI survey; all years, all depth strata.", out.width="4in"}
-knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_survey3CD.png"))
+knitr::include_graphics(here::here("data/generated/Measured_v_Calc_weights_3CD.png"))
 ```
 
 ```{r fig-comm-vs-survey-weights-3cd, fig.cap="Comparison of the commercial mean weight index (line) and survey mean weight index (points). Area of the commercial circles indicates the number of sampling events. To aid visualization, the commercial mean weight index is truncated to begin in 2000.", out.width="5in"}
