@@ -1,6 +1,6 @@
 \clearpage
 
-# Tables {#sec:tables}
+# Tableax
 
 ```{r surv-canadian-table, results='asis'}
 dplyr::filter(dat$survey_index, survey_abbrev %in%
@@ -11,7 +11,9 @@ dplyr::filter(dat$survey_index, survey_abbrev %in%
   dplyr::rename(`Survey abbrev.` = survey_abbrev, Year = year, Biomass = biomass,
     CV = re, `Lower CI` = lowerci, `Upper CI` = upperci, Sets = num_sets, `Positive sets` = num_pos_sets) %>%
   dplyr::arrange(`Survey abbrev.`, Year) %>%
-  knitr::kable(caption = "Pacific Cod survey data for Canadian trawl surveys in metric tonnes (mt) (without accounting for survey catchability). Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN HS = Hecate Strait synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey; SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not included in this assessment but are shown for comparison.", booktabs = TRUE, linesep = "", 
+  dplyr::rename('Relevé' = `Survey abbrev.`, 'Anneé' = Year, Biomasse = Biomass,
+    `IC inf.` = `Lower CI`, `IC sup.` =`Upper CI`, Traits = Sets, `Traits  positifs` = `Positive sets` ) %>% 
+  knitr::kable(caption = "Données sur la morue du Pacifique, en tonnes métriques, tirées des relevés au chalut canadiens ( on ne tient pas compte de la capturabilité associée aux relevés). Les traits positifs représentent le nombre de traits de chalut dans lesquels des morues du Pacifique étaient présentes. Dans le tableau : OTHER HS MSA =  relevé de l’assemblage de plusieurs espèces mené dans le détroit d’Hécate; SYN HS = relevé synoptique mené dans le détroit d’Hécate; SYN QCS = relevé synoptique mené dans le bassin de la Reine-Charlotte; SYN WCVI = relevé synoptique mené au large de la côte ouest de l’île de Vancouver. Les indices des  SYN QCS et SYN HS ne sont pas inclus dans cette évaluation, mais sont présentés à des fins de comparaison.", booktabs = TRUE, linesep = "", 
     format = "pandoc")
 ```
 
@@ -22,14 +24,14 @@ catch.table(catch.3,
             catch.3.discards,
             pre.1996.discards.3cd,
             area = "3CD",
- cap = paste0("Reported catch (mt) of Pacific Cod in Area 3CD ",
-              "by Canada and the USA, ",
+cap = paste0("Prises déclarées (tm) de morues du Pacifique dans la zone 3CD ",
+              "réalisées par le Canada et les États-Unis, ",
               min(catch.3$year)+3, "--", max(catch.3$year)-1,
-              ". The reported releases at sea (discards) for the period ", min(catch.3$year)+3,
-              "--1995 are ",
-              "likely unrepresentative of true discarding because the estimates were taken ",
-              "from logbooks in the absence of observers. Discard estimates since 1996 are based on at-sea ",
-              "observations and are considered to be more representative of true discarding. Numbers are rounded for presentation."), french=french)
+              ". Les prises remises à l’eau (rejets) pour la période ", min(catch.3$year)+3,
+              "--1995 ne sont ",
+              "probablement pas représentatives des rejets réels parce que les estimations proviennent ",
+              "de journaux de bord, étant donné l’absence d’observateurs. Les estimations des rejets depuis 1996 sont fondées sur les ",
+              "observations en mer et sont considérées comme étant plus représentatives des rejets réels.  Les valeurs ont été arrondies aux fins de présentation."), french=french)
 ```
 
 \clearpage
