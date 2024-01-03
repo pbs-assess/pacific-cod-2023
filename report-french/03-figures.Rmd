@@ -2,30 +2,30 @@
 
 # Figures
 
-```{r fig-map, fig.cap="Map showing the management areas 3CD (West Coast Vancouver Island), 5AB (Queen Charlotte Sound), 5CD (Hecate Strait) and 5E (West Coast Haida Gwaii).", out.width="4in"}
+```{r fig-map, fig.cap="Carte montrant les zones de gestion 3CD (côte ouest de l’île de Vancouver), 5AB (bassin de la Reine-Charlotte), 5 CD (détroit d’Hécate) et 5E (côte ouest de Haida Gwaii).", out.width="4in"}
 knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
 
 ```
 
-```{r fig-surv-canadian, fig.cap="Pacific Cod survey data for Canadian trawl surveys showing relative biomass and associated lower and upper confidence intervals. Positive sets refers to the number of trawl sets that caught Pacific Cod. SYN WCVI = West Coast Vancouver Island synoptic bottom trawl survey; SYN QCS = Queen Charlotte Sound synoptic bottom trawl survey;  SYN HS = Hecate Strait synoptic bottom trawl survey. Indices for the QCS and HS synoptic surveys are not included in this assessment but are shown for comparison."}
+```{r fig-surv-canadian, fig.cap="Données sur la morue du Pacifique tirées des relevés au chalut canadiens montrant la biomasse relative et les intervalles de confiance inférieurs et supérieurs associés. Les traits positifs représentent le nombre de traits de chalut dans lesquels des morues du Pacifique étaient présentes. SYN WCVI = relevé synoptique mené au large de la côte ouest de l’île de Vancouver; SYN QCS = relevé synoptique mené dans le bassin de la Reine-Charlotte; SYN HS = relevé synoptique mené dans le détroit d’Hécate. Les indices des relevés synoptiques pour QCS et HS ne sont pas inclus dans cette évaluation, mais sont montrés à des fins de comparaison."}
 gfplot::tidy_survey_index(dat$survey_index,
   survey = c("SYN WCVI", "SYN QCS", "SYN HS")) %>%
   plot_survey_index(french=french)
 ```
 
-```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea releases."}
+```{r fig-catch-3cd, fig.cap="Prises pour la zone 3CD. Les prises canadiennes comprennent les rejets en mer."}
 make.catches.plot(catch.3, french=french) +
   scale_y_continuous(labels = comma,
                        limits = c(0, NA))
 ```
 
-```{r fig-summary-cpue-indices-3cd, fig.cap="Commercial trawl CPUE standardization models for the historical period, 1956--1995 (top) and the modern period, 1996--2022 (bottom). The black line and shaded region indicate a CPUE index with only a year predictor (shown for comparison, not used in this assessment). The green line and shaded region shows a standardization model that includes all the predictors plus locality-by-year (space-time) random effects. Locality and locality-year interactions are fit as random effects and all other variables are fit as fixed effects.", echo=FALSE}
+```{r fig-summary-cpue-indices-3cd, fig.cap="Modèles de normalisation des CPUE commerciales au chalut pour la période historique, 1956–1995 (en haut) et la période moderne, 1996–2022 (en bas). La ligne noire et la zone ombragée représentent un indice de CPUE associé à un seul prédicteur d’année (montré à des fins de comparaison, non utilisé dans cette évaluation). La ligne verte et la zone ombragée représentent un modèle de normalisation qui comprend tous les prédicteurs et les effets aléatoires lieu-par-année (espace-temps). Les interactions lieu et lieu-année sont ajustées comme des effets aléatoires et toutes les autres variables, comme des effets fixes.", echo=FALSE}
 
 knitr::include_graphics(here(generatedd,"CPUE_All_Fully_Standardized_3CD.png"))
 
 ```
 
-```{r fig-sample-locations, fig.cap="Location of Pacific Cod commercial biological samples by year. The total number of fish sampled in 2017 was 300. The total number sampled in 2019 was 360. See Appendix A for number of samples in other years."}
+```{r fig-sample-locations, fig.cap="Emplacement des échantillons biologiques commerciaux de la morue du Pacifique par année. Le nombre total de poissons échantillonnés en 2017 était de 300. Le nombre total de poissons échantillonnés en 2019 était de 360. Voir l’annexe A pour le nombre de poissons échantillonnés des autres années."}
 include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"))
 ```
 
@@ -34,12 +34,12 @@ include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"
 mw3CD <- read_csv(here::here("data/results/AnnualMeanWeight_3CD.csv"))
 ```
 
-```{r tri-fig9, fig.cap="Biomass estimates for Pacific Cod from the NMFS Triennial Survey in the International North Pacific Fisheries Commission Vancouver region (Canadian waters only) with 95\\% error bars estimated from 1000 bootstraps."}
+```{r tri-fig9, fig.cap="Estimations de la biomasse de morues du Pacifique tirées du relevé triennal du NMFS dans la région de Vancouver de la Commission internationale des pêcheries du Pacifique Nord (CIPPN) (eaux canadiennes seulement) et barres d’erreur de 95\\% estimées à partir de 1 000 autoamorçages."}
 knitr::include_graphics(here::here("report/paul-figs/fig9.png"))
 ```
 
 
-```{r fig-base-index-fits-3cd, fig.cap="Reference model MPD fits to observed indices of abundance (points) from: (a) the WCVI Synoptic Survey, (b) Commercial CPUE pre-1996, (c) Commercial CPUE post-1995, and (d) the NMFS Triennial Survey (Canadian portion). For clarity, only MPD results are shown."}
+```{r fig-base-index-fits-3cd, fig.cap="Ajustements du mode de distribution a posteriori du modèle de référence aux indices d’abondance observés (points) pour la zone 3CD provenant : a) du relevé synoptique mené au large de la côte ouest de l’île de Vancouver; b) des CPUE commerciales antérieures à 1996; c) des CPUE commerciales postérieures à 1995; d) du relevé triennal du NMFS (portion canadienne). Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
 plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=french) 
             + scale_y_continuous(labels = comma, limits = c(0, NA))
             + ylab("Rel. biomass (t)"),
@@ -59,7 +59,7 @@ plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=frenc
 ```
 
 
-```{r fig-base-mean-weight-3cd, fig.cap="Reference model MPD fit to the mean weight index. For clarity, only MPD results are shown."}
+```{r fig-base-mean-weight-3cd, fig.cap="Ajustement du mode de distribution a posteriori du modèle de référence aux données sur le poids moyen. Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
 plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, french=french),
           mw.compare.plot(base.model.3cd[[1]], french=french),
           nrow = 1,
@@ -68,15 +68,15 @@ plot_grid(mw.plot(base.model.3cd[[1]], cv = 0.2, every = 10, last.yr = 2020, fre
 
 \clearpage
 
-```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensitivity of recruitment estimates to the seven sensitivity cases used for model-averaging. Points shows the posterior medians and the bars represent the 95\\% credible interval. All models use the same commercial mean weight index used in the Reference model (see Table 9 for values since 2010).", out.width="4.5in"}
+```{r fig-sens-recr-3cd-all-avg, fig.cap="Sensibilité des estimations du recrutement aux sept cas de sensibilités utilisés pour la moyenne des modèles. Les points indiquent les médianes a posteriori et les barres représentent l’intervalle de crédibilité à 95\\%. Tous les modèles utilisent le même indice de poids moyen des prises commerciales que celui utilisé dans le modèle de référence (voir le tableau 9 pour les valeurs depuis 2010).", out.width="4.5in"}
 r.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensitivity of biomass estimates to the the seven sensitivity cases used for model-averaging. Thick solid lines represent posterior medians and shaded regions represent 95\\% credible intervals. All models use the same commercial mean weight index used in the Reference model (see Table 9 for values since 2010).", out.width="4.5in"}
+```{r fig-sens-biomass-3cd-all-avg, fig.cap="Sensibilité des estimations de la biomasse aux sept cas de sensibilités utilisés pour la moyenne des modèles. Les lignes pleines représentent les médianes a posteriori et les zones ombragées représentent l’intervalle de crédibilité à 95\\%. Tous les modèles utilisent le même indice de poids moyen des prises commerciales que celui utilisé dans le modèle de référence (voir le tableau 9 pour les valeurs depuis 2010).", out.width="4.5in"}
 b.plot(c(base.model.3cd, desc.models.3cd), c(base.model.3cd.name, desc.models.3cd.name))
 ```
 
-```{r fig-model-average-biomass-3cd, fig.cap="Combined posterior biomass for the model-averaged set. Thick solid line represents the posterior median and the grey shaded region represents the 95\\% credible interval. Green dotted line shows the median USR; red dashed line shows the median LRP. Red and green shaded intervals represent the 95\\% credible intervals of the LRP and USR, respectively.", out.width="4.5in"}
+```{r fig-model-average-biomass-3cd, fig.cap="Biomasse a posteriori combinée pour l’ensemble représentant la moyenne des modèles. La ligne pleine noire représente la médiane a posteriori et la zone ombragée grise représente l’intervalle de crédibilité à 95\\%. La ligne pointillée verte illustre le RSS médian; la ligne pointillée rouge représente le PRL médian. Les zones ombragées en rouge et vert représentent les intervalles de crédibilité à 95\\% du PRL et du RSS, respectivement.", out.width="4.5in"}
 b.plot(avg.model.3cd,
        base.model.3cd.name,
        depl = FALSE,
@@ -87,7 +87,7 @@ b.plot(avg.model.3cd,
 ```
 
 
-```{r fig-model-average-f-3cd, fig.cap="Combined posterior fishing mortality for the model-averaged set. Thick solid line shows the posterior median and the shaded region represents the 95\\% credible interval. Black dashed line shows the median LRR and the horizontal shaded region represents the 95\\% credible interval.", out.width="4.5in"}
+```{r fig-model-average-f-3cd, fig.cap="Mortalité par pêche a posteriori combinée pour l’ensemble représentant la moyenne des modèles. La ligne pleine noire représente la médiane a posteriori et la zone ombragée représente l’intervalle de crédibilité à 95\\%. La ligne pointillée noire représente le PRL médian et la zone ombragée horizontale représente l’intervalle de crédibilité à 95\\%.", out.width="4.5in"}
 f.plot(avg.model.3cd,
        base.model.3cd.name,
        add.hist.ref = TRUE,
@@ -95,7 +95,7 @@ f.plot(avg.model.3cd,
        french=french)
 ```
 
-```{r fig-model-average-biomass-3cd-rel, fig.cap="Combined posterior biomass relative to the USR and the LRP for the model-averaged set. Thick solid line shows the posterior median and the grey shaded regions represent the 50\\% and 95\\% credible intervals. Horizontal dashed line represents a ratio of 1.", fig.asp=1}
+```{r fig-model-average-biomass-3cd-rel, fig.cap="Biomasse a posteriori combinée relativement au PRS et au PRL pour l’ensemble représentant la moyenne des modèles. La ligne pleine noire représente la médiane a posteriori et les zones ombragées grises représentent les intervalles de crédibilité à 50\\% et 95\\%. Les lignes horizontales pointillées représentent un rapport de 1.", fig.asp=1}
 x <- avg.model.3cd[[1]]$mcmccalcs$sbt.dat
 x <- as.data.frame(x)
 x$iter <- seq_len(nrow(x))
@@ -139,7 +139,7 @@ g1 <- x |>
 cowplot::plot_grid(g1, g, ncol = 1, align = "v")
 ```
 
-```{r fig-model-average-p-lrp, fig.cap="Probability of biomass being below the LRP from 2014 to 2023. The horizontal dashed line shows a threshold of 0.5 probability.", fig.width = 5, out.width="4in"}
+```{r fig-model-average-p-lrp, fig.cap="Probabilité que la biomasse soit inférieure au PRL de 2014 à 2023. La ligne horizontale pointillée indique un seuil de probabilité de 0,5.", fig.width = 5, out.width="4in"}
 x |> 
   group_by(year) |> 
   summarise(prob_lrp = mean(b_lrp < 1)) |> 

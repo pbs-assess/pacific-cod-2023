@@ -13,7 +13,7 @@ gfplot::tidy_survey_index(dat$survey_index,
   plot_survey_index(french=french)
 ```
 
-```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea releases."}
+```{r fig-catch-3cd, fig.cap="Catch for Area 3CD. Canadian catch includes at-sea discards."}
 make.catches.plot(catch.3, french=french) +
   scale_y_continuous(labels = comma,
                        limits = c(0, NA))
