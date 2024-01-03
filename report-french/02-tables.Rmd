@@ -38,8 +38,9 @@ cap = paste0("Prises déclarées (tm) de morues du Pacifique dans la zone 3CD ",
 
 ```{r tab-param-table-3cd, results='asis'}
 make.parameters.table(base.model.3cd,
-  caption = paste0("Estimated and fixed parameters and prior probability distributions used ",
-    "in the Reference model. The survey catchability parameter for WCVI ($q_1$) was estimated with the prior probability distribution $\\mathrm{Normal}(\\ln(0.228),0.3)$. The other survey catchability parameters (Table 4) were estimated without priors."),
+  caption = paste0("Paramètres estimés et fixes, et distributions de probabilité a priori utilisés ",
+    "dans le scénario de référence. Le paramètre de capturabilité pour le relevé mené au large de la côte ouest de l’île de Vancouver ($q_1$) a été estimé au moyen de la distribution de la probabilité a posteriori  $\\textrm{Normal}(ln(0.228),0.3)$. Les paramètres de capturabilité des autres relevés ont été estimés sans distribution a priori.
+"),
   omit_pars = c("Log initial recruitment ($\\ln(\\overline{R}_{init})$)",
     "Log mean recruitment ($\\ln(\\overline{R})$)"),
   omit_selectivity_pars = TRUE, french=french)
@@ -49,9 +50,9 @@ make.parameters.table(base.model.3cd,
 ```{r tab-param-est-table-3cd, results='asis'}
 pars_est_omit <- c("$\\overline{R}_{init}$", "$\\overline{R}$", "$\\vartheta$","$B_0$")
 make.parameters.est.table(base.model.3cd,
-  caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
-    "97.5\\textsuperscript{th} percentile) and MPD ",
-    "estimates of key parameters from the Reference model. $R_0$ is in thousands of fish. $\\hat{R}$ is the potential scale reduction statistic and $n_\\mathrm{eff}$ is the effective number of simulation draws (see text). ",
+  caption = paste0("Valeurs a posteriori (2,5 \\textsuperscript{e} centile, médiane et ",
+    "97,5 \\textsuperscript{e} centile) et estimations du mode de distribution a posteriori ",
+    "pour les paramètres clés du scénario de référence. $R_0$ est en milliers de poissons. $\\hat{R}$ représente la statistique de réduction d’échelle potentielle et $n_\\mathrm{eff}$ correspond au nombre réel de tirages effectués lors de la simulation (voir le corps du texte).",
     q.3cd.desc),
   omit_pars = pars_est_omit, french=french)
 ```
@@ -65,21 +66,20 @@ make.ref.points.table(c(base.model.3cd,
                         lrp_range = 1986,
                         usr_range = 1956:2004,
                         digits = 2,
-                        caption = paste0("Posterior (2.5\\textsuperscript{th} percentile, Median, and ",
-                                         "97.5\\textsuperscript{th} percentile) model-averaged estimates of reference points. ",
-                                         "Biomass is in tonnes. All values are rounded. Ratios were calculated using full posterior distributions and cannot be calculated directly from the table."), french=french)
+                       caption = paste0("Valeurs a posteriori (2,5\\textsuperscript{e} centile, médiane et ", 
+                      "97,5 \\textsuperscript{e} centile", 
+                      ") des points de référence pour l’ensemble représentant la moyenne des modèles de la zone 3CD. ",
+                      "La biomasse est en tonnes. Toutes les valeurs sont arrondies. Les rapports ont été calculés à l’aide de l’ensemble des distributions a posteriori et ne peuvent pas être calculés directement à partir du tableau."), french=french)
 ```
 
 ```{r summary-tab-stock-status-avg-3cd, results='asis'}
 stock.status(avg.model.3cd,
-                caption = paste0("Model-averaged stock status at the beginning of 2023. Models averaged are: ",
-                                 and.string(c(base.model.3cd.name, sens.models.name.13.sub)),
-                                 "."), french=french) #
+                caption = paste0("L’état des stocks au début de 2023, d’après la moyenne des modèles. Voir le texte pour les scénarios utilisés dans la moyenne du modèle."), french=french) #
 ```
 
 ```{r summary-tab-projection-zero-avg-3cd, results='asis'}
 decision.table.zero.tac(avg.model.3cd,
-               caption = paste0("Probabilities of stock breaching reference points under TAC = 0 for a one-year projection, with model averaging. See Table 8 caption for scenario descriptions"),
-               french=french) #
+               caption = paste0("Probabilité que le stock soit inférieur aux points de référence sous le TAC = 0 pour une projection d’un an, d’après la moyenne des modèles. Voir le texte pour les scénarios utilisés dans la moyenne du modèle."),
+               french=french) 
 ```
 
