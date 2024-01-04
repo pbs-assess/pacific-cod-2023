@@ -550,10 +550,15 @@ make.ref.points.table <- function(models,
   tab$refpt_names <- latex_names
   tab <- tab %>%
     rename(`Reference point` = refpt_names)
+    if(french) {
+      tab <- tab %>%
+        rename(`Point de référence` = `Reference point`)
+    }
   # Escape percent signs in column names for latex
   names(tab) <- stringr::str_replace(names(tab), "%", "\\\\%")
 
   if (french) {
+
     if (french) options(OutDec = ",")
 
     for (i in seq_len(ncol(tab))) {

@@ -134,17 +134,17 @@ Les 1 000 premiers échantillons ont été éliminés pour permettre un rodage s
 
 Selon la politique du cadre décisionnel pour les pêches intégrant l’approche de précaution du MPO [@dfo2009], l’état d’un stock est caractérisé au moyen de trois points de référence :
 
-1. point de référence supérieur du stock (PRS);
+1. point de référence supérieur du stock (RSS);
 
 2. point de référence limite (PRL); et
 
 3. taux d’exploitation limite (TEL).
 
-Le PRS et le PRL représentent les seuils des trois zones décrivant l’état des stocks d’après leur biomasse, qui sont définies par la politique sur l’approche de précaution [@dfo2009] : zone critique (biomasse inférieure au PRL); zone de prudence (biomasse supérieure au PRL, mais inférieure au PRS); zone saine (biomasse supérieure au PRS).
+Le RSS et le PRL représentent les seuils des trois zones décrivant l’état des stocks d’après leur biomasse, qui sont définies par la politique sur l’approche de précaution [@dfo2009] : zone critique (biomasse inférieure au PRL); zone de prudence (biomasse supérieure au PRL, mais inférieure au RSS); zone saine (biomasse supérieure au RSS).
 
 Comme ce fut le cas pour des évaluations précédentes [@dfo2019; @dfo2021], on a utilisé des points de référence historiques pour évaluer l’état des stocks où :
 
-1.	Le PRS correspond à la moyenne des estimations de la biomasse pour la période 1956-2004;
+1.	Le RSS correspond à la moyenne des estimations de la biomasse pour la période 1956-2004;
 
 2.	Le PRL représente la biomasse estimée la plus faible reconnue comme étant un état indésirable à éviter. Pour la zone 3CD, il s’agit de la biomasse estimée en 1986; et
 
@@ -223,7 +223,7 @@ Comme dans les évaluations précédentes, le modèle a été le plus sensible a
 La moyenne des modèles des estimations a posteriori des points de référence est présentée au tableau \@ref(tab:tab-ref-points-table-avg-3cd).
 Les moyennes des modèles des estimations a posteriori de la biomasse et de la mortalité par pêche sont présentées aux figures \@ref(fig:fig-model-average-biomass-3cd) et \@ref(fig:fig-model-average-f-3cd), respectivement.
 
-Alors que la mortalité par pêche est estimée bien en dessous du taux d’exploitation limite, le tableau \@ref(tab:summary-tab-stock-status-avg-3cd) montre une probabilité de 23 % (c.-à-d. environ une chance sur quatre) que la biomasse au début de 2023 était en dessous du TEL et une probabilité de >99 % que le stock soit en dessous du PRS.
+Alors que la mortalité par pêche est estimée bien en dessous du taux d’exploitation limite, le tableau \@ref(tab:summary-tab-stock-status-avg-3cd) montre une probabilité de 23 % (c.-à-d. environ une chance sur quatre) que la biomasse au début de 2023 était en dessous du TEL et une probabilité de >99 % que le stock soit en dessous du RSS.
 Voir également les figures \@ref(fig:fig-model-average-biomass-3cd-rel) et \@ref(fig:fig-model-average-p-lrp), en prenant note que les modèles ont estimé à un peu plus de 50 % la probabilité que le stock soit inférieur au PRL en 2021 (figure \@ref(fig:fig-model-average-p-lrp)).
 
 Le tableau \@ref(tab:summary-tab-projection-zero-avg-3cd) montre une probabilité de 16 % (c.-à-d. environ 3 chances sur 20) que le stock soit inférieur au PRL au début de 2024 dans le cadre d’une politique de prises nulles.
@@ -252,7 +252,7 @@ Les incertitudes supplémentaires liées à la présente évaluation découlent 
 Les moyennes des modèles des estimations de la biomasse ont entraîné une probabilité de 23 % que le stock soit inférieur au PRL au début de 2023, et une probabilité de 16 % que le stock soit inférieur au PRL au début de 2024 en cas de prises nulles.
 Par conséquent, le stock n’atteint pas actuellement le seuil de 50 % de probabilité d’être sous le PRL requis par les orientations de rétablissement pour déclencher un plan de rétablissement (voir le contexte), et considère donc que le stock se trouve actuellement dans la zone de prudence en vertu de la politique de l’AP.
 Toutefois, ces résultats pourraient invoquer l’exigence selon laquelle « les mesures de gestion doivent encourager la croissance du stock et arrêter les déclins évitables, et l’élaboration d’un plan de rétablissement doit être lancée suffisamment à l’avance pour que le plan soit prêt à être mis en œuvre si un stock diminue jusqu’à son PRL. » 
-On estime que la mortalité par pêche actuelle est faible (< 0,02 y^(-1)), mais qu’elle est en légère augmentation, avec une hausse d’environ 70 % des prises commerciales entre 2021 et 2022.
+On estime que la mortalité par pêche actuelle est faible (< 0,02 $y^{-1}$), mais qu’elle est en légère augmentation, avec une hausse d’environ 70 % des prises commerciales entre 2021 et 2022.
 
 Il existe des incertitudes quant aux estimations du modèle de l’échelle de la biomasse, étant donné les grandes incertitudes de la capturabilité dans les relevés.
 La réduction de l’échelle estimée de la biomasse n’influencerait pas nécessairement l’estimation de l’état du stock, qui est basée sur des points de référence historiques qui se rééchelonnent en fonction de la biomasse.
