@@ -23,7 +23,7 @@ csasdown::csas_table(contributors)
 
 \MakeApproval
 
-# Sources of Information {-}
+# Sources d'information {-}
 <!--
 This manually sets the header for this unnumbered chapter.
 -->
