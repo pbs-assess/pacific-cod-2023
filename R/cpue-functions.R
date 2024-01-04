@@ -103,8 +103,9 @@ dat$stand %>%
     geom_ribbon(alpha = 0.5) +
     geom_line(aes(colour = formula_version)) +
     facet_grid(area~formula_version) +
-    ylab("CPUE (kg/hour) divided\nby geometric mean") +
-    guides(fill = FALSE, colour = FALSE) + xlab("")
+    guides(fill = FALSE, colour = FALSE) + xlab("")+
+    ylab("CPUE (kg/hour) divided\nby geometric mean")+
+    theme_pbs()
 }
 
 

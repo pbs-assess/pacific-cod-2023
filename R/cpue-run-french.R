@@ -30,16 +30,18 @@ if(!file.exists(file.path(generatedd,paste0("CPUE_All_Fully_Standardized_3CD_fre
     #ggtitle("1956-1995 CPUE") +
     #ylab("")+
     scale_colour_brewer(palette = "Dark2") +
-    scale_fill_brewer(palette = "Dark2")
+    scale_fill_brewer(palette = "Dark2")+
+    ylab("CPUE (kg/h) divisé\npar la moyenne géométrique")
 
   g2 <- make_cpue_ts_dat(cpue_pred_modern) %>% make_cpue_ts_plot() +
     #ggtitle("1996+ CPUE") +
     #ylab("")+
     scale_colour_brewer(palette = "Dark2") +
-    scale_fill_brewer(palette = "Dark2")
+    scale_fill_brewer(palette = "Dark2")+
+    ylab("CPUE (kg/h) divisé\npar la moyenne géométrique")
 
   P <- cowplot::plot_grid(g1,g2, ncol=1,labels = c("",""), greedy=TRUE)
-  y.grob <- textGrob(en2fr("CPUE (kg/hour)",translate=french),
+  y.grob <- textGrob("CPUE (kg/h)",
                      gp=gpar(fontface="bold", fontsize=15), rot=90)
   x.grob <- textGrob(en2fr("Year",translate=french),
                      gp=gpar(fontface="bold", fontsize=15))
