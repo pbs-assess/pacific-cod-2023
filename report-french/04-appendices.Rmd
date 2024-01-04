@@ -19,7 +19,7 @@ summary_by_year <- comm_samp %>%
             sdlength=round(sd(length),2),
             selength=round(sdlength/sqrt(nlengths),2))
 
- colnames(summary_by_year) <- c("Année", "Nbre échantillons", "Nbre longueurs", "Longueur moyenne brute","Écart-type longueur", "Erreur-type longueur")
+ colnames(summary_by_year) <- c("Année", "N. échantillons", "N. longueurs", "Longueur moyenne brute","Écart-type long.", "Erreur-type long.")
 
 knitr::kable(summary_by_year,
                caption = ": Résumé des échantillons de longueur des prises commerciales depuis 1996 pour la zone 3CD. Les longueurs moyennes ne sont pas pondérées par les prises et sont présentées pour représenter les baisses de l’effort d’échantillonnage depuis 2015.",
@@ -59,7 +59,7 @@ g
 
 \clearpage
 
-# Appendix B. Développement d'indice de poids moyen
+# Annexe B. Développement d'indice de poids moyen
 
 ## Méthodes
 
@@ -125,7 +125,7 @@ knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2_f
 
 \clearpage
 
-# Appendix C. Modèle linéaire généralisé pour prédire l'indice de poids moyen commercial 
+# Annexe C. Modèle linéaire généralisé pour prédire l'indice de poids moyen commercial 
 
 ## Méthodes
 
@@ -170,7 +170,7 @@ knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weigh
 
 \clearpage
 
-# Appendix D. Sensibilité du modèle au traitement de l’indice de poids moyen
+# Annexe D. Sensibilité du modèle au traitement de l’indice de poids moyen
 
 On a évalué quatre scénarios afin d’étudier la sensibilité potentielle du modèle d’évaluation des stocks à différents traitements de l’indice de poids moyen des prises commerciales.
 Tous les modèles étaient basés sur le modèle de référence.
@@ -247,8 +247,8 @@ cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
 ```{r fig-sens-biomass-3cd, fig.cap="Sensibilité des estimations de la biomasse aux scénarios de poids moyen des prises commerciales. Les lignes pleines noires représentent les médianes a posteriori et les zones ombragées grises représentent les intervalles de crédibilité à 95\\%. Voir la section « Méthodes » pour la description des scénarios. Le graphique du bas est agrandi pour montrer la période de 2015 à 2022.", fig.asp=.9}
-g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
-g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), french=french)
+g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), french=french) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
   scale_x_continuous(breaks = 2015:2022)
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
