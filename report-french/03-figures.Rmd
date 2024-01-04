@@ -36,14 +36,14 @@ mw3CD <- read_csv(here::here("data/results/AnnualMeanWeight_3CD.csv"))
 ```
 
 ```{r tri-fig9, fig.cap="Estimations de la biomasse de morues du Pacifique tirées du relevé triennal du NMFS dans la région de Vancouver de la Commission internationale des pêcheries du Pacifique Nord (CIPPN) (eaux canadiennes seulement) et barres d’erreur de 95\\% estimées à partir de 1 000 autoamorçages."}
-knitr::include_graphics(here::here("report/paul-figs/fig9.png"))
+knitr::include_graphics(here::here("report-french/paul-figs/fig9-fr.png"))
 ```
 
 
 ```{r fig-base-index-fits-3cd, fig.cap="Ajustements du mode de distribution a posteriori du modèle de référence aux indices d’abondance observés (points) pour la zone 3CD provenant : a) du relevé synoptique mené au large de la côte ouest de l’île de Vancouver; b) des CPUE commerciales antérieures à 1996; c) des CPUE commerciales postérieures à 1995; d) du relevé triennal du NMFS (portion canadienne). Par souci de clarté, seuls les résultats du mode de distribution a posteriori sont illustrés."}
 plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=french) 
             + scale_y_continuous(labels = comma, limits = c(0, NA))
-            + ylab("Rel. biomass (t)"),
+            + ylab("Biomasse rel. (t)"),
           i.plot(base.model.3cd, base.model.3cd.name, 2, every = 5, french=french)  
             + scale_y_continuous(labels = comma, limits = c(0, NA))
             + ylab("Comm. CPUE (kg/h)"),
@@ -52,7 +52,7 @@ plot_grid(i.plot(base.model.3cd, base.model.3cd.name, 1, every = 4, french=frenc
             + ylab("Comm. CPUE (kg/h)"),
           i.plot(base.model.3cd, base.model.3cd.name, 4, every = 5, french=french)
             + scale_y_continuous(labels = comma, limits = c(0, NA))
-           + ylab("Rel. biomass (t)"),
+           + ylab("Biomasse rel. (t)"),
           nrow = 2,
           ncol = 2,
           labels = c("(a)", "(b)", "(c)", "(d)"),
