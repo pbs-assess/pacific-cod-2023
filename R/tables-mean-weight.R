@@ -9,7 +9,8 @@ mw.table <- function(models,
                      model.names,
                      years=2010:2020,
                      area="3CD",
-                     caption = caption){
+                     caption = caption,
+                     french = FALSE){
 
     years <- years
     # get all the mean weights in a list format
@@ -38,9 +39,15 @@ mw.table <- function(models,
     # bind together in a table and add row names
     mean.wts <- do.call(cbind, lapply(mean.wts.list, as.data.frame))
     mean.wts <- cbind(years,mean.wts)
-    colnames(mean.wts) <- c("Year",model.names)
 
-    filename <- here::here("report", paste0("MeanWeightTable_",area ,".csv"))
+    if(french==TRUE) {
+      colnames(mean.wts) <- c("Année",model.names)
+      filename <- here::here("report-french", paste0("MeanWeightTable_",area ,".csv"))
+    }else{
+      colnames(mean.wts) <- c("Year",model.names)
+      filename <- here::here("report", paste0("MeanWeightTable_",area ,".csv"))
+    }
+
     write_csv(mean.wts, filename)
 
     knitr::kable(mean.wts,

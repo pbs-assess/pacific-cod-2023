@@ -156,39 +156,37 @@ On peut observer une bonne concordance entre les indices de poids moyen des pris
 Les poids moyens des prises commerciales prédits correspondent presque parfaitement aux poids moyens des prises commerciales observés entre 2004 et 2010, et en 2014.
 Les prédictions ont sous-estimé l’indice des prises commerciales observé en 2012 et l’ont sous-estimé en 2016.
 
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap=" : Indice de poids moyen des prises commerciales et indice de poids moyen des relevés. La ligne pleine représente la moyenne du MLG; les zones ombrées foncées et pâles représentent les intervalles de confiance à 50\\% et à 95\\%. La surface des cercles représente le nombre d’événements d’échantillonnage et la couleur représente l’année. La ligne diagonale représente une relation bijective.", out.width="4.2in"}
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Indice de poids moyen des prises commerciales et indice de poids moyen des relevés. La ligne pleine représente la moyenne du MLG; les zones ombrées foncées et pâles représentent les intervalles de confiance à 50\\% et à 95\\%. La surface des cercles représente le nombre d’événements d’échantillonnage et la couleur représente l’année. La ligne diagonale représente une relation bijective.", out.width="4.2in"}
 knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD_french.png"))
 ```
 
-```{r qqnorm-glm, fig.cap=" : Diagramme quantile-quantile du MLG prédisant le poids moyen des prises commerciales à partir du poids moyen des relevés. On a transformé les résidus pour avoir une distribution normale (0, 1) si le modèle était cohérent avec les données. La ligne représente une relation bijective.", out.width="2.6in"}
+```{r qqnorm-glm, fig.cap="Diagramme quantile-quantile du MLG prédisant le poids moyen des prises commerciales à partir du poids moyen des relevés. On a transformé les résidus pour avoir une distribution normale (0, 1) si le modèle était cohérent avec les données. La ligne représente une relation bijective.", out.width="2.6in"}
 knitr::include_graphics(here::here("data/generated/qq-resids3CD_french.png"))
 ```
 
-```{r all-mean-weight-series-3cd, fig.cap=" : Comparaison entre l’indice de poids moyen des relevés, l’indice de poids moyen des prises commerciales observé et l’indice de poids moyen des prises commerciales prédit par le MLG. Pour faciliter la compréhension, on a tronqué l’indice de poids moyen des prises commerciales pour commencer en 2004, qui constitue l’année du premier relevé synoptique au large de la côte ouest de l’île de Vancouver.", out.width="5in"}
+```{r all-mean-weight-series-3cd, fig.cap="Comparaison entre l’indice de poids moyen des relevés, l’indice de poids moyen des prises commerciales observé et l’indice de poids moyen des prises commerciales prédit par le MLG. Pour faciliter la compréhension, on a tronqué l’indice de poids moyen des prises commerciales pour commencer en 2004, qui constitue l’année du premier relevé synoptique au large de la côte ouest de l’île de Vancouver.", out.width="5in"}
 knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD_french.png"))
 ```
 
 \clearpage
 
-# Appendix D. Model sensitivity to treatment of the mean weight index
+# Appendix D. Sensibilité du modèle au traitement de l’indice de poids moyen
 
-Four scenarios were evaluated to investigate the sensitivity of the stock assessment model to different treatments of the commercial annual mean weight index.
-All models were based on the Reference model.
-All scenarios used the commercial annual mean weight index derived from commercial length samples for the years 1956--2016.
-There was no 2017 index point in any scenario, as in previous assessments.
+On a évalué quatre scénarios afin d’étudier la sensibilité potentielle du modèle d’évaluation des stocks à différents traitements de l’indice de poids moyen des prises commerciales.
+Tous les modèles étaient basés sur le modèle de référence.
+Tous les scénarios ont utilisé l’indice de poids moyen des prises commerciales dérivé des échantillons de longueur des prises commerciales de 1956 à 2016.
+Aucun scénario ne comprenait de point d’indice pour 2017, comme pour les évaluations précédentes.
+Les quatre scénarios sont les suivants :
 
-The four different scenarios are:
+Sc. 1a Référence : Pour 2018-2022, utiliser les valeurs prédites par le MLG pour 2018, 2021 et 2022. Utiliser l’interpolation linéaire entre 2018 et 2021 pour obtenir les valeurs pour 2019 et 2020. On a utilisé ce modèle comme base pour tous les modèles d’évaluation de l’état des stocks en 2023 (voir le corps du présent document).
 
-Sc. 1a Reference: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Use linear interpolation between 2018 and 2021 to fill in values for 2019 and 2020.
-This scenario was used as the basis for all models for evaluation of stock status in 2023 (see main body of this document).
+Sc 2 : Pour 2018-2022, utiliser les valeurs prédites par le MLG pour 2018, 2021 et 2022. Ne pas utiliser les valeurs interpolées pour 2019 et 2020.
 
-Sc. 2: For 2018--2022, use the GLM predicted values for 2018, 2021 and 2022. Do not include interpolated values for 2019 and 2020.
+Sc 3 : Pour les sept dernières années de la série chronologique, utiliser la même approche que pour l’évaluation de 2020 [@dfo2021], c.-à-d. utiliser l’indice de poids moyen des prises commerciales pour 2016, 2019 et 2020, la valeur de 2020 ayant été fixée au même niveau que celle de 2019. Continuer à utiliser la valeur de 2019 pour 2021 et 2022.
 
-Sc. 3: For the last seven years of the time series, use the same approach as in the 2020 assessment [@dfo2021], i.e, use the commercial mean weight index values for 2016, 2019 and 2020, where the 2020 value was set the same as the 2019 value. Continue to use the 2019 value for 2021 and 2022.
+Sc. 4 : Identique au Sc. 3, mais n’utiliser aucune valeur 2021 et 2022.
+Les valeurs de l’indice depuis 2010 sont présentées dans le tableau \@ref(tab:tab-mean-weight-recent-3cd).
 
-Sc. 4: Same as Sc. 3 but do not include any values for 2021 and 2022.
-
-Values of the index since 2010 are provided in Table \@ref(tab:tab-mean-weight-recent-3cd).
 
 ```{r tab-mean-weight-recent-3cd, results='asis'}
 mw.table(c(base.model.3cd,
@@ -197,43 +195,42 @@ mw.table(c(base.model.3cd,
            sens.models.name.11),
          years=2010:2022,
          area="3CD",
-         caption="Comparison of mean weight values used in the four commercial mean weight index scenarios. For clarity, the series is truncated to start in 2010.")
+         caption="Comparaison des valeurs de poids moyen utilisées dans les quatre scénarios d’indice de poids moyen des prises commerciales. Pour faciliter la compréhension, on a tronqué la série pour commencer en 2010.",
+         french=TRUE)
 
 ```
 
-Maximum posterior density (MPD) model fits to the commercial mean weight index from the four scenarios are shown in Figure \@ref(fig:fig-base-mean-weight-3cd) and Figures \@ref(fig:fig-base-mean-weight-3cd-sc2) to \@ref(fig:fig-base-mean-weight-3cd-sc4).
-As in the Reference model (Figure \@ref(fig:fig-base-mean-weight-3cd)), fits to the mean weight index in the alternative scenarios were generally poor for the early part of the time series, with the models tending to underestimate observed mean weight for years prior to at-sea monitoring.
+Les ajustements du modèle de densité a posteriori maximale (DPM) à l’indice de poids moyen des prises commerciales des quatre scénarios sont présentés à la figure \@ref(fig:fig-base-mean-weight-3cd) et aux figures \@ref(fig:fig-base-mean-weight-3cd-sc2) à \@ref(fig:fig-base-mean-weight-3cd-sc4).
+Comme dans le modèle de référence (figure 7.8), les ajustements de l’indice de poids moyen dans les scénarios de rechange étaient généralement mauvais pour la première partie de la série chronologique, les modèles ayant tendance à sous-estimer le poids moyen observé pour les années antérieures au début de la surveillance en mer.
 
-The models that used the GLM index values from 2018 onwards (Sc. 1a Reference and 2) fit the commercial mean weight index well (Figures \@ref(fig:fig-base-mean-weight-3cd) and \@ref(fig:fig-base-mean-weight-3cd-sc2)).
-The fit was similar for  scenarios both with and without interpolation in 2019--2020.
-The models without GLM values (Sc. 3 and 4) had a poor fit to the commercial mean weight index from 2018 onwards (Figures \@ref(fig:fig-base-mean-weight-3cd-sc3) and \@ref(fig:fig-base-mean-weight-3cd-sc4)).
-In these scenarios, the model-predicted commercial mean weights followed a similar pattern to those in Sc. 1 and 2, with a peak in 2018, followed by a decline.
+Les modèles pour lesquels on a utilisé les valeurs de l’indice du MLG à partir de 2018 (Sc. 1a Référence et Sc. 2) correspondent bien à l’indice de poids moyen des prises commerciales (figures \@ref(fig:fig-base-mean-weight-3cd) et \@ref(fig:fig-base-mean-weight-3cd-sc2)).
+L’ajustement était semblable pour les scénarios avec et sans interpolation en 2019-2020.
+Les modèles sans valeur du MLG (Sc. 3 et 4) n’étaient pas bien ajustés à l’indice de poids moyen des prises commerciales à partir de 2018 (figures \@ref(fig:fig-base-mean-weight-3cd-sc3) et \@ref(fig:fig-base-mean-weight-3cd-sc4)).
+Dans ces scénarios, les poids moyens de poids moyen des prises commerciales prédits par les modèles ont suivi une tendance similaire à celle des Sc.  1 et 2, avec un sommet en 2018, suivi d’un déclin.
 
-This pattern is consistent with predicted recruitment from all four models (Figure \@ref(fig:fig-sens-recr-3cd)), which estimated low recruitment between 2016 and 2018.
-A population with fewer recruits is expected to have a higher than average mean weight of individuals.
-The models estimated an increase in recruitment between 2019 and 2022, which would explain the subsequent estimated decline in commercial mean weight.
-All four models showed a similar recruitment pattern, from which we infer that the other data sources in the model had a greater influence on model likelihoods than the commercial mean weight index, i.e., the declines in the survey index, commercial catches and commercial CPUE all pointed to low recruitment and higher mean weight in 2018 (Figures \@ref(fig:fig-surv-canadian) to \@ref(fig:fig-summary-cpue-indices-3cd)).
-Based on this finding, we suggest that the survey mean weight index, used to derive the commercial index in Sc. 1 and 2, is consistent with the other data sources and better indexes underlying mean weight patterns than simply extrapolating the mean weight index from 2019, as in Sc. 3 and 4.
+Cette tendance est conforme aux prévisions de recrutement des quatre modèles (figure \@ref(fig:fig-sens-recr-3cd)), qui ont estimé un faible recrutement entre 2016 et 2018.
+Une population avec moins de recrues devrait avoir un poids moyen plus élevé que la moyenne. Les modèles ont estimé une augmentation du recrutement entre 2019 et 2022, ce qui pourrait expliquer le déclin subséquent estimé du poids moyen des prises commerciales.
+Les quatre modèles présentaient une tendance de recrutement semblable, de laquelle nous déduisons que les autres sources de données du modèle ont eu une plus grande incidence sur les probabilités du modèle que l’indice de poids moyen des prises commerciales, c’est-à-dire que les déclins dans l’indice des relevés, les prises commerciales et la CPUE des prises commerciales indiquaient tous un faible recrutement et un poids moyen plus élevé en 2018 (figures \@ref(fig:fig-surv-canadian) à \@ref(fig:fig-summary-cpue-indices-3cd)).
+Sur la base de ces résultats, nous considérons que l’indice de poids moyen des relevés, utilisé pour dériver l’indice des prises commerciales dans les Sc. 1 et 2, est cohérent avec les autres sources de données et représente mieux les tendances de poids moyen sous-jacentes que la simple extrapolation de l’indice de poids moyen de 2019, comme dans les Sc. 3 et 4).
 
-Posterior biomass estimates from the four scenarios are shown in Figure \@ref(fig:fig-sens-biomass-3cd), indicating that all four models estimated a similar pattern in biomass.
-Given the consistency of the GLM-derived commercial mean weight index with other data sources, and the small differences in biomass estimates among scenarios, the first scenario (Sc. 1a Reference) was used as the Reference model, and as the basis for the other six models in the model-averaged set.
+Les estimations a posteriori de la biomasse des quatre scénarios sont présentées dans la figure \@ref(fig:fig-sens-biomass-3cd), ce qui permet d’observer que les quatre modèles ont estimé une tendance similaire pour la biomasse.
+Compte tenu de la cohérence de l’indice de poids moyen des prises commerciales dérivé du MLG avec d’autres sources de données, et des faibles différences dans les estimations de la biomasse entre les scénarios, le premier scénario (Sc. 1a Référence) a été utilisé comme modèle de référence et comme base pour les six autres modèles dans l’ensemble représentant la moyenne des modèles.
 
-
-```{r fig-base-mean-weight-3cd-sc2, fig.cap="Scenario 2 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+```{r fig-base-mean-weight-3cd-sc2, fig.cap="La DPM du scénario 2 a été ajustée aux données sur le poids moyen. Voir la section « Méthodes » pour la description des scénarios."}
 plot_grid(mw.plot(sens.models.11[[1]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[1]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-base-mean-weight-3cd-sc3, fig.cap="Scenario 3 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+```{r fig-base-mean-weight-3cd-sc3, fig.cap="La DPM du scénario 3 a été ajustée aux données sur le poids moyen. Voir la section « Méthodes » pour la description des scénarios."}
 plot_grid(mw.plot(sens.models.11[[2]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[2]], french=french),
           nrow = 1,
           ncol = 2)
 ```
 
-```{r fig-base-mean-weight-3cd-sc4, fig.cap="Scenario 4 model MPD fit to the mean weight data. See Methods for scenario descriptions."}
+```{r fig-base-mean-weight-3cd-sc4, fig.cap="La DPM du scénario 4 a été ajustée aux données sur le poids moyen. Voir la section « Méthodes » pour la description des scénarios."}
 plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, french=french),
           mw.compare.plot(sens.models.11[[3]], french=french),
           nrow = 1,
@@ -241,7 +238,7 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 ```
 
 
-```{r fig-sens-recr-3cd, fig.cap="Sensitivity of recruitment estimates to commercial mean weight scenarios. Points shows the posterior medians and the bars represent the 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-recr-3cd, fig.cap="Sensibilité des estimations du recrutement aux scénarios de poids moyen des prises commerciales. Les points représentent les médianes a posteriori et les barres représentent les intervalles de crédibilité à 95\\%. Voir la section « Méthodes » pour la description des scénarios. Le graphique du bas est agrandi pour montrer la période de 2015 à 2022.", fig.asp=.9}
 g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
@@ -249,7 +246,7 @@ g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.mode
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
 ```
 
-```{r fig-sens-biomass-3cd, fig.cap="Sensitivity of biomass estimates to commercial mean weight scenarios. Thick solid lines shows posterior medians and the grey shaded regions represent 95\\% credible intervals. See Methods for scenario descriptions. The lower panel is zoomed in to 2015--2022.", fig.asp=.9}
+```{r fig-sens-biomass-3cd, fig.cap="Sensibilité des estimations de la biomasse aux scénarios de poids moyen des prises commerciales. Les lignes pleines noires représentent les médianes a posteriori et les zones ombragées grises représentent les intervalles de crédibilité à 95\\%. Voir la section « Méthodes » pour la description des scénarios. Le graphique du bas est agrandi pour montrer la période de 2015 à 2022.", fig.asp=.9}
 g1 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
 g2 <- b.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
     coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 30000)) +
