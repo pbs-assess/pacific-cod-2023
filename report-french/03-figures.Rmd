@@ -3,7 +3,7 @@
 # Figures
 
 ```{r fig-map, fig.cap="Carte montrant les zones de gestion 3CD (côte ouest de l’île de Vancouver), 5AB (bassin de la Reine-Charlotte), 5 CD (détroit d’Hécate) et 5E (côte ouest de Haida Gwaii).", out.width="4in"}
-knitr::include_graphics(here::here("report/figure/Pcod_3CD5ABCDE_names.png"))
+knitr::include_graphics(here::here("report-french/figure/Pcod_3CD5ABCDE_Pic.png"))
 
 ```
 
@@ -21,7 +21,7 @@ make.catches.plot(catch.3, french=french) +
 
 ```{r fig-summary-cpue-indices-3cd, fig.cap="Modèles de normalisation des CPUE commerciales au chalut pour la période historique, 1956–1995 (en haut) et la période moderne, 1996–2022 (en bas). La ligne noire et la zone ombragée représentent un indice de CPUE associé à un seul prédicteur d’année (montré à des fins de comparaison, non utilisé dans cette évaluation). La ligne verte et la zone ombragée représentent un modèle de normalisation qui comprend tous les prédicteurs et les effets aléatoires lieu-par-année (espace-temps). Les interactions lieu et lieu-année sont ajustées comme des effets aléatoires et toutes les autres variables, comme des effets fixes.", echo=FALSE}
 
-knitr::include_graphics(here(generatedd,"CPUE_All_Fully_Standardized_3CD.png"))
+knitr::include_graphics(here(generatedd,"CPUE_All_Fully_Standardized_3CD_french.png"))
 
 ```
 
