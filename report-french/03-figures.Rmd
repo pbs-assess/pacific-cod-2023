@@ -26,7 +26,8 @@ knitr::include_graphics(here(generatedd,"CPUE_All_Fully_Standardized_3CD_french.
 ```
 
 ```{r fig-sample-locations, fig.cap="Emplacement des échantillons biologiques commerciaux de la morue du Pacifique par année. Le nombre total de poissons échantillonnés en 2017 était de 300. Le nombre total de poissons échantillonnés en 2019 était de 360. Voir l’annexe A pour le nombre de poissons échantillonnés des autres années."}
-include_graphics(here("report/figure/commercial_sample_locations_byyear_3CD.png"))
+# This plot is made in repo pacific-cod-2022-TWG
+include_graphics(here("report-french/figure/commercial_sample_locations_byyear_3CD_french.png"))
 ```
 
 
