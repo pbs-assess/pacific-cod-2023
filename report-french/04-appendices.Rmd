@@ -125,44 +125,47 @@ knitr::include_graphics(here::here("data/generated/Comm_v_Survey_weights_3CD_2_f
 
 \clearpage
 
-# Appendix C. Generalized Linear Model to predict commercial mean weight index 
+# Appendix C. Modèle linéaire généralisé pour prédire l'indice de poids moyen commercial 
 
-## Methods
+## Méthodes
 
-We used a GLM with gamma-distributed observations and a log link [@mccullagh1989, p. 292], to estimate commercial mean weights ($y_t$) in year $t$ from the survey mean weights ($W_t$) calculated in Appendix B. Our model was fit as
+Nous avons utilisé un MLG avec des observations distribuées en gamma et un lien logarithmique [@mccullagh1989, p. 292], pour estimer les poids moyens des prises commerciales ($y_t$) au cours de l’année $t$ à partir des poids moyens des relevés ($W_t$) calculés à l’annexe B.
+Notre modèle a été ajusté de la manière qui suit
+
 \begin{align}
 {y_t} \sim \mathrm{Gamma}(\phi, \mu_t / \phi), \\
 \log(\mu_t) = \beta_0 + \beta_1 \log(W_t),
 \end{align}
 
-where $\mu_t$ represents the expected value at time $t$,
-$\beta_0$ and $\beta_1$ represent an intercept and slope,
-$\phi$ represents the gamma shape parameter,
-and the term $\mu_t / \phi$ represents the gamma scale.
-The shape parameter can be reparameterized into the coefficient of variation (CV) as $\phi = 1 / \mathrm{CV}^2$ or $\mathrm{CV} = 1 / \sqrt{\phi}$.
+où $\mu_t$ représente la valeur prévue au moment $t$,
+$\beta_0$ et $\beta_1$ représentent un point d’intersection et une pente,
+$\phi$ représente le paramètre de forme gamme, et le terme ,
+$\mu_t / \phi$ représente l’échelle gamma.
+Le paramètre de forme peut être reparamétré en coefficient de variation (CV) comme $\phi = 1 / \mathrm{CV}^2$ ou $\mathrm{CV} = 1 / \sqrt{\phi}$.
 
-## Results
+## Résultats
 
-Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2) shows the commercial mean weight index plotted against the survey mean weight index, with the linear regression line.
-The GLM estimated an intercept ($\beta_0$) of 0.34 (95% CI: 0.13--0.57), or 1.41 kg (95% CI: 1.14--1.76 kg) in natural space (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
-The model estimated $\beta_1$ as 0.75 (95% CI: 0.25--1.17), meaning a 1% increase in survey mean weight was associated with a 0.75% (95% CI: 0.25%--1.17%) increase in commercial mean weight (Figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
-The CV was estimated as 0.12.
-A quantile-quantile plot of residuals transformed to have a Normal(0, 1) distribution if the model were consistent with the data did not reveal any substantial deviations from the expectation (Figure \@ref(fig:qqnorm-glm)).
+La figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2) montre l’indice de poids moyen des prises commerciales représenté par rapport à l’indice de poids moyen des relevés, avec la ligne de régression linéaire.
+Le MLG a estimé un point d’intersection ($\beta_0$) de 0,34 (IC 95 % : 0,13--0,57), ou 1,41 kg (IC 95 % : 1,14--1,76 kg) dans l’espace naturel (figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)).
+Le modèle a estimé $\beta_1$ à 0,75 (IC 95 % : 0,25--1,17), ce qui signifie qu’une augmentation de 1 % du poids moyen des relevés était associée à une augmentation de 0,75 % (IC 95 % : 0,25 %--1,17 %) du poids moyen des prises commerciales (figure \@ref(fig:fig-comm-vs-survey-weights-3cd-2)). 
+Le CV a été estimé à 0,12.
+Un diagramme quantile-quantile des résidus transformés pour avoir une distribution normale (0, 1) si le modèle était cohérent avec les données n’a pas révélé d’importante déviation par rapport aux valeurs attendues (figure \@ref(fig:qqnorm-glm)).
 
-Figure \@ref(fig:all-mean-weight-series-3cd) shows time series of all three indices: the survey mean weight index, the observed commercial mean weight index, and the predicted commercial mean weight index from the GLM, indicating good agreement between the commercial and survey mean weight indices.
-The predicted commercial mean weights fit the observed commercial mean weights almost perfectly between 2004 and 2010, and in 2014.
-The predictions underestimated the observed commercial index in 2012 and overestimated the commercial index in 2016.
+La figure \@ref(fig:all-mean-weight-series-3cd) montre les séries chronologiques de trois indices : l’indice de poids moyen des relevés, l’indice de poids moyen des prises commerciales observé et l’indice de poids moyen des prises commerciales prédit par le MLG.
+On peut observer une bonne concordance entre les indices de poids moyen des prises commerciales et des relevés.
+Les poids moyens des prises commerciales prédits correspondent presque parfaitement aux poids moyens des prises commerciales observés entre 2004 et 2010, et en 2014.
+Les prédictions ont sous-estimé l’indice des prises commerciales observé en 2012 et l’ont sous-estimé en 2016.
 
-```{r fig-comm-vs-survey-weights-3cd-2, fig.cap="Commercial mean weight index vs. survey mean weight index. The solid line indicates the GLM mean; the dark and light grey shading indicates 50\\% and 95\\% confidence intervals. The area of the circles indicates the number of sampling events and the colour indicates the year. The diagonal line indicates a one-to-one relationship.", out.width="4.2in"}
-knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD.png"))
+```{r fig-comm-vs-survey-weights-3cd-2, fig.cap=" : Indice de poids moyen des prises commerciales et indice de poids moyen des relevés. La ligne pleine représente la moyenne du MLG; les zones ombrées foncées et pâles représentent les intervalles de confiance à 50\\% et à 95\\%. La surface des cercles représente le nombre d’événements d’échantillonnage et la couleur représente l’année. La ligne diagonale représente une relation bijective.", out.width="4.2in"}
+knitr::include_graphics(here::here("data/generated/lnSurvey_v_lnCom_with_lm_fit_3CD_french.png"))
 ```
 
-```{r qqnorm-glm, fig.cap="Quantile-quantile plot of the GLM predicting commercial mean weight from survey mean weight. The residuals have been transformed to be Normal(0, 1) if the model were consistent with the data. The line indicates the one-to-one line.", out.width="2.6in"}
-knitr::include_graphics(here::here("data/generated/qq-resids3CD.png"))
+```{r qqnorm-glm, fig.cap=" : Diagramme quantile-quantile du MLG prédisant le poids moyen des prises commerciales à partir du poids moyen des relevés. On a transformé les résidus pour avoir une distribution normale (0, 1) si le modèle était cohérent avec les données. La ligne représente une relation bijective.", out.width="2.6in"}
+knitr::include_graphics(here::here("data/generated/qq-resids3CD_french.png"))
 ```
 
-```{r all-mean-weight-series-3cd, fig.cap="Comparison of the survey mean weight index, observed commercial mean weight index, and predicted commercial mean weight index from the GLM. For visualization purposes, the observed commercial mean weight index is truncated to begin in 2004, which is the year of the first WCVI Synoptic Survey.", out.width="5in"}
-knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD.png"))
+```{r all-mean-weight-series-3cd, fig.cap=" : Comparaison entre l’indice de poids moyen des relevés, l’indice de poids moyen des prises commerciales observé et l’indice de poids moyen des prises commerciales prédit par le MLG. Pour faciliter la compréhension, on a tronqué l’indice de poids moyen des prises commerciales pour commencer en 2004, qui constitue l’année du premier relevé synoptique au large de la côte ouest de l’île de Vancouver.", out.width="5in"}
+knitr::include_graphics(here::here("data/generated/Compare_Obs_v_Predicted_Weight3CD_french.png"))
 ```
 
 \clearpage

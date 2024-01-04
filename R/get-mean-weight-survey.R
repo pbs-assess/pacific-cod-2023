@@ -285,12 +285,18 @@ r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
  rr <- qqnorm(r, plot.it = FALSE)
  g <- ggplot(data.frame(x = rr$x, y = rr$y), aes(x, y)) +
    geom_point() +
-   labs(x = "Theoretical quantiles", y = "Sample quantiles") +
    geom_abline(intercept = 0, slope = 1) +
    # theme_light() +
    coord_fixed()
- ggsave(file.path(generatedd,paste0("qq-resids",
-   AREA,".png")), width = 3.8, height = 3.9)
+ if(french==FALSE){
+   g <- g + labs(x = "Theoretical quantiles", y = "Sample quantiles")
+   ggsave(file.path(generatedd,paste0("qq-resids",
+                                      AREA,".png")), width = 3.8, height = 3.9)
+ }else{
+   g <- g + labs(x = "Quantiles théoriques", y = "Quantiles d’échantillons")
+   ggsave(file.path(generatedd,paste0("qq-resids",
+                                      AREA,"_french.png")), width = 3.8, height = 3.9)
+ }
 
  p <- sdmTMB::get_pars(m1)
  shape <- exp(p$ln_phi)
@@ -317,20 +323,26 @@ r <- range(log(c(dat1$survey_mean_weight, dat1$comm_mean_weight)), na.rm = TRUE)
    geom_line(data = p, aes(x = survey_mean_weight, y = est), inherit.aes = FALSE) +
    geom_point(aes(size = n_samples), pch = 19, alpha = 0.3) +
    geom_point(aes(size = n_samples), pch = 21) +
-   scale_size_area(name = "Sampling events", max_size = 10) +
    # stat_smooth(method = "lm", se = FALSE)+
-   ggrepel::geom_text_repel(aes(label = year), size = 4, point.padding = 12) +
    scale_colour_viridis_c() +
    geom_abline(intercept = 0, slope = 1, colour = "grey40", lty = 2) +
-   # labs(title = paste(AREA, TYPE), x = "Survey mean weight", y = "Commercial mean weight", colour = "Year") +
-   labs(x = "Survey mean weight", y = "Commercial mean weight", colour = "Year") +
    scale_x_log10() +
    scale_y_log10() +
    coord_fixed()
-   # theme_light()
 
- ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
-   AREA,".png")), width = 5.5, height = 4.5)
+  if(french==FALSE){
+    g <- g + scale_size_area(name = "Sampling events", max_size = 10) +
+         ggrepel::geom_text_repel(aes(label = year), size = 4, point.padding = 12) +
+         labs(x = "Survey mean weight", y = "Commercial mean weight", colour = "Year")
+    ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
+      AREA,".png")), width = 5.5, height = 4.5)
+ }else{
+   g <- g + scale_size_area(name = "Évén. d'échantillonnage", max_size = 10) +
+     ggrepel::geom_text_repel(aes(label = year), size = 4, point.padding = 12) +
+     labs(x = "Poids moyen des relevés", y = "Poids moyen commercial", colour = "Année")
+   ggsave(file.path(generatedd,paste0("lnSurvey_v_lnCom_with_lm_fit_",
+                                      AREA,"_french.png")), width = 5.5, height = 4.5)
+ }
 
  if (FALSE) {
    summary(GLM)
@@ -381,11 +393,24 @@ comparedata_allyrs  <-
     scale_colour_manual(values = c("Commercial" = pal[1], "Survey" = pal[2], "Predicted commercial" = pal[3])) +
     theme(legend.position = "right")+
     ylim(0,3)+
-    scale_x_continuous(breaks=seq(min(comparedata_allyrs$year),max(comparedata_allyrs$year), by=2))+
-    labs(title = paste(AREA, TYPE), y = "Mean weight", x = "Year", colour = "Time series type")
-  g1
-  ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
+    scale_x_continuous(breaks=seq(min(comparedata_allyrs$year),max(comparedata_allyrs$year), by=2))
+
+  if(french==FALSE){
+    g1 <- g1 +
+      labs(title = "", y = "Mean weight", x = "Year", colour = "Time series type")
+    ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
                                  AREA,".png")), width = 7.5, height = 4)
+  }else{
+    g1 <- g1 +
+      labs(title = "", y = "Poids moyen", x = "Année", colour = "Type de série chronologique")+
+      scale_color_manual(name="Type de série chronologique",
+                         values = c("Commercial" = pal[1], "Predicted commercial"= pal[2], "Survey" = pal[3]),
+                         labels=c("Commercial", "Commercial prédit", "Relevé"))
+    ggsave(file.path(generatedd,paste0("Compare_Obs_v_Predicted_Weight",
+                                       AREA,"_french.png")), width = 7.5, height = 4)
+  }
+
+
 
 # bayesian posterior predictions?
   if (FALSE) {
