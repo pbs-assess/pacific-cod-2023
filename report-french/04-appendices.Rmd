@@ -239,8 +239,8 @@ plot_grid(mw.plot(sens.models.11[[3]], cv = 0.2, every = 10, last.yr = 2022, fre
 
 
 ```{r fig-sens-recr-3cd, fig.cap="Sensibilité des estimations du recrutement aux scénarios de poids moyen des prises commerciales. Les points représentent les médianes a posteriori et les barres représentent les intervalles de crédibilité à 95\\%. Voir la section « Méthodes » pour la description des scénarios. Le graphique du bas est agrandi pour montrer la période de 2015 à 2022.", fig.asp=.9}
-g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11))
-g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11)) +
+g1 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), french=french)
+g2 <- r.plot(c(base.model.3cd, sens.models.11), c(base.model.3cd.name, sens.models.name.11), french=french) +
   coord_cartesian(xlim = c(2015, 2022), ylim = c(0, 7000)) +
   scale_x_continuous(breaks = 2015:2022)
 cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
